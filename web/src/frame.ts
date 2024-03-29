@@ -1,4 +1,4 @@
-import { whiteSimpleFrame } from './frames/white-simple';
+import { whiteSimpleFrame } from './frames/simple';
 
 type Themes = typeof whiteSimpleFrame;
 

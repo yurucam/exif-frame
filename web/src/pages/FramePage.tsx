@@ -3,14 +3,15 @@ import { BlockTitle, Button, Icon, List, ListItem, Radio } from 'konsta/react';
 import { IoTrashOutline, IoDownloadOutline } from 'react-icons/io5';
 import Photo from '../domain/photo';
 import PhotoUploadButton from '../components/PhotoUploadButton';
-import { whiteSimpleFrame } from '../frames/white-simple';
+import { simpleFrame } from '../frames/simple';
+import { squareFrame } from '../frames/square';
+import { cinemaScope } from '../frames/cinemaScope';
 
 const FramePage = () => {
 	const frames = [
-		{
-			name: 'White Simple',
-			func: whiteSimpleFrame,
-		},
+		{ name: 'Simple', func: simpleFrame },
+		{ name: 'Square', func: squareFrame },
+		{ name: 'CinemaScope', func: cinemaScope },
 	];
 
 	const [photos, setPhotos] = useState<Photo[]>([]);
