@@ -53,10 +53,10 @@ export async function squareFrame(photo: Photo) {
 				textVerticalCenter + LINE_SPACING + FONT_SIZE
 			);
 
-			const data = canvas.toDataURL('image/jpeg');
+			const data = canvas.toDataURL(localStorage.getItem('exportToWebp') === 'yes' ? 'image/webp' : 'image/jpeg');
 			const a = document.createElement('a');
 			a.href = data;
-			a.download = photo.name;
+			a.download = localStorage.getItem('exportToWebp') === 'yes' ? photo.name.replace(/\.[^/.]+$/, '.webp') : photo.name;
 			a.click();
 
 			await new Promise((resolve) => setTimeout(resolve, 1000));
