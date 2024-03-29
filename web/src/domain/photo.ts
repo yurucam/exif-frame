@@ -1,20 +1,32 @@
-import exifReader, { ExifTags } from 'exifreader';
+import exifReader, { ExifTags, PngTags } from 'exifreader';
 
 export class Photo {
 	private readonly file: File;
-	private readonly metadata: ExifTags;
+	private readonly metadata: ExifTags & PngTags;
 
-	private constructor(file: File, metadata: ExifTags) {
+	private constructor(file: File, metadata: ExifTags & PngTags) {
 		this.file = file;
 		this.metadata = metadata;
 	}
 
 	public static async create(file: File): Promise<Photo> {
-		return new Photo(file, (await exifReader.load(file)) as ExifTags); // ! Do not remove `await` here
+		return new Photo(file, (await exifReader.load(file)) as ExifTags & PngTags); // ! Do not remove `await` here
 	}
 
 	public get url(): string {
 		return URL.createObjectURL(this.file);
+	}
+
+	public get name(): string {
+		return this.file.name;
+	}
+
+	public get width(): number {
+		return this.metadata['Image Width']?.value ?? 0;
+	}
+
+	public get height(): number {
+		return this.metadata['Image Height']?.value ?? 0;
 	}
 
 	public get cameraMaker(): string {
