@@ -1,6 +1,6 @@
 import exifReader, { ExifTags, PngTags } from 'exifreader';
 
-export class Photo {
+export default class Photo {
 	private readonly file: File;
 	private readonly metadata: ExifTags & PngTags;
 
@@ -49,7 +49,7 @@ export class Photo {
 		return `ISO${this.metadata.ISOSpeedRatings?.value ?? '?'}`;
 	}
 
-	public get f(): string {
+	public get aperture(): string {
 		return `${this.metadata.FNumber?.description ?? 'f/?'}`;
 	}
 

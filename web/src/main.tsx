@@ -1,26 +1,30 @@
+import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
-import './index.css';
-
-import { App, Page, Navbar, Block, Button } from 'konsta/react';
+import Scaffold from './components/Scaffold';
+import BottomNavigationBar from './components/BottomNavigationBar';
+import { IoImagesOutline, IoSettingsOutline } from 'react-icons/io5';
+import FramePage from './pages/FramePage';
+import SettingPage from './pages/SettingPage';
+import { Icon } from 'konsta/react';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
-		<App safeAreas theme="ios">
-			<Page>
-				<Navbar title="My App" />
-
-				<Block strong>Hello world!</Block>
-
-				<Block>
-					<p>This is block with text</p>
-				</Block>
-				<Block className="space-y-4">
-					<p>Here comes the button</p>
-					<Button>Action</Button>
-				</Block>
-			</Page>
-		</App>
+		<Scaffold title="EXIF Frame">
+			<BottomNavigationBar
+				tabs={[
+					{
+						label: 'Frame',
+						icon: <Icon ios={<IoImagesOutline className="w-6 h-6" />} />,
+						children: <FramePage />,
+					},
+					{
+						label: 'Setting',
+						icon: <Icon ios={<IoSettingsOutline className="w-6 h-6" />} />,
+						children: <SettingPage />,
+					},
+				]}
+			/>
+		</Scaffold>
 	</React.StrictMode>
 );

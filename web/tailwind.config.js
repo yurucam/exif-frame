@@ -1,11 +1,20 @@
 import konstaConfig from 'konsta/config';
 
 export default konstaConfig({
-	content: ['./index.html', './src/**/*.{html,js,ts,jsx,tsx}'],
+	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+	darkMode: 'class',
 	theme: {
 		fontFamily: {
 			ios: 'Roboto',
 			material: 'Roboto',
+		},
+	},
+	konsta: {
+		colors: {
+			primary: '#007aff',
+			'brand-grey': '#333333',
+			'brand-red': '#ff0000',
+			'brand-green': '#00ff00',
 		},
 	},
 });
