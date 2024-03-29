@@ -6,12 +6,14 @@ import PhotoUploadButton from '../components/PhotoUploadButton';
 import { simpleFrame } from '../frames/simple';
 import { squareFrame } from '../frames/square';
 import { cinemaScope } from '../frames/cinemaScope';
+import { noFrame } from '../frames/no-frame';
 
 const FramePage = () => {
 	const frames = [
+		{ name: 'No Frame', func: noFrame },
 		{ name: 'Simple', func: simpleFrame },
 		{ name: 'Square', func: squareFrame },
-		{ name: 'CinemaScope', func: cinemaScope },
+		{ name: 'Cinema Scope', func: cinemaScope },
 	];
 
 	const [photos, setPhotos] = useState<Photo[]>([]);
