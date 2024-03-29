@@ -8,8 +8,8 @@ export async function cinemaScope(photo: Photo) {
 		const image = new Image();
 		image.src = photo.url;
 		image.onload = async () => {
-			const trimmedImageWidth = photo.width;
-			const trimmedImageHeight = photo.width / 2.35;
+			const trimmedImageWidth = image.width;
+			const trimmedImageHeight = image.width / 2.35;
 
 			canvas.width = trimmedImageWidth;
 			canvas.height = trimmedImageHeight * 1.311875;
@@ -19,7 +19,7 @@ export async function cinemaScope(photo: Photo) {
 			context.drawImage(
 				image,
 				0,
-				(photo.height - trimmedImageHeight) / 2,
+				(image.height - trimmedImageHeight) / 2,
 				trimmedImageWidth,
 				trimmedImageHeight,
 				0,

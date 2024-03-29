@@ -1,10 +1,10 @@
 import Photo from '../domain/photo';
 
-function calculateMargin(photo: Photo) {
+function calculateMargin(image: HTMLImageElement) {
 	return {
-		HORIZONTAL_MARGIN: photo.width * 0.025,
-		VERTICAL_MARGIN: photo.width * 0.025,
-		BOTTOM_MARGIN: photo.width > photo.height ? photo.height * 0.08 : photo.width * 0.08,
+		HORIZONTAL_MARGIN: image.width * 0.025,
+		VERTICAL_MARGIN: image.width * 0.025,
+		BOTTOM_MARGIN: image.width > image.height ? image.height * 0.08 : image.width * 0.08,
 	};
 }
 
@@ -16,17 +16,17 @@ export async function simpleFrame(photo: Photo) {
 		const image = new Image();
 		image.src = photo.url;
 		image.onload = async () => {
-			const { HORIZONTAL_MARGIN, VERTICAL_MARGIN, BOTTOM_MARGIN } = calculateMargin(photo);
+			const { HORIZONTAL_MARGIN, VERTICAL_MARGIN, BOTTOM_MARGIN } = calculateMargin(image);
 			const FONT_FAMILY = 'Roboto, sans-serif';
-			const FONT_SIZE = photo.width > photo.height ? photo.height * 0.0275 : photo.width * 0.02;
-			const LINE_SPACING = photo.width > photo.height ? photo.height * 0.005 : photo.width * 0.0045; // 行間
+			const FONT_SIZE = image.width > image.height ? image.height * 0.0275 : image.width * 0.02;
+			const LINE_SPACING = image.width > image.height ? image.height * 0.005 : image.width * 0.0045; // 行間
 
-			canvas.width = photo.width + HORIZONTAL_MARGIN * 2;
-			canvas.height = photo.height + VERTICAL_MARGIN * 2 + BOTTOM_MARGIN;
+			canvas.width = image.width + HORIZONTAL_MARGIN * 2;
+			canvas.height = image.height + VERTICAL_MARGIN * 2 + BOTTOM_MARGIN;
 
 			context.fillStyle = '#ffffff';
 			context.fillRect(0, 0, canvas.width, canvas.height);
-			context.drawImage(image, HORIZONTAL_MARGIN, VERTICAL_MARGIN, photo.width, photo.height);
+			context.drawImage(image, HORIZONTAL_MARGIN, VERTICAL_MARGIN, image.width, image.height);
 
 			const textVerticalCenter = canvas.height - (BOTTOM_MARGIN + VERTICAL_MARGIN * 2) / 2;
 			const upperTextHeight = textVerticalCenter - LINE_SPACING;

@@ -8,12 +8,12 @@ export async function noFrame(photo: Photo) {
 		const image = new Image();
 		image.src = photo.url;
 		image.onload = async () => {
-			canvas.width = photo.width;
-			canvas.height = photo.height;
+			canvas.width = image.width;
+			canvas.height = image.height;
 
 			context.fillStyle = '#ffffff';
 			context.fillRect(0, 0, canvas.width, canvas.height);
-			context.drawImage(image, 0, 0, photo.width, photo.height);
+			context.drawImage(image, 0, 0, image.width, image.height);
 
 			const data = canvas.toDataURL(localStorage.getItem('exportToWebp') === 'yes' ? 'image/webp' : 'image/jpeg');
 			const a = document.createElement('a');
