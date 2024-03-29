@@ -11,13 +11,10 @@ const HelpPage = () => {
 				2. exif-frame.yuru.cam is a web application that runs on the client side.
 				<br />
 				<br />
-				3. Javascript does not work in environments where it cannot run.
+				3. exif-frame.yuru.cam is MIT licensed.
 				<br />
 				<br />
-				4. exif-frame.yuru.cam is MIT licensed.
-				<br />
-				<br />
-				5. The developer is not responsible for any damage caused by using exif-frame.yuru.cam.
+				4. The developer is not responsible for any damage caused by using exif-frame.yuru.cam.
 				<br />
 				<br />
 				Waiting for your feedback. Thank you.
