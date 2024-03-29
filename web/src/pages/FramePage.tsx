@@ -35,7 +35,7 @@ const FramePage = () => {
 						chevronIos={false}
 						key={index}
 						title={photo.name}
-						subtitle={`${photo.focalLength} ${photo.iso} ${photo.aperture} ${photo.shutterSpeed}`}
+						subtitle={`${photo.focalLength} ${photo.aperture} ${photo.shutterSpeed} ${photo.iso}`}
 						text={`${photo.cameraMaker} ${photo.cameraModel} ${photo.lensModel}`}
 						after={
 							<>
