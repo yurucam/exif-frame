@@ -1,4 +1,4 @@
-name: Auto Assign
+name: Auto assign
 
 on:
   pull_request:
@@ -8,8 +8,9 @@ jobs:
   auto_assign:
     runs-on: ubuntu-latest
     steps:
-      - name: Auto Assign
+      - name: Auto assign
         uses: hkusu/review-assign-action@v1
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           assignees: ${{ github.actor }}
           merged-comment: "Thank you for your contribution! :bow:"
