@@ -34,19 +34,17 @@ const squareFrame = (photo: Photo) => {
 	const textVerticalCenter = canvas.height - (BOTTOM_MARGIN + VERTICAL_MARGIN * 2) / 2;
 	const upperTextHeight = textVerticalCenter - LINE_SPACING;
 
+	const { cameraMaker, cameraModel, lensModel, focalLength, iso, aperture, shutterSpeed } = photo.toMetadata();
+
 	context.fillStyle = '#000000';
 	context.font = `${FONT_SIZE}px ${FONT_FAMILY}`;
 	context.textAlign = 'center';
 	context.textBaseline = 'middle';
-	context.fillText(`${photo.cameraMaker} ${photo.cameraModel} ${photo.lensModel}`, canvas.width / 2, upperTextHeight);
+	context.fillText(`${cameraMaker} ${cameraModel} ${lensModel}`, canvas.width / 2, upperTextHeight);
 
 	context.fillStyle = '#747474';
 	context.font = `${FONT_SIZE * 0.8}px ${FONT_FAMILY}`;
-	context.fillText(
-		`${photo.focalLength} ${photo.aperture} ${photo.shutterSpeed} ${photo.iso}`,
-		canvas.width / 2,
-		textVerticalCenter + LINE_SPACING + FONT_SIZE
-	);
+	context.fillText(`${focalLength} ${aperture} ${shutterSpeed} ${iso}`, canvas.width / 2, textVerticalCenter + LINE_SPACING + FONT_SIZE);
 };
 
 export default squareFrame;
