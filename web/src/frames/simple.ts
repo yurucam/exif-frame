@@ -8,7 +8,7 @@ function calculateMargin(image: HTMLImageElement) {
 	};
 }
 
-export async function simpleFrame(photo: Photo) {
+const simpleFrame = (photo: Photo) => {
 	const { canvas, context, image } = photo.forRender;
 
 	const { HORIZONTAL_MARGIN, VERTICAL_MARGIN, BOTTOM_MARGIN } = calculateMargin(image);
@@ -39,4 +39,6 @@ export async function simpleFrame(photo: Photo) {
 		canvas.width / 2,
 		textVerticalCenter + LINE_SPACING + FONT_SIZE
 	);
-}
+};
+
+export default simpleFrame;

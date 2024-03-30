@@ -3,11 +3,11 @@ import { BlockTitle, Button, Icon, List, ListItem, Radio } from 'konsta/react';
 import { IoTrashOutline, IoDownloadOutline } from 'react-icons/io5';
 import Photo from '../domain/photo';
 import PhotoUploadButton from '../components/PhotoUploadButton';
-import { simpleFrame } from '../frames/simple';
-import { squareFrame } from '../frames/square';
-import { cinemaScope } from '../frames/cinemaScope';
-import { noFrame } from '../frames/no-frame';
 import download from '../utils/download';
+import noFrame from '../frames/no-frame';
+import simpleFrame from '../frames/simple';
+import squareFrame from '../frames/square';
+import cinemaScope from '../frames/cinemaScope';
 
 const FramePage = () => {
 	const frames = [
@@ -43,8 +43,7 @@ const FramePage = () => {
 								<Button
 									onClick={() => {
 										const func = frames.find((t) => t.name === frame)?.func;
-										if (!func) return;
-										func(photo);
+										func!(photo);
 										download(photo);
 									}}
 								>
@@ -78,10 +77,7 @@ const FramePage = () => {
 				large
 				onClick={async () => {
 					const func = frames.find((t) => t.name === frame)?.func;
-					if (!func) return;
-					for (const photo of photos) {
-						await func(photo);
-					}
+					photos.forEach((photo) => func!(photo));
 					download(photos);
 				}}
 			>

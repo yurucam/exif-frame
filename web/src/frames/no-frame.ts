@@ -1,6 +1,6 @@
 import Photo from '../domain/photo';
 
-export async function noFrame(photo: Photo) {
+const noFrame = (photo: Photo) => {
 	const { canvas, context, image } = photo.forRender;
 
 	canvas.width = image.width;
@@ -10,4 +10,6 @@ export async function noFrame(photo: Photo) {
 	context.fillRect(0, 0, canvas.width, canvas.height);
 
 	context.drawImage(image, 0, 0, image.width, image.height);
-}
+};
+
+export default noFrame;
