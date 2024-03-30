@@ -17,6 +17,9 @@ const HelpPage = () => {
 				4. The developer is not responsible for any damage caused by using exif-frame.yuru.cam.
 				<br />
 				<br />
+				5. exif-frame.yuru.cam is optimized for Chrome browser. It may not work properly in other browsers.
+				<br />
+				<br />
 				Waiting for your feedback. Thank you.
 			</Card>
 
