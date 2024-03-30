@@ -45,6 +45,18 @@ class Photo {
 		return this._canvas.toDataURL(isWebp ? 'image/webp' : 'image/jpeg', 0.92);
 	}
 
+	public toMetadata() {
+		return {
+			cameraMaker: localStorage.getItem('showCameraMaker') === 'no' ? '' : localStorage.getItem('cameraMaker') || this.cameraMaker,
+			cameraModel: localStorage.getItem('showCameraModel') === 'no' ? '' : localStorage.getItem('cameraModel') || this.cameraModel,
+			lensModel: localStorage.getItem('showLensModel') === 'no' ? '' : localStorage.getItem('lensModel') || this.lensModel,
+			focalLength: this.focalLength,
+			iso: this.iso,
+			aperture: this.aperture,
+			shutterSpeed: this.shutterSpeed,
+		};
+	}
+
 	public destroy(): void {
 		document.body.removeChild(this._canvas);
 		URL.revokeObjectURL(this.image.src);
