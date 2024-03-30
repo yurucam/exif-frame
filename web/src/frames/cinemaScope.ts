@@ -1,6 +1,6 @@
 import Photo from '../domain/photo';
 
-export async function cinemaScope(photo: Photo) {
+const cinemaScope = (photo: Photo) => {
 	const { canvas, context, image } = photo.forRender;
 
 	const trimmedImageWidth = photo.width;
@@ -23,4 +23,6 @@ export async function cinemaScope(photo: Photo) {
 		canvas.width,
 		trimmedImageHeight
 	);
-}
+};
+
+export default cinemaScope;
