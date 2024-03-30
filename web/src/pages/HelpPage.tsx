@@ -29,7 +29,31 @@ const HelpPage = () => {
 						window.open('https://github.com/yurucam/exif-frame', '_blank');
 					}}
 				>
-					Go to GitHub Repository
+					View Source Code
+				</ListButton>
+
+				<ListButton
+					onClick={() => {
+						window.open('https://github.com/yurucam/exif-frame/issues/new/choose', '_blank');
+					}}
+				>
+					Bug Report
+				</ListButton>
+
+				<ListButton
+					onClick={() => {
+						window.open('https://github.com/yurucam/exif-frame/issues/new/choose', '_blank');
+					}}
+				>
+					Feature Request
+				</ListButton>
+
+				<ListButton
+					onClick={() => {
+						window.open('https://github.com/yurucam/exif-frame/issues/new/choose', '_blank');
+					}}
+				>
+					Question
 				</ListButton>
 
 				<ListButton
@@ -37,7 +61,7 @@ const HelpPage = () => {
 						window.open('mailto:jeonghyeon.rhea@gmail.com?subject=[EXIF Frame]', '_blank');
 					}}
 				>
-					Contact to Developer
+					Send Email to Developer
 				</ListButton>
 			</List>
 		</>
