@@ -24,9 +24,13 @@ const paddieFrame = (photo: Photo) => {
 	context.font = `normal 200 ${fontSize}px Barlow`;
 	context.textAlign = 'center';
 	context.textBaseline = 'middle';
-	context.fillText(`${cameraModel} | ${lensModel}`, canvas.width / 2, canvas.height - bottom / 2 - fontSize / 2 - fontSize / 7);
 	context.fillText(
-		`${focalLength} | ${aperture} | ${iso} | ${shutterSpeed}`,
+		[cameraModel, lensModel].filter(Boolean).join(' | '),
+		canvas.width / 2,
+		canvas.height - bottom / 2 - fontSize / 2 - fontSize / 7
+	);
+	context.fillText(
+		[focalLength, aperture, iso, shutterSpeed].filter(Boolean).join(' | '),
 		canvas.width / 2,
 		canvas.height - bottom / 2 + fontSize / 2 + fontSize / 7
 	);
