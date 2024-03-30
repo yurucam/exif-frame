@@ -7,6 +7,7 @@ import { simpleFrame } from '../frames/simple';
 import { squareFrame } from '../frames/square';
 import { cinemaScope } from '../frames/cinemaScope';
 import { noFrame } from '../frames/no-frame';
+import download from '../utils/download';
 
 const FramePage = () => {
 	const frames = [
@@ -21,8 +22,6 @@ const FramePage = () => {
 
 	return (
 		<>
-			<canvas id="canvas" width="0" height="0" style={{ display: 'none' }} />
-
 			<BlockTitle>Frames</BlockTitle>
 			<List strong inset>
 				{frames.map((t, index) => (
@@ -46,6 +45,7 @@ const FramePage = () => {
 										const func = frames.find((t) => t.name === frame)?.func;
 										if (!func) return;
 										func(photo);
+										download(photo);
 									}}
 								>
 									<Icon ios={<IoDownloadOutline className="w-5 h-5" />} />
@@ -55,13 +55,14 @@ const FramePage = () => {
 									className="k-color-brand-red"
 									onClick={() => {
 										setPhotos(photos.filter((p) => p !== photo));
+										photo.destroy();
 									}}
 								>
 									<Icon ios={<IoTrashOutline className="w-5 h-5" />} />
 								</Button>
 							</>
 						}
-						media={<img className="object-contain w-20 h-20" src={photo.url} />}
+						media={<img className="object-contain w-20 h-20" src={photo.previewImage.src} alt={photo.name} />}
 					/>
 				))}
 			</List>
@@ -81,6 +82,7 @@ const FramePage = () => {
 					for (const photo of photos) {
 						await func(photo);
 					}
+					download(photos);
 				}}
 			>
 				<Icon ios={<IoDownloadOutline className="w-8 h-5" />} /> DOWNLOAD ALL
