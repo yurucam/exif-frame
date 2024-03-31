@@ -122,7 +122,7 @@ class Photo {
 	}
 
 	public get focalLength(): string {
-		return `${this.metadata.FocalLength?.description.split(' ')[0] ?? '?'}mm`;
+		return `${Number(this.metadata.FocalLength?.description.split('mm')[0]) || '?'}mm`;
 	}
 
 	public get iso(): string {
