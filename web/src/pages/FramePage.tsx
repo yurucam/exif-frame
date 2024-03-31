@@ -5,19 +5,15 @@ import Photo from '../domain/photo';
 import PhotoUploadButton from '../components/PhotoUploadButton';
 import download from '../utils/download';
 import noFrame from '../frames/no-frame';
-import simpleFrame from '../frames/simple';
-import squareFrame from '../frames/square';
 import cinemaScope from '../frames/cinemaScope';
-import paddieFrame from '../frames/paddie';
+import simpleFrame from '../frames/simple';
 import compactFrame from '../frames/compact';
 
 const FramePage = () => {
 	const frames = [
 		{ name: 'No Frame', func: noFrame },
-		{ name: 'Simple', func: simpleFrame },
-		{ name: 'Square', func: squareFrame },
 		{ name: 'Cinema Scope', func: cinemaScope },
-		{ name: 'Paddie', func: paddieFrame },
+		{ name: 'Simple', func: simpleFrame },
 		{ name: 'Compact', func: compactFrame },
 	];
 
