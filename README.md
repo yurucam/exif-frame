@@ -32,8 +32,7 @@
 
 Thanks to all the people who contribute:
 
-<!-- readme: contributors -start -->
-<!-- readme: contributors -end -->
+- [@rhea-so](https://github.com/rhea-so)
 
 ## License
 
