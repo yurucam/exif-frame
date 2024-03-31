@@ -4,19 +4,36 @@
 
 ### Horizontal
 
-|Simple|Square|CinemaScope|
-|---|---|---|
-|![Simple](https://github.com/yurucam/exif-frame/assets/25793226/e67ec37a-20af-4d95-8971-3edc0beccae4)|![Square](https://github.com/yurucam/exif-frame/assets/25793226/debfe6cb-e440-4348-9171-63d86ad68276)|![CinemaScope](https://github.com/yurucam/exif-frame/assets/25793226/239c31a8-e7fc-4bb3-8d2e-8acfa689a98a)|
+<table>
+  <tr>
+    <td>Cinema Scope</td>
+    <td>Simple</td>
+    <td>Compact</td>
+    <td>Strap</td>
+  </tr>
 
-### Vertical
+  <tr>
+    <td>
+      <img src="https://github.com/yurucam/exif-frame/assets/25793226/f4f98155-29a9-4514-bd7d-36d50493774d" />
+    </td>
+    <td>
+      <img src="https://github.com/yurucam/exif-frame/assets/25793226/f968d7cd-36d9-4862-8b72-7d8466eb5d9b" />
+    </td>
+    <td>
+      <img src="https://github.com/yurucam/exif-frame/assets/25793226/986617f7-2485-4be0-96fc-3982354c1e39" />
+    </td>
+    <td>
+      <img src="https://github.com/yurucam/exif-frame/assets/25793226/4b88845e-c067-437a-a9ee-d2adf15f61ba" />
+    </td>
+  </tr>
+</table>
 
-|Simple|Square|
-|---|---|
-|![VerticalSimple](https://github.com/yurucam/exif-frame/assets/25793226/c604c210-602d-4602-bc33-b4d98601a798)|![VerticalSquare](https://github.com/yurucam/exif-frame/assets/25793226/d3af16c6-df32-4c15-b582-008b5c294178)|
+## Contributors
 
-## Contribute
+Thanks to all the people who contribute:
 
-WIP
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
 
 ## License
 
