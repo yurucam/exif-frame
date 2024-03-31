@@ -30,7 +30,7 @@ const strapFrame = (photo: Photo) => {
 	context.font = `normal 300 ${fontSize}px Barlow`;
 	context.textAlign = 'left';
 	context.textBaseline = 'middle';
-	context.fillText([capturedAt].filter(Boolean).join(' '), fontSize, canvas.height - bottom / 2 + fontSize / 1.8);
+	context.fillText([capturedAt === '?' ? '' : capturedAt].filter(Boolean).join(' '), fontSize, canvas.height - bottom / 2 + fontSize / 1.8);
 
 	context.fillStyle = '#000000';
 	context.font = `normal 500 ${fontSize}px Barlow`;
