@@ -134,7 +134,7 @@ class Photo {
 	}
 
 	public get shutterSpeed(): string {
-		return `${this.metadata.ShutterSpeedValue?.description ?? '?'}s`;
+		return `${this.metadata.ExposureTime?.description ?? '?'}s`;
 	}
 
 	public get capturedAt(): string {
