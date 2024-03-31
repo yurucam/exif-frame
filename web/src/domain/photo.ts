@@ -33,10 +33,12 @@ class Photo {
 		const isWebp = localStorage.getItem('exportToWebp') === 'yes';
 		const fixMajorAxisLength = Number(localStorage.getItem('fixMajorAxisLength'));
 		const tempCanvas = document.createElement('canvas');
-		tempCanvas.width = fixMajorAxisLength || this.image.width;
-		tempCanvas.height = (this.image.height / this.image.width) * tempCanvas.width;
+		const originalWidth = this._canvas.width;
+		const originalHeight = this._canvas.height;
+		tempCanvas.width = fixMajorAxisLength || originalWidth;
+		tempCanvas.height = fixMajorAxisLength ? (originalHeight * fixMajorAxisLength) / originalWidth : originalHeight;
 		const tempContext = tempCanvas.getContext('2d')!;
-		tempContext.drawImage(this.image, 0, 0, tempCanvas.width, tempCanvas.height);
+		tempContext.drawImage(this._canvas, 0, 0, tempCanvas.width, tempCanvas.height);
 		return new Promise<Blob>((resolve) => {
 			tempCanvas.toBlob(
 				(blob) => {
@@ -52,10 +54,12 @@ class Photo {
 		const isWebp = localStorage.getItem('exportToWebp') === 'yes';
 		const fixMajorAxisLength = Number(localStorage.getItem('fixMajorAxisLength'));
 		const tempCanvas = document.createElement('canvas');
-		tempCanvas.width = fixMajorAxisLength || this.image.width;
-		tempCanvas.height = (this.image.height / this.image.width) * tempCanvas.width;
+		const originalWidth = this._canvas.width;
+		const originalHeight = this._canvas.height;
+		tempCanvas.width = fixMajorAxisLength || originalWidth;
+		tempCanvas.height = fixMajorAxisLength ? (originalHeight * fixMajorAxisLength) / originalWidth : originalHeight;
 		const tempContext = tempCanvas.getContext('2d')!;
-		tempContext.drawImage(this.image, 0, 0, tempCanvas.width, tempCanvas.height);
+		tempContext.drawImage(this._canvas, 0, 0, tempCanvas.width, tempCanvas.height);
 		return tempCanvas.toDataURL(isWebp ? 'image/webp' : 'image/jpeg', Number(localStorage.getItem('quality')) / 100);
 	}
 
