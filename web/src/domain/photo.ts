@@ -37,14 +37,14 @@ class Photo {
 					resolve(blob!);
 				},
 				isWebp ? 'image/webp' : 'image/jpeg',
-				0.92
+				Number(localStorage.getItem('quality')) / 100
 			);
 		});
 	}
 
 	public toDataURL(): string {
 		const isWebp = localStorage.getItem('exportToWebp') === 'yes';
-		return this._canvas.toDataURL(isWebp ? 'image/webp' : 'image/jpeg', 0.92);
+		return this._canvas.toDataURL(isWebp ? 'image/webp' : 'image/jpeg', Number(localStorage.getItem('quality')) / 100);
 	}
 
 	public toMetadata() {

@@ -7,6 +7,7 @@ import ShowLensModelToggle from '../components/ShowLensModelToggle';
 import OverrideCameraMakerInput from '../components/OverrideCameraMakerInput';
 import OverrideCameraModelInput from '../components/OverrideCameraModelInput';
 import OverrideLensModelInput from '../components/OverrideLensModelInput';
+import QualityRangeSlider from '../components/QualityRangeSlider';
 
 const SettingPage = () => {
 	return (
@@ -19,6 +20,7 @@ const SettingPage = () => {
 			<BlockTitle>Output</BlockTitle>
 			<List strong inset>
 				<ListItem label title="Export to Webp" after={<ExportToWebpToggle />} />
+				<QualityRangeSlider />
 			</List>
 
 			<BlockTitle>EXIF Metadata Visibility</BlockTitle>
