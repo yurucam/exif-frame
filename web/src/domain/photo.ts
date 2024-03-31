@@ -31,8 +31,14 @@ class Photo {
 
 	public toBlob(): Promise<Blob> {
 		const isWebp = localStorage.getItem('exportToWebp') === 'yes';
+		const fixMajorAxisLength = Number(localStorage.getItem('fixMajorAxisLength'));
+		const tempCanvas = document.createElement('canvas');
+		tempCanvas.width = fixMajorAxisLength || this.image.width;
+		tempCanvas.height = (this.image.height / this.image.width) * tempCanvas.width;
+		const tempContext = tempCanvas.getContext('2d')!;
+		tempContext.drawImage(this.image, 0, 0, tempCanvas.width, tempCanvas.height);
 		return new Promise<Blob>((resolve) => {
-			this._canvas.toBlob(
+			tempCanvas.toBlob(
 				(blob) => {
 					resolve(blob!);
 				},
@@ -44,7 +50,13 @@ class Photo {
 
 	public toDataURL(): string {
 		const isWebp = localStorage.getItem('exportToWebp') === 'yes';
-		return this._canvas.toDataURL(isWebp ? 'image/webp' : 'image/jpeg', Number(localStorage.getItem('quality')) / 100);
+		const fixMajorAxisLength = Number(localStorage.getItem('fixMajorAxisLength'));
+		const tempCanvas = document.createElement('canvas');
+		tempCanvas.width = fixMajorAxisLength || this.image.width;
+		tempCanvas.height = (this.image.height / this.image.width) * tempCanvas.width;
+		const tempContext = tempCanvas.getContext('2d')!;
+		tempContext.drawImage(this.image, 0, 0, tempCanvas.width, tempCanvas.height);
+		return tempCanvas.toDataURL(isWebp ? 'image/webp' : 'image/jpeg', Number(localStorage.getItem('quality')) / 100);
 	}
 
 	public toMetadata() {
