@@ -5,7 +5,9 @@ on:
     branches:
       - main
 
-permissions: write-all
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   update-contributors:
