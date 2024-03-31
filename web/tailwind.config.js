@@ -5,8 +5,8 @@ export default konstaConfig({
 	darkMode: 'class',
 	theme: {
 		fontFamily: {
-			ios: 'Roboto',
-			material: 'Roboto',
+			ios: 'Barlow',
+			material: 'Barlow',
 		},
 	},
 	konsta: {
