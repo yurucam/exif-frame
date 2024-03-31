@@ -37,7 +37,4 @@ Thanks to all the people who contribute:
 
 ## License
 
-
 MIT © [rhea-so](https://github.com/rhea-so)
-
-
