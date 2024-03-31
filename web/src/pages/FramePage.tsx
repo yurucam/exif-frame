@@ -8,6 +8,7 @@ import noFrame from '../frames/no-frame';
 import cinemaScope from '../frames/cinemaScope';
 import simpleFrame from '../frames/simple';
 import compactFrame from '../frames/compact';
+import strapFrame from '../frames/strap';
 
 const FramePage = () => {
 	const frames = [
@@ -15,6 +16,7 @@ const FramePage = () => {
 		{ name: 'Cinema Scope', func: cinemaScope },
 		{ name: 'Simple', func: simpleFrame },
 		{ name: 'Compact', func: compactFrame },
+		{ name: 'Strap', func: strapFrame },
 	];
 
 	const [photos, setPhotos] = useState<Photo[]>([]);
