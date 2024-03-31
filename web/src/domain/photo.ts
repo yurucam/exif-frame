@@ -15,6 +15,8 @@ class Photo {
 		this._canvas = document.createElement('canvas');
 		this._canvas.style.display = 'none';
 		document.body.appendChild(this._canvas);
+
+		console.log(this.metadata);
 	}
 
 	public static async create(file: File): Promise<Photo> {
@@ -54,6 +56,7 @@ class Photo {
 			iso: this.iso,
 			aperture: this.aperture,
 			shutterSpeed: this.shutterSpeed,
+			capturedAt: this.capturedAt,
 		};
 	}
 
@@ -116,6 +119,20 @@ class Photo {
 
 	public get shutterSpeed(): string {
 		return `${this.metadata.ShutterSpeedValue?.description ?? '?'}s`;
+	}
+
+	public get capturedAt(): string {
+		if (!this.metadata.CreateDate?.description) return '?';
+		const date = new Date(this.metadata.CreateDate?.description);
+		// like Jun 9, 2023 at 07:25:57PM
+		const month = date.toLocaleString('en-US', { month: 'short' });
+		const day = date.toLocaleString('en-US', { day: 'numeric' });
+		const year = date.toLocaleString('en-US', { year: 'numeric' });
+		const hour = (date.getHours() % 12).toString().padStart(2, '0');
+		const minute = date.getMinutes().toString().padStart(2, '0');
+		const second = date.getSeconds().toString().padStart(2, '0');
+		const isPM = date.getHours() >= 12;
+		return `${month} ${day}, ${year} at ${hour}:${minute}:${second}${isPM ? 'PM' : 'AM'}`;
 	}
 }
 
