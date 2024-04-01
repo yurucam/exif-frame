@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { BlockTitle, Button, Icon, List, ListItem, Radio } from 'konsta/react';
 import { IoTrashOutline, IoDownloadOutline } from 'react-icons/io5';
-import Photo from '../domain/photo';
-import PhotoUploadButton from '../components/PhotoUploadButton';
-import download from '../utils/download';
-import noFrame from '../frames/no-frame';
-import cinemaScope from '../frames/cinemaScope';
-import simpleFrame from '../frames/simple';
-import compactFrame from '../frames/compact';
-import strapFrame from '../frames/strap';
+import Photo from './domain/photo';
+import PhotoUploadButton from './components/photo-upload.button';
+import download from './utils/download';
+import noFrame from './themes/no-frame.theme';
+import cinemaScope from './themes/cinema-scope.theme';
+import simpleFrame from './themes/simple.theme';
+import compactFrame from './themes/compact.theme';
+import strapFrame from './themes/strap.theme';
 
 const FramePage = () => {
 	const frames = [

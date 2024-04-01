@@ -11,7 +11,7 @@ interface TabsProps {
 	tabs: Tab[];
 }
 
-const BottomNavigationBar = ({ tabs }: TabsProps) => {
+const BottomTabBar = ({ tabs }: TabsProps) => {
 	const [activeTab, setActiveTab] = useState(tabs[0].label);
 
 	return (
@@ -39,4 +39,4 @@ const BottomNavigationBar = ({ tabs }: TabsProps) => {
 	);
 };
 
-export default BottomNavigationBar;
+export default BottomTabBar;
