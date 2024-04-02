@@ -16,7 +16,8 @@ import monitorWithoutGridLines from './themes/monitor-without-grid-lines.theme';
 import crop1x1 from './themes/crop-1:1.theme';
 import crop4x5 from './themes/crop-4:5.theme';
 import instagramFrame from './themes/instagram.theme';
-import darkStrapFrame from './themes/black.theme';
+import darkStrapFrame from './themes/dark-strap.theme';
+import darkSimpleFrame from './themes/dark-simple.theme';
 
 const FramePage = () => {
   const frames = [
@@ -24,6 +25,7 @@ const FramePage = () => {
     { name: 'Cinema Scope', func: cinemaScope },
     { name: 'Grid Lines', func: gridLines },
     { name: 'Simple', func: simpleFrame },
+    { name: 'Dark Simple', func: darkSimpleFrame },
     { name: 'Compact', func: compactFrame },
     { name: 'Strap', func: strapFrame },
     { name: 'Dark Strap', func: darkStrapFrame },
