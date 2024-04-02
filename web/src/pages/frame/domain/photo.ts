@@ -73,6 +73,7 @@ class Photo {
       aperture: this.aperture,
       shutterSpeed: this.shutterSpeed,
       capturedAt: this.capturedAt,
+      contrast: this.contrast,
     };
   }
 
@@ -122,11 +123,15 @@ class Photo {
   }
 
   public get focalLength(): string {
-    return `${Number(this.metadata.FocalLength?.description.split('mm')[0]) || '?'}mm`;
+    const focalLength = Number(this.metadata.FocalLength?.description?.split('mm')?.shift());
+    if (isNaN(focalLength)) return '?mm';
+    return `${focalLength.toFixed(0)}mm`;
   }
 
   public get iso(): string {
-    return `ISO${this.metadata.ISOSpeedRatings?.value ?? '?'}`;
+    const iso = this.metadata.ISOSpeedRatings?.value;
+    if (iso === undefined || isNaN(iso)) return `ISO?`;
+    return `ISO${iso}`;
   }
 
   public get aperture(): string {
@@ -134,7 +139,14 @@ class Photo {
   }
 
   public get shutterSpeed(): string {
-    return `${this.metadata.ExposureTime?.description ?? '?'}s`;
+    return `${this.metadata.ExposureTime?.description || '?'}s`;
+  }
+
+  public get contrast(): string {
+    const contrast = this.metadata.Contrast?.value;
+    if (contrast === undefined || isNaN(contrast)) return '?';
+    if (contrast >= 0) return `+${contrast.toFixed(1)}`;
+    return contrast.toFixed(1);
   }
 
   public get capturedAt(): string {
