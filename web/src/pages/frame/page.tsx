@@ -18,6 +18,7 @@ import crop4x5 from './themes/crop-4:5.theme';
 import instagramFrame from './themes/instagram.theme';
 import darkStrapFrame from './themes/dark-strap.theme';
 import darkSimpleFrame from './themes/dark-simple.theme';
+import retroFrame from './themes/retro.theme';
 
 const FramePage = () => {
   const frames = [
@@ -35,6 +36,7 @@ const FramePage = () => {
     { name: 'Crop 1:1', func: crop1x1 },
     { name: 'Crop 4:5', func: crop4x5 },
     { name: 'Instagram', func: instagramFrame },
+    { name: 'Retro', func: retroFrame },
   ];
 
   const [photos, setPhotos] = useState<Photo[]>([]);
