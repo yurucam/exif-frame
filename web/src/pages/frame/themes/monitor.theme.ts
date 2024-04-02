@@ -10,7 +10,7 @@ const calculateMargin = (image: HTMLImageElement) => {
 
 const monitor = (photo: Photo) => {
   const { canvas, context, image } = photo.forRender;
-  const { contrast, iso, aperture, shutterSpeed } = photo.toMetadata();
+  const { focalLength, iso, aperture, shutterSpeed } = photo.toMetadata();
   const { bottom } = calculateMargin(image);
 
   canvas.width = image.width;
@@ -38,10 +38,10 @@ const monitor = (photo: Photo) => {
   context.font = `normal 500 ${fontSize}px Barlow`;
   context.textAlign = 'center';
   context.textBaseline = 'middle';
-  context.fillText(shutterSpeed.replace(/s/g, ''), canvas.width / 5, canvas.height - bottom / 2);
+  context.fillText(shutterSpeed.replace(/s/g, '') + (shutterSpeed.includes('/') ? '' : '"'), canvas.width / 5, canvas.height - bottom / 2);
   context.fillText(aperture.replace(/f/g, 'F'), (canvas.width / 5) * 2, canvas.height - bottom / 2);
-  context.fillText(contrast, (canvas.width / 5) * 3, canvas.height - bottom / 2);
-  context.fillText(iso, (canvas.width / 5) * 4, canvas.height - bottom / 2);
+  context.fillText(iso, (canvas.width / 5) * 3, canvas.height - bottom / 2);
+  context.fillText(focalLength, (canvas.width / 5) * 4, canvas.height - bottom / 2);
 };
 
 export default monitor;

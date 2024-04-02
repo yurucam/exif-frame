@@ -73,7 +73,13 @@ class Photo {
       aperture: this.aperture,
       shutterSpeed: this.shutterSpeed,
       capturedAt: this.capturedAt,
-      contrast: this.contrast,
+      // EV = log2(N^2 / t) where N is the relative aperture and t is the shutter speed in seconds, assuming ISO = 100.
+      ev: Math.log2(
+        (Math.pow(Number(this.metadata.FNumber?.description?.split('/')[1]), 2) /
+          (Number(this.metadata.ExposureTime?.description?.split('/')[0]) /
+            Number(this.metadata.ExposureTime?.description?.split('/')[1]))) *
+          (Number(this.metadata.ISOSpeedRatings?.value) / 100)
+      ),
     };
   }
 

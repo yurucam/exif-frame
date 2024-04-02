@@ -17,11 +17,11 @@ const FramePage = () => {
   const frames = [
     { name: 'No Frame', func: noFrame },
     { name: 'Cinema Scope', func: cinemaScope },
+    { name: 'Grid Lines', func: gridLines },
     { name: 'Simple', func: simpleFrame },
     { name: 'Compact', func: compactFrame },
     { name: 'Strap', func: strapFrame },
     { name: 'Inside', func: insideFrame },
-    { name: 'Grid Lines', func: gridLines },
     { name: 'Monitor', func: monitor },
   ];
 
