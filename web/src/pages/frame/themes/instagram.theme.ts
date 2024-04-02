@@ -38,7 +38,7 @@ const instagramFrame = (photo: Photo) => {
 
   const fontSize = image.height > image.width ? image.width * 0.02 : image.height * 0.02;
   context.fillStyle = '#ffffff';
-  context.font = `normal 200 ${fontSize}px Barlow`;
+  context.font = `normal 300 ${fontSize}px Barlow`;
   context.textAlign = 'center';
   context.textBaseline = 'middle';
   context.fillText(
