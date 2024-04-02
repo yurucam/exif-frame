@@ -12,6 +12,7 @@ import strapFrame from './themes/strap.theme';
 import insideFrame from './themes/inside.theme';
 import gridLines from './themes/grid-lines.theme';
 import monitor from './themes/monitor.theme';
+import monitorWithoutGridLines from './themes/monitor-without-grid-lines.theme';
 
 const FramePage = () => {
   const frames = [
@@ -23,6 +24,7 @@ const FramePage = () => {
     { name: 'Strap', func: strapFrame },
     { name: 'Inside', func: insideFrame },
     { name: 'Monitor', func: monitor },
+    { name: 'Monitor Without Grid Lines', func: monitorWithoutGridLines },
   ];
 
   const [photos, setPhotos] = useState<Photo[]>([]);
