@@ -10,6 +10,7 @@ import simpleFrame from './themes/simple.theme';
 import compactFrame from './themes/compact.theme';
 import strapFrame from './themes/strap.theme';
 import insideFrame from './themes/inside.theme';
+import gridLines from './themes/grid-lines.theme';
 
 const FramePage = () => {
   const frames = [
@@ -19,6 +20,7 @@ const FramePage = () => {
     { name: 'Compact', func: compactFrame },
     { name: 'Strap', func: strapFrame },
     { name: 'Inside', func: insideFrame },
+    { name: 'Grid Lines', func: gridLines },
   ];
 
   const [photos, setPhotos] = useState<Photo[]>([]);
