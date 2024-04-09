@@ -56,6 +56,12 @@ type Store = {
 
   overrideMetadataTarget: Photo | null;
   setOverrideMetadataTarget: (target: Photo) => void;
+
+  fixWatermark: boolean;
+  setFixWatermark: (fixWatermark: boolean) => void;
+
+  watermark: string;
+  setWatermark: (watermark: string) => void;
 };
 
 const useStore = create<Store>((set) => ({
@@ -161,6 +167,20 @@ const useStore = create<Store>((set) => ({
 
   overrideMetadataTarget: null,
   setOverrideMetadataTarget: (target: Photo) => set({ overrideMetadataTarget: target }),
+
+  fixWatermark: localStorage.getItem('fixWatermark') === 'true',
+  setFixWatermark: (fixWatermark: boolean) =>
+    set(() => {
+      localStorage.setItem('fixWatermark', fixWatermark.toString());
+      return { fixWatermark };
+    }),
+
+  watermark: localStorage.getItem('watermark') || '',
+  setWatermark: (watermark: string) =>
+    set(() => {
+      localStorage.setItem('watermark', watermark);
+      return { watermark };
+    }),
 }));
 
 // Set the theme on page load

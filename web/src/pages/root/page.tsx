@@ -27,6 +27,7 @@ import Loading from './components/loading';
 import ReleasesButton from './components/releases.button';
 import OverrideMetadataPopup from './components/override-metadata.popup';
 import OverrideMetadataButton from './components/override-metadata.button';
+import FixWatermarkListItem from './components/fix-watermark.list-item';
 
 const RootPage = () => {
   const { t } = useTranslation();
@@ -69,6 +70,7 @@ const RootPage = () => {
         <List strongIos inset>
           <DarkModeListItem />
           <LanguageListItem />
+          <FixWatermarkListItem />
         </List>
 
         <List strongIos inset>

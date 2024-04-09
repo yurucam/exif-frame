@@ -14,6 +14,8 @@ const DownloadAllPhotoButton = () => {
     photos,
     fixImageWidth,
     imageWidth,
+    fixWatermark,
+    watermark,
     showCameraMaker,
     showCameraModel,
     showLensModel,
@@ -36,6 +38,7 @@ const DownloadAllPhotoButton = () => {
           await Promise.all(
             photos.map(async (photo) => {
               const canvas = await draw(selectedTheme.func, photo, {
+                watermark: fixWatermark ? watermark : undefined,
                 imageWidth: fixImageWidth ? imageWidth : undefined,
                 showCameraMaker,
                 showCameraModel,
