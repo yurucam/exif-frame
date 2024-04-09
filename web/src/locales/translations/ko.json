@@ -27,6 +27,7 @@
 
   "root.settings.dark-mode": "다크 모드",
   "root.settings.language": "언어",
+  "root.settings.export-to-jpeg": "JPEG로 내보내기",
   "root.settings.quality": "품질",
   "root.settings.fix-image-width": "사진 너비 고정",
   "root.settings.image-width": "사진 너비 (px)",

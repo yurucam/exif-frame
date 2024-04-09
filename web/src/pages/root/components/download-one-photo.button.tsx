@@ -6,6 +6,7 @@ import themes from '../../../themes';
 import canvasToWebp from '../../../core/canvas-to-webp';
 import { IoDownloadOutline } from 'react-icons/io5';
 import draw from '../../../themes/draw';
+import canvasToJpeg from '../../../core/canvas-to-jpeg';
 
 interface DownloadOnePhotoButtonProps {
   photo: Photo;
@@ -13,6 +14,7 @@ interface DownloadOnePhotoButtonProps {
 
 const DownloadOnePhotoButton: React.FC<DownloadOnePhotoButtonProps> = ({ photo }) => {
   const {
+    exportToJpeg,
     selectedThemeName,
     quality,
     fixImageWidth,
@@ -44,7 +46,11 @@ const DownloadOnePhotoButton: React.FC<DownloadOnePhotoButtonProps> = ({ photo }
           overrideCameraModel,
           overrideLensModel,
         });
-        await downloadOneFile({ name: photo.file.name, buffer: await canvasToWebp(canvas, quality) });
+        await downloadOneFile({
+          name: photo.file.name,
+          buffer: exportToJpeg ? await canvasToJpeg(canvas, quality) : await canvasToWebp(canvas, quality),
+          type: exportToJpeg ? 'image/jpeg' : 'image/webp',
+        });
         setLoading(false);
       }}
     >

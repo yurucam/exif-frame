@@ -27,6 +27,7 @@
 
   "root.settings.dark-mode": "Dark Mode",
   "root.settings.language": "Language",
+  "root.settings.export-to-jpeg": "Export to JPEG",
   "root.settings.quality": "Quality",
   "root.settings.fix-image-width": "Fix Image Width",
   "root.settings.image-width": "Image Width (px)",

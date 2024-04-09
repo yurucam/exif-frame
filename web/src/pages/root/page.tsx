@@ -28,6 +28,7 @@ import ReleasesButton from './components/releases.button';
 import OverrideMetadataPopup from './components/override-metadata.popup';
 import OverrideMetadataButton from './components/override-metadata.button';
 import FixWatermarkListItem from './components/fix-watermark.list-item';
+import ExportToJpegListItem from './components/export-to-jpeg.list-item';
 
 const RootPage = () => {
   const { t } = useTranslation();
@@ -74,6 +75,7 @@ const RootPage = () => {
         </List>
 
         <List strongIos inset>
+          <ExportToJpegListItem />
           <QualityListItem />
           <FixImageWidthListItem />
         </List>
