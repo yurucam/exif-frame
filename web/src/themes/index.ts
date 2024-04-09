@@ -11,6 +11,7 @@ import strap from './09-strap';
 import darkStrap from './10-dark-strap';
 import justFrame from './11-just-frame';
 import shotOn from './12-shot-on';
+import shotOnLarge from './13-shot-on-large';
 
 const themes: { name: string; func: Theme }[] = [
   { name: 'No Frame', func: noFrame },
@@ -18,6 +19,7 @@ const themes: { name: string; func: Theme }[] = [
   { name: 'Just Frame', func: justFrame },
   { name: 'Grid Lines', func: gridLines },
   { name: 'Shot On', func: shotOn },
+  { name: 'Shot On Large', func: shotOnLarge },
   { name: 'Simple', func: simple },
   { name: 'Dark Simple', func: darkSimple },
   { name: 'Inside', func: inside },
