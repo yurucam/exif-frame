@@ -3,7 +3,6 @@ import { BlockTitle, Button, Icon, List, ListItem, Radio } from 'konsta/react';
 import { IoTrashOutline, IoDownloadOutline } from 'react-icons/io5';
 import Photo from './domain/photo';
 import PhotoUploadButton from './components/photo-upload.button';
-import download from './utils/download';
 import noFrame from './themes/no-frame.theme';
 import cinemaScope from './themes/cinema-scope.theme';
 import simpleFrame from './themes/simple.theme';
@@ -19,6 +18,7 @@ import instagramFrame from './themes/instagram.theme';
 import darkStrapFrame from './themes/dark-strap.theme';
 import darkSimpleFrame from './themes/dark-simple.theme';
 import retroFrame from './themes/retro.theme';
+import download from './utils/download';
 
 const FramePage = () => {
   const frames = [

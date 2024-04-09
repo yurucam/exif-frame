@@ -2,10 +2,10 @@ import exifReader, { ExifTags, PngTags } from 'exifreader';
 
 class Photo {
   private readonly file: File;
-  private readonly image: HTMLImageElement;
+  readonly image: HTMLImageElement;
   private readonly metadata: ExifTags & PngTags;
 
-  private readonly _canvas: HTMLCanvasElement;
+  readonly _canvas: HTMLCanvasElement;
 
   private constructor(file: File, image: HTMLImageElement, metadata: ExifTags & PngTags) {
     this.file = file;
