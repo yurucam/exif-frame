@@ -8,6 +8,31 @@ const AddPhotoButton = () => {
   const { t } = useTranslation();
   const { photos, setPhotos } = useStore();
 
+  const onDragEnter = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const onDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const onDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const onDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const { files } = e.dataTransfer;
+    if (!files) return;
+    Promise.all(Array.from(files).map(Photo.create)).then((newPhotos) => {
+      setPhotos([...photos, ...newPhotos]);
+    });
+  };
+
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { files } = event.target;
     if (!files) return;
@@ -22,6 +47,10 @@ const AddPhotoButton = () => {
 
       <Button
         clear
+        onDragEnter={onDragEnter}
+        onDragLeave={onDragLeave}
+        onDragOver={onDragOver}
+        onDrop={onDrop}
         onClick={() => {
           const input: HTMLInputElement | null = document.querySelector('input[type="file"]');
           if (input) input.click();
