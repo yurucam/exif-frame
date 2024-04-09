@@ -1,0 +1,30 @@
+{
+  "close": "閉じる",
+
+  "en": "英語",
+  "ja": "日本語",
+  "ko": "韓国語",
+
+  "root.title": "EXIFフレーム",
+  "root.settings": "設定",
+  "root.themes": "テーマ",
+
+  "root.add-photo": "写真を追加",
+  "root.download-all": "全てダウンロード",
+  "root.bug-report": "バグ報告",
+  "root.loaded-photos": "読み込まれた写真",
+  "root.processing": "機器の仕様によっては、時間がかかる場合があります。",
+  "root.releases": "配布内訳",
+
+  "root.settings.dark-mode": "ダークモード",
+  "root.settings.language": "言語",
+  "root.settings.quality": "画質",
+  "root.settings.fix-image-width": "画像幅を固定",
+  "root.settings.image-width": "画像幅(px)",
+  "root.settings.show-camera-maker": "カメラメーカーを表示",
+  "root.settings.show-camera-model": "カメラモデルを表示",
+  "root.settings.show-lens-model": "レンズモデルを表示",
+  "root.settings.override-camera-maker": "カメラメーカーを上書き",
+  "root.settings.override-camera-model": "カメラモデルを上書き",
+  "root.settings.override-lens-model": "レンズモデルを上書き"
+}

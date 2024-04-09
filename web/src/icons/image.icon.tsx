@@ -1,11 +1,11 @@
 import { Icon } from 'konsta/react';
 import { IoImagesOutline } from 'react-icons/io5';
 
-interface IconProps {
+interface ImageIconProps {
   size?: number;
 }
 
-const ImageIcon = ({ size }: IconProps) => {
+const ImageIcon = ({ size }: ImageIconProps) => {
   return <Icon ios={<IoImagesOutline size={size} />} />;
 };
 

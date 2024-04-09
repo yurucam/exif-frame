@@ -1,0 +1,45 @@
+import { Theme } from './draw';
+
+const calculateMargin = (image: HTMLImageElement) => {
+  return image.width > image.height
+    ? { top: image.width * 0.05, right: image.width * 0.05, bottom: image.width * 0.05 * 2, left: image.width * 0.05 }
+    : { top: image.height * 0.05, right: image.height * 0.05, bottom: image.height * 0.05 * 2, left: image.height * 0.05 };
+};
+
+const darkSimple: Theme = async (photo, image, options) => {
+  const canvas = document.createElement('canvas');
+  const { top, right, bottom, left } = calculateMargin(image);
+  canvas.width = image.width + left + right;
+  canvas.height = image.height + top + bottom;
+
+  const context = canvas.getContext('2d')!;
+  context.fillStyle = '#000000';
+  context.fillRect(0, 0, canvas.width, canvas.height);
+  context.drawImage(image, left, top, image.width, image.height);
+
+  const fontSize = image.height > image.width ? image.width * 0.035 : image.height * 0.035;
+  context.fillStyle = '#ffffff';
+  context.font = `normal 200 ${fontSize}px Barlow`;
+  context.textAlign = 'center';
+  context.textBaseline = 'middle';
+  context.fillText(
+    [
+      options.showCameraMaker ? options.overrideCameraMaker || photo.make : null,
+      options.showCameraModel ? options.overrideCameraModel || photo.model : null,
+      options.showLensModel ? options.overrideLensModel || photo.lensModel : null,
+    ]
+      .filter(Boolean)
+      .join(' | '),
+    canvas.width / 2,
+    canvas.height - bottom / 2 - fontSize / 2 - fontSize / 7
+  );
+  context.fillText(
+    [photo.focalLength, photo.fNumber, 'ISO ' + photo.iso, photo.exposureTime + 's'].filter(Boolean).join(' | '),
+    canvas.width / 2,
+    canvas.height - bottom / 2 + fontSize / 2 + fontSize / 7
+  );
+
+  return canvas;
+};
+
+export default darkSimple;

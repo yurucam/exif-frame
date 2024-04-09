@@ -1,0 +1,30 @@
+{
+  "close": "Close",
+
+  "en": "English",
+  "ja": "Japanese",
+  "ko": "Korean",
+
+  "root.title": "EXIF Frame",
+  "root.settings": "Settings",
+  "root.themes": "Themes",
+
+  "root.add-photo": "Add Photo",
+  "root.download-all": "Download All",
+  "root.bug-report": "Bug Report",
+  "root.loaded-photos": "Loaded Photos",
+  "root.processing": "it may take a long time depending on device specifications.",
+  "root.releases": "Releases",
+
+  "root.settings.dark-mode": "Dark Mode",
+  "root.settings.language": "Language",
+  "root.settings.quality": "Quality",
+  "root.settings.fix-image-width": "Fix Image Width",
+  "root.settings.image-width": "Image Width (px)",
+  "root.settings.show-camera-maker": "Show Camera Maker",
+  "root.settings.show-camera-model": "Show Camera Model",
+  "root.settings.show-lens-model": "Show Lens Model",
+  "root.settings.override-camera-maker": "Override Camera Maker",
+  "root.settings.override-camera-model": "Override Camera Model",
+  "root.settings.override-lens-model": "Override Lens Model"
+}

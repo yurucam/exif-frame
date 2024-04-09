@@ -19,7 +19,7 @@ import { ExifTags, load } from 'exifreader';
 class Photo {
   private constructor() {}
 
-  private file!: File;
+  public file!: File;
   private metadata!: ExifTags;
 
   /**
@@ -35,23 +35,8 @@ class Photo {
     const photo = new Photo();
     photo.file = file;
     photo.metadata = (await load(file)) as ExifTags;
+    console.log(photo.metadata);
     return photo;
-  }
-
-  /**
-   * Returns the name of the file.
-   * @example 'IMG_20210101_123456.jpg'
-   */
-  public get fileName(): string {
-    return this.file.name;
-  }
-
-  /**
-   * Returns the URL of the file.
-   * @example 'blob:http://localhost:3000/12345678-1234-1234-1234-123456789012'
-   */
-  public get fileUrl(): string {
-    return URL.createObjectURL(this.file);
   }
 
   /**
@@ -108,6 +93,17 @@ class Photo {
    */
   public get exposureTime(): string | undefined {
     return this.metadata?.ExposureTime?.description;
+  }
+
+  /**
+   * Returns the date and time the photo was created.
+   * @example '2021-01-01 12:34:56+09:00'
+   */
+  public get createdAt(): string | undefined {
+    const yyyy_mm_dd = this.metadata['Digital Creation Date']?.description;
+    const hh_mm_ss_z = this.metadata['Digital Creation Time']?.description;
+    if (!yyyy_mm_dd || !hh_mm_ss_z) return undefined;
+    return `${yyyy_mm_dd} ${hh_mm_ss_z}`;
   }
 }
 
