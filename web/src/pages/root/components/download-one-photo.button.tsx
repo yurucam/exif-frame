@@ -17,6 +17,8 @@ const DownloadOnePhotoButton: React.FC<DownloadOnePhotoButtonProps> = ({ photo }
     quality,
     fixImageWidth,
     imageWidth,
+    fixWatermark,
+    watermark,
     showCameraMaker,
     showCameraModel,
     showLensModel,
@@ -33,6 +35,7 @@ const DownloadOnePhotoButton: React.FC<DownloadOnePhotoButtonProps> = ({ photo }
       onClick={async () => {
         setLoading(true);
         const canvas = await draw(selectedTheme.func, photo, {
+          watermark: fixWatermark ? watermark : undefined,
           imageWidth: fixImageWidth ? imageWidth : undefined,
           showCameraMaker,
           showCameraModel,

@@ -30,6 +30,8 @@
   "root.settings.quality": "画質",
   "root.settings.fix-image-width": "画像幅を固定",
   "root.settings.image-width": "画像幅(px)",
+  "root.settings.fix-watermark": "ウォーターマークを固定",
+  "root.settings.watermark": "ウォーターマーク",
   "root.settings.show-camera-maker": "カメラメーカーを表示",
   "root.settings.show-camera-model": "カメラモデルを表示",
   "root.settings.show-lens-model": "レンズモデルを表示",

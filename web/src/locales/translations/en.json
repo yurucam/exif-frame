@@ -30,6 +30,8 @@
   "root.settings.quality": "Quality",
   "root.settings.fix-image-width": "Fix Image Width",
   "root.settings.image-width": "Image Width (px)",
+  "root.settings.fix-watermark": "Add Watermark",
+  "root.settings.watermark": "Watermark",
   "root.settings.show-camera-maker": "Show Camera Maker",
   "root.settings.show-camera-model": "Show Camera Model",
   "root.settings.show-lens-model": "Show Lens Model",
