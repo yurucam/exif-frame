@@ -48,7 +48,7 @@ const RootPage = () => {
         <ReleasesButton />
       </Toolbar>
 
-      <BlockTitle>{t('root.loaded-photos')}</BlockTitle>
+      {photos.length !== 0 && <BlockTitle>{t('root.loaded-photos')}</BlockTitle>}
       <List strongIos inset>
         {photos.map((photo, index) => (
           <ListItem
