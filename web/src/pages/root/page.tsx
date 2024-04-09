@@ -25,6 +25,8 @@ import DownloadAllPhotoButton from './components/download-all-photo.button';
 import BugReportButton from './components/bug-report.button';
 import Loading from './components/loading';
 import ReleasesButton from './components/releases.button';
+import OverrideMetadataPopup from './components/override-metadata.popup';
+import OverrideMetadataButton from './components/override-metadata.button';
 
 const RootPage = () => {
   const { t } = useTranslation();
@@ -54,11 +56,11 @@ const RootPage = () => {
             text={`${photo.make} ${photo.model} ${photo.lensModel}`}
             after={
               <>
+                <OverrideMetadataButton photo={photo} />
                 <DownloadOnePhotoButton photo={photo} />
                 <RemoveOnePhotoButton index={index} />
               </>
             }
-            // media={<img className="object-contain w-20 h-20" src={photo.previewImage.src} alt={photo.name} />}
           />
         ))}
       </List>
@@ -96,6 +98,7 @@ const RootPage = () => {
       </ThemesPanel>
 
       <LanguagePopover />
+      <OverrideMetadataPopup />
 
       <Loading />
     </Page>

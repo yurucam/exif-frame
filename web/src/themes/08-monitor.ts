@@ -25,7 +25,7 @@ const monitor: Theme = async (photo, image) => {
   context.textBaseline = 'middle';
   context.fillText(photo.exposureTime + (photo.exposureTime?.includes('/') ? '' : '"'), canvas.width / 5, canvas.height - bottom / 2);
   context.fillText(photo.fNumber?.replace(/f/g, 'F') ?? '?', (canvas.width / 5) * 2, canvas.height - bottom / 2);
-  context.fillText('ISO' + photo.iso ?? '?', (canvas.width / 5) * 3, canvas.height - bottom / 2);
+  context.fillText('ISO' + photo.iso, (canvas.width / 5) * 3, canvas.height - bottom / 2);
   context.fillText(photo.focalLength ?? '?', (canvas.width / 5) * 4, canvas.height - bottom / 2);
 
   return canvas;
