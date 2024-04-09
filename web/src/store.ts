@@ -62,6 +62,9 @@ type Store = {
 
   watermark: string;
   setWatermark: (watermark: string) => void;
+
+  exportToJpeg: boolean;
+  setExportToJpeg: (exportToJpeg: boolean) => void;
 };
 
 const useStore = create<Store>((set) => ({
@@ -180,6 +183,13 @@ const useStore = create<Store>((set) => ({
     set(() => {
       localStorage.setItem('watermark', watermark);
       return { watermark };
+    }),
+
+  exportToJpeg: localStorage.getItem('exportToJpeg') === 'true',
+  setExportToJpeg: (exportToJpeg: boolean) =>
+    set(() => {
+      localStorage.setItem('exportToJpeg', exportToJpeg.toString());
+      return { exportToJpeg };
     }),
 }));
 

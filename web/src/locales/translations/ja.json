@@ -27,10 +27,11 @@
 
   "root.settings.dark-mode": "ダークモード",
   "root.settings.language": "言語",
+  "root.settings.export-to-jpeg": "JPEGにエクスポート",
   "root.settings.quality": "画質",
   "root.settings.fix-image-width": "画像幅を固定",
   "root.settings.image-width": "画像幅(px)",
-  "root.settings.fix-watermark": "ウォーターマークを固定",
+  "root.settings.fix-watermark": "ウォーターマーク",
   "root.settings.watermark": "ウォーターマーク",
   "root.settings.show-camera-maker": "カメラメーカーを表示",
   "root.settings.show-camera-model": "カメラモデルを表示",
