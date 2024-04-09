@@ -12,6 +12,7 @@ export default konstaConfig({
   konsta: {
     colors: {
       primary: '#007aff',
+      'brand-white': '#ffffff',
       'brand-grey': '#333333',
       'brand-red': '#ff0000',
       'brand-green': '#00ff00',
