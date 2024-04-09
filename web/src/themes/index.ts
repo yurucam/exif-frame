@@ -9,6 +9,7 @@ import gridLines from './07-grid-lines';
 import monitor from './08-monitor';
 import strap from './09-strap';
 import darkStrap from './10-dark-strap';
+import justFrame from './11-just-frame';
 
 const themes: { name: string; func: Theme }[] = [
   { name: 'No Frame', func: noFrame },
@@ -21,6 +22,7 @@ const themes: { name: string; func: Theme }[] = [
   { name: 'Monitor', func: monitor },
   { name: 'Strap', func: strap },
   { name: 'Dark Strap', func: darkStrap },
+  { name: 'Just Frame', func: justFrame },
 ];
 
 export default themes;
