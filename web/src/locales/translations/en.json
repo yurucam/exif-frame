@@ -5,6 +5,14 @@
   "ja": "Japanese",
   "ko": "Korean",
 
+  "make": "Camera Maker",
+  "model": "Camera Model",
+  "lens": "Lens Model",
+  "focal": "Focal Length",
+  "aperture": "Aperture",
+  "shutter": "Shutter Speed",
+  "iso": "ISO",
+
   "root.title": "EXIF Frame",
   "root.settings": "Settings",
   "root.themes": "Themes",
@@ -15,6 +23,7 @@
   "root.loaded-photos": "Loaded Photos",
   "root.processing": "it may take a long time depending on device specifications.",
   "root.releases": "Releases",
+  "root.override-metadata": "Override EXIF Metadata",
 
   "root.settings.dark-mode": "Dark Mode",
   "root.settings.language": "Language",

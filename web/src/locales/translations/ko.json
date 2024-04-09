@@ -5,6 +5,14 @@
   "ja": "일본어",
   "ko": "한국어",
 
+  "make": "카메라 제조사",
+  "model": "카메라 모델",
+  "lens": "렌즈 모델",
+  "focal": "화각",
+  "aperture": "조리개",
+  "shutter": "셔터 속도",
+  "iso": "ISO",
+
   "root.title": "EXIF 프레임",
   "root.settings": "설정",
   "root.themes": "테마",
@@ -15,6 +23,7 @@
   "root.loaded-photos": "불러온 사진들",
   "root.processing": "기기 사양에 따라 시간이 오래 걸릴 수 있습니다.",
   "root.releases": "배포 내역",
+  "root.override-metadata": "메타데이터 강제 변경",
 
   "root.settings.dark-mode": "다크 모드",
   "root.settings.language": "언어",
@@ -24,7 +33,7 @@
   "root.settings.show-camera-maker": "카메라 제조사 표시",
   "root.settings.show-camera-model": "카메라 모델 표시",
   "root.settings.show-lens-model": "렌즈 모델 표시",
-  "root.settings.override-camera-maker": "카메라 제조사 강제 변경",
-  "root.settings.override-camera-model": "카메라 모델 강제 변경",
-  "root.settings.override-lens-model": "렌즈 모델 강제 변경"
+  "root.settings.override-camera-maker": "카메라 제조사 전역 변경",
+  "root.settings.override-camera-model": "카메라 모델 전역 변경",
+  "root.settings.override-lens-model": "렌즈 모델 전역 변경"
 }

@@ -15,7 +15,7 @@ export default konstaConfig({
       'brand-white': '#ffffff',
       'brand-grey': '#333333',
       'brand-red': '#ff0000',
-      'brand-green': '#00ff00',
+      'brand-green': '#5cb85c',
     },
   },
 });

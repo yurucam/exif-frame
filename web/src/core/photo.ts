@@ -1,26 +1,14 @@
-import { ExifTags, load } from 'exifreader';
+import { load } from 'exifreader';
+import ExifMetadata from './exif-metadata';
 
 /**
  * Represents a photo.
- * @example
- * ```typescript
- * const photo = await Photo.create(file);
- * console.log(photo.fileName); // 'IMG_20210101_123456.jpg'
- * console.log(photo.fileUrl); // 'blob:http://localhost:3000/12345678-1234-1234-1234-123456789012'
- * console.log(photo.make); // 'SONY'
- * console.log(photo.model); // 'ILCE-7M3'
- * console.log(photo.lensModel); // 'FE 24-105mm F4 G OSS'
- * console.log(photo.focalLength); // '24mm'
- * console.log(photo.fNumber); // 'f/4'
- * console.log(photo.iso); // '100'
- * console.log(photo.exposureTime); // '1/100'
- * ```
  */
 class Photo {
   private constructor() {}
 
   public file!: File;
-  private metadata!: ExifTags;
+  private metadata!: ExifMetadata;
 
   /**
    * Creates a photo.
@@ -34,8 +22,7 @@ class Photo {
   public static async create(file: File): Promise<Photo> {
     const photo = new Photo();
     photo.file = file;
-    photo.metadata = (await load(file)) as ExifTags;
-    console.log(photo.metadata);
+    photo.metadata = new ExifMetadata(await load(file));
     return photo;
   }
 
@@ -44,7 +31,15 @@ class Photo {
    * @example 'SONY'
    */
   public get make(): string | undefined {
-    return this.metadata?.Make?.description;
+    return this.metadata.make;
+  }
+
+  /**
+   * Sets the make of the camera that took the photo.
+   * @example 'SONY'
+   */
+  public set make(value: string | undefined) {
+    this.metadata.make = value;
   }
 
   /**
@@ -52,7 +47,15 @@ class Photo {
    * @example 'ILCE-7M3'
    */
   public get model(): string | undefined {
-    return this.metadata?.Model?.description;
+    return this.metadata.model;
+  }
+
+  /**
+   * Sets the model of the camera that took the photo.
+   * @example 'ILCE-7M3'
+   */
+  public set model(value: string | undefined) {
+    this.metadata.model = value;
   }
 
   /**
@@ -60,7 +63,15 @@ class Photo {
    * @example 'FE 24-105mm F4 G OSS'
    */
   public get lensModel(): string | undefined {
-    return this.metadata?.LensModel?.description;
+    return this.metadata.lensModel;
+  }
+
+  /**
+   * Sets the lens model of the camera that took the photo.
+   * @example 'FE 24-105mm F4 G OSS'
+   */
+  public set lensModel(value: string | undefined) {
+    this.metadata.lensModel = value;
   }
 
   /**
@@ -68,7 +79,15 @@ class Photo {
    * @example '24mm'
    */
   public get focalLength(): string | undefined {
-    return this.metadata?.FocalLength?.description?.replace(' mm', 'mm');
+    return this.metadata.focalLength;
+  }
+
+  /**
+   * Sets the focal length of the camera that took the photo.
+   * @example '24mm'
+   */
+  public set focalLength(value: string | undefined) {
+    this.metadata.focalLength = value;
   }
 
   /**
@@ -76,7 +95,15 @@ class Photo {
    * @example 'f/4'
    */
   public get fNumber(): string | undefined {
-    return this.metadata?.FNumber?.description;
+    return this.metadata.fNumber;
+  }
+
+  /**
+   * Sets the F number of the camera that took the photo.
+   * @example 'f/4'
+   */
+  public set fNumber(value: string | undefined) {
+    this.metadata.fNumber = value;
   }
 
   /**
@@ -84,7 +111,15 @@ class Photo {
    * @example '100'
    */
   public get iso(): string | undefined {
-    return this.metadata?.ISOSpeedRatings?.value?.toString();
+    return this.metadata.iso;
+  }
+
+  /**
+   * Sets the ISO of the camera that took the photo.
+   * @example '100'
+   */
+  public set iso(value: string | undefined) {
+    this.metadata.iso = value;
   }
 
   /**
@@ -92,18 +127,15 @@ class Photo {
    * @example '1/100'
    */
   public get exposureTime(): string | undefined {
-    return this.metadata?.ExposureTime?.description;
+    return this.metadata.exposureTime;
   }
 
   /**
-   * Returns the date and time the photo was created.
-   * @example '2021-01-01 12:34:56+09:00'
+   * Sets the exposure time of the camera that took the photo.
+   * @example '1/100'
    */
-  public get createdAt(): string | undefined {
-    const yyyy_mm_dd = this.metadata['Digital Creation Date']?.description;
-    const hh_mm_ss_z = this.metadata['Digital Creation Time']?.description;
-    if (!yyyy_mm_dd || !hh_mm_ss_z) return undefined;
-    return `${yyyy_mm_dd} ${hh_mm_ss_z}`;
+  public set exposureTime(value: string | undefined) {
+    this.metadata.exposureTime = value;
   }
 }
 

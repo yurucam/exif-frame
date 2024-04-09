@@ -5,6 +5,14 @@
   "ja": "日本語",
   "ko": "韓国語",
 
+  "make": "カメラメーカー",
+  "model": "カメラモデル",
+  "lens": "レンズモデル",
+  "focal": "焦点距離",
+  "aperture": "絞り値",
+  "shutter": "シャッタースピード",
+  "iso": "ISO感度",
+
   "root.title": "EXIFフレーム",
   "root.settings": "設定",
   "root.themes": "テーマ",
@@ -15,6 +23,7 @@
   "root.loaded-photos": "読み込まれた写真",
   "root.processing": "機器の仕様によっては、時間がかかる場合があります。",
   "root.releases": "配布内訳",
+  "root.override-metadata": "メタデータを上書き",
 
   "root.settings.dark-mode": "ダークモード",
   "root.settings.language": "言語",

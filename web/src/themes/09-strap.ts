@@ -29,12 +29,6 @@ const strap: Theme = async (photo, image, options) => {
     canvas.height - bottom / 2 - fontSize / 1.8
   );
 
-  context.fillStyle = '#808080';
-  context.font = `normal 300 ${fontSize}px Barlow`;
-  context.textAlign = 'left';
-  context.textBaseline = 'middle';
-  context.fillText([photo.createdAt].filter(Boolean).join(' '), fontSize, canvas.height - bottom / 2 + fontSize / 1.8);
-
   context.fillStyle = '#000000';
   context.font = `normal 500 ${fontSize}px Barlow`;
   context.textAlign = 'right';

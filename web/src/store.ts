@@ -50,6 +50,12 @@ type Store = {
 
   loading: boolean;
   setLoading: (loading: boolean) => void;
+
+  overrideMetadataPopup: boolean;
+  setOverrideMetadataPopup: (opened: boolean) => void;
+
+  overrideMetadataTarget: Photo | null;
+  setOverrideMetadataTarget: (target: Photo) => void;
 };
 
 const useStore = create<Store>((set) => ({
@@ -149,6 +155,12 @@ const useStore = create<Store>((set) => ({
 
   loading: false,
   setLoading: (loading: boolean) => set({ loading }),
+
+  overrideMetadataPopup: false,
+  setOverrideMetadataPopup: (opened: boolean) => set({ overrideMetadataPopup: opened }),
+
+  overrideMetadataTarget: null,
+  setOverrideMetadataTarget: (target: Photo) => set({ overrideMetadataTarget: target }),
 }));
 
 // Set the theme on page load
