@@ -14,23 +14,27 @@ import shotOn from './12-shot-on';
 import compact from './13-compact';
 import darkCompact from './14-dark-compact';
 import polaroid from './15-polaroid';
+import insideCompact from './16-inside-compact';
+import insideDarkCompact from './17-inside-dark-compact';
 
 const themes: { name: string; func: Theme }[] = [
-  { name: 'No Frame', func: noFrame },
-  { name: 'Cinema Scope', func: cinemaScope },
-  { name: 'Just Frame', func: justFrame },
-  { name: 'Grid Lines', func: gridLines },
   { name: 'Shot On', func: shotOn },
-  { name: 'Simple', func: simple },
-  { name: 'Dark Simple', func: darkSimple },
-  { name: 'Inside', func: inside },
-  { name: 'Dark Inside', func: darkInside },
   { name: 'Monitor', func: monitor },
+  { name: 'Simple', func: simple },
+  { name: 'Inside', func: inside },
   { name: 'Strap', func: strap },
-  { name: 'Dark Strap', func: darkStrap },
   { name: 'Compact', func: compact },
+  { name: 'Inside Compact', func: insideCompact },
+  { name: 'Dark Simple', func: darkSimple },
+  { name: 'Dark Inside', func: darkInside },
+  { name: 'Dark Strap', func: darkStrap },
   { name: 'Dark Compact', func: darkCompact },
+  { name: 'Inside Dark Compact', func: insideDarkCompact },
+  { name: 'Just Frame', func: justFrame },
   { name: 'Polaroid', func: polaroid },
+  { name: 'Cinema Scope', func: cinemaScope },
+  { name: 'Grid Lines', func: gridLines },
+  { name: 'No Frame', func: noFrame },
 ];
 
 export default themes;
