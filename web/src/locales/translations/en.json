@@ -16,6 +16,8 @@
   "root.title": "EXIF Frame",
   "root.settings": "Settings",
   "root.themes": "Themes",
+  "root.themes.preview": "Preview",
+  "root.themes.list": "List",
 
   "root.add-photo": "Add Photo",
   "root.download-all": "Download All",

@@ -16,6 +16,8 @@
   "root.title": "EXIF 프레임",
   "root.settings": "설정",
   "root.themes": "테마",
+  "root.themes.list": "테마 목록",
+  "root.themes.preview": "테마 미리보기",
 
   "root.add-photo": "사진 추가",
   "root.download-all": "일괄 다운로드",
@@ -25,6 +27,7 @@
   "root.processing": "기기 사양에 따라 시간이 오래 걸릴 수 있습니다.",
   "root.releases": "배포 내역",
   "root.override-metadata": "메타데이터 강제 변경",
+  "root.preview": "미리보기",
 
   "root.settings.dark-mode": "다크 모드",
   "root.settings.language": "언어",

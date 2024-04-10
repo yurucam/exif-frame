@@ -34,7 +34,8 @@ import FeatureRequestButton from './components/feature-request.button';
 
 const RootPage = () => {
   const { t } = useTranslation();
-  const { photos } = useStore();
+  const { photos, selectedThemeName } = useStore();
+  const theme = themes.find((theme) => theme.name === selectedThemeName);
 
   return (
     <Page style={{ paddingBottom: '5rem' }}>
@@ -65,17 +66,19 @@ const RootPage = () => {
               <img
                 src={photo.thumbnail}
                 alt={photo.file.name}
-                style={{ width: '5rem', height: '4rem', objectFit: 'cover', borderRadius: '0.5rem' }}
+                style={{ width: '8rem', height: '6rem', objectFit: 'cover', borderRadius: '0.5rem' }}
               />
             }
             title={photo.file.name}
             subtitle={`${photo.focalLength} ${photo.fNumber} ISO${photo.iso} ${photo.exposureTime}s`}
-            text={`${photo.make} ${photo.model} ${photo.lensModel}`}
-            after={
+            text={
               <>
-                <OverrideMetadataButton photo={photo} />
-                <DownloadOnePhotoButton photo={photo} />
-                <RemoveOnePhotoButton index={index} />
+                {`${photo.make} ${photo.model} ${photo.lensModel}`}
+                <div className="flex space-x-1 mt-1">
+                  <OverrideMetadataButton photo={photo} />
+                  <DownloadOnePhotoButton photo={photo} />
+                  <RemoveOnePhotoButton index={index} />
+                </div>
               </>
             }
           />
@@ -109,6 +112,12 @@ const RootPage = () => {
       </SettingsPanel>
 
       <ThemesPanel>
+        <BlockTitle>{t('root.themes.preview')}</BlockTitle>
+        <List strongIos inset>
+          <img src={theme?.preview} alt="Themes" className="w-full" />
+        </List>
+
+        <BlockTitle>{t('root.themes.list')}</BlockTitle>
         <List strongIos inset>
           {themes.map((theme, index) => (
             <ThemeListItem key={index} name={theme.name} />

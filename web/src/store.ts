@@ -65,6 +65,9 @@ type Store = {
 
   exportToJpeg: boolean;
   setExportToJpeg: (exportToJpeg: boolean) => void;
+
+  preview: Photo | null;
+  setPreview: (preview: Photo | null) => void;
 };
 
 const useStore = create<Store>((set) => ({
@@ -191,6 +194,9 @@ const useStore = create<Store>((set) => ({
       localStorage.setItem('exportToJpeg', exportToJpeg.toString());
       return { exportToJpeg };
     }),
+
+  preview: null,
+  setPreview: (preview: Photo | null) => set({ preview }),
 }));
 
 // Set the theme on page load
