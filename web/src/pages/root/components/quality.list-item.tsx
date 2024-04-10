@@ -13,7 +13,7 @@ const QualityListItem = () => {
       after={
         <>
           {quality}%&nbsp;
-          <Range value={quality} min={0} max={100} step={5} onChange={(e) => setQuality(e.target.value)} />
+          <Range value={quality} min={1} max={100} step={1} onChange={(e) => setQuality(e.target.value)} />
         </>
       }
     />
