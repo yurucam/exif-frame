@@ -19,7 +19,7 @@ const insideDarkCompact: Theme = async (photo, image, options) => {
   context.fillStyle = '#ffffff';
   context.font = `normal 200 ${fontSize}px Barlow`;
   context.textAlign = 'left';
-  context.textBaseline = 'middle';
+  context.textBaseline = 'bottom';
   context.fillText(
     [
       options.showCameraMaker ? options.overrideCameraMaker || photo.make : null,
@@ -33,7 +33,7 @@ const insideDarkCompact: Theme = async (photo, image, options) => {
       .filter(Boolean)
       .join(' | '),
     left + fontSize,
-    canvas.height - bottom / 2
+    canvas.height - fontSize
   );
 
   return canvas;
