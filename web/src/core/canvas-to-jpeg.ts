@@ -1,3 +1,5 @@
+import { jpegDownloadEvent } from '../google-analytics';
+
 const canvasToJpeg = async (canvas: HTMLCanvasElement, quality?: number): Promise<ArrayBuffer> => {
   const arrayBuffer = await new Promise<ArrayBuffer>((resolve) => {
     canvas.toBlob(
@@ -23,6 +25,7 @@ const canvasToJpeg = async (canvas: HTMLCanvasElement, quality?: number): Promis
   canvas.width = 0;
   canvas.height = 0;
   canvas.remove();
+  jpegDownloadEvent();
   return arrayBuffer;
 };
 

@@ -7,6 +7,7 @@ import canvasToWebp from '../../../core/canvas-to-webp';
 import { IoDownloadOutline } from 'react-icons/io5';
 import draw from '../../../themes/draw';
 import canvasToJpeg from '../../../core/canvas-to-jpeg';
+import { downloadOnePhotoEvent } from '../../../google-analytics';
 
 interface DownloadOnePhotoButtonProps {
   photo: Photo;
@@ -52,6 +53,7 @@ const DownloadOnePhotoButton: React.FC<DownloadOnePhotoButtonProps> = ({ photo }
           type: exportToJpeg ? 'image/jpeg' : 'image/webp',
         });
         setLoading(false);
+        downloadOnePhotoEvent();
       }}
     >
       <Icon ios={<IoDownloadOutline className="w-5 h-5" />} />

@@ -6,6 +6,7 @@ import canvasToWebp from '../../../core/canvas-to-webp';
 import downloadManyFile from '../../../core/download-many-file';
 import draw from '../../../themes/draw';
 import canvasToJpeg from '../../../core/canvas-to-jpeg';
+import { downloadAllPhotosEvent } from '../../../google-analytics';
 
 const DownloadAllPhotoButton = () => {
   const { t } = useTranslation();
@@ -58,6 +59,7 @@ const DownloadAllPhotoButton = () => {
           );
           await downloadManyFile(files);
           setLoading(false);
+          downloadAllPhotosEvent();
         }}
       >
         {t('root.download-all')}
