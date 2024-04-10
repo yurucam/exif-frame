@@ -53,6 +53,13 @@ const RootPage = () => {
         {photos.map((photo, index) => (
           <ListItem
             key={index}
+            media={
+              <img
+                src={photo.thumbnail}
+                alt={photo.file.name}
+                style={{ width: '5rem', height: '4rem', objectFit: 'cover', borderRadius: '0.5rem' }}
+              />
+            }
             title={photo.file.name}
             subtitle={`${photo.focalLength} ${photo.fNumber} ISO${photo.iso} ${photo.exposureTime}s`}
             text={`${photo.make} ${photo.model} ${photo.lensModel}`}
