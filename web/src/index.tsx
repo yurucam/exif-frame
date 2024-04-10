@@ -5,6 +5,7 @@ import Router from './router';
 
 import './index.css';
 import './locales';
+import './google-analytics';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
