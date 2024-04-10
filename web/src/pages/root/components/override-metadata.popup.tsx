@@ -7,13 +7,13 @@ const OverrideMetadataPopup = () => {
   const { t } = useTranslation();
   const { overrideMetadataTarget, overrideMetadataPopup, setOverrideMetadataPopup } = useStore();
 
-  const [make, setMake] = useState(overrideMetadataTarget?.make);
-  const [model, setModel] = useState(overrideMetadataTarget?.model);
-  const [lens, setLens] = useState(overrideMetadataTarget?.lensModel);
-  const [focal, setFocal] = useState(overrideMetadataTarget?.focalLength);
-  const [aperture, setAperture] = useState(overrideMetadataTarget?.fNumber);
-  const [iso, setIso] = useState(overrideMetadataTarget?.iso);
-  const [shutter, setShutter] = useState(overrideMetadataTarget?.exposureTime);
+  const [make, setMake] = useState(overrideMetadataTarget?.make || '');
+  const [model, setModel] = useState(overrideMetadataTarget?.model || '');
+  const [lens, setLens] = useState(overrideMetadataTarget?.lensModel || '');
+  const [focal, setFocal] = useState(overrideMetadataTarget?.focalLength || '');
+  const [aperture, setAperture] = useState(overrideMetadataTarget?.fNumber || '');
+  const [iso, setIso] = useState(overrideMetadataTarget?.iso || '');
+  const [shutter, setShutter] = useState(overrideMetadataTarget?.exposureTime || '');
 
   useEffect(() => {
     if (overrideMetadataTarget) setMake(overrideMetadataTarget.make || '');
