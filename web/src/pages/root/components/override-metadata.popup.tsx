@@ -16,13 +16,13 @@ const OverrideMetadataPopup = () => {
   const [shutter, setShutter] = useState(overrideMetadataTarget?.exposureTime);
 
   useEffect(() => {
-    if (overrideMetadataTarget) setMake(overrideMetadataTarget.make);
-    if (overrideMetadataTarget) setModel(overrideMetadataTarget.model);
-    if (overrideMetadataTarget) setLens(overrideMetadataTarget.lensModel);
-    if (overrideMetadataTarget) setFocal(overrideMetadataTarget.focalLength);
-    if (overrideMetadataTarget) setAperture(overrideMetadataTarget.fNumber);
-    if (overrideMetadataTarget) setIso(overrideMetadataTarget.iso);
-    if (overrideMetadataTarget) setShutter(overrideMetadataTarget.exposureTime);
+    if (overrideMetadataTarget) setMake(overrideMetadataTarget.make || '');
+    if (overrideMetadataTarget) setModel(overrideMetadataTarget.model || '');
+    if (overrideMetadataTarget) setLens(overrideMetadataTarget.lensModel || '');
+    if (overrideMetadataTarget) setFocal(overrideMetadataTarget.focalLength || '');
+    if (overrideMetadataTarget) setAperture(overrideMetadataTarget.fNumber || '');
+    if (overrideMetadataTarget) setIso(overrideMetadataTarget.iso || '');
+    if (overrideMetadataTarget) setShutter(overrideMetadataTarget.exposureTime || '');
   }, [overrideMetadataTarget]);
 
   return (
