@@ -7,27 +7,27 @@ const pageView = (pathname: string) => {
 };
 
 const addPhotoByClickEvent = () => {
-  GoogleAnalytics4.event({ action: 'click', category: 'add-photo-button', label: '버튼 클릭으로 사진 추가' });
+  GoogleAnalytics4.event({ action: '버튼 클릭으로 사진 추가', category: 'add-photo-button' });
 };
 
 const addPhotoByDragAndDropEvent = () => {
-  GoogleAnalytics4.event({ action: 'drop', category: 'add-photo-button', label: '드래그 앤 드롭으로 사진 추가' });
+  GoogleAnalytics4.event({ action: '드래그 앤 드롭으로 사진 추가', category: 'add-photo-button' });
 };
 
 const downloadOnePhotoEvent = () => {
-  GoogleAnalytics4.event({ action: 'single', category: 'download-photo-button', label: '단일 사진 다운로드' });
+  GoogleAnalytics4.event({ action: '단일 사진 다운로드', category: 'download-photo-button' });
 };
 
 const downloadAllPhotosEvent = () => {
-  GoogleAnalytics4.event({ action: 'multiple', category: 'download-photo-button', label: '복수 사진 다운로드' });
+  GoogleAnalytics4.event({ action: '복수 사진 다운로드', category: 'download-photo-button' });
 };
 
 const jpegDownloadEvent = () => {
-  GoogleAnalytics4.event({ action: 'jpeg', category: 'download-format-button', label: 'JPEG 다운로드' });
+  GoogleAnalytics4.event({ action: 'JPEG 변환 후 다운로드', category: 'download-format-button' });
 };
 
 const webpDownloadEvent = () => {
-  GoogleAnalytics4.event({ action: 'webp', category: 'download-format-button', label: 'WEBP 다운로드' });
+  GoogleAnalytics4.event({ action: 'WEBP 변환 후 다운로드', category: 'download-format-button' });
 };
 
 const changeThemeEvent = (theme: string) => {
