@@ -13,6 +13,7 @@ import justFrame from './11-just-frame';
 import shotOn from './12-shot-on';
 import compact from './13-compact';
 import darkCompact from './14-dark-compact';
+import polaroid from './15-polaroid';
 
 const themes: { name: string; func: Theme }[] = [
   { name: 'No Frame', func: noFrame },
@@ -29,6 +30,7 @@ const themes: { name: string; func: Theme }[] = [
   { name: 'Dark Strap', func: darkStrap },
   { name: 'Compact', func: compact },
   { name: 'Dark Compact', func: darkCompact },
+  { name: 'Polaroid', func: polaroid },
 ];
 
 export default themes;
