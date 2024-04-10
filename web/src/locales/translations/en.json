@@ -20,6 +20,7 @@
   "root.add-photo": "Add Photo",
   "root.download-all": "Download All",
   "root.bug-report": "Bug Report",
+  "root.feature-request": "Feature Request",
   "root.loaded-photos": "Loaded Photos",
   "root.processing": "it may take a long time depending on device specifications.",
   "root.releases": "Releases",

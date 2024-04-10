@@ -30,6 +30,7 @@ import OverrideMetadataButton from './components/override-metadata.button';
 import FixWatermarkListItem from './components/fix-watermark.list-item';
 import ExportToJpegListItem from './components/export-to-jpeg.list-item';
 import RemoveAllPhotoButton from './components/remove-all-photo.button';
+import FeatureRequestButton from './components/feature-request.button';
 
 const RootPage = () => {
   const { t } = useTranslation();
@@ -46,6 +47,7 @@ const RootPage = () => {
 
       <Toolbar className="left-0 bottom-0 fixed w-full">
         <BugReportButton />
+        <FeatureRequestButton />
         <ReleasesButton />
       </Toolbar>
 
