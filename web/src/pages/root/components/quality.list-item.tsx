@@ -10,7 +10,12 @@ const QualityListItem = () => {
     <ListItem
       title={t('root.settings.quality')}
       media={<QualityIcon size={26} />}
-      after={<Range value={quality} min={0} max={100} step={5} onChange={(e) => setQuality(e.target.value)} />}
+      after={
+        <>
+          {quality}%&nbsp;
+          <Range value={quality} min={0} max={100} step={5} onChange={(e) => setQuality(e.target.value)} />
+        </>
+      }
     />
   );
 };

@@ -8,7 +8,14 @@ const SettingsPanel = ({ children }: { children: React.ReactNode }) => {
   const { openedPanel, setOpenedPanel } = useStore();
 
   return (
-    <Panel size="w-80 h-screen" floating side="right" opened={openedPanel === 'right'} onBackdropClick={() => setOpenedPanel(null)}>
+    <Panel
+      style={{ width: '22rem' }}
+      size="h-screen"
+      floating
+      side="right"
+      opened={openedPanel === 'right'}
+      onBackdropClick={() => setOpenedPanel(null)}
+    >
       <Page>
         <Navbar title={t('root.settings')} right={<CloseLink />} />
         {children}
