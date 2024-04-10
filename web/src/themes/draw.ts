@@ -29,6 +29,7 @@ const draw = async (theme: Theme, photo: Photo, options: UserCustomOptions): Pro
 
     const fontSize = canvas.height > canvas.width ? canvas.width * 0.03 : canvas.height * 0.03;
 
+    context.globalAlpha = 0.5;
     context.fillStyle = '#ffffff';
     context.shadowColor = '#000000';
     context.shadowBlur = 10;
@@ -38,6 +39,7 @@ const draw = async (theme: Theme, photo: Photo, options: UserCustomOptions): Pro
     context.textBaseline = 'bottom';
     context.fillText(options.watermark, canvas.width - fontSize / 2, canvas.height - fontSize / 2);
     context.shadowBlur = 0;
+    context.globalAlpha = 1;
   }
 
   if (options.imageWidth) {
