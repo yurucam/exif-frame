@@ -11,12 +11,10 @@ const insideDarkCompact: Theme = async (photo, image, options) => {
   canvas.height = image.height + top + bottom;
 
   const context = canvas.getContext('2d')!;
-  context.fillStyle = '#000000';
-  context.fillRect(0, 0, canvas.width, canvas.height);
   context.drawImage(image, left, top, image.width, image.height);
 
   const fontSize = image.height > image.width ? image.width * 0.02 : image.height * 0.02;
-  context.fillStyle = '#ffffff';
+  context.fillStyle = '#000000';
   context.font = `normal 200 ${fontSize}px Barlow`;
   context.textAlign = 'left';
   context.textBaseline = 'bottom';
