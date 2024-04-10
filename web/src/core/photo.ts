@@ -137,6 +137,14 @@ class Photo {
   public set exposureTime(value: string | undefined) {
     this.metadata.exposureTime = value;
   }
+
+  /**
+   * Returns the thumbnail of the camera that took the photo.
+   * @example 'data:image/jpg;base64,...'
+   */
+  public get thumbnail(): string | undefined {
+    return this.metadata.thumbnail;
+  }
 }
 
 export default Photo;

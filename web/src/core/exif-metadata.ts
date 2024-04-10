@@ -8,6 +8,7 @@ class ExifMetadata {
   public fNumber: string | undefined;
   public iso: string | undefined;
   public exposureTime: string | undefined;
+  public thumbnail: string | undefined;
 
   constructor(metadata: Tags) {
     console.log(metadata);
@@ -18,6 +19,7 @@ class ExifMetadata {
     this.fNumber = metadata?.FNumber?.description;
     this.iso = metadata?.ISOSpeedRatings?.value?.toString();
     this.exposureTime = metadata?.ExposureTime?.description;
+    this.thumbnail = metadata?.Thumbnail?.base64 ? 'data:image/jpg;base64,' + metadata?.Thumbnail?.base64 : undefined;
   }
 }
 
