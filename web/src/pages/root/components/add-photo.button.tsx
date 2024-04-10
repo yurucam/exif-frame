@@ -43,7 +43,7 @@ const AddPhotoButton = () => {
 
   return (
     <>
-      <input type="file" accept="image/*" onChange={onChange} multiple hidden />
+      <input type="file" accept="image/*" onChange={onChange} onClick={(e) => (e.currentTarget.value = '')} multiple hidden />
 
       <Button
         clear
