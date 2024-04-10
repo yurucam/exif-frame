@@ -29,6 +29,8 @@ import OverrideMetadataPopup from './components/override-metadata.popup';
 import OverrideMetadataButton from './components/override-metadata.button';
 import FixWatermarkListItem from './components/fix-watermark.list-item';
 import ExportToJpegListItem from './components/export-to-jpeg.list-item';
+import RemoveAllPhotoButton from './components/remove-all-photo.button';
+import FeatureRequestButton from './components/feature-request.button';
 
 const RootPage = () => {
   const { t } = useTranslation();
@@ -45,10 +47,16 @@ const RootPage = () => {
 
       <Toolbar className="left-0 bottom-0 fixed w-full">
         <BugReportButton />
+        <FeatureRequestButton />
         <ReleasesButton />
       </Toolbar>
 
-      {photos.length !== 0 && <BlockTitle>{t('root.loaded-photos')}</BlockTitle>}
+      {photos.length !== 0 && (
+        <BlockTitle>
+          {t('root.loaded-photos')}
+          <RemoveAllPhotoButton />
+        </BlockTitle>
+      )}
       <List strongIos inset>
         {photos.map((photo, index) => (
           <ListItem
