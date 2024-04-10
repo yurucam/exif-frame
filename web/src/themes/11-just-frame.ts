@@ -2,8 +2,8 @@ import { Theme } from './draw';
 
 const calculateMargin = (image: HTMLImageElement) => {
   return image.width > image.height
-    ? { top: image.width * 0.05, right: image.width * 0.05, bottom: image.width * 0.05 * 2, left: image.width * 0.05 }
-    : { top: image.height * 0.05, right: image.height * 0.05, bottom: image.height * 0.05 * 2, left: image.height * 0.05 };
+    ? { top: image.width * 0.05, right: image.width * 0.05, bottom: image.width * 0.05, left: image.width * 0.05 }
+    : { top: image.height * 0.05, right: image.height * 0.05, bottom: image.height * 0.05, left: image.height * 0.05 };
 };
 
 const justFrame: Theme = async (_photo, image) => {
