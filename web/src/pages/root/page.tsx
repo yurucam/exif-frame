@@ -71,15 +71,13 @@ const RootPage = () => {
             }
             title={photo.file.name}
             subtitle={`${photo.focalLength} ${photo.fNumber} ISO${photo.iso} ${photo.exposureTime}s`}
-            text={
-              <>
-                {`${photo.make} ${photo.model} ${photo.lensModel}`}
-                <div className="flex space-x-1 mt-1">
-                  <OverrideMetadataButton photo={photo} />
-                  <DownloadOnePhotoButton photo={photo} />
-                  <RemoveOnePhotoButton index={index} />
-                </div>
-              </>
+            text={`${photo.make} ${photo.model} ${photo.lensModel}`}
+            footer={
+              <div className="flex space-x-1 mt-1">
+                <OverrideMetadataButton photo={photo} />
+                <DownloadOnePhotoButton photo={photo} />
+                <RemoveOnePhotoButton index={index} />
+              </div>
             }
           />
         ))}
