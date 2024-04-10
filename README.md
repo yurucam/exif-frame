@@ -5,7 +5,11 @@
 <h1 align="center"><a href="https://exif-frame.yuru.cam">EXIF Frame</a></h1>
 <p align="center">📸 → 🖼️ with EXIF metadata<p/>
 <br/>
-
+  
+<p align="center">
+<img src="https://github.com/yurucam/exif-frame/assets/25793226/8ad37cf8-6eb6-4c81-8611-5696e7c12a2b" alt="example page" width=400px />
+<p/>
+  
 [EXIF Frame](https://exif-frame.yuru.cam) is a web application that displays exif metadata in the frame by adding a white border frame to the image. Users can process the uploaded image and download the result. You can also manually edit the automatically acquired and displayed exif metadata later.
 
 ## Example
