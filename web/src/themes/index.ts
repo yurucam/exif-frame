@@ -11,6 +11,8 @@ import strap from './09-strap';
 import darkStrap from './10-dark-strap';
 import justFrame from './11-just-frame';
 import shotOn from './12-shot-on';
+import compact from './13-compact';
+import darkCompact from './14-dark-compact';
 
 const themes: { name: string; func: Theme }[] = [
   { name: 'No Frame', func: noFrame },
@@ -25,6 +27,8 @@ const themes: { name: string; func: Theme }[] = [
   { name: 'Monitor', func: monitor },
   { name: 'Strap', func: strap },
   { name: 'Dark Strap', func: darkStrap },
+  { name: 'Compact', func: compact },
+  { name: 'Dark Compact', func: darkCompact },
 ];
 
 export default themes;
