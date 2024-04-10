@@ -10,7 +10,7 @@
     "@jsquash/webp": "^1.4.0",
     "autoprefixer": "10.4.19",
     "buffer": "^6.0.3",
-    "exifreader": "4.21.1",
+    "exifreader": "^4.22.1",
     "file-saver": "^2.0.5",
     "i18next": "^23.11.0",
     "i18next-browser-languagedetector": "^7.2.1",
