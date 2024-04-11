@@ -1,0 +1,4 @@
+"CFBundleDisplayName" = "EXIFフレーム";
+"CFBundleName" = "EXIFフレーム";
+"NSPhotoLibraryAddUsageDescription" = "結果物を保存するために写真の追加権限を要請します。";
+"NSPhotoLibraryUsageDescription" = "写真をインポートおよび保存する権限を要求します。";
