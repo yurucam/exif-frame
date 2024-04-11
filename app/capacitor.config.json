@@ -1,0 +1,5 @@
+{
+  "appId": "com.yurucam.exif",
+  "appName": "EXIF Frame",
+  "webDir": "../web/dist"
+}

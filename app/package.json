@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "ios": "npx cap run ios",
+    "android": "npx cap run android"
+  },
+  "dependencies": {
+    "@capacitor-community/media": "^5.4.1",
+    "@capacitor/android": "^5.7.4",
+    "@capacitor/core": "latest",
+    "@capacitor/ios": "^5.7.4"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "latest"
+  }
+}
