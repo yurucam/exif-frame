@@ -7,6 +7,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@capacitor-community/media": "^5.4.1",
+    "@capacitor/core": "^5.7.4",
     "@jsquash/webp": "^1.4.0",
     "autoprefixer": "10.4.19",
     "buffer": "^6.0.3",
