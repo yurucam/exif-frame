@@ -1,0 +1,4 @@
+"CFBundleDisplayName" = "EXIF Frame";
+"CFBundleName" = "EXIF Frame";
+"NSPhotoLibraryAddUsageDescription" = "Request permission to add photos to save the results.";
+"NSPhotoLibraryUsageDescription" = "Request permission to import and save photos.";
