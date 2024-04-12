@@ -14,7 +14,7 @@ class ExifMetadata {
     console.log(metadata);
     this.make = metadata?.Make?.description;
     this.model = metadata?.Model?.description;
-    this.lensModel = metadata?.LensModel?.description;
+    this.lensModel = this.model ? metadata?.LensModel?.description?.replace(this.model, '')?.trim() : metadata?.LensModel?.description;
     this.focalLength = metadata?.FocalLength?.description?.replace(' mm', 'mm');
     this.fNumber = metadata?.FNumber?.description;
     this.iso = metadata?.ISOSpeedRatings?.value?.toString();
