@@ -1,4 +1,4 @@
-import { BlockTitle, List, ListItem, Navbar, Page, Toolbar } from 'konsta/react';
+import { BlockTitle, List, ListItem, Navbar, Page, Toast, Toolbar } from 'konsta/react';
 import { useTranslation } from 'react-i18next';
 import OpenSettingsLink from './components/open-settings.link';
 import OpenThemesLink from './components/open-themes.link';
@@ -31,10 +31,31 @@ import FixWatermarkListItem from './components/fix-watermark.list-item';
 import ExportToJpegListItem from './components/export-to-jpeg.list-item';
 import RemoveAllPhotoButton from './components/remove-all-photo.button';
 import FeatureRequestButton from './components/feature-request.button';
+import { useEffect, useState } from 'react';
 
 const RootPage = () => {
   const { t } = useTranslation();
-  const { photos, selectedThemeName } = useStore();
+  const { photos, selectedThemeName, loading } = useStore();
+  const [openToast, setOpenToast] = useState(false);
+  const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    if (timer) {
+      clearTimeout(timer);
+      setTimer(null);
+    }
+
+    if (loading) {
+      setOpenToast(true);
+      setTimer(
+        setTimeout(() => {
+          setOpenToast(false);
+          setTimer(null);
+        }, 3000)
+      );
+    }
+  }, [loading, timer]);
+
   const theme = themes.find((theme) => theme.name === selectedThemeName);
 
   return (
@@ -127,6 +148,10 @@ const RootPage = () => {
       <OverrideMetadataPopup />
 
       <Loading />
+
+      <Toast position="center" opened={openToast}>
+        {t('root.successfully-downloaded-in-gallery')}
+      </Toast>
     </Page>
   );
 };

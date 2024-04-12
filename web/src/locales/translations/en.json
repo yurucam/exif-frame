@@ -19,6 +19,8 @@
   "root.themes.preview": "Preview",
   "root.themes.list": "List",
 
+  "root.successfully-downloaded-in-gallery": "Successfully downloaded to gallery",
+
   "root.add-photo": "Add Photo",
   "root.download-all": "Download All",
   "root.bug-report": "Bug Report",
