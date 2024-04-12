@@ -1,8 +1,8 @@
 {
   "scripts": {
     "sync": "npx cap sync",
-    "run:ios": "npx cap run ios",
-    "run:android": "npx cap run android",
+    "ios": "npx cap run ios",
+    "android": "npx cap run android",
     "open:ios": "npx cap open ios",
     "open:android": "npx cap open android"
   },

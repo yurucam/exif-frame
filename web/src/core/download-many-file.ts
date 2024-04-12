@@ -10,6 +10,7 @@ const downloadManyFile = async (files: { name: string; buffer: ArrayBuffer; type
       await Media.savePhoto({
         fileName: file.name.replace(/\.[^/.]+$/, `.${file.type === 'image/jpeg' ? 'jpg' : 'webp'}`),
         path: `data:${file.type};base64,${Buffer.from(file.buffer).toString('base64')}`,
+        albumIdentifier: Capacitor.getPlatform() === 'android' ? (await Media.getAlbums()).albums.pop()?.identifier : undefined,
       });
     }
   } else {
