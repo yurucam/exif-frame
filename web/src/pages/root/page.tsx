@@ -45,7 +45,7 @@ const RootPage = () => {
       setTimer(null);
     }
 
-    if (loading) {
+    if (!loading && photos.length !== 0) {
       setOpenToast(true);
       setTimer(
         setTimeout(() => {
