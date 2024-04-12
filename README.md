@@ -1,11 +1,11 @@
 <br/>
 <p align="center">
-  <img src="https://github.com/yurucam/exif-frame/assets/25793226/06a50ae2-2288-4b5e-be25-4044afdbb67a" alt="album and camera" width=200px />
+  <img src="https://github.com/yurucam/exif-frame/assets/25793226/b9de5dc3-344a-4a3f-8cfb-ed4c82404cea" alt="album and camera" width=200px />
 <p/>
 <h1 align="center"><a href="https://exif-frame.yuru.cam">EXIF Frame</a></h1>
 <p align="center">📸 → 🖼️ with EXIF metadata<p/>
 <br/>
-  
+
 <p align="center">
 <img src="https://github.com/yurucam/exif-frame/assets/25793226/8ad37cf8-6eb6-4c81-8611-5696e7c12a2b" alt="example page" width=400px />
 <p/>
