@@ -1,23 +1,14 @@
-import { Theme } from './draw';
-
-const calculateMargin = (image: HTMLImageElement) => {
-  return image.width > image.height
-    ? { top: 0, right: 0, bottom: image.width * 0.02 * 2, left: 0 }
-    : { top: 0, right: 0, bottom: image.height * 0.02 * 2, left: 0 };
-};
+import { Theme, createCanvas } from './draw';
 
 const compact: Theme = async (photo, image, options) => {
-  const canvas = document.createElement('canvas');
-  const { top, right, bottom, left } = calculateMargin(image);
-  canvas.width = image.width + left + right;
-  canvas.height = image.height + top + bottom;
+  const { canvas, fontSize, paddingBottom } = createCanvas(image, {
+    fontSizePercent: 2,
+    paddingBasedOn: 'auto-inverse',
+    paddingBottomPercent: 4,
+  });
 
   const context = canvas.getContext('2d')!;
-  context.fillStyle = '#ffffff';
-  context.fillRect(0, 0, canvas.width, canvas.height);
-  context.drawImage(image, left, top, image.width, image.height);
 
-  const fontSize = image.height > image.width ? image.width * 0.02 : image.height * 0.02;
   context.fillStyle = '#000000';
   context.font = `normal 200 ${fontSize}px Barlow`;
   context.textAlign = 'left';
@@ -34,8 +25,8 @@ const compact: Theme = async (photo, image, options) => {
     ]
       .filter(Boolean)
       .join(' | '),
-    left + fontSize,
-    canvas.height - bottom / 2
+    fontSize,
+    canvas.height - paddingBottom / 2
   );
 
   return canvas;

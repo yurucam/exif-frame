@@ -1,6 +1,5 @@
 import { Theme } from './draw';
 import noFrame from './01-no-frame';
-import cinemaScope from './02-cinema-scope';
 import simple from './03-simple';
 import darkSimple from './04-dark-simple';
 import inside from './05-inside';
@@ -32,7 +31,6 @@ const themes: { name: string; func: Theme; preview: string }[] = [
   { name: 'Dark Inside Compact', func: insideDarkCompact, preview: '/preview/dark-inside-compact.jpg' },
   { name: 'Just Frame', func: justFrame, preview: '/preview/just-frame.jpg' },
   { name: 'Polaroid', func: polaroid, preview: '/preview/polaroid.jpg' },
-  { name: 'Cinema Scope', func: cinemaScope, preview: '/preview/cinema-scope.jpg' },
   { name: 'Grid Lines', func: gridLines, preview: '/preview/grid-lines.jpg' },
   { name: 'No Frame', func: noFrame, preview: '/preview/no-frame.jpg' },
 ];

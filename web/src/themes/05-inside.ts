@@ -1,21 +1,9 @@
-import { Theme } from './draw';
-
-const calculateMargin = (image: HTMLImageElement) => {
-  return image.width > image.height ? { bottom: image.width * 0.05 * 2 } : { bottom: image.height * 0.05 * 2 };
-};
+import { Theme, createCanvas } from './draw';
 
 const inside: Theme = async (photo, image, options) => {
-  const canvas = document.createElement('canvas');
-  const { bottom } = calculateMargin(image);
-  canvas.width = image.width;
-  canvas.height = image.height;
+  const { canvas, fontSize } = createCanvas(image, { fontSizePercent: 3 });
 
   const context = canvas.getContext('2d')!;
-  context.fillStyle = '#000000';
-  context.fillRect(0, 0, canvas.width, canvas.height);
-  context.drawImage(image, 0, 0, image.width, image.height);
-
-  const fontSize = image.height > image.width ? image.width * 0.035 : image.height * 0.035;
   context.fillStyle = '#ffffff';
   context.font = `normal 200 ${fontSize}px Barlow`;
   context.textAlign = 'center';
@@ -29,12 +17,12 @@ const inside: Theme = async (photo, image, options) => {
       .filter(Boolean)
       .join(' | '),
     canvas.width / 2,
-    canvas.height - bottom / 2 - fontSize / 2 - fontSize / 7
+    canvas.height - fontSize * 2
   );
   context.fillText(
     [photo.focalLength, photo.fNumber, 'ISO ' + photo.iso, photo.exposureTime + 's'].filter(Boolean).join(' | '),
     canvas.width / 2,
-    canvas.height - bottom / 2 + fontSize / 2 + fontSize / 7
+    canvas.height - fontSize * 3.5
   );
 
   return canvas;

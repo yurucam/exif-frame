@@ -1,24 +1,13 @@
-import { Theme } from './draw';
-
-const calculateMargin = (image: HTMLImageElement) => {
-  return image.width > image.height
-    ? { top: 0, right: 0, bottom: image.width * 0.04 * 2, left: 0 }
-    : { top: 0, right: 0, bottom: image.height * 0.04 * 2, left: 0 };
-};
+import { Theme, createCanvas } from './draw';
 
 const strap: Theme = async (photo, image, options) => {
-  const canvas = document.createElement('canvas');
-  const { top, right, bottom, left } = calculateMargin(image);
-  canvas.width = image.width + left + right;
-  canvas.height = image.height + top + bottom;
+  const { canvas, fontSize, paddingBottom } = createCanvas(image, {
+    fontSizePercent: 2.5,
+    paddingBasedOn: 'auto-inverse',
+    paddingBottomPercent: 7,
+  });
 
   const context = canvas.getContext('2d')!;
-  context.fillStyle = '#ffffff';
-  context.fillRect(0, 0, canvas.width, canvas.height);
-
-  context.drawImage(image, left, top, image.width, image.height);
-
-  const fontSize = image.height > image.width ? image.width * 0.025 : image.height * 0.025;
   context.fillStyle = '#000000';
   context.font = `normal 500 ${fontSize}px Barlow`;
   context.textAlign = 'left';
@@ -26,7 +15,7 @@ const strap: Theme = async (photo, image, options) => {
   context.fillText(
     ['ISO' + photo.iso, photo.fNumber, photo.exposureTime + 's'].filter(Boolean).join(' '),
     fontSize,
-    canvas.height - bottom / 2 - fontSize / 1.8
+    canvas.height - paddingBottom / 2 - fontSize / 1.8
   );
 
   context.fillStyle = '#000000';
@@ -41,7 +30,7 @@ const strap: Theme = async (photo, image, options) => {
       .filter(Boolean)
       .join(' | '),
     canvas.width - fontSize,
-    canvas.height - bottom / 2 - fontSize / 1.8
+    canvas.height - paddingBottom / 2 - fontSize / 1.8
   );
 
   context.fillStyle = '#808080';
@@ -51,7 +40,7 @@ const strap: Theme = async (photo, image, options) => {
   context.fillText(
     [options.showLensModel ? options.overrideLensModel || photo.lensModel : null, photo.focalLength].filter(Boolean).join(' '),
     canvas.width - fontSize,
-    canvas.height - bottom / 2 + fontSize / 1.8
+    canvas.height - paddingBottom / 2 + fontSize / 1.8
   );
 
   return canvas;
