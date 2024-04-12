@@ -11,7 +11,6 @@ const SettingsPanel = ({ children }: { children: React.ReactNode }) => {
     <Panel
       style={{ width: '22rem' }}
       size="h-screen"
-      floating
       side="right"
       opened={openedPanel === 'right'}
       onBackdropClick={() => setOpenedPanel(null)}

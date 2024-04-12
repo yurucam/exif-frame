@@ -109,6 +109,7 @@ const useStore = create<Store>((set) => ({
   imageWidth: parseInt(localStorage.getItem('imageWidth') || '1920'),
   setImageWidth: (imageWidth: number) =>
     set(() => {
+      if (imageWidth > 4096) imageWidth = 4096;
       localStorage.setItem('imageWidth', imageWidth.toString() || '1920');
       return { imageWidth: imageWidth || 1920 };
     }),
