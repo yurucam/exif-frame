@@ -3,7 +3,6 @@ import { Media } from '@capacitor-community/media';
 import { Buffer } from 'buffer';
 import JSZip from 'jszip';
 import saveAs from 'file-saver';
-import { t } from 'i18next';
 
 const downloadManyFile = async (files: { name: string; buffer: ArrayBuffer; type: 'image/jpeg' | 'image/webp' }[]): Promise<void> => {
   if (Capacitor.isNativePlatform()) {
@@ -29,8 +28,6 @@ const downloadManyFile = async (files: { name: string; buffer: ArrayBuffer; type
     const file = await zip.generateAsync({ type: 'blob' });
     saveAs(file, 'images.zip');
   }
-
-  alert(t('root.successfully-downloaded-in-gallery'));
 };
 
 export default downloadManyFile;

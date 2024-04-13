@@ -1,38 +1,43 @@
-import { Theme } from './draw';
-import noFrame from './01-no-frame';
-import simple from './03-simple';
-import darkSimple from './04-dark-simple';
-import inside from './05-inside';
-import darkInside from './06-dark-inside';
-import gridLines from './07-grid-lines';
-import monitor from './08-monitor';
-import strap from './09-strap';
-import darkStrap from './10-dark-strap';
-import justFrame from './11-just-frame';
-import shotOn from './12-shot-on';
-import compact from './13-compact';
-import darkCompact from './14-dark-compact';
-import polaroid from './15-polaroid';
-import insideCompact from './16-inside-compact';
-import insideDarkCompact from './17-inside-dark-compact';
+import { create } from 'zustand';
+import { NO_FRAME_THEME_FUNC, NO_FRAME_OPTIONS } from './01_NO_FRAME';
+import { ONE_LINE_FUNC, ONE_LINE_OPTIONS } from './03_ONE_LINE';
+import { TWO_LINE_FUNC, TWO_LINE_OPTIONS } from './04_TWO_LINE';
+import { JUST_FRAME_FUNC, JUST_FRAME_OPTIONS } from './02_JUST_FRAME';
+import { SHOT_ON_FUNC, SHOT_ON_OPTIONS } from './05_SHOT_ON';
 
-const themes: { name: string; func: Theme; preview: string }[] = [
-  { name: 'Shot On', func: shotOn, preview: '/preview/shot-on.jpg' },
-  { name: 'Monitor', func: monitor, preview: '/preview/monitor.jpg' },
-  { name: 'Simple', func: simple, preview: '/preview/simple.jpg' },
-  { name: 'Inside', func: inside, preview: '/preview/inside.jpg' },
-  { name: 'Strap', func: strap, preview: '/preview/strap.jpg' },
-  { name: 'Compact', func: compact, preview: '/preview/compact.jpg' },
-  { name: 'Inside Compact', func: insideCompact, preview: '/preview/inside-compact.jpg' },
-  { name: 'Dark Simple', func: darkSimple, preview: '/preview/dark-simple.jpg' },
-  { name: 'Dark Inside', func: darkInside, preview: '/preview/dark-inside.jpg' },
-  { name: 'Dark Strap', func: darkStrap, preview: '/preview/dark-strap.jpg' },
-  { name: 'Dark Compact', func: darkCompact, preview: '/preview/dark-compact.jpg' },
-  { name: 'Dark Inside Compact', func: insideDarkCompact, preview: '/preview/dark-inside-compact.jpg' },
-  { name: 'Just Frame', func: justFrame, preview: '/preview/just-frame.jpg' },
-  { name: 'Polaroid', func: polaroid, preview: '/preview/polaroid.jpg' },
-  { name: 'Grid Lines', func: gridLines, preview: '/preview/grid-lines.jpg' },
-  { name: 'No Frame', func: noFrame, preview: '/preview/no-frame.jpg' },
+type AcceptInputType = string | number | boolean;
+
+type ThemeStore = {
+  option: Map<string, AcceptInputType>;
+  setOption: (key: string, value: AcceptInputType) => void;
+  clearOption: () => void;
+};
+
+const useThemeStore = create<ThemeStore>((set) => ({
+  option: localStorage.getItem('option') ? new Map(JSON.parse(localStorage.getItem('option') as string)) : new Map(),
+  setOption: (key, value) => {
+    set((state) => {
+      state.option.set(key, value);
+      localStorage.setItem('option', JSON.stringify(Array.from(state.option.entries())));
+      return state;
+    });
+  },
+  clearOption: () => {
+    set((state) => {
+      state.option.clear();
+      localStorage.removeItem('option');
+      return state;
+    });
+  },
+}));
+
+const themes = [
+  { name: 'No frame', func: NO_FRAME_THEME_FUNC, options: NO_FRAME_OPTIONS },
+  { name: 'Just frame', func: JUST_FRAME_FUNC, options: JUST_FRAME_OPTIONS },
+  { name: 'One line', func: ONE_LINE_FUNC, options: ONE_LINE_OPTIONS },
+  { name: 'Two line', func: TWO_LINE_FUNC, options: TWO_LINE_OPTIONS },
+  { name: 'Shot on', func: SHOT_ON_FUNC, options: SHOT_ON_OPTIONS },
 ];
 
 export default themes;
+export { useThemeStore };

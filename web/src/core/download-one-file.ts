@@ -2,7 +2,6 @@ import { Capacitor } from '@capacitor/core';
 import { Media } from '@capacitor-community/media';
 import { Buffer } from 'buffer';
 import saveAs from 'file-saver';
-import { t } from 'i18next';
 
 const downloadOneFile = async (file: { name: string; buffer: ArrayBuffer; type: 'image/jpeg' | 'image/webp' }): Promise<void> => {
   try {
@@ -28,8 +27,6 @@ const downloadOneFile = async (file: { name: string; buffer: ArrayBuffer; type: 
   } catch (error) {
     alert(error);
   }
-
-  alert(t('root.successfully-downloaded-in-gallery'));
 };
 
 export default downloadOneFile;

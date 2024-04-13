@@ -1,35 +1,25 @@
 import { Button } from 'konsta/react';
 import { useTranslation } from 'react-i18next';
 import { useStore } from '../../../store';
-import themes from '../../../themes';
 import canvasToWebp from '../../../core/canvas-to-webp';
 import downloadManyFile from '../../../core/download-many-file';
-import draw from '../../../themes/draw';
 import canvasToJpeg from '../../../core/canvas-to-jpeg';
 import { downloadAllPhotosEvent } from '../../../google-analytics';
 import DownloadIcon from '../../../icons/download.icon';
+import render from '../../../themes/00_BASE/render';
+import themes, { useThemeStore } from '../../../themes';
 
 const DownloadAllPhotoButton = () => {
   const { t } = useTranslation();
-  const {
-    exportToJpeg,
-    selectedThemeName,
-    quality,
-    photos,
-    fixImageWidth,
-    imageWidth,
-    fixWatermark,
-    watermark,
-    showCameraMaker,
-    showCameraModel,
-    showLensModel,
-    overrideCameraMaker,
-    overrideCameraModel,
-    overrideLensModel,
-    setLoading,
-  } = useStore();
+  const store = useStore();
+  const { photos, selectedThemeName, exportToJpeg, quality, setLoading } = store;
 
-  const selectedTheme = themes.find((theme) => theme.name === selectedThemeName)!;
+  const { option } = useThemeStore();
+  const theme = themes.find((theme) => theme.name === selectedThemeName);
+  theme?.options.forEach((themeOption) => {
+    if (!option.has(themeOption.key)) option.set(themeOption.key, themeOption.default);
+  });
+  const func = theme?.func;
 
   return (
     <>
@@ -41,16 +31,7 @@ const DownloadAllPhotoButton = () => {
           const files: { name: string; buffer: ArrayBuffer; type: 'image/jpeg' | 'image/webp' }[] = [];
           await Promise.all(
             photos.map(async (photo) => {
-              const canvas = await draw(selectedTheme.func, photo, {
-                watermark: fixWatermark ? watermark : undefined,
-                imageWidth: fixImageWidth ? imageWidth : undefined,
-                showCameraMaker,
-                showCameraModel,
-                showLensModel,
-                overrideCameraMaker,
-                overrideCameraModel,
-                overrideLensModel,
-              });
+              const canvas = await render(func!, photo, option, store);
               files.push({
                 name: photo.file.name,
                 buffer: exportToJpeg ? await canvasToJpeg(canvas, quality) : await canvasToWebp(canvas, quality),

@@ -24,6 +24,7 @@
   "root.themes": "テーマ",
   "root.themes.list": "リスト",
   "root.themes.preview": "プレビュー",
+  "root.themes.customize": "カスタマイズ",
 
   "root.successfully-downloaded-in-gallery": "ギャラリーに保存しました",
 
@@ -36,6 +37,7 @@
   "root.releases": "配布内訳",
   "root.override-metadata": "メタデータを上書き",
 
+  "root.settings.current-version": "現在のバージョン",
   "root.settings.dark-mode": "ダークモード",
   "root.settings.language": "言語",
   "root.settings.export-to-jpeg": "JPEGにエクスポート",

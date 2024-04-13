@@ -22,8 +22,9 @@
   "root.title": "EXIF 프레임",
   "root.settings": "설정",
   "root.themes": "테마",
-  "root.themes.list": "테마 목록",
-  "root.themes.preview": "테마 미리보기",
+  "root.themes.list": "목록",
+  "root.themes.preview": "미리보기",
+  "root.themes.customize": "커스터마이징",
 
   "root.successfully-downloaded-in-gallery": "갤러리에 저장되었습니다",
 
@@ -37,6 +38,7 @@
   "root.override-metadata": "메타데이터 강제 변경",
   "root.preview": "미리보기",
 
+  "root.settings.current-version": "현재 버전",
   "root.settings.dark-mode": "다크 모드",
   "root.settings.language": "언어",
   "root.settings.export-to-jpeg": "JPEG로 내보내기",

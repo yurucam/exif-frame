@@ -2,52 +2,34 @@ import { useStore } from '../../../store';
 import { Button, Icon } from 'konsta/react';
 import downloadOneFile from '../../../core/download-one-file';
 import Photo from '../../../core/photo';
-import themes from '../../../themes';
 import canvasToWebp from '../../../core/canvas-to-webp';
 import { IoDownloadOutline } from 'react-icons/io5';
-import draw from '../../../themes/draw';
 import canvasToJpeg from '../../../core/canvas-to-jpeg';
 import { downloadOnePhotoEvent } from '../../../google-analytics';
+import themes, { useThemeStore } from '../../../themes';
+import render from '../../../themes/00_BASE/render';
 
 interface DownloadOnePhotoButtonProps {
   photo: Photo;
 }
 
 const DownloadOnePhotoButton: React.FC<DownloadOnePhotoButtonProps> = ({ photo }) => {
-  const {
-    exportToJpeg,
-    selectedThemeName,
-    quality,
-    fixImageWidth,
-    imageWidth,
-    fixWatermark,
-    watermark,
-    showCameraMaker,
-    showCameraModel,
-    showLensModel,
-    overrideCameraMaker,
-    overrideCameraModel,
-    overrideLensModel,
-    setLoading,
-  } = useStore();
+  const store = useStore();
+  const { selectedThemeName, exportToJpeg, quality, setLoading } = store;
 
-  const selectedTheme = themes.find((theme) => theme.name === selectedThemeName)!;
+  const { option } = useThemeStore();
+  const theme = themes.find((theme) => theme.name === selectedThemeName);
+  theme?.options.forEach((themeOption) => {
+    if (!option.has(themeOption.key)) option.set(themeOption.key, themeOption.default);
+  });
+  const func = theme?.func;
 
   return (
     <div className="w-10">
       <Button
         onClick={async () => {
           setLoading(true);
-          const canvas = await draw(selectedTheme.func, photo, {
-            watermark: fixWatermark ? watermark : undefined,
-            imageWidth: fixImageWidth ? imageWidth : undefined,
-            showCameraMaker,
-            showCameraModel,
-            showLensModel,
-            overrideCameraMaker,
-            overrideCameraModel,
-            overrideLensModel,
-          });
+          const canvas = await render(func!, photo, option, store);
           await downloadOneFile({
             name: photo.file.name,
             buffer: exportToJpeg ? await canvasToJpeg(canvas, quality) : await canvasToWebp(canvas, quality),
