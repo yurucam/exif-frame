@@ -4,6 +4,7 @@ import { ONE_LINE_FUNC, ONE_LINE_OPTIONS } from './03_ONE_LINE';
 import { TWO_LINE_FUNC, TWO_LINE_OPTIONS } from './04_TWO_LINE';
 import { JUST_FRAME_FUNC, JUST_FRAME_OPTIONS } from './02_JUST_FRAME';
 import { SHOT_ON_FUNC, SHOT_ON_OPTIONS } from './05_SHOT_ON';
+import { STRAP_FUNC, STRAP_OPTIONS } from './06_STRAP';
 
 type AcceptInputType = string | number | boolean;
 
@@ -37,6 +38,7 @@ const themes = [
   { name: 'One line', func: ONE_LINE_FUNC, options: ONE_LINE_OPTIONS },
   { name: 'Two line', func: TWO_LINE_FUNC, options: TWO_LINE_OPTIONS },
   { name: 'Shot on', func: SHOT_ON_FUNC, options: SHOT_ON_OPTIONS },
+  { name: 'Strap', func: STRAP_FUNC, options: STRAP_OPTIONS },
 ];
 
 export default themes;
