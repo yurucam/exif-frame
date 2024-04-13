@@ -6,7 +6,7 @@ import { ThemeFunc, ThemeOptionInput } from './type';
 const render = async (func: ThemeFunc, photo: Photo, option: ThemeOptionInput, store: Store): Promise<HTMLCanvasElement> => {
   let canvas = func(photo, option, store);
 
-  if (store.watermark) {
+  if (store.fixWatermark && store.watermark) {
     const context = canvas.getContext('2d')!;
     const fontSize = 100;
     context.fillStyle = '#ffffff';
