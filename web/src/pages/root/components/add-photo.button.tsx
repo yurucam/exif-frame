@@ -40,6 +40,7 @@ const AddPhotoButton = () => {
 
   const onChange = async (event: ChangeEvent<HTMLInputElement>) => {
     setLoading(true);
+    await new Promise((resolve) => setTimeout(resolve, 100));
     const { files } = event.target;
     if (!files) return;
     await Promise.all(Array.from(files).map(Photo.create)).then((newPhotos) => {

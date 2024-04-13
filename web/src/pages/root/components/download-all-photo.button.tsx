@@ -28,6 +28,7 @@ const DownloadAllPhotoButton = () => {
         onClick={async () => {
           if (photos.length === 0) return;
           setLoading(true);
+          await new Promise((resolve) => setTimeout(resolve, 100));
           const files: { name: string; buffer: ArrayBuffer; type: 'image/jpeg' | 'image/webp' }[] = [];
           await Promise.all(
             photos.map(async (photo) => {
