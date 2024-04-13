@@ -29,6 +29,7 @@ const DownloadOnePhotoButton: React.FC<DownloadOnePhotoButtonProps> = ({ photo }
       <Button
         onClick={async () => {
           setLoading(true);
+          await new Promise((resolve) => setTimeout(resolve, 100));
           const canvas = await render(func!, photo, option, store);
           await downloadOneFile({
             name: photo.file.name,
