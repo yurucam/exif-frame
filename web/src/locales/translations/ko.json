@@ -1,8 +1,8 @@
 {
   "close": "닫기",
 
-  "en": "영어",
-  "ja": "일본어",
+  "en": "English",
+  "ja": "日本語",
   "ko": "한국어",
 
   "make": "카메라 제조사",
@@ -12,6 +12,12 @@
   "aperture": "조리개",
   "shutter": "셔터 속도",
   "iso": "ISO",
+
+  "root.tab.convert": "프레임 씌우기",
+  "root.tab.theme-settings": "테마 설정",
+  "root.tab.export-settings": "내보내기 설정",
+
+  "root.go-to-top": "맨 위로 가기",
 
   "root.title": "EXIF 프레임",
   "root.settings": "설정",

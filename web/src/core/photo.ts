@@ -1,5 +1,6 @@
 import { load } from 'exifreader';
 import ExifMetadata from './exif-metadata';
+import createThumbnail from './create-thumbnail';
 
 /**
  * Represents a photo.
@@ -9,6 +10,8 @@ class Photo {
 
   public file!: File;
   private metadata!: ExifMetadata;
+  public image!: HTMLImageElement;
+  public thumbnail!: string;
 
   /**
    * Creates a photo.
@@ -23,6 +26,10 @@ class Photo {
     const photo = new Photo();
     photo.file = file;
     photo.metadata = new ExifMetadata(await load(file));
+    photo.image = new Image();
+    photo.image.src = URL.createObjectURL(file);
+    await new Promise((resolve) => (photo.image.onload = resolve));
+    photo.thumbnail = await createThumbnail(photo);
     return photo;
   }
 
@@ -136,14 +143,6 @@ class Photo {
    */
   public set exposureTime(value: string | undefined) {
     this.metadata.exposureTime = value;
-  }
-
-  /**
-   * Returns the thumbnail of the camera that took the photo.
-   * @example 'data:image/jpg;base64,...'
-   */
-  public get thumbnail(): string | undefined {
-    return this.metadata.thumbnail;
   }
 }
 

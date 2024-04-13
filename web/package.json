@@ -1,5 +1,5 @@
 {
-  "version": "0.4.1",
+  "version": "0.4.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@types/file-saver": "^2.0.7",
+    "@types/image-thumbnail": "^1.0.4",
     "@types/node": "^20.12.2",
     "@types/react": "18.2.73",
     "@types/react-dom": "18.2.23",

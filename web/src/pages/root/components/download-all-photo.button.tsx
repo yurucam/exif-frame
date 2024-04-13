@@ -7,6 +7,7 @@ import downloadManyFile from '../../../core/download-many-file';
 import draw from '../../../themes/draw';
 import canvasToJpeg from '../../../core/canvas-to-jpeg';
 import { downloadAllPhotosEvent } from '../../../google-analytics';
+import DownloadIcon from '../../../icons/download.icon';
 
 const DownloadAllPhotoButton = () => {
   const { t } = useTranslation();
@@ -62,6 +63,8 @@ const DownloadAllPhotoButton = () => {
           downloadAllPhotosEvent();
         }}
       >
+        <DownloadIcon size={16} />
+        <div style={{ width: 4 }} />
         {t('root.download-all')}
       </Button>
     </>
