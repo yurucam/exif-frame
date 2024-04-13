@@ -1,4 +1,4 @@
-import { BlockTitle, List, ListInput, ListItem, Navbar, Page, Tabbar, TabbarLink, Toolbar } from 'konsta/react';
+import { BlockTitle, List, ListItem, Navbar, Page, Tabbar, TabbarLink, Toolbar } from 'konsta/react';
 import { useTranslation } from 'react-i18next';
 import DarkModeListItem from './components/dark-mode.list-item';
 import LanguageListItem from './components/language.list-item';
@@ -29,13 +29,13 @@ import BugReportListItem from './components/bug-report.list-item';
 import FeatureRequestListItem from './components/feature-request.list-item';
 import ReleasesListItem from './components/releases.list-item';
 import CurrentVersionListItem from './components/current-version.list-item';
-import themes, { useThemeStore } from '../../themes';
+import themes from '../../themes';
 import ThemeListItem from './components/theme.list-item';
+import ThemeOptionListInput from './components/theme-option.list-input';
 
 const RootPage = () => {
   const { t } = useTranslation();
   const { photos, selectedThemeName, tabIndex, setTabIndex } = useStore();
-  const { option, setOption } = useThemeStore();
   const theme = themes.find((theme) => theme.name === selectedThemeName);
 
   return (
@@ -123,21 +123,12 @@ const RootPage = () => {
 
           <List strongIos inset>
             {theme?.options.map((themeOption, index) => (
-              <ListInput
-                key={index}
-                name={themeOption.key}
-                title={themeOption.key}
-                info={themeOption.description}
-                defaultValue={option.get(themeOption.key) ?? themeOption.default}
-                onChange={(e) => {
-                  const value = e.target.value;
-                  if (themeOption.type === Number) {
-                    if (isNaN(Number(value))) setOption(themeOption.key, themeOption.default);
-                    else setOption(themeOption.key, Number(value));
-                  } else {
-                    setOption(themeOption.key, value);
-                  }
-                }}
+              <ThemeOptionListInput
+                index={index}
+                key={themeOption.key}
+                description={themeOption.description}
+                defaultValue={themeOption.default}
+                type={themeOption.type}
               />
             ))}
           </List>
