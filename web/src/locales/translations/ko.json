@@ -22,8 +22,9 @@
   "root.title": "EXIF 프레임",
   "root.settings": "설정",
   "root.themes": "테마",
-  "root.themes.list": "테마 목록",
-  "root.themes.preview": "테마 미리보기",
+  "root.themes.list": "목록",
+  "root.themes.preview": "미리보기",
+  "root.themes.customize": "커스터마이징",
 
   "root.successfully-downloaded-in-gallery": "갤러리에 저장되었습니다",
 

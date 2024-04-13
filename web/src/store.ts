@@ -210,3 +210,5 @@ const useStore = create<Store>((set) => ({
 document.getElementById('theme')!.className = useStore.getState().darkMode ? 'dark' : 'light';
 
 export { useStore };
+
+export type { Store };

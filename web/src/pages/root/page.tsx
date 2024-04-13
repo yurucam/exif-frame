@@ -1,4 +1,4 @@
-import { BlockTitle, List, ListItem, Navbar, Page, Tabbar, TabbarLink, Toolbar } from 'konsta/react';
+import { BlockTitle, List, ListInput, ListItem, Navbar, Page, Tabbar, TabbarLink, Toolbar } from 'konsta/react';
 import { useTranslation } from 'react-i18next';
 import DarkModeListItem from './components/dark-mode.list-item';
 import LanguageListItem from './components/language.list-item';
@@ -11,8 +11,6 @@ import ShowLensModelListItem from './components/show-lens-model.list-item';
 import OverrideCameraMakerListItem from './components/override-camera-maker.list-item';
 import OverrideCameraModelListItem from './components/override-camera-model.list-item';
 import OverrideLensModelListItem from './components/override-lens-model.list-item';
-import ThemeListItem from './components/theme.list-item';
-import themes from '../../themes';
 import AddPhotoButton from './components/add-photo.button';
 import { useStore } from '../../store';
 import DownloadOnePhotoButton from './components/download-one-photo.button';
@@ -31,10 +29,13 @@ import BugReportListItem from './components/bug-report.list-item';
 import FeatureRequestListItem from './components/feature-request.list-item';
 import ReleasesListItem from './components/releases.list-item';
 import CurrentVersionListItem from './components/current-version.list-item';
+import themes, { useThemeStore } from '../../themes';
+import ThemeListItem from './components/theme.list-item';
 
 const RootPage = () => {
   const { t } = useTranslation();
   const { photos, selectedThemeName, tabIndex, setTabIndex } = useStore();
+  const { option, setOption } = useThemeStore();
   const theme = themes.find((theme) => theme.name === selectedThemeName);
 
   return (
@@ -110,15 +111,34 @@ const RootPage = () => {
         <>
           <Navbar large transparent title={t('root.themes')} />
 
-          <BlockTitle>{t('root.themes.preview')}</BlockTitle>
-          <List strongIos inset>
-            <img src={theme?.preview} alt="Themes" className="w-full" />
-          </List>
-
           <BlockTitle>{t('root.themes.list')}</BlockTitle>
+
           <List strongIos inset>
             {themes.map((theme, index) => (
               <ThemeListItem key={index} name={theme.name} />
+            ))}
+          </List>
+
+          {theme?.options.length !== 0 && <BlockTitle>{t('root.themes.customize')}</BlockTitle>}
+
+          <List strongIos inset>
+            {theme?.options.map((themeOption, index) => (
+              <ListInput
+                key={index}
+                name={themeOption.key}
+                title={themeOption.key}
+                info={themeOption.description}
+                defaultValue={option.get(themeOption.key) ?? themeOption.default}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (themeOption.type === Number) {
+                    if (isNaN(Number(value))) setOption(themeOption.key, themeOption.default);
+                    else setOption(themeOption.key, Number(value));
+                  } else {
+                    setOption(themeOption.key, value);
+                  }
+                }}
+              />
             ))}
           </List>
         </>
