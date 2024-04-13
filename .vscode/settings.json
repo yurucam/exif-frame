@@ -17,6 +17,8 @@
     "**/dist": true,
     "**/node_modules": true,
     "**/.vscode": true,
-    "**/.nvmrc": true
+    "**/.nvmrc": true,
+    "**/update-latest-version.ts": true,
+    "**/bundle.js": true
   }
 }
