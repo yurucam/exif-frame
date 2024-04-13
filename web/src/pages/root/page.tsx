@@ -122,15 +122,17 @@ const RootPage = () => {
           {theme?.options.length !== 0 && <BlockTitle>{t('root.themes.customize')}</BlockTitle>}
 
           <List strongIos inset>
-            {theme?.options.map((themeOption, index) => (
-              <ThemeOptionListInput
-                index={index}
-                key={themeOption.key}
-                description={themeOption.description}
-                defaultValue={themeOption.default}
-                type={themeOption.type}
-              />
-            ))}
+            {theme?.options.map((option, index) => {
+              return (
+                <ThemeOptionListInput
+                  index={index}
+                  optionKey={option.key}
+                  description={option.description}
+                  defaultValue={option.default}
+                  type={option.type}
+                />
+              );
+            })}
           </List>
         </>
       )}

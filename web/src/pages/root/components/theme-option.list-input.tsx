@@ -1,34 +1,41 @@
 import { ListInput } from 'konsta/react';
 import { useThemeStore } from '../../../themes';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface ThemeOptionListInputProps {
   index: number;
-  key: string;
+  optionKey: string;
   description?: string;
   defaultValue: string | number;
   type: typeof String | typeof Number;
 }
 
 const ThemeOptionListInput = (props: ThemeOptionListInputProps) => {
-  const { index, key, description, defaultValue, type } = props;
+  const { index, optionKey, description, defaultValue, type } = props;
   const { option, setOption } = useThemeStore();
-  const [value, setValue] = useState(option.get(key) ?? defaultValue);
+  const [value, setValue] = useState(option.get(optionKey) ?? defaultValue);
+
+  useEffect(() => {
+    setValue(option.get(optionKey) ?? defaultValue);
+  }, [option, optionKey, defaultValue]);
 
   return (
     <ListInput
       key={index}
-      name={key}
-      title={key}
+      name={optionKey}
+      title={optionKey}
       info={description}
       value={value}
       onChange={(e) => {
         const value = e.target.value;
         if (type === Number) {
-          if (isNaN(Number(value))) setOption(key, defaultValue);
-          else setOption(key, Number(value));
+          if (isNaN(Number(value))) {
+            setOption(optionKey, defaultValue);
+          } else {
+            setOption(optionKey, Number(value));
+          }
         } else {
-          setOption(key, value);
+          setOption(optionKey, value);
         }
         setValue(value);
       }}
