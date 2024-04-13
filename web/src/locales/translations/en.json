@@ -36,6 +36,7 @@
   "root.releases": "Releases",
   "root.override-metadata": "Override EXIF Metadata",
 
+  "root.settings.current-version": "Current Version",
   "root.settings.dark-mode": "Dark Mode",
   "root.settings.language": "Language",
   "root.settings.export-to-jpeg": "Export to JPEG",

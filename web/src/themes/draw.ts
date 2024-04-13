@@ -12,7 +12,7 @@ type UserCustomOptions = {
   overrideLensModel?: string;
 };
 
-type Theme = (photo: Photo, image: HTMLImageElement, options: UserCustomOptions) => Promise<HTMLCanvasElement>;
+type Theme = (photo: Photo, options: UserCustomOptions) => Promise<HTMLCanvasElement>;
 
 const createCanvas = (
   image: HTMLImageElement,
@@ -100,14 +100,7 @@ const createCanvas = (
 };
 
 const draw = async (theme: Theme, photo: Photo, options: UserCustomOptions): Promise<HTMLCanvasElement> => {
-  const url = URL.createObjectURL(photo.file);
-  const image = new Image();
-  image.src = url;
-  await new Promise((resolve) => {
-    image.onload = resolve;
-  });
-
-  let canvas = await theme(photo, image, options);
+  let canvas = await theme(photo, options);
 
   if (options.watermark) {
     const context = canvas.getContext('2d')!;
@@ -134,8 +127,6 @@ const draw = async (theme: Theme, photo: Photo, options: UserCustomOptions): Pro
       options.imageWidth ? (canvas.height * options.imageWidth) / canvas.width : canvas.height
     );
   }
-
-  URL.revokeObjectURL(url); // Free up memory
 
   return canvas;
 };

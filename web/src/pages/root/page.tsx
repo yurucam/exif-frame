@@ -27,6 +27,10 @@ import RemoveAllPhotoButton from './components/remove-all-photo.button';
 import SettingsIcon from '../../icons/settings.icon';
 import ImageIcon from '../../icons/image.icon';
 import GenerateIcon from '../../icons/generate.icon';
+import BugReportListItem from './components/bug-report.list-item';
+import FeatureRequestListItem from './components/feature-request.list-item';
+import ReleasesListItem from './components/releases.list-item';
+import CurrentVersionListItem from './components/current-version.list-item';
 
 const RootPage = () => {
   const { t } = useTranslation();
@@ -146,6 +150,16 @@ const RootPage = () => {
             <OverrideCameraMakerListItem />
             <OverrideCameraModelListItem />
             <OverrideLensModelListItem />
+          </List>
+
+          <List strongIos inset>
+            <BugReportListItem />
+            <FeatureRequestListItem />
+            <ReleasesListItem />
+          </List>
+
+          <List strongIos inset>
+            <CurrentVersionListItem />
           </List>
         </>
       )}

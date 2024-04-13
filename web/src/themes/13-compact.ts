@@ -1,7 +1,7 @@
 import { Theme, createCanvas } from './draw';
 
-const compact: Theme = async (photo, image, options) => {
-  const { canvas, fontSize, paddingBottom } = createCanvas(image, {
+const compact: Theme = async (photo, options) => {
+  const { canvas, fontSize, paddingBottom } = createCanvas(photo.image, {
     fontSizePercent: 2,
     paddingBasedOn: 'auto-inverse',
     paddingBottomPercent: 4,

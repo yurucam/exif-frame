@@ -1,7 +1,7 @@
 import { Theme, createCanvas } from './draw';
 
-const insideDarkCompact: Theme = async (photo, image, options) => {
-  const { canvas, fontSize } = createCanvas(image, { fontSizePercent: 2 });
+const insideDarkCompact: Theme = async (photo, options) => {
+  const { canvas, fontSize } = createCanvas(photo.image, { fontSizePercent: 2 });
 
   const context = canvas.getContext('2d')!;
 

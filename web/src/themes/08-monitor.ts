@@ -1,7 +1,7 @@
 import { Theme, createCanvas } from './draw';
 
-const monitor: Theme = async (photo, image) => {
-  const { canvas, fontSize, paddingBottom } = createCanvas(image, {
+const monitor: Theme = async (photo) => {
+  const { canvas, fontSize, paddingBottom } = createCanvas(photo.image, {
     backgroundColor: '#000000',
     fontSizePercent: 3,
     paddingBasedOn: 'auto-inverse',

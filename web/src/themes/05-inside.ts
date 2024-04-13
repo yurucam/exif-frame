@@ -1,7 +1,7 @@
 import { Theme, createCanvas } from './draw';
 
-const inside: Theme = async (photo, image, options) => {
-  const { canvas, fontSize } = createCanvas(image, { fontSizePercent: 3 });
+const inside: Theme = async (photo, options) => {
+  const { canvas, fontSize } = createCanvas(photo.image, { fontSizePercent: 3 });
 
   const context = canvas.getContext('2d')!;
   context.fillStyle = '#ffffff';

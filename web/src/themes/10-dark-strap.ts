@@ -1,7 +1,7 @@
 import { Theme, createCanvas } from './draw';
 
-const darkStrap: Theme = async (photo, image, options) => {
-  const { canvas, fontSize, paddingBottom } = createCanvas(image, {
+const darkStrap: Theme = async (photo, options) => {
+  const { canvas, fontSize, paddingBottom } = createCanvas(photo.image, {
     backgroundColor: '#000000',
     fontSizePercent: 2.5,
     paddingBasedOn: 'auto-inverse',
