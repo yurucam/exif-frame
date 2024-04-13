@@ -39,36 +39,12 @@ const RootPage = () => {
   const theme = themes.find((theme) => theme.name === selectedThemeName);
 
   return (
-    <Page style={{ paddingBottom: '5rem' }}>
-      <Tabbar labels={true} icons={true} className="left-0 bottom-0 fixed">
-        <TabbarLink
-          key={1}
-          active={tabIndex === 1}
-          label={t('root.tab.convert')}
-          icon={<GenerateIcon size={24} />}
-          onClick={() => setTabIndex(1)}
-        />
-
-        <TabbarLink
-          key={2}
-          active={tabIndex === 2}
-          label={t('root.tab.theme-settings')}
-          icon={<ImageIcon size={24} />}
-          onClick={() => setTabIndex(2)}
-        />
-
-        <TabbarLink
-          key={3}
-          active={tabIndex === 3}
-          label={t('root.tab.export-settings')}
-          icon={<SettingsIcon size={24} />}
-          onClick={() => setTabIndex(3)}
-        />
-      </Tabbar>
-
+    <Page style={{ paddingBottom: '10rem' }}>
       {tabIndex === 1 && (
         <>
-          <Toolbar top className={`left-0 ios:top-0-safe material:top-0-safe sticky w-full`}>
+          <Navbar large transparent title={t('root.convert')} />
+
+          <Toolbar className="bottom-12 fixed">
             <AddPhotoButton />
             <DownloadAllPhotoButton />
           </Toolbar>
@@ -176,6 +152,32 @@ const RootPage = () => {
           </List>
         </>
       )}
+
+      <Tabbar labels={true} icons={true} className="left-0 bottom-0 fixed">
+        <TabbarLink
+          key={1}
+          active={tabIndex === 1}
+          label={t('root.tab.convert')}
+          icon={<GenerateIcon size={24} />}
+          onClick={() => setTabIndex(1)}
+        />
+
+        <TabbarLink
+          key={2}
+          active={tabIndex === 2}
+          label={t('root.tab.theme-settings')}
+          icon={<ImageIcon size={24} />}
+          onClick={() => setTabIndex(2)}
+        />
+
+        <TabbarLink
+          key={3}
+          active={tabIndex === 3}
+          label={t('root.tab.export-settings')}
+          icon={<SettingsIcon size={24} />}
+          onClick={() => setTabIndex(3)}
+        />
+      </Tabbar>
 
       <LanguagePopover />
       <OverrideMetadataPopup />
