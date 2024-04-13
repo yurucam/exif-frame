@@ -102,7 +102,7 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
   context.lineWidth = 2;
   context.stroke();
 
-  let TARGET_LOGO_HEIGHT = 200;
+  let TARGET_LOGO_HEIGHT = FONT_SIZE * 2;
   const TARGET_LOGO_WIDTH = 400;
 
   if (photo.make?.toUpperCase().includes('APPLE')) {
