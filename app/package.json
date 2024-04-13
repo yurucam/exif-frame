@@ -10,7 +10,9 @@
     "@capacitor-community/media": "^5.4.1",
     "@capacitor/android": "^5.7.4",
     "@capacitor/core": "latest",
-    "@capacitor/ios": "^5.7.4"
+    "@capacitor/ios": "^5.7.4",
+    "@capacitor/splash-screen": "^5.0.7",
+    "@capgo/capacitor-updater": "^5.9.0"
   },
   "devDependencies": {
     "@capacitor/cli": "latest"
