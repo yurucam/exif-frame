@@ -1,14 +1,17 @@
 {
+  "version": "0.4.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "rm -rf dist && tsc && vite build && node bundle.js",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
     "@capacitor-community/media": "^5.4.1",
     "@capacitor/core": "^5.7.4",
+    "@capacitor/splash-screen": "^5.0.7",
+    "@capgo/capacitor-updater": "^5.9.0",
     "@jsquash/webp": "^1.4.0",
     "autoprefixer": "10.4.19",
     "buffer": "^6.0.3",
@@ -25,7 +28,9 @@
     "react-i18next": "^14.1.0",
     "react-icons": "5.0.1",
     "react-router-dom": "^6.22.3",
+    "semver": "^7.6.0",
     "tailwindcss": "3.4.3",
+    "uuid": "^9.0.1",
     "webp-wasm": "^1.0.4",
     "zustand": "^4.5.2"
   },

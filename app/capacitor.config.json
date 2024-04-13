@@ -1,5 +1,21 @@
 {
   "appId": "com.yurucam.exif",
   "appName": "EXIF Frame",
-  "webDir": "../web/dist"
+  "webDir": "../web/dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false,
+      "backgroundColor": "#000000",
+      "showSpinner": true,
+      "splashFullScreen": true,
+      "splashImmersive": true,
+      "iosSpinnerStyle": "large",
+      "androidSpinnerStyle": "large",
+      "androidSplashResourceName": "splash",
+      "androidScaleType": "CENTER_CROP"
+    },
+    "CapacitorUpdater": {
+      "autoUpdate": false
+    }
+  }
 }

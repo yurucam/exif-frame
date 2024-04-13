@@ -1,22 +1,37 @@
 PODS:
+  - Alamofire (5.9.1)
   - Capacitor (5.7.4):
     - CapacitorCordova
   - CapacitorCommunityMedia (5.4.1):
     - Capacitor
     - SDWebImage
   - CapacitorCordova (5.7.4)
+  - CapacitorSplashScreen (5.0.7):
+    - Capacitor
+  - CapgoCapacitorUpdater (5.9.0):
+    - Alamofire
+    - Capacitor
+    - SSZipArchive
+    - Version
   - SDWebImage (5.19.1):
     - SDWebImage/Core (= 5.19.1)
   - SDWebImage/Core (5.19.1)
+  - SSZipArchive (2.4.3)
+  - Version (0.8.0)
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
   - "CapacitorCommunityMedia (from `../../node_modules/@capacitor-community/media`)"
   - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorSplashScreen (from `../../node_modules/@capacitor/splash-screen`)"
+  - "CapgoCapacitorUpdater (from `../../node_modules/@capgo/capacitor-updater`)"
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - SDWebImage
+    - SSZipArchive
+    - Version
 
 EXTERNAL SOURCES:
   Capacitor:
@@ -25,13 +40,22 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor-community/media"
   CapacitorCordova:
     :path: "../../node_modules/@capacitor/ios"
+  CapacitorSplashScreen:
+    :path: "../../node_modules/@capacitor/splash-screen"
+  CapgoCapacitorUpdater:
+    :path: "../../node_modules/@capgo/capacitor-updater"
 
 SPEC CHECKSUMS:
+  Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
   Capacitor: 4fe9adf012caceb4c71ffea2f1f4d005cdcbeea7
   CapacitorCommunityMedia: 64352c5ccc6024116c37ec7cffc1376c268a9f84
   CapacitorCordova: a6e87fccc0307dee7aec1560ec9398485f2b0ce7
+  CapacitorSplashScreen: dd3de3f3644710fa2a697cfb91ec262eece4d242
+  CapgoCapacitorUpdater: 597ce6d9c6cc3fd4ce215df6048fe93fa9185397
   SDWebImage: 40b0b4053e36c660a764958bff99eed16610acbb
+  SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
+  Version: de5907f2c5d0f3cf21708db7801d1d5401139486
 
-PODFILE CHECKSUM: 2a82fc6f7ba29c52cf2cf0c469d4a52b179b0484
+PODFILE CHECKSUM: 6e9a11159c443bc3cf914d0d7a72fc19bf2cc2d1
 
 COCOAPODS: 1.15.2
