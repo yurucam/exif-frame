@@ -4,10 +4,11 @@ import Photo from '../../../core/photo';
 import { useTranslation } from 'react-i18next';
 import { useStore } from '../../../store';
 import { addPhotoByClickEvent, addPhotoByDragAndDropEvent } from '../../../google-analytics';
+import AddIcon from '../../../icons/add.icon';
 
 const AddPhotoButton = () => {
   const { t } = useTranslation();
-  const { photos, setPhotos } = useStore();
+  const { photos, setPhotos, setLoading } = useStore();
 
   const onDragEnter = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -24,24 +25,28 @@ const AddPhotoButton = () => {
     e.stopPropagation();
   };
 
-  const onDrop = (e: React.DragEvent<HTMLDivElement>) => {
+  const onDrop = async (e: React.DragEvent<HTMLDivElement>) => {
+    setLoading(true);
     e.preventDefault();
     e.stopPropagation();
     const { files } = e.dataTransfer;
     if (!files) return;
-    Promise.all(Array.from(files).map(Photo.create)).then((newPhotos) => {
+    await Promise.all(Array.from(files).map(Photo.create)).then((newPhotos) => {
       setPhotos([...photos, ...newPhotos]);
     });
     addPhotoByDragAndDropEvent();
+    setLoading(false);
   };
 
-  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const onChange = async (event: ChangeEvent<HTMLInputElement>) => {
+    setLoading(true);
     const { files } = event.target;
     if (!files) return;
-    Promise.all(Array.from(files).map(Photo.create)).then((newPhotos) => {
+    await Promise.all(Array.from(files).map(Photo.create)).then((newPhotos) => {
       setPhotos([...photos, ...newPhotos]);
     });
     addPhotoByClickEvent();
+    setLoading(false);
   };
 
   return (
@@ -59,6 +64,8 @@ const AddPhotoButton = () => {
           if (input) input.click();
         }}
       >
+        <AddIcon size={18} />
+        <div style={{ width: 4 }} />
         {t('root.add-photo')}
       </Button>
     </>

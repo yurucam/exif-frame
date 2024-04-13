@@ -1,9 +1,5 @@
-import { BlockTitle, List, ListItem, Navbar, Page, Toolbar } from 'konsta/react';
+import { BlockTitle, List, ListItem, Navbar, Page, Tabbar, TabbarLink, Toolbar } from 'konsta/react';
 import { useTranslation } from 'react-i18next';
-import OpenSettingsLink from './components/open-settings.link';
-import OpenThemesLink from './components/open-themes.link';
-import SettingsPanel from './components/settings.panel';
-import ThemesPanel from './components/themes.panel';
 import DarkModeListItem from './components/dark-mode.list-item';
 import LanguageListItem from './components/language.list-item';
 import LanguagePopover from './components/language.popover';
@@ -22,106 +18,137 @@ import { useStore } from '../../store';
 import DownloadOnePhotoButton from './components/download-one-photo.button';
 import RemoveOnePhotoButton from './components/remove-one-photo.button';
 import DownloadAllPhotoButton from './components/download-all-photo.button';
-import BugReportButton from './components/bug-report.button';
 import Loading from './components/loading';
-import ReleasesButton from './components/releases.button';
 import OverrideMetadataPopup from './components/override-metadata.popup';
 import OverrideMetadataButton from './components/override-metadata.button';
 import FixWatermarkListItem from './components/fix-watermark.list-item';
 import ExportToJpegListItem from './components/export-to-jpeg.list-item';
 import RemoveAllPhotoButton from './components/remove-all-photo.button';
-import FeatureRequestButton from './components/feature-request.button';
+import SettingsIcon from '../../icons/settings.icon';
+import ImageIcon from '../../icons/image.icon';
+import GenerateIcon from '../../icons/generate.icon';
 
 const RootPage = () => {
   const { t } = useTranslation();
-  const { photos, selectedThemeName } = useStore();
+  const { photos, selectedThemeName, tabIndex, setTabIndex } = useStore();
   const theme = themes.find((theme) => theme.name === selectedThemeName);
 
   return (
     <Page style={{ paddingBottom: '5rem' }}>
-      <Navbar title={t('root.title')} left={<OpenThemesLink />} right={<OpenSettingsLink />} />
+      <Tabbar labels={true} icons={true} className="left-0 bottom-0 fixed">
+        <TabbarLink
+          key={1}
+          active={tabIndex === 1}
+          label={t('root.tab.convert')}
+          icon={<GenerateIcon size={24} />}
+          onClick={() => setTabIndex(1)}
+        />
 
-      <Toolbar top className={`left-0 ios:top-11-safe material:top-14-safe sticky w-full`}>
-        <AddPhotoButton />
-        <DownloadAllPhotoButton />
-      </Toolbar>
+        <TabbarLink
+          key={2}
+          active={tabIndex === 2}
+          label={t('root.tab.theme-settings')}
+          icon={<ImageIcon size={24} />}
+          onClick={() => setTabIndex(2)}
+        />
 
-      <Toolbar className="left-0 bottom-0 fixed w-full">
-        <BugReportButton />
-        <FeatureRequestButton />
-        <ReleasesButton />
-      </Toolbar>
+        <TabbarLink
+          key={3}
+          active={tabIndex === 3}
+          label={t('root.tab.export-settings')}
+          icon={<SettingsIcon size={24} />}
+          onClick={() => setTabIndex(3)}
+        />
+      </Tabbar>
 
-      {photos.length !== 0 && (
-        <BlockTitle>
-          {t('root.loaded-photos')}
-          <RemoveAllPhotoButton />
-        </BlockTitle>
+      {tabIndex === 1 && (
+        <>
+          <Toolbar top className={`left-0 ios:top-0-safe material:top-0-safe sticky w-full`}>
+            <AddPhotoButton />
+            <DownloadAllPhotoButton />
+          </Toolbar>
+
+          {photos.length !== 0 && (
+            <BlockTitle>
+              {t('root.loaded-photos')}
+              <RemoveAllPhotoButton />
+            </BlockTitle>
+          )}
+
+          <List id="list" strongIos inset>
+            {photos.map((photo, index) => (
+              <ListItem
+                key={index}
+                media={
+                  <img
+                    src={photo.thumbnail}
+                    alt={photo.file.name}
+                    style={{ width: '8rem', height: '6rem', objectFit: 'cover', borderRadius: '0.5rem' }}
+                  />
+                }
+                title={photo.file.name}
+                subtitle={`${photo.focalLength} ${photo.fNumber} ISO${photo.iso} ${photo.exposureTime}s`}
+                text={`${photo.make} ${photo.model} ${photo.lensModel}`}
+                footer={
+                  <div className="flex space-x-1 mt-1">
+                    <OverrideMetadataButton photo={photo} />
+                    <DownloadOnePhotoButton photo={photo} />
+                    <RemoveOnePhotoButton index={index} />
+                  </div>
+                }
+              />
+            ))}
+          </List>
+        </>
       )}
-      <List strongIos inset>
-        {photos.map((photo, index) => (
-          <ListItem
-            key={index}
-            // media={
-            //   <img
-            //     src={photo.thumbnail}
-            //     alt={photo.file.name}
-            //     style={{ width: '8rem', height: '6rem', objectFit: 'cover', borderRadius: '0.5rem' }}
-            //   />
-            // }
-            title={photo.file.name}
-            subtitle={`${photo.focalLength} ${photo.fNumber} ISO${photo.iso} ${photo.exposureTime}s`}
-            text={`${photo.make} ${photo.model} ${photo.lensModel}`}
-            footer={
-              <div className="flex space-x-1 mt-1">
-                <OverrideMetadataButton photo={photo} />
-                <DownloadOnePhotoButton photo={photo} />
-                <RemoveOnePhotoButton index={index} />
-              </div>
-            }
-          />
-        ))}
-      </List>
 
-      <SettingsPanel>
-        <List strongIos inset>
-          <DarkModeListItem />
-          <LanguageListItem />
-          <FixWatermarkListItem />
-        </List>
+      {tabIndex === 2 && (
+        <>
+          <Navbar large transparent title={t('root.themes')} />
 
-        <List strongIos inset>
-          <ExportToJpegListItem />
-          <QualityListItem />
-          <FixImageWidthListItem />
-        </List>
+          <BlockTitle>{t('root.themes.preview')}</BlockTitle>
+          <List strongIos inset>
+            <img src={theme?.preview} alt="Themes" className="w-full" />
+          </List>
 
-        <List strongIos inset>
-          <ShowCameraMakerListItem />
-          <ShowCameraModelListItem />
-          <ShowLensModelListItem />
-        </List>
+          <BlockTitle>{t('root.themes.list')}</BlockTitle>
+          <List strongIos inset>
+            {themes.map((theme, index) => (
+              <ThemeListItem key={index} name={theme.name} />
+            ))}
+          </List>
+        </>
+      )}
 
-        <List strongIos inset>
-          <OverrideCameraMakerListItem />
-          <OverrideCameraModelListItem />
-          <OverrideLensModelListItem />
-        </List>
-      </SettingsPanel>
+      {tabIndex === 3 && (
+        <>
+          <Navbar large transparent title={t('root.settings')} />
 
-      <ThemesPanel>
-        <BlockTitle>{t('root.themes.preview')}</BlockTitle>
-        <List strongIos inset>
-          <img src={theme?.preview} alt="Themes" className="w-full" />
-        </List>
+          <List strongIos inset>
+            <DarkModeListItem />
+            <LanguageListItem />
+            <FixWatermarkListItem />
+          </List>
 
-        <BlockTitle>{t('root.themes.list')}</BlockTitle>
-        <List strongIos inset>
-          {themes.map((theme, index) => (
-            <ThemeListItem key={index} name={theme.name} />
-          ))}
-        </List>
-      </ThemesPanel>
+          <List strongIos inset>
+            <ExportToJpegListItem />
+            <QualityListItem />
+            <FixImageWidthListItem />
+          </List>
+
+          <List strongIos inset>
+            <ShowCameraMakerListItem />
+            <ShowCameraModelListItem />
+            <ShowLensModelListItem />
+          </List>
+
+          <List strongIos inset>
+            <OverrideCameraMakerListItem />
+            <OverrideCameraModelListItem />
+            <OverrideLensModelListItem />
+          </List>
+        </>
+      )}
 
       <LanguagePopover />
       <OverrideMetadataPopup />

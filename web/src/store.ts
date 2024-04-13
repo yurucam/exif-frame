@@ -3,6 +3,9 @@ import themes from './themes';
 import Photo from './core/photo';
 
 type Store = {
+  tabIndex: number;
+  setTabIndex: (index: number) => void;
+
   language: 'en' | 'ja' | 'ko';
   setLanguage: (language: 'en' | 'ja' | 'ko') => void;
 
@@ -71,6 +74,9 @@ type Store = {
 };
 
 const useStore = create<Store>((set) => ({
+  tabIndex: 1,
+  setTabIndex: (index: number) => set({ tabIndex: index }),
+
   language: (localStorage.getItem('language') as 'en' | 'ja' | 'ko') || 'en',
   setLanguage: (language: 'en' | 'ja' | 'ko') =>
     set(() => {
