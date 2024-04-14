@@ -6,7 +6,7 @@ import { ThemeFunc, ThemeOption, ThemeOptionInput } from '../00_BASE/type';
 const SHOT_ON_TWO_LINE_OPTIONS: ThemeOption[] = [
   { key: 'BACKGROUND_COLOR', type: String, default: '#ffffff', description: '#ffffff is white, #000000 is black' },
   { key: 'TEXT_COLOR', type: String, default: '#000000', description: '#ffffff is white, #000000 is black' },
-  { key: 'TOP_LABEL', type: String, default: '@username', description: 'ex. @username' },
+  { key: 'TOP_LABEL', type: String, default: '', description: 'ex. @username' },
 ];
 
 const SHOT_ON_TWO_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {
