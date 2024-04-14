@@ -3,12 +3,12 @@ import { Store } from '../../store';
 import sandbox from '../00_BASE/sandbox';
 import { ThemeFunc, ThemeOption, ThemeOptionInput } from '../00_BASE/type';
 
-const SHOT_ON_OPTIONS: ThemeOption[] = [
+const SHOT_ON_ONE_LINE_OPTIONS: ThemeOption[] = [
   { key: 'BACKGROUND_COLOR', type: String, default: '#ffffff', description: '#ffffff is white, #000000 is black' },
   { key: 'TEXT_COLOR', type: String, default: '#000000', description: '#ffffff is white, #000000 is black' },
 ];
 
-const SHOT_ON_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {
+const SHOT_ON_ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {
   const BACKGROUND_COLOR = (input.get('BACKGROUND_COLOR') as string).trim();
   const TEXT_COLOR = input.get('TEXT_COLOR') as string;
   const PADDING_BOTTOM = 200;
@@ -52,4 +52,4 @@ const SHOT_ON_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: S
   return canvas;
 };
 
-export { SHOT_ON_FUNC, SHOT_ON_OPTIONS };
+export { SHOT_ON_ONE_LINE_FUNC, SHOT_ON_ONE_LINE_OPTIONS };
