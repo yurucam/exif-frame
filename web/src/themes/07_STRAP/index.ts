@@ -106,35 +106,35 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
 
   let logo: HTMLImageElement | undefined;
 
-  if (photo.make?.toUpperCase().includes('APPLE')) {
+  if (photo.make?.toUpperCase().includes('APPLE') || photo.model?.toUpperCase().includes('APPLE')) {
     logo = DARK_MODE ? supportLogo.get('APPLE_DARK') : supportLogo.get('APPLE_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('CANON')) {
+  if (photo.make?.toUpperCase().includes('CANON') || photo.model?.toUpperCase().includes('CANON')) {
     logo = DARK_MODE ? supportLogo.get('CANON_DARK') : supportLogo.get('CANON_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('FUJI')) {
+  if (photo.make?.toUpperCase().includes('FUJI') || photo.model?.toUpperCase().includes('FUJI')) {
     logo = DARK_MODE ? supportLogo.get('FUJI_DARK') : supportLogo.get('FUJI_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('NIKON')) {
+  if (photo.make?.toUpperCase().includes('NIKON') || photo.model?.toUpperCase().includes('NIKON')) {
     logo = DARK_MODE ? supportLogo.get('NIKON_DARK') : supportLogo.get('NIKON_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('OLYMPUS')) {
+  if (photo.make?.toUpperCase().includes('OLYMPUS') || photo.model?.toUpperCase().includes('OLYMPUS')) {
     logo = DARK_MODE ? supportLogo.get('OLYMPUS_DARK') : supportLogo.get('OLYMPUS_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('PANASONIC')) {
+  if (photo.make?.toUpperCase().includes('PANASONIC') || photo.model?.toUpperCase().includes('PANASONIC')) {
     logo = DARK_MODE ? supportLogo.get('PANASONIC_DARK') : supportLogo.get('PANASONIC_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('SONY')) {
+  if (photo.make?.toUpperCase().includes('SONY') || photo.model?.toUpperCase().includes('SONY')) {
     logo = DARK_MODE ? supportLogo.get('SONY_DARK') : supportLogo.get('SONY_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('SAMSUNG')) {
+  if (photo.make?.toUpperCase().includes('SAMSUNG') || photo.model?.toUpperCase().includes('SAMSUNG')) {
     logo = DARK_MODE ? supportLogo.get('SAMSUNG_DARK') : supportLogo.get('SAMSUNG_LIGHT');
   }
 
