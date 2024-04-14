@@ -9,6 +9,7 @@ import DownloadIcon from '../../../icons/download.icon';
 import render from '../../../themes/00_BASE/render';
 import themes, { useThemeStore } from '../../../themes';
 import { Capacitor } from '@capacitor/core';
+import downloadOneFile from '../../../core/download-one-file';
 
 const DownloadAllPhotoButton = () => {
   const { t } = useTranslation();
@@ -34,7 +35,7 @@ const DownloadAllPhotoButton = () => {
           if (Capacitor.isNativePlatform()) {
             for (const photo of photos) {
               const canvas = await render(func!, photo, option, store);
-              files.push({
+              await downloadOneFile({
                 name: photo.file.name,
                 buffer: exportToJpeg ? await canvasToJpeg(canvas, quality) : await canvasToWebp(canvas, quality),
                 type: exportToJpeg ? 'image/jpeg' : 'image/webp',
@@ -51,8 +52,8 @@ const DownloadAllPhotoButton = () => {
                 });
               })
             );
+            await downloadManyFile(files);
           }
-          await downloadManyFile(files);
           setLoading(false);
           downloadAllPhotosEvent();
         }}
