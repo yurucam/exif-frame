@@ -8,6 +8,7 @@ import { downloadAllPhotosEvent } from '../../../google-analytics';
 import DownloadIcon from '../../../icons/download.icon';
 import render from '../../../themes/00_BASE/render';
 import themes, { useThemeStore } from '../../../themes';
+import { Capacitor } from '@capacitor/core';
 
 const DownloadAllPhotoButton = () => {
   const { t } = useTranslation();
@@ -30,16 +31,27 @@ const DownloadAllPhotoButton = () => {
           setLoading(true);
           await new Promise((resolve) => setTimeout(resolve, 100));
           const files: { name: string; buffer: ArrayBuffer; type: 'image/jpeg' | 'image/webp' }[] = [];
-          await Promise.all(
-            photos.map(async (photo) => {
+          if (Capacitor.isNativePlatform()) {
+            for (const photo of photos) {
               const canvas = await render(func!, photo, option, store);
               files.push({
                 name: photo.file.name,
                 buffer: exportToJpeg ? await canvasToJpeg(canvas, quality) : await canvasToWebp(canvas, quality),
                 type: exportToJpeg ? 'image/jpeg' : 'image/webp',
               });
-            })
-          );
+            }
+          } else {
+            await Promise.all(
+              photos.map(async (photo) => {
+                const canvas = await render(func!, photo, option, store);
+                files.push({
+                  name: photo.file.name,
+                  buffer: exportToJpeg ? await canvasToJpeg(canvas, quality) : await canvasToWebp(canvas, quality),
+                  type: exportToJpeg ? 'image/jpeg' : 'image/webp',
+                });
+              })
+            );
+          }
           await downloadManyFile(files);
           setLoading(false);
           downloadAllPhotosEvent();
