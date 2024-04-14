@@ -40,7 +40,7 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
   const FONT_SIZE = 70;
   const BACKGROUND_COLOR = DARK_MODE ? '#000000' : '#ffffff';
   const PRIMARY_TEXT_COLOR = DARK_MODE ? '#ffffff' : '#000000';
-  const SECONDARY_TEXT_COLOR = DARK_MODE ? '#777777' : '#333333';
+  const SECONDARY_TEXT_COLOR = DARK_MODE ? '#888888' : '#333333';
 
   const canvas = sandbox(photo, BACKGROUND_COLOR, { top: 0, right: 0, bottom: PADDING_BOTTOM, left: 0 });
   const context = canvas.getContext('2d')!;
