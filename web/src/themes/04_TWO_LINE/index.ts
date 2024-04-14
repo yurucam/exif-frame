@@ -5,7 +5,6 @@ import { ThemeFunc, ThemeOption, ThemeOptionInput } from '../00_BASE/type';
 
 const TWO_LINE_OPTIONS: ThemeOption[] = [
   { key: 'BACKGROUND_COLOR', type: String, default: '#ffffff', description: '#ffffff is white, #000000 is black' },
-  { key: 'SQUARE', type: String, default: 'no', description: 'yes or no' },
   { key: 'PADDING_INSIDE', type: String, default: 'no', description: 'yes or no' },
   { key: 'PADDING_TOP', type: Number, default: 100, description: 'px' },
   { key: 'PADDING_BOTTOM', type: Number, default: 350, description: 'px' },
