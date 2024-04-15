@@ -46,6 +46,7 @@
   "root.settings.export-to-jpeg": "JPEG로 내보내기",
   "root.settings.quality": "품질",
   "root.settings.fix-image-width": "사진 너비 고정",
+  "root.settings.focal-length-35mm-mode": "35mm 환산 화각 표시",
   "root.settings.image-width": "사진 너비 (px)",
   "root.settings.fix-watermark": "워터마크 설정",
   "root.settings.watermark": "워터마크",

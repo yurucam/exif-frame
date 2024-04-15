@@ -71,6 +71,9 @@ type Store = {
 
   preview: Photo | null;
   setPreview: (preview: Photo | null) => void;
+
+  focalLength35mmMode: boolean;
+  setFocalLength35mmMode: (focalLength35mmMode: boolean) => void;
 };
 
 const useStore = create<Store>((set) => ({
@@ -204,6 +207,13 @@ const useStore = create<Store>((set) => ({
 
   preview: null,
   setPreview: (preview: Photo | null) => set({ preview }),
+
+  focalLength35mmMode: localStorage.getItem('focalLength35mmMode') === 'true',
+  setFocalLength35mmMode: (focalLength35mmMode: boolean) =>
+    set(() => {
+      localStorage.setItem('focalLength35mmMode', focalLength35mmMode.toString());
+      return { focalLength35mmMode };
+    }),
 }));
 
 // Set the theme on page load

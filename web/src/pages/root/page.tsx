@@ -32,10 +32,11 @@ import CurrentVersionListItem from './components/current-version.list-item';
 import themes from '../../themes';
 import ThemeListItem from './components/theme.list-item';
 import ThemeOptionListInput from './components/theme-option.list-input';
+import FocalLength35mmModeListItem from './components/focal-length-35mm-mode';
 
 const RootPage = () => {
   const { t } = useTranslation();
-  const { photos, selectedThemeName, tabIndex, setTabIndex } = useStore();
+  const { focalLength35mmMode, photos, selectedThemeName, tabIndex, setTabIndex } = useStore();
   const theme = themes.find((theme) => theme.name === selectedThemeName);
 
   return (
@@ -68,7 +69,9 @@ const RootPage = () => {
                   />
                 }
                 title={photo.file.name}
-                subtitle={`${photo.focalLength} ${photo.fNumber} ISO${photo.iso} ${photo.exposureTime}s`}
+                subtitle={`${focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength} ${photo.fNumber} ISO${photo.iso} ${
+                  photo.exposureTime
+                }s`}
                 text={`${photo.make} ${photo.model} ${photo.lensModel}`}
                 footer={
                   <div className="flex space-x-1 mt-1">
@@ -127,6 +130,7 @@ const RootPage = () => {
             <ExportToJpegListItem />
             <QualityListItem />
             <FixImageWidthListItem />
+            <FocalLength35mmModeListItem />
           </List>
 
           <List strongIos inset>

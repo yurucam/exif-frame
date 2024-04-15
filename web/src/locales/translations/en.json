@@ -45,6 +45,7 @@
   "root.settings.export-to-jpeg": "Export to JPEG",
   "root.settings.quality": "Quality",
   "root.settings.fix-image-width": "Fix Image Width",
+  "root.settings.focal-length-35mm-mode": "Focal Length 35mm Mode",
   "root.settings.image-width": "Image Width (px)",
   "root.settings.fix-watermark": "Add Watermark",
   "root.settings.watermark": "Watermark",

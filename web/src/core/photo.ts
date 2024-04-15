@@ -98,6 +98,22 @@ class Photo {
   }
 
   /**
+   * Returns the focal length in 35mm of the camera that took the photo.
+   * @example '24mm'
+   */
+  public get focalLengthIn35mm(): string | undefined {
+    return this.metadata.focalLengthIn35mm;
+  }
+
+  /**
+   * Sets the focal length in 35mm of the camera that took the photo.
+   * @example '24mm'
+   */
+  public set focalLengthIn35mm(value: string | undefined) {
+    this.metadata.focalLengthIn35mm = value;
+  }
+
+  /**
    * Returns the F number of the camera that took the photo.
    * @example 'f/4'
    */
