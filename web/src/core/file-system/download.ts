@@ -17,13 +17,6 @@ export default async function download(filename: string, data: string): Promise<
   // Save the file based on the platform.
   switch (Capacitor.getPlatform()) {
     case 'ios':
-      await Media.savePhoto({
-        fileName: filename,
-        path: data,
-        albumIdentifier: (await Media.getAlbums()).albums.find((album) => album.name === 'EXIF Frame')?.identifier,
-      });
-      break;
-
     case 'android':
       await Media.savePhoto({
         fileName: filename,
