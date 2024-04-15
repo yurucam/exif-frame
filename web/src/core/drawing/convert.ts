@@ -1,5 +1,6 @@
 import { clamp } from '../../utils/clamp';
 import { encode } from '@jsquash/webp'; // WASM-based WebP encoder/decoder - https://github.com/jamsinclair/jSquash
+import { Buffer } from 'buffer';
 
 interface ConvertOption {
   /**
