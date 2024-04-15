@@ -1,7 +1,7 @@
 import Photo from '../../core/photo';
 import { Store } from '../../store';
-import sandbox from '../00_BASE/sandbox';
-import { ThemeFunc, ThemeOption, ThemeOptionInput } from '../00_BASE/type';
+import sandbox from '../../core/drawing/sandbox';
+import { ThemeFunc, ThemeOption, ThemeOptionInput } from '../../core/drawing/theme';
 
 const supportLogo = new Map<string, HTMLImageElement>();
 

@@ -1,13 +1,13 @@
 import { useStore } from '../../../store';
 import { Button, Icon } from 'konsta/react';
-import downloadOneFile from '../../../core/download-one-file';
 import Photo from '../../../core/photo';
-import canvasToWebp from '../../../core/canvas-to-webp';
 import { IoDownloadOutline } from 'react-icons/io5';
-import canvasToJpeg from '../../../core/canvas-to-jpeg';
 import { downloadOnePhotoEvent } from '../../../google-analytics';
 import themes, { useThemeStore } from '../../../themes';
-import render from '../../../themes/00_BASE/render';
+import render from '../../../core/drawing/render';
+import convert from '../../../core/drawing/convert';
+import free from '../../../core/drawing/free';
+import download from '../../../core/file-system/download';
 
 interface DownloadOnePhotoButtonProps {
   photo: Photo;
@@ -30,12 +30,13 @@ const DownloadOnePhotoButton: React.FC<DownloadOnePhotoButtonProps> = ({ photo }
         onClick={async () => {
           setLoading(true);
           await new Promise((resolve) => setTimeout(resolve, 100));
+
           const canvas = await render(func!, photo, option, store);
-          await downloadOneFile({
-            name: photo.file.name,
-            buffer: exportToJpeg ? await canvasToJpeg(canvas, quality) : await canvasToWebp(canvas, quality),
-            type: exportToJpeg ? 'image/jpeg' : 'image/webp',
-          });
+          const filename = photo.file.name.replace(/\.[^/.]+$/, `.${photo.file.type === 'image/jpeg' ? 'jpg' : 'webp'}`);
+          const data = await convert(canvas, { type: exportToJpeg ? 'image/jpeg' : 'image/webp', quality });
+          free(canvas);
+          await download(filename, data);
+
           setLoading(false);
           downloadOnePhotoEvent();
         }}
