@@ -1,6 +1,6 @@
 import { load } from 'exifreader';
-import ExifMetadata from './exif-metadata';
-import createThumbnail from './create-thumbnail';
+import ExifMetadata from './exif-metadata/exif-metadata';
+import thumbnail from './drawing/thumbnail';
 
 /**
  * Represents a photo.
@@ -29,7 +29,7 @@ class Photo {
     photo.image = new Image();
     photo.image.src = URL.createObjectURL(file);
     await new Promise((resolve) => (photo.image.onload = resolve));
-    photo.thumbnail = await createThumbnail(photo);
+    photo.thumbnail = thumbnail(photo, 300, 250);
     return photo;
   }
 

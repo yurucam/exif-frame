@@ -1,4 +1,4 @@
-import Photo from '../../core/photo';
+import Photo from '../photo';
 
 const MAX_SIZE = 4096; // Mobile Safari has a maximum canvas size of 4096x4096
 

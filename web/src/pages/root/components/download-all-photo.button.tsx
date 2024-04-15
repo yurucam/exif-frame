@@ -1,15 +1,15 @@
 import { Button } from 'konsta/react';
 import { useTranslation } from 'react-i18next';
 import { useStore } from '../../../store';
-import canvasToWebp from '../../../core/canvas-to-webp';
-import downloadManyFile from '../../../core/download-many-file';
-import canvasToJpeg from '../../../core/canvas-to-jpeg';
 import { downloadAllPhotosEvent } from '../../../google-analytics';
 import DownloadIcon from '../../../icons/download.icon';
-import render from '../../../themes/00_BASE/render';
+import render from '../../../core/drawing/render';
 import themes, { useThemeStore } from '../../../themes';
 import { Capacitor } from '@capacitor/core';
-import downloadOneFile from '../../../core/download-one-file';
+import convert from '../../../core/drawing/convert';
+import free from '../../../core/drawing/free';
+import download from '../../../core/file-system/download';
+import compress from '../../../core/file-system/compress';
 
 const DownloadAllPhotoButton = () => {
   const { t } = useTranslation();
@@ -31,29 +31,30 @@ const DownloadAllPhotoButton = () => {
           if (photos.length === 0) return;
           setLoading(true);
           await new Promise((resolve) => setTimeout(resolve, 100));
-          const files: { name: string; buffer: ArrayBuffer; type: 'image/jpeg' | 'image/webp' }[] = [];
+
           if (Capacitor.isNativePlatform()) {
             for (const photo of photos) {
               const canvas = await render(func!, photo, option, store);
-              await downloadOneFile({
-                name: photo.file.name,
-                buffer: exportToJpeg ? await canvasToJpeg(canvas, quality) : await canvasToWebp(canvas, quality),
-                type: exportToJpeg ? 'image/jpeg' : 'image/webp',
-              });
+              const filename = photo.file.name.replace(/\.[^/.]+$/, `.${photo.file.type === 'image/jpeg' ? 'jpg' : 'webp'}`);
+              const data = await convert(canvas, { type: exportToJpeg ? 'image/jpeg' : 'image/webp', quality });
+              free(canvas);
+              await download(filename, data);
             }
           } else {
+            const files: { filename: string; data: string }[] = [];
             await Promise.all(
               photos.map(async (photo) => {
                 const canvas = await render(func!, photo, option, store);
-                files.push({
-                  name: photo.file.name,
-                  buffer: exportToJpeg ? await canvasToJpeg(canvas, quality) : await canvasToWebp(canvas, quality),
-                  type: exportToJpeg ? 'image/jpeg' : 'image/webp',
-                });
+                const filename = photo.file.name.replace(/\.[^/.]+$/, `.${photo.file.type === 'image/jpeg' ? 'jpg' : 'webp'}`);
+                const data = await convert(canvas, { type: exportToJpeg ? 'image/jpeg' : 'image/webp', quality });
+                free(canvas);
+                files.push({ filename, data });
               })
             );
-            await downloadManyFile(files);
+            const zip = await compress(files);
+            await download('images.zip', zip);
           }
+
           setLoading(false);
           downloadAllPhotosEvent();
         }}

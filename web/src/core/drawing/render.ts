@@ -1,7 +1,7 @@
-import Photo from '../../core/photo';
-import resizeCanvas from '../../core/resize-canvas';
+import Photo from '../photo';
+import resize from './resize';
 import { Store } from '../../store';
-import { ThemeFunc, ThemeOptionInput } from './type';
+import { ThemeFunc, ThemeOptionInput } from './theme';
 
 const render = async (func: ThemeFunc, photo: Photo, option: ThemeOptionInput, store: Store): Promise<HTMLCanvasElement> => {
   let canvas = func(photo, option, store);
@@ -24,21 +24,21 @@ const render = async (func: ThemeFunc, photo: Photo, option: ThemeOptionInput, s
     if (store.fixImageWidth && store.imageWidth) {
       const targetWidth = store.imageWidth > 4096 ? 4096 : store.imageWidth;
       const targetHeight = (targetWidth * canvas.height) / canvas.width;
-      canvas = resizeCanvas(canvas, targetWidth, targetHeight);
+      canvas = resize(canvas, targetWidth, targetHeight);
     } else {
       const targetWidth = photo.image.width > 4096 ? 4096 : photo.image.width;
       const targetHeight = (targetWidth * canvas.height) / canvas.width;
-      canvas = resizeCanvas(canvas, targetWidth, targetHeight);
+      canvas = resize(canvas, targetWidth, targetHeight);
     }
   } else {
     if (store.fixImageWidth && store.imageWidth) {
       const targetHeight = store.imageWidth > 4096 ? 4096 : store.imageWidth; // This is a naming bug
       const targetWidth = (targetHeight * canvas.width) / canvas.height;
-      canvas = resizeCanvas(canvas, targetWidth, targetHeight);
+      canvas = resize(canvas, targetWidth, targetHeight);
     } else {
       const targetHeight = photo.image.height > 4096 ? 4096 : photo.image.height;
       const targetWidth = (targetHeight * canvas.width) / canvas.height;
-      canvas = resizeCanvas(canvas, targetWidth, targetHeight);
+      canvas = resize(canvas, targetWidth, targetHeight);
     }
   }
 

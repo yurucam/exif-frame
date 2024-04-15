@@ -1,4 +1,4 @@
-import Photo from '../../core/photo';
+import Photo from '../photo';
 import { Store } from '../../store';
 
 type ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => HTMLCanvasElement;
