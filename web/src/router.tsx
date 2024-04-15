@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { pageView } from './google-analytics';
 import RootPage from './pages/root/page';
 import AppLandingPage from './pages/app-landing-page/page';
-import TestPage from './pages/test/page';
 
 const Router = () => {
   useEffect(() => pageView(window.location.pathname), []);
@@ -13,7 +12,6 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<RootPage />} />
         <Route path="/app-landing-page" element={<AppLandingPage />} />
-        <Route path="test" element={<TestPage />} />
       </Routes>
     </BrowserRouter>
   );
