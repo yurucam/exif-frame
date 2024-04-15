@@ -65,7 +65,12 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
   context.font = `normal 500 ${FONT_SIZE}px Barlow`;
   context.fillStyle = PRIMARY_TEXT_COLOR;
   context.fillText(
-    [`ISO ${photo.iso}`, `${photo.focalLength}`, `${photo.fNumber}`, `${photo.exposureTime}s`]
+    [
+      `ISO ${photo.iso}`,
+      `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`,
+      `${photo.fNumber}`,
+      `${photo.exposureTime}s`,
+    ]
       .filter(Boolean)
       .map((value) => value.trim())
       .join('  '),

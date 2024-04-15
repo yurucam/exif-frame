@@ -22,7 +22,12 @@ const SHOT_ON_ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput,
   context.font = `normal 100 ${FONT_SIZE}px Barlow`;
   context.textAlign = 'right';
   context.fillText(
-    [`ISO ${photo.iso}`, `${photo.focalLength}`, `${photo.fNumber}`, `${photo.exposureTime}s`]
+    [
+      `ISO ${photo.iso}`,
+      `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`,
+      `${photo.fNumber}`,
+      `${photo.exposureTime}s`,
+    ]
       .filter(Boolean)
       .map((value) => value.trim())
       .join('  '),

@@ -56,7 +56,7 @@ const ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: 
       store.showCameraModel ? store.overrideCameraModel || photo.model : null,
       store.showLensModel ? store.overrideLensModel || photo.lensModel : null,
       `ISO ${photo.iso}`,
-      `${photo.focalLength}`,
+      `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`,
       `${photo.fNumber}`,
       `${photo.exposureTime}s`,
     ]
