@@ -17,6 +17,8 @@ supportLogo.set('CANON_LIGHT', loadLogo('/maker/light/canon.png'));
 supportLogo.set('CANON_DARK', loadLogo('/maker/dark/canon.png'));
 supportLogo.set('FUJI_LIGHT', loadLogo('/maker/light/fujifilm.png'));
 supportLogo.set('FUJI_DARK', loadLogo('/maker/dark/fujifilm.png'));
+supportLogo.set('HASSELBLAD_LIGHT', loadLogo('/maker/light/hasselblad.png'));
+supportLogo.set('HASSELBLAD_DARK', loadLogo('/maker/dark/hasselblad.png'));
 supportLogo.set('NIKON_LIGHT', loadLogo('/maker/light/nikon.png'));
 supportLogo.set('NIKON_DARK', loadLogo('/maker/dark/nikon.png'));
 supportLogo.set('OLYMPUS_LIGHT', loadLogo('/maker/light/olympus.png'));
@@ -116,6 +118,10 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
 
   if (photo.make?.toUpperCase().includes('FUJI') || photo.model?.toUpperCase().includes('FUJI')) {
     logo = DARK_MODE ? supportLogo.get('FUJI_DARK') : supportLogo.get('FUJI_LIGHT');
+  }
+
+  if (photo.make?.toUpperCase().includes('HASSELBLAD') || photo.model?.toUpperCase().includes('HASSELBLAD')) {
+    logo = DARK_MODE ? supportLogo.get('HASSELBLAD_DARK') : supportLogo.get('HASSELBLAD_LIGHT');
   }
 
   if (photo.make?.toUpperCase().includes('NIKON') || photo.model?.toUpperCase().includes('NIKON')) {
