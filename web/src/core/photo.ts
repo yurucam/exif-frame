@@ -98,6 +98,20 @@ class Photo {
   }
 
   /**
+   * Returns the equivalent focal length of the photo, assuming a 35mm film.
+   */
+  public get focalLengthIn35mmFilm(): string | undefined {
+    return this.metadata.focalLengthIn35mmFilm;
+  }
+
+  /**
+   * Sets the equivalent focal length of the photo, assuming a 35mm film.
+   */
+  public set focalLengthIn35mmFilm(value: string | undefined) {
+    this.metadata.focalLengthIn35mmFilm = value;
+  }
+
+  /**
    * Returns the F number of the camera that took the photo.
    * @example 'f/4'
    */
