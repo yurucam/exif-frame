@@ -38,6 +38,7 @@
 Thanks to all the people who contribute:
 
 - [@rhea-so](https://github.com/rhea-so)
+- [@longfin](https://github.com/longfin)
 
 ## License
 
