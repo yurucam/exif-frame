@@ -19,12 +19,22 @@ supportLogo.set('FUJI_LIGHT', loadLogo('/maker/light/fujifilm.png'));
 supportLogo.set('FUJI_DARK', loadLogo('/maker/dark/fujifilm.png'));
 supportLogo.set('HASSELBLAD_LIGHT', loadLogo('/maker/light/hasselblad.png'));
 supportLogo.set('HASSELBLAD_DARK', loadLogo('/maker/dark/hasselblad.png'));
+supportLogo.set('LEICA_LIGHT', loadLogo('/maker/light/leica.png'));
+supportLogo.set('LEICA_DARK', loadLogo('/maker/dark/leica.png'));
+supportLogo.set('MAMIYA_LIGHT', loadLogo('/maker/light/mamiya.png'));
+supportLogo.set('MAMIYA_DARK', loadLogo('/maker/dark/mamiya.png'));
 supportLogo.set('NIKON_LIGHT', loadLogo('/maker/light/nikon.png'));
 supportLogo.set('NIKON_DARK', loadLogo('/maker/dark/nikon.png'));
 supportLogo.set('OLYMPUS_LIGHT', loadLogo('/maker/light/olympus.png'));
 supportLogo.set('OLYMPUS_DARK', loadLogo('/maker/dark/olympus.png'));
 supportLogo.set('PANASONIC_LIGHT', loadLogo('/maker/light/panasonic.png'));
 supportLogo.set('PANASONIC_DARK', loadLogo('/maker/dark/panasonic.png'));
+supportLogo.set('PENTAX_LIGHT', loadLogo('/maker/light/pentax.png'));
+supportLogo.set('PENTAX_DARK', loadLogo('/maker/dark/pentax.png'));
+supportLogo.set('PHASEONE_LIGHT', loadLogo('/maker/light/phaseone.png'));
+supportLogo.set('PHASEONE_DARK', loadLogo('/maker/dark/phaseone.png'));
+supportLogo.set('RICOH_LIGHT', loadLogo('/maker/light/ricoh.png'));
+supportLogo.set('RICOH_DARK', loadLogo('/maker/dark/ricoh.png'));
 supportLogo.set('SAMSUNG_LIGHT', loadLogo('/maker/light/samsung.png'));
 supportLogo.set('SAMSUNG_DARK', loadLogo('/maker/dark/samsung.png'));
 supportLogo.set('SONY_LIGHT', loadLogo('/maker/light/sony.png'));
@@ -124,6 +134,14 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
     logo = DARK_MODE ? supportLogo.get('HASSELBLAD_DARK') : supportLogo.get('HASSELBLAD_LIGHT');
   }
 
+  if (photo.make?.toUpperCase().includes('LEICA') || photo.model?.toUpperCase().includes('LEICA')) {
+    logo = DARK_MODE ? supportLogo.get('LEICA_DARK') : supportLogo.get('LEICA_LIGHT');
+  }
+
+  if (photo.make?.toUpperCase().includes('MAMIYA') || photo.model?.toUpperCase().includes('MAMIYA')) {
+    logo = DARK_MODE ? supportLogo.get('MAMIYA_DARK') : supportLogo.get('MAMIYA_LIGHT');
+  }
+
   if (photo.make?.toUpperCase().includes('NIKON') || photo.model?.toUpperCase().includes('NIKON')) {
     logo = DARK_MODE ? supportLogo.get('NIKON_DARK') : supportLogo.get('NIKON_LIGHT');
   }
@@ -134,6 +152,18 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
 
   if (photo.make?.toUpperCase().includes('PANASONIC') || photo.model?.toUpperCase().includes('PANASONIC')) {
     logo = DARK_MODE ? supportLogo.get('PANASONIC_DARK') : supportLogo.get('PANASONIC_LIGHT');
+  }
+
+  if (photo.make?.toUpperCase().includes('PENTAX') || photo.model?.toUpperCase().includes('PENTAX')) {
+    logo = DARK_MODE ? supportLogo.get('PENTAX_DARK') : supportLogo.get('PENTAX_LIGHT');
+  }
+
+  if (photo.make?.toUpperCase().includes('PHASE') || photo.model?.toUpperCase().includes('PHASE')) {
+    logo = DARK_MODE ? supportLogo.get('PHASEONE_DARK') : supportLogo.get('PHASEONE_LIGHT');
+  }
+
+  if (photo.make?.toUpperCase().includes('RICO') || photo.model?.toUpperCase().includes('RICO')) {
+    logo = DARK_MODE ? supportLogo.get('RICOH_DARK') : supportLogo.get('RICOH_LIGHT');
   }
 
   if (photo.make?.toUpperCase().includes('SONY') || photo.model?.toUpperCase().includes('SONY')) {
