@@ -43,11 +43,13 @@ supportLogo.set('SONY_DARK', loadLogo('/maker/dark/sony.png'));
 const STRAP_OPTIONS: ThemeOption[] = [
   { key: 'ARTIST', type: String, default: 'Your Name', description: 'your name' },
   { key: 'DARK_MODE', type: String, default: 'no', description: 'yes or no' },
+  { key: 'SECONDARY_TEXT_FONT_WEIGHT', type: Number, default: 100, description: '100 - 900' },
 ];
 
 const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {
   const ARTIST = (input.get('ARTIST') as string).trim();
   const DARK_MODE = (input.get('DARK_MODE') as string).trim() === 'yes';
+  const SECONDARY_TEXT_FONT_WEIGHT = input.get('SECONDARY_TEXT_FONT_WEIGHT') as number;
   const PADDING_BOTTOM = 300;
   const FONT_SIZE = 70;
   const BACKGROUND_COLOR = DARK_MODE ? '#000000' : '#ffffff';
@@ -79,7 +81,7 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
   );
 
   // Shot by
-  context.font = `normal 100 ${FONT_SIZE}px Barlow`;
+  context.font = `normal ${SECONDARY_TEXT_FONT_WEIGHT} ${FONT_SIZE}px Barlow`;
   context.fillStyle = SECONDARY_TEXT_COLOR;
   context.fillText(`Shot by © ${ARTIST}`, FONT_SIZE, canvas.height - PADDING_BOTTOM / 2 + FONT_SIZE / 2);
 
@@ -101,7 +103,7 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
 
   // Lens Model
   context.fillStyle = SECONDARY_TEXT_COLOR;
-  context.font = `normal 100 ${FONT_SIZE}px Barlow`;
+  context.font = `normal ${SECONDARY_TEXT_FONT_WEIGHT} ${FONT_SIZE}px Barlow`;
   const lensModelText = [store.showLensModel ? store.overrideLensModel || photo.lensModel : null]
     .filter(Boolean)
     .map((value) => value!.trim())
