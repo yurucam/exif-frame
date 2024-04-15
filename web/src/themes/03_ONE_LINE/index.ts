@@ -50,22 +50,25 @@ const ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: 
   context.fillText(TOP_LABEL, canvas.width / 2, PADDING_TOP / 2);
 
   context.textAlign = TEXT_ALIGN as CanvasTextAlign;
-  context.fillText(
-    [
-      store.showCameraMaker ? store.overrideCameraMaker || photo.make : null,
-      store.showCameraModel ? store.overrideCameraModel || photo.model : null,
-      store.showLensModel ? store.overrideLensModel || photo.lensModel : null,
-      `ISO ${photo.iso}`,
-      `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`,
-      `${photo.fNumber}`,
-      `${photo.exposureTime}s`,
-    ]
-      .filter(Boolean)
-      .map((value) => value!.trim())
-      .join(' | '),
-    TEXT_ALIGN === 'left' ? PADDING_LEFT : TEXT_ALIGN === 'center' ? canvas.width / 2 : canvas.width - PADDING_RIGHT,
-    canvas.height - PADDING_BOTTOM / 2
-  );
+
+  if (!store.disableExposureMeter) {
+    context.fillText(
+      [
+        store.showCameraMaker ? store.overrideCameraMaker || photo.make : null,
+        store.showCameraModel ? store.overrideCameraModel || photo.model : null,
+        store.showLensModel ? store.overrideLensModel || photo.lensModel : null,
+        `ISO ${photo.iso}`,
+        `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`,
+        `${photo.fNumber}`,
+        `${photo.exposureTime}s`,
+      ]
+        .filter(Boolean)
+        .map((value) => value!.trim())
+        .join(' | '),
+      TEXT_ALIGN === 'left' ? PADDING_LEFT : TEXT_ALIGN === 'center' ? canvas.width / 2 : canvas.width - PADDING_RIGHT,
+      canvas.height - PADDING_BOTTOM / 2
+    );
+  }
 
   return canvas;
 };

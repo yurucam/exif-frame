@@ -21,19 +21,22 @@ const SHOT_ON_ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput,
   context.textBaseline = 'middle';
   context.font = `normal 100 ${FONT_SIZE}px Barlow`;
   context.textAlign = 'right';
-  context.fillText(
-    [
-      `ISO ${photo.iso}`,
-      `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`,
-      `${photo.fNumber}`,
-      `${photo.exposureTime}s`,
-    ]
-      .filter(Boolean)
-      .map((value) => value.trim())
-      .join('  '),
-    canvas.width - FONT_SIZE,
-    canvas.height - PADDING_BOTTOM / 2
-  );
+
+  if (!store.disableExposureMeter) {
+    context.fillText(
+      [
+        `ISO ${photo.iso}`,
+        `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`,
+        `${photo.fNumber}`,
+        `${photo.exposureTime}s`,
+      ]
+        .filter(Boolean)
+        .map((value) => value.trim())
+        .join('  '),
+      canvas.width - FONT_SIZE,
+      canvas.height - PADDING_BOTTOM / 2
+    );
+  }
 
   context.textAlign = 'left';
   context.font = `normal 100 ${FONT_SIZE}px Barlow`;

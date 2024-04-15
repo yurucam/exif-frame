@@ -48,18 +48,21 @@ const SHOT_ON_TWO_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput,
 
   // ISO ${ISO} | ${F} ${FocalLength} | ${ShutterSpeed}s
   context.font = `normal 100 50px Barlow`;
-  context.fillText(
-    [
-      `ISO ${photo.iso}`,
-      `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`,
-      `${photo.fNumber}`,
-      `${photo.exposureTime}s`,
-    ]
-      .filter(Boolean)
-      .join('    '),
-    canvas.width / 2,
-    canvas.height - PADDING_BOTTOM + 200
-  );
+
+  if (!store.disableExposureMeter) {
+    context.fillText(
+      [
+        `ISO ${photo.iso}`,
+        `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`,
+        `${photo.fNumber}`,
+        `${photo.exposureTime}s`,
+      ]
+        .filter(Boolean)
+        .join('    '),
+      canvas.width / 2,
+      canvas.height - PADDING_BOTTOM + 200
+    );
+  }
 
   return canvas;
 };

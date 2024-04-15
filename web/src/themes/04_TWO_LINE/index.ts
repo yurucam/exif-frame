@@ -62,18 +62,21 @@ const TWO_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: 
     TEXT_ALIGN === 'left' ? PADDING_LEFT : TEXT_ALIGN === 'center' ? canvas.width / 2 : canvas.width - PADDING_RIGHT,
     canvas.height - PADDING_BOTTOM / 2 - FONT_SIZE / 1.5
   );
-  context.fillText(
-    [
-      `ISO ${photo.iso}`,
-      `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`,
-      `${photo.fNumber}`,
-      `${photo.exposureTime}s`,
-    ]
-      .filter(Boolean)
-      .join(' | '),
-    TEXT_ALIGN === 'left' ? PADDING_LEFT : TEXT_ALIGN === 'center' ? canvas.width / 2 : canvas.width - PADDING_RIGHT,
-    canvas.height - PADDING_BOTTOM / 2 + FONT_SIZE / 1.5
-  );
+
+  if (!store.disableExposureMeter) {
+    context.fillText(
+      [
+        `ISO ${photo.iso}`,
+        `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`,
+        `${photo.fNumber}`,
+        `${photo.exposureTime}s`,
+      ]
+        .filter(Boolean)
+        .join(' | '),
+      TEXT_ALIGN === 'left' ? PADDING_LEFT : TEXT_ALIGN === 'center' ? canvas.width / 2 : canvas.width - PADDING_RIGHT,
+      canvas.height - PADDING_BOTTOM / 2 + FONT_SIZE / 1.5
+    );
+  }
 
   return canvas;
 };
