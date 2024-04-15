@@ -40,6 +40,7 @@ Special thanks to all the people who have contributed to this project:
 
 - [rhea-so](https://github.com/rhea-so)
 - [longfin](https://github.com/longfin)
+- [KelvinPuyam](https://github.com/KelvinPuyam)
 
 ## License
 
