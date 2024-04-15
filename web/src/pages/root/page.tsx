@@ -32,7 +32,8 @@ import CurrentVersionListItem from './components/current-version.list-item';
 import themes from '../../themes';
 import ThemeListItem from './components/theme.list-item';
 import ThemeOptionListInput from './components/theme-option.list-input';
-import FocalLength35mmModeListItem from './components/focal-length-35mm-mode';
+import FocalLength35mmModeListItem from './components/focal-length-35mm-mode.list-item';
+import DisableExposureMeterListItem from './components/disable-exposure-meter.list-item';
 
 const RootPage = () => {
   const { t } = useTranslation();
@@ -134,6 +135,7 @@ const RootPage = () => {
           </List>
 
           <List strongIos inset>
+            <DisableExposureMeterListItem />
             <ShowCameraMakerListItem />
             <ShowCameraModelListItem />
             <ShowLensModelListItem />
