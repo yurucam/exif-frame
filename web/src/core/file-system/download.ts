@@ -17,6 +17,9 @@ export default async function download(filename: string, data: string): Promise<
   // Save the file based on the platform.
   switch (Capacitor.getPlatform()) {
     case 'ios':
+      await Media.savePhoto({ fileName: filename, path: data });
+      break;
+
     case 'android':
       await Media.savePhoto({
         fileName: filename,
