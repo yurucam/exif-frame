@@ -22,24 +22,25 @@
 
 ## Features
 
-1. Convert Jpeg → Webp
-2. Image Resizing
-3. Reduce Image Size by set Quality
-4. Add Watermark
-5. Add Frame
+1. **Convert Jpeg → Webp**: Convert JPEG images to the WebP format.
+2. **Image Resizing**: Resize images to desired dimensions.
+3. **Reduce Image Size by Quality**: Reduce image size while maintaining quality.
+4. **Add Watermark**: Add watermarks to images.
+5. **Add Frame**: Add a white border frame to images displaying EXIF metadata.
 
 ## Target
 
-- All device
-- All browser
+- **Android:** Compatible with all Android devices.
+- **iOS:** Compatible with all iOS devices.
+- **Web:** Compatible with all modern web browsers.
 
 ## Contributors
 
-Thanks to all the people who contribute:
+Special thanks to all the people who have contributed to this project:
 
-- [@rhea-so](https://github.com/rhea-so)
-- [@longfin](https://github.com/longfin)
+- [rhea-so](https://github.com/rhea-so)
+- [longfin](https://github.com/longfin)
 
 ## License
 
-MIT © [rhea-so](https://github.com/rhea-so)
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
