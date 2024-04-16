@@ -42,7 +42,7 @@
   "root.settings.current-version": "Current Version",
   "root.settings.dark-mode": "Dark Mode",
   "root.settings.language": "Language",
-  "root.settings.ratio": "Ratio",
+  "root.settings.ratio": "Ratio with crop",
   "root.settings.export-to-jpeg": "Export to JPEG",
   "root.settings.quality": "Quality",
   "root.settings.fix-image-width": "Fix Image Width",
