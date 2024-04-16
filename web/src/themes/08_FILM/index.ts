@@ -20,7 +20,7 @@ const FILM_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Stor
 
   if (!store.disableExposureMeter) {
     context.textAlign = 'right';
-    context.font = `bold 100px digital-7`;
+    context.font = `100px digital-7`;
     context.fillText(`${photo.iso}`, canvas.width - 100, canvas.height - 100);
     context.fillText(`${photo.exposureTime}`, canvas.width - 100, canvas.height - 200);
     context.fillText(`${photo.fNumber?.replace('f/', '')}`, canvas.width - 100, canvas.height - 300);
@@ -28,13 +28,13 @@ const FILM_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Stor
     const exposureTimeWidth = context.measureText(`${photo.exposureTime}`).width;
     const fNumberWidth = context.measureText(`${photo.fNumber?.replace('f/', '')}`).width;
 
-    context.font = `bold 70px digital-7`;
+    context.font = `70px digital-7`;
     context.fillText('ISO', canvas.width - 100 - isoWidth - 20, canvas.height - 105);
     context.fillText('SEC', canvas.width - 100 - exposureTimeWidth - 20, canvas.height - 205);
     context.fillText('F', canvas.width - 100 - fNumberWidth - 20, canvas.height - 305);
   }
 
-  context.font = `bold 70px digital-7`;
+  context.font = `70px digital-7`;
   context.textAlign = 'left';
   context.fillText(
     [store.showLensModel ? store.overrideLensModel || photo.lensModel : null]
