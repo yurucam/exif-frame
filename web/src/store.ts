@@ -78,8 +78,8 @@ type Store = {
   disableExposureMeter: boolean;
   setDisableExposureMeter: (disableExposureMeter: boolean) => void;
 
-  ratio: 'free' | '1:1' | '4:5' | '1.91:1' | '9:16';
-  setRatio: (ratio: 'free' | '1:1' | '4:5' | '1.91:1' | '9:16') => void;
+  ratio: string;
+  setRatio: (ratio: string) => void;
 
   ratioPopover: boolean;
   setRatioPopover: (opened: boolean) => void;
@@ -231,8 +231,8 @@ const useStore = create<Store>((set) => ({
       return { disableExposureMeter };
     }),
 
-  ratio: (localStorage.getItem('ratio') as 'free' | '1:1' | '4:5' | '1.91:1' | '9:16') || 'free',
-  setRatio: (ratio: 'free' | '1:1' | '4:5' | '1.91:1' | '9:16') =>
+  ratio: localStorage.getItem('ratio') || 'free',
+  setRatio: (ratio: string) =>
     set(() => {
       localStorage.setItem('ratio', ratio);
       return { ratio };
