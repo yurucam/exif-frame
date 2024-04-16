@@ -10,15 +10,15 @@ interface SandboxOptions {
 
 const sandbox = (photo: Photo, options: SandboxOptions): HTMLCanvasElement => {
   const { image } = photo;
-  const { backgroundColor, targetRatio } = options;
-  const { top, bottom, left, right } = options.padding;
+  const { backgroundColor, padding, targetRatio } = options;
+  const { top, bottom, left, right } = padding;
 
   const canvas = document.createElement('canvas');
 
-  let imageWidth = null;
-  let imageHeight = null;
-
   if (targetRatio === 'free') {
+    let imageWidth = null;
+    let imageHeight = null;
+
     if (image.width > image.height) {
       imageWidth = MAX_SIZE - left - right;
       imageHeight = (image.height / image.width) * imageWidth;
@@ -26,60 +26,115 @@ const sandbox = (photo: Photo, options: SandboxOptions): HTMLCanvasElement => {
       imageHeight = MAX_SIZE - top - bottom;
       imageWidth = (image.width / image.height) * imageHeight;
     }
+
+    canvas.width = imageWidth + left + right;
+    canvas.height = imageHeight + top + bottom;
+
+    const context = canvas.getContext('2d')!;
+    context.fillStyle = backgroundColor;
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.drawImage(image, left, top, imageWidth, imageHeight);
   }
 
   if (targetRatio === '1:1') {
-    imageWidth = MAX_SIZE - left - right;
-    imageHeight = MAX_SIZE - top - bottom;
-    if (imageWidth > imageHeight) {
-      imageWidth = imageHeight;
-    } else {
-      imageHeight = imageWidth;
+    canvas.width = MAX_SIZE;
+    canvas.height = MAX_SIZE;
+
+    const context = canvas.getContext('2d')!;
+    context.fillStyle = backgroundColor;
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    if (image.width > image.height) {
+      const imageHeight = canvas.height - top - bottom;
+      const imageWidth = (image.width / image.height) * imageHeight;
+      context.drawImage(image, 0, 0, image.width, image.height, (MAX_SIZE - imageWidth) / 2, top, imageWidth, imageHeight);
+      context.fillRect(0, 0, left, canvas.height);
+      context.fillRect(canvas.width - right, 0, right, canvas.height);
+    }
+
+    if (image.width < image.height) {
+      const imageWidth = canvas.width - left - right;
+      const imageHeight = (image.height / image.width) * imageWidth;
+      context.drawImage(image, 0, 0, image.width, image.height, left, (MAX_SIZE - imageHeight) / 2, imageWidth, imageHeight);
+      context.fillRect(0, 0, canvas.width, top);
+      context.fillRect(0, canvas.height - bottom, canvas.width, bottom);
     }
   }
 
   if (targetRatio === '4:5') {
-    imageHeight = MAX_SIZE - top - bottom;
-    imageWidth = (4 / 5) * imageHeight;
-  }
+    canvas.height = MAX_SIZE;
+    canvas.width = (4 / 5) * canvas.height;
 
-  if (targetRatio === '1.91:1') {
-    imageWidth = MAX_SIZE - left - right;
-    imageHeight = (1 / 1.91) * imageWidth;
+    const context = canvas.getContext('2d')!;
+    context.fillStyle = backgroundColor;
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    if (image.width > image.height) {
+      const imageHeight = canvas.height - top - bottom;
+      const imageWidth = (image.width / image.height) * imageHeight;
+      context.drawImage(image, 0, 0, image.width, image.height, (canvas.width - imageWidth) / 2, top, imageWidth, imageHeight);
+      context.fillRect(0, 0, left, canvas.height);
+      context.fillRect(canvas.width - right, 0, right, canvas.height);
+    }
+
+    if (image.width < image.height) {
+      const imageWidth = canvas.width - left - right;
+      const imageHeight = (image.height / image.width) * imageWidth;
+      context.drawImage(image, 0, 0, image.width, image.height, left, (canvas.height - imageHeight) / 2, imageWidth, imageHeight);
+      context.fillRect(0, 0, canvas.width, top);
+      context.fillRect(0, canvas.height - bottom, canvas.width, bottom);
+    }
   }
 
   if (targetRatio === '9:16') {
-    imageHeight = MAX_SIZE - top - bottom;
-    imageWidth = (9 / 16) * imageHeight;
+    canvas.height = MAX_SIZE;
+    canvas.width = (9 / 16) * canvas.height;
+
+    const context = canvas.getContext('2d')!;
+    context.fillStyle = backgroundColor;
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    if (image.width > image.height) {
+      const imageHeight = canvas.height - top - bottom;
+      const imageWidth = (image.width / image.height) * imageHeight;
+      context.drawImage(image, 0, 0, image.width, image.height, (canvas.width - imageWidth) / 2, top, imageWidth, imageHeight);
+      context.fillRect(0, 0, left, canvas.height);
+      context.fillRect(canvas.width - right, 0, right, canvas.height);
+    }
+
+    if (image.width < image.height) {
+      const imageWidth = canvas.width - left - right;
+      const imageHeight = (image.height / image.width) * imageWidth;
+      context.drawImage(image, 0, 0, image.width, image.height, left, (canvas.height - imageHeight) / 2, imageWidth, imageHeight);
+      context.fillRect(0, 0, canvas.width, top);
+      context.fillRect(0, canvas.height - bottom, canvas.width, bottom);
+    }
   }
 
-  if (imageWidth === null || imageHeight === null) {
-    throw new Error('Invalid target ratio');
+  if (targetRatio === '1.91:1') {
+    canvas.width = MAX_SIZE;
+    canvas.height = (1 / 1.91) * canvas.width;
+
+    const context = canvas.getContext('2d')!;
+    context.fillStyle = backgroundColor;
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    if (image.width > image.height) {
+      const imageHeight = canvas.height - top - bottom;
+      const imageWidth = (image.width / image.height) * imageHeight;
+      context.drawImage(image, 0, 0, image.width, image.height, (canvas.width - imageWidth) / 2, top, imageWidth, imageHeight);
+      context.fillRect(0, 0, left, canvas.height);
+      context.fillRect(canvas.width - right, 0, right, canvas.height);
+    }
+
+    if (image.width < image.height) {
+      const imageWidth = canvas.width - left - right;
+      const imageHeight = (image.height / image.width) * imageWidth;
+      context.drawImage(image, 0, 0, image.width, image.height, left, (canvas.height - imageHeight) / 2, imageWidth, imageHeight);
+      context.fillRect(0, 0, canvas.width, top);
+      context.fillRect(0, canvas.height - bottom, canvas.width, bottom);
+    }
   }
-
-  canvas.width = imageWidth + left + right;
-  canvas.height = imageHeight + top + bottom;
-
-  const context = canvas.getContext('2d')!;
-  context.fillStyle = backgroundColor;
-  context.fillRect(0, 0, canvas.width, canvas.height);
-
-  const imageRatio = image.width / image.height;
-  const targetRatioValue = imageWidth / imageHeight;
-  let drawWidth = imageWidth;
-  let drawHeight = imageHeight;
-  let drawX = left;
-  let drawY = top;
-  if (imageRatio > targetRatioValue) {
-    drawWidth = imageWidth;
-    drawHeight = imageWidth / imageRatio;
-    drawY = top + (imageHeight - drawHeight) / 2;
-  } else {
-    drawHeight = imageHeight;
-    drawWidth = imageHeight * imageRatio;
-    drawX = left + (imageWidth - drawWidth) / 2;
-  }
-  context.drawImage(image, drawX, drawY, drawWidth, drawHeight);
 
   return canvas;
 };
