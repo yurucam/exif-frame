@@ -35,7 +35,7 @@ const DownloadAllPhotoButton = () => {
           if (Capacitor.isNativePlatform()) {
             for (const photo of photos) {
               const canvas = await render(func!, photo, option, store);
-              const filename = photo.file.name.replace(/\.[^/.]+$/, `.${photo.file.type === 'image/jpeg' ? 'jpg' : 'webp'}`);
+              const filename = photo.file.name.replace(/\.[^/.]+$/, `.${exportToJpeg ? 'jpg' : 'webp'}`);
               const data = await convert(canvas, { type: exportToJpeg ? 'image/jpeg' : 'image/webp', quality });
               free(canvas);
               await download(filename, data);
@@ -45,7 +45,7 @@ const DownloadAllPhotoButton = () => {
             await Promise.all(
               photos.map(async (photo) => {
                 const canvas = await render(func!, photo, option, store);
-                const filename = photo.file.name.replace(/\.[^/.]+$/, `.${photo.file.type === 'image/jpeg' ? 'jpg' : 'webp'}`);
+                const filename = photo.file.name.replace(/\.[^/.]+$/, `.${exportToJpeg ? 'jpg' : 'webp'}`);
                 const data = await convert(canvas, { type: exportToJpeg ? 'image/jpeg' : 'image/webp', quality });
                 free(canvas);
                 files.push({ filename, data });
