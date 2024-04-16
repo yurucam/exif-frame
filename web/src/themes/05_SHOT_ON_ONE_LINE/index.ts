@@ -14,7 +14,11 @@ const SHOT_ON_ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput,
   const PADDING_BOTTOM = 200;
   const FONT_SIZE = 70;
 
-  const canvas = sandbox(photo, BACKGROUND_COLOR, { top: 0, right: 0, bottom: PADDING_BOTTOM, left: 0 });
+  const canvas = sandbox(photo, {
+    targetRatio: store.ratio,
+    backgroundColor: BACKGROUND_COLOR,
+    padding: { top: 0, right: 0, bottom: PADDING_BOTTOM, left: 0 },
+  });
 
   const context = canvas.getContext('2d')!;
   context.fillStyle = TEXT_COLOR;

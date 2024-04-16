@@ -77,6 +77,12 @@ type Store = {
 
   disableExposureMeter: boolean;
   setDisableExposureMeter: (disableExposureMeter: boolean) => void;
+
+  ratio: 'free' | '1:1' | '4:5' | '1.91:1' | '9:16';
+  setRatio: (ratio: 'free' | '1:1' | '4:5' | '1.91:1' | '9:16') => void;
+
+  ratioPopover: boolean;
+  setRatioPopover: (opened: boolean) => void;
 };
 
 const useStore = create<Store>((set) => ({
@@ -224,6 +230,16 @@ const useStore = create<Store>((set) => ({
       localStorage.setItem('disableExposureMeter', disableExposureMeter.toString());
       return { disableExposureMeter };
     }),
+
+  ratio: (localStorage.getItem('ratio') as 'free' | '1:1' | '4:5' | '1.91:1' | '9:16') || 'free',
+  setRatio: (ratio: 'free' | '1:1' | '4:5' | '1.91:1' | '9:16') =>
+    set(() => {
+      localStorage.setItem('ratio', ratio);
+      return { ratio };
+    }),
+
+  ratioPopover: false,
+  setRatioPopover: (opened: boolean) => set({ ratioPopover: opened }),
 }));
 
 // Set the theme on page load

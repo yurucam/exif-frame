@@ -22,7 +22,11 @@ const SHOT_ON_TWO_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput,
   const TEXT_COLOR = input.get('TEXT_COLOR') as string;
   const TOP_LABEL = (input.get('TOP_LABEL') as string).trim();
 
-  const canvas = sandbox(photo, BACKGROUND_COLOR, { top: PADDING_TOP, right: PADDING_RIGHT, bottom: PADDING_BOTTOM, left: PADDING_LEFT });
+  const canvas = sandbox(photo, {
+    targetRatio: store.ratio,
+    backgroundColor: BACKGROUND_COLOR,
+    padding: { top: PADDING_TOP, right: PADDING_RIGHT, bottom: PADDING_BOTTOM, left: PADDING_LEFT },
+  });
 
   const context = canvas.getContext('2d')!;
   context.fillStyle = TEXT_COLOR;
