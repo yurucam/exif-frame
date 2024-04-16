@@ -34,6 +34,8 @@ import ThemeListItem from './components/theme.list-item';
 import ThemeOptionListInput from './components/theme-option.list-input';
 import FocalLength35mmModeListItem from './components/focal-length-35mm-mode.list-item';
 import DisableExposureMeterListItem from './components/disable-exposure-meter.list-item';
+import RatioPopover from './components/ratio.popover';
+import RatioListItem from './components/ratio.list-item';
 
 const RootPage = () => {
   const { t } = useTranslation();
@@ -132,6 +134,7 @@ const RootPage = () => {
             <QualityListItem />
             <FixImageWidthListItem />
             <FocalLength35mmModeListItem />
+            <RatioListItem />
           </List>
 
           <List strongIos inset>
@@ -186,6 +189,7 @@ const RootPage = () => {
       </Tabbar>
 
       <LanguagePopover />
+      <RatioPopover />
       <OverrideMetadataPopup />
 
       <Loading />

@@ -34,13 +34,13 @@ const ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: 
   const FONT_FAMILY = (input.get('FONT_FAMILY') as string).trim();
   const TOP_LABEL = (input.get('TOP_LABEL') as string).trim();
 
-  const canvas = sandbox(
-    photo,
-    BACKGROUND_COLOR,
-    PADDING_INSIDE
+  const canvas = sandbox(photo, {
+    targetRatio: store.ratio,
+    backgroundColor: BACKGROUND_COLOR,
+    padding: PADDING_INSIDE
       ? { top: 0, right: 0, bottom: 0, left: 0 }
-      : { top: PADDING_TOP, right: PADDING_RIGHT, bottom: PADDING_BOTTOM, left: PADDING_LEFT }
-  );
+      : { top: PADDING_TOP, right: PADDING_RIGHT, bottom: PADDING_BOTTOM, left: PADDING_LEFT },
+  });
 
   const context = canvas.getContext('2d')!;
   context.fillStyle = TEXT_COLOR;
@@ -51,24 +51,26 @@ const ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: 
 
   context.textAlign = TEXT_ALIGN as CanvasTextAlign;
 
-  if (!store.disableExposureMeter) {
-    context.fillText(
-      [
-        store.showCameraMaker ? store.overrideCameraMaker || photo.make : null,
-        store.showCameraModel ? store.overrideCameraModel || photo.model : null,
-        store.showLensModel ? store.overrideLensModel || photo.lensModel : null,
-        `ISO ${photo.iso}`,
-        `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`,
-        `${photo.fNumber}`,
-        `${photo.exposureTime}s`,
-      ]
-        .filter(Boolean)
-        .map((value) => value!.trim())
-        .join(' | '),
-      TEXT_ALIGN === 'left' ? PADDING_LEFT : TEXT_ALIGN === 'center' ? canvas.width / 2 : canvas.width - PADDING_RIGHT,
-      canvas.height - PADDING_BOTTOM / 2
-    );
-  }
+  context.fillText(
+    [
+      store.showCameraMaker ? store.overrideCameraMaker || photo.make : null,
+      store.showCameraModel ? store.overrideCameraModel || photo.model : null,
+      store.showLensModel ? store.overrideLensModel || photo.lensModel : null,
+      ...(store.disableExposureMeter
+        ? []
+        : [
+            `ISO ${photo.iso}`,
+            `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`,
+            `${photo.fNumber}`,
+            `${photo.exposureTime}s`,
+          ]),
+    ]
+      .filter(Boolean)
+      .map((value) => value!.trim())
+      .join(' | '),
+    TEXT_ALIGN === 'left' ? PADDING_LEFT : TEXT_ALIGN === 'center' ? canvas.width / 2 : canvas.width - PADDING_RIGHT,
+    canvas.height - PADDING_BOTTOM / 2
+  );
 
   return canvas;
 };

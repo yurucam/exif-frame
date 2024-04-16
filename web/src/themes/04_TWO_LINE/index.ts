@@ -34,13 +34,13 @@ const TWO_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: 
   const FONT_FAMILY = (input.get('FONT_FAMILY') as string).trim();
   const TOP_LABEL = (input.get('TOP_LABEL') as string).trim();
 
-  const canvas = sandbox(
-    photo,
-    BACKGROUND_COLOR,
-    PADDING_INSIDE
+  const canvas = sandbox(photo, {
+    targetRatio: store.ratio,
+    backgroundColor: BACKGROUND_COLOR,
+    padding: PADDING_INSIDE
       ? { top: 0, right: 0, bottom: 0, left: 0 }
-      : { top: PADDING_TOP, right: PADDING_RIGHT, bottom: PADDING_BOTTOM, left: PADDING_LEFT }
-  );
+      : { top: PADDING_TOP, right: PADDING_RIGHT, bottom: PADDING_BOTTOM, left: PADDING_LEFT },
+  });
 
   const context = canvas.getContext('2d')!;
   context.fillStyle = TEXT_COLOR;
