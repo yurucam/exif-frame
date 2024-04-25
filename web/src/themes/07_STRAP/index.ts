@@ -37,6 +37,8 @@ supportLogo.set('RICOH_LIGHT', loadLogo('/maker/light/ricoh.png'));
 supportLogo.set('RICOH_DARK', loadLogo('/maker/dark/ricoh.png'));
 supportLogo.set('SAMSUNG_LIGHT', loadLogo('/maker/light/samsung.png'));
 supportLogo.set('SAMSUNG_DARK', loadLogo('/maker/dark/samsung.png'));
+supportLogo.set('SIGMA_LIGHT', loadLogo('/maker/light/sigma.png'));
+supportLogo.set('SIGMA_DARK', loadLogo('/maker/dark/sigma.png'));
 supportLogo.set('SONY_LIGHT', loadLogo('/maker/light/sony.png'));
 supportLogo.set('SONY_DARK', loadLogo('/maker/dark/sony.png'));
 
@@ -171,6 +173,10 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
   // 팬탁스는 리코의 자회사 같음..? RICO ~~~ PENTAX 이런 식으로 결과물이 나오는데, 이 경우 RICO 보다 PENTAX가 우선적으로 쓰여야 함
   if (photo.make?.toUpperCase().includes('PENTAX') || photo.model?.toUpperCase().includes('PENTAX')) {
     logo = DARK_MODE ? supportLogo.get('PENTAX_DARK') : supportLogo.get('PENTAX_LIGHT');
+  }
+
+  if (photo.make?.toUpperCase().includes('SIGMA') || photo.model?.toUpperCase().includes('SIGMA')) {
+    logo = DARK_MODE ? supportLogo.get('SIGMA_DARK') : supportLogo.get('SIGMA_LIGHT');
   }
 
   if (photo.make?.toUpperCase().includes('SONY') || photo.model?.toUpperCase().includes('SONY')) {
