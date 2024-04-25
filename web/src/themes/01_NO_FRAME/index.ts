@@ -7,6 +7,7 @@ const NO_FRAME_OPTIONS: ThemeOption[] = [];
 const NO_FRAME_THEME_FUNC: ThemeFunc = (photo: Photo, _input, store) => {
   return sandbox(photo, {
     targetRatio: store.ratio,
+    notCroppedMode: store.notCroppedMode,
     backgroundColor: '#ffffff',
     padding: { top: 0, right: 0, bottom: 0, left: 0 },
   });

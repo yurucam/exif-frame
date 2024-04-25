@@ -19,6 +19,7 @@ const JUST_FRAME_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store
 
   return sandbox(photo, {
     targetRatio: store.ratio,
+    notCroppedMode: store.notCroppedMode,
     backgroundColor: BACKGROUND_COLOR,
     padding: { top: PADDING_TOP, right: PADDING_RIGHT, bottom: PADDING_BOTTOM, left: PADDING_LEFT },
   });

@@ -46,6 +46,7 @@
   "root.settings.dark-mode": "ダークモード",
   "root.settings.language": "言語",
   "root.settings.ratio": "比率",
+  "root.settings.not-cropped-mode": "切り取られていないモード",
   "root.settings.export-to-jpeg": "JPEGにエクスポート",
   "root.settings.quality": "画質",
   "root.settings.fix-image-width": "画像幅を固定",
