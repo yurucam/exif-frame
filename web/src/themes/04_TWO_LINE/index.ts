@@ -13,7 +13,7 @@ const TWO_LINE_OPTIONS: ThemeOption[] = [
   { key: 'TEXT_COLOR', type: String, default: '#000000', description: '#ffffff is white, #000000 is black' },
   { key: 'TEXT_ALIGN', type: String, default: 'center', description: 'left or center or right' },
   { key: 'FONT_STYLE', type: String, default: 'normal', description: 'normal or italic' },
-  { key: 'FONT_WEIGHT', type: Number, default: 100, description: '100 - 900' },
+  { key: 'FONT_WEIGHT', type: Number, default: 300, description: '100 - 900' },
   { key: 'FONT_SIZE', type: Number, default: 70, description: 'px' },
   { key: 'FONT_FAMILY', type: String, default: 'Barlow', description: 'ex. digital-7, Barlow, Arial, sans-serif' },
   { key: 'TOP_LABEL', type: String, default: '', description: 'ex. @username' },

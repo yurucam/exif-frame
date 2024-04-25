@@ -47,7 +47,7 @@ supportLogo.set('SONY_DARK', loadLogo('/maker/dark/sony.png'));
 const STRAP_OPTIONS: ThemeOption[] = [
   { key: 'ARTIST', type: String, default: 'Your Name', description: 'your name' },
   { key: 'DARK_MODE', type: Boolean, default: false, description: 'enable to use dark mode' },
-  { key: 'SECONDARY_TEXT_FONT_WEIGHT', type: Number, default: 100, description: '100 - 900' },
+  { key: 'SECONDARY_TEXT_FONT_WEIGHT', type: Number, default: 300, description: '100 - 900' },
   { key: 'PADDING_TOP', type: Number, default: 0, description: 'px' },
   { key: 'PADDING_BOTTOM', type: Number, default: 0, description: 'px' },
   { key: 'PADDING_LEFT', type: Number, default: 0, description: 'px' },
