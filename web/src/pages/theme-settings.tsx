@@ -28,6 +28,8 @@ const ThemeSettingsPage = () => {
     if (!option.has(themeOption.key)) option.set(themeOption.key, themeOption.default);
   });
 
+  let firstLoading = false;
+
   const onChange = async (event: ChangeEvent<HTMLInputElement>) => {
     setLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 100));
@@ -39,9 +41,11 @@ const ThemeSettingsPage = () => {
   };
 
   useEffect(() => {
+    if (firstLoading) return;
     if (loading) return;
     setLoading(true);
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    firstLoading = true;
     (async () => {
       let targetPhoto: Photo | null = previewPhoto;
 
@@ -54,6 +58,10 @@ const ThemeSettingsPage = () => {
       const func = theme?.func;
       const canvas = await render(func!, targetPhoto!, option, store);
       const preview = document.getElementById('preview') as HTMLCanvasElement;
+      if (!preview) {
+        setLoading(false);
+        return;
+      }
       preview.width = 0;
       preview.height = 0;
       preview.width = canvas.width;
@@ -63,6 +71,7 @@ const ThemeSettingsPage = () => {
       canvas.remove();
 
       setLoading(false);
+      firstLoading = false;
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [buttonClicked, selectedThemeName]);
