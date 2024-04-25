@@ -80,6 +80,9 @@ type Store = {
 
   ratioPopover: boolean;
   setRatioPopover: (opened: boolean) => void;
+
+  previewPhoto: Photo | null;
+  setPreviewPhoto: (previewPhoto: Photo | null) => void;
 };
 
 const useStore = create<Store>((set) => ({
@@ -234,6 +237,9 @@ const useStore = create<Store>((set) => ({
 
   ratioPopover: false,
   setRatioPopover: (opened: boolean) => set({ ratioPopover: opened }),
+
+  previewPhoto: null,
+  setPreviewPhoto: (previewPhoto: Photo | null) => set({ previewPhoto }),
 }));
 
 // Set the theme on page load
