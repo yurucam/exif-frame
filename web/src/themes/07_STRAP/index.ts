@@ -48,13 +48,20 @@ const STRAP_OPTIONS: ThemeOption[] = [
   { key: 'ARTIST', type: String, default: 'Your Name', description: 'your name' },
   { key: 'DARK_MODE', type: Boolean, default: false, description: 'enable to use dark mode' },
   { key: 'SECONDARY_TEXT_FONT_WEIGHT', type: Number, default: 100, description: '100 - 900' },
+  { key: 'PADDING_TOP', type: Number, default: 0, description: 'px' },
+  { key: 'PADDING_BOTTOM', type: Number, default: 0, description: 'px' },
+  { key: 'PADDING_LEFT', type: Number, default: 0, description: 'px' },
+  { key: 'PADDING_RIGHT', type: Number, default: 0, description: 'px' },
 ];
 
 const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {
   const ARTIST = (input.get('ARTIST') as string).trim();
   const DARK_MODE = input.get('DARK_MODE') as boolean;
   const SECONDARY_TEXT_FONT_WEIGHT = input.get('SECONDARY_TEXT_FONT_WEIGHT') as number;
-  const PADDING_BOTTOM = 300;
+  const PADDING_TOP = input.get('PADDING_TOP') as number;
+  const PADDING_BOTTOM = (input.get('PADDING_BOTTOM') as number) + 300;
+  const PADDING_LEFT = input.get('PADDING_LEFT') as number;
+  const PADDING_RIGHT = input.get('PADDING_RIGHT') as number;
   const FONT_SIZE = 70;
   const BACKGROUND_COLOR = DARK_MODE ? '#000000' : '#ffffff';
   const PRIMARY_TEXT_COLOR = DARK_MODE ? '#ffffff' : '#000000';
@@ -63,7 +70,7 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
   const canvas = sandbox(photo, {
     targetRatio: store.ratio,
     backgroundColor: BACKGROUND_COLOR,
-    padding: { top: 0, right: 0, bottom: PADDING_BOTTOM, left: 0 },
+    padding: { top: PADDING_TOP, right: PADDING_RIGHT, bottom: PADDING_BOTTOM, left: PADDING_LEFT },
   });
   const context = canvas.getContext('2d')!;
   context.textBaseline = 'middle';
