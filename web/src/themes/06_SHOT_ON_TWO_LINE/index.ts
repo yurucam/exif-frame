@@ -24,6 +24,7 @@ const SHOT_ON_TWO_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput,
 
   const canvas = sandbox(photo, {
     targetRatio: store.ratio,
+    notCroppedMode: store.notCroppedMode,
     backgroundColor: BACKGROUND_COLOR,
     padding: { top: PADDING_TOP, right: PADDING_RIGHT, bottom: PADDING_BOTTOM, left: PADDING_LEFT },
   });
@@ -40,12 +41,7 @@ const SHOT_ON_TWO_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput,
   // shot on ${MAKER} ${MODEL}
   context.font = `normal 500 80px Barlow`;
   context.fillText(
-    `shot on ${[
-      store.showCameraMaker ? store.overrideCameraMaker || photo.make : null,
-      store.showCameraModel ? store.overrideCameraModel || photo.model : null,
-    ]
-      .filter(Boolean)
-      .join(' ')}`,
+    `shot on ${[store.showCameraMaker ? store.overrideCameraMaker || photo.make : null, store.showCameraModel ? store.overrideCameraModel || photo.model : null].filter(Boolean).join(' ')}`,
     canvas.width / 2,
     canvas.height - PADDING_BOTTOM + 100
   );
@@ -55,14 +51,7 @@ const SHOT_ON_TWO_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput,
 
   if (!store.disableExposureMeter) {
     context.fillText(
-      [
-        `ISO ${photo.iso}`,
-        `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`,
-        `${photo.fNumber}`,
-        `${photo.exposureTime}s`,
-      ]
-        .filter(Boolean)
-        .join('    '),
+      [`ISO ${photo.iso}`, `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`, `${photo.fNumber}`, `${photo.exposureTime}s`].filter(Boolean).join('    '),
       canvas.width / 2,
       canvas.height - PADDING_BOTTOM + 200
     );

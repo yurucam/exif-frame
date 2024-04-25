@@ -83,6 +83,9 @@ type Store = {
 
   previewPhoto: Photo | null;
   setPreviewPhoto: (previewPhoto: Photo | null) => void;
+
+  notCroppedMode: boolean;
+  setNotCroppedMode: (notCroppedMode: boolean) => void;
 };
 
 const useStore = create<Store>((set) => ({
@@ -240,6 +243,13 @@ const useStore = create<Store>((set) => ({
 
   previewPhoto: null,
   setPreviewPhoto: (previewPhoto: Photo | null) => set({ previewPhoto }),
+
+  notCroppedMode: localStorage.getItem('notCroppedMode') === 'true',
+  setNotCroppedMode: (notCroppedMode: boolean) =>
+    set(() => {
+      localStorage.setItem('notCroppedMode', notCroppedMode.toString());
+      return { notCroppedMode };
+    }),
 }));
 
 // Set the theme on page load
