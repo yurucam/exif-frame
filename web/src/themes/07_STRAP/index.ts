@@ -21,6 +21,8 @@ supportLogo.set('HASSELBLAD_LIGHT', loadLogo('/maker/light/hasselblad.png'));
 supportLogo.set('HASSELBLAD_DARK', loadLogo('/maker/dark/hasselblad.png'));
 supportLogo.set('LEICA_LIGHT', loadLogo('/maker/light/leica.png'));
 supportLogo.set('LEICA_DARK', loadLogo('/maker/dark/leica.png'));
+supportLogo.set('LG_LIGHT', loadLogo('/maker/light/lg.png'));
+supportLogo.set('LG_DARK', loadLogo('/maker/dark/lg.png'));
 supportLogo.set('MAMIYA_LIGHT', loadLogo('/maker/light/mamiya.png'));
 supportLogo.set('MAMIYA_DARK', loadLogo('/maker/dark/mamiya.png'));
 supportLogo.set('NIKON_LIGHT', loadLogo('/maker/light/nikon.png'));
@@ -144,6 +146,10 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
 
   if (photo.make?.toUpperCase().includes('LEICA') || photo.model?.toUpperCase().includes('LEICA')) {
     logo = DARK_MODE ? supportLogo.get('LEICA_DARK') : supportLogo.get('LEICA_LIGHT');
+  }
+
+  if (photo.make?.toUpperCase().includes('LG') || photo.model?.toUpperCase().includes('LG')) {
+    logo = DARK_MODE ? supportLogo.get('LG_DARK') : supportLogo.get('LG_LIGHT');
   }
 
   if (photo.make?.toUpperCase().includes('MAMIYA') || photo.model?.toUpperCase().includes('MAMIYA')) {
