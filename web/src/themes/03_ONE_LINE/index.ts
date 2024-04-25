@@ -5,7 +5,7 @@ import { ThemeFunc, ThemeOption, ThemeOptionInput } from '../../core/drawing/the
 
 const ONE_LINE_OPTIONS: ThemeOption[] = [
   { key: 'BACKGROUND_COLOR', type: String, default: '#ffffff', description: '#ffffff is white, #000000 is black' },
-  { key: 'PADDING_INSIDE', type: String, default: 'no', description: 'yes or no' },
+  { key: 'PADDING_INSIDE', type: Boolean, default: false, description: 'enable to use inside padding' },
   { key: 'PADDING_TOP', type: Number, default: 100, description: 'px' },
   { key: 'PADDING_BOTTOM', type: Number, default: 250, description: 'px' },
   { key: 'PADDING_LEFT', type: Number, default: 100, description: 'px' },
@@ -21,7 +21,7 @@ const ONE_LINE_OPTIONS: ThemeOption[] = [
 
 const ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {
   const BACKGROUND_COLOR = (input.get('BACKGROUND_COLOR') as string).trim();
-  const PADDING_INSIDE = (input.get('PADDING_INSIDE') as string).trim() !== 'no';
+  const PADDING_INSIDE = input.get('PADDING_INSIDE') as boolean;
   const PADDING_TOP = input.get('PADDING_TOP') as number;
   const PADDING_BOTTOM = input.get('PADDING_BOTTOM') as number;
   const PADDING_LEFT = input.get('PADDING_LEFT') as number;
@@ -37,9 +37,7 @@ const ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: 
   const canvas = sandbox(photo, {
     targetRatio: store.ratio,
     backgroundColor: BACKGROUND_COLOR,
-    padding: PADDING_INSIDE
-      ? { top: 0, right: 0, bottom: 0, left: 0 }
-      : { top: PADDING_TOP, right: PADDING_RIGHT, bottom: PADDING_BOTTOM, left: PADDING_LEFT },
+    padding: PADDING_INSIDE ? { top: 0, right: 0, bottom: 0, left: 0 } : { top: PADDING_TOP, right: PADDING_RIGHT, bottom: PADDING_BOTTOM, left: PADDING_LEFT },
   });
 
   const context = canvas.getContext('2d')!;
@@ -56,14 +54,7 @@ const ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: 
       store.showCameraMaker ? store.overrideCameraMaker || photo.make : null,
       store.showCameraModel ? store.overrideCameraModel || photo.model : null,
       store.showLensModel ? store.overrideLensModel || photo.lensModel : null,
-      ...(store.disableExposureMeter
-        ? []
-        : [
-            `ISO ${photo.iso}`,
-            `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`,
-            `${photo.fNumber}`,
-            `${photo.exposureTime}s`,
-          ]),
+      ...(store.disableExposureMeter ? [] : [`ISO ${photo.iso}`, `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`, `${photo.fNumber}`, `${photo.exposureTime}s`]),
     ]
       .filter(Boolean)
       .map((value) => value!.trim())
