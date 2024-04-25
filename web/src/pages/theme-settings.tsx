@@ -59,6 +59,7 @@ const ThemeSettingsPage = () => {
       preview.height = canvas.height;
       preview.getContext('2d')?.drawImage(canvas, 0, 0);
       free(canvas);
+      canvas.remove();
 
       setLoading(false);
     })();
@@ -96,7 +97,7 @@ const ThemeSettingsPage = () => {
       {theme?.options.length !== 0 && <BlockTitle>{t('root.themes.customize')}</BlockTitle>}
       <List strongIos inset>
         {theme?.options.map((option, index) => {
-          return <ThemeOptionListInput index={index} optionKey={option.key} description={option.description} defaultValue={option.default} type={option.type} />;
+          return <ThemeOptionListInput index={index} key={index} optionKey={option.key} description={option.description} defaultValue={option.default} type={option.type} />;
         })}
       </List>
 
