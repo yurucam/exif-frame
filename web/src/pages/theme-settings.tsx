@@ -53,7 +53,7 @@ const ThemeSettingsPage = () => {
 
       <BlockTitle>{t('root.themes.preview')}</BlockTitle>
       <Block>
-        <div className="lg:w-2/5 lg:mx-auto">
+        <div className="mx-auto w-4/5 lg:w-2/5">
           <canvas id="preview" style={{ width: '100%', objectFit: 'contain' }} />
           <div style={{ height: '0.5rem' }} />
           <Button onClick={() => setButtonClicked(buttonClicked + 1)}>{t('click-to-refresh')}</Button>

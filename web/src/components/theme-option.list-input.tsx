@@ -7,7 +7,7 @@ interface ThemeOptionListInputProps {
   index: number;
   optionKey: string;
   description?: string;
-  defaultValue: string | number;
+  defaultValue: string | number | boolean;
   type: typeof String | typeof Number | typeof Boolean;
 }
 
