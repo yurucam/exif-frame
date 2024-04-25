@@ -1,4 +1,7 @@
 {
+  "refresh": "새로고침",
+  "click-to-refresh": "새로고침하려면 클릭하세요",
+  "back": "뒤로가기",
   "close": "닫기",
 
   "en": "English",
@@ -57,5 +60,8 @@
   "root.settings.show-lens-model": "렌즈 모델 표시",
   "root.settings.override-camera-maker": "카메라 제조사 전역 변경",
   "root.settings.override-camera-model": "카메라 모델 전역 변경",
-  "root.settings.override-lens-model": "렌즈 모델 전역 변경"
+  "root.settings.override-lens-model": "렌즈 모델 전역 변경",
+
+  "privacy-policy": "개인정보 처리방침",
+  "term-and-conditions": "이용약관"
 }

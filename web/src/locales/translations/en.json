@@ -1,4 +1,7 @@
 {
+  "refresh": "Refresh",
+  "click-to-refresh": "Click to refresh",
+  "back": "Back",
   "close": "Close",
 
   "en": "English",
@@ -56,5 +59,8 @@
   "root.settings.show-lens-model": "Show Lens Model",
   "root.settings.override-camera-maker": "Override Camera Maker",
   "root.settings.override-camera-model": "Override Camera Model",
-  "root.settings.override-lens-model": "Override Lens Model"
+  "root.settings.override-lens-model": "Override Lens Model",
+
+  "privacy-policy": "Privacy Policy",
+  "term-and-conditions": "Term and Conditions"
 }

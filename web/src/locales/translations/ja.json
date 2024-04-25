@@ -1,4 +1,7 @@
 {
+  "refresh": "リフレッシュ",
+  "click-to-refresh": "クリックしてリフレッシュ",
+  "back": "戻る",
   "close": "閉じる",
 
   "en": "English",
@@ -56,5 +59,8 @@
   "root.settings.show-lens-model": "レンズモデルを表示",
   "root.settings.override-camera-maker": "カメラメーカーを上書き",
   "root.settings.override-camera-model": "カメラモデルを上書き",
-  "root.settings.override-lens-model": "レンズモデルを上書き"
+  "root.settings.override-lens-model": "レンズモデルを上書き",
+
+  "privacy-policy": "プライバシーポリシー",
+  "term-and-conditions": "利用規約"
 }

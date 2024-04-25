@@ -5,8 +5,8 @@ type ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => HTMLCa
 
 type ThemeOption = {
   key: string;
-  type: typeof String | typeof Number;
-  default: string | number;
+  type: typeof String | typeof Number | typeof Boolean;
+  default: string | number | boolean;
   description?: string;
 };
 

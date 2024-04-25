@@ -42,13 +42,13 @@ supportLogo.set('SONY_DARK', loadLogo('/maker/dark/sony.png'));
 
 const STRAP_OPTIONS: ThemeOption[] = [
   { key: 'ARTIST', type: String, default: 'Your Name', description: 'your name' },
-  { key: 'DARK_MODE', type: String, default: 'no', description: 'yes or no' },
+  { key: 'DARK_MODE', type: Boolean, default: false, description: 'enable to use dark mode' },
   { key: 'SECONDARY_TEXT_FONT_WEIGHT', type: Number, default: 100, description: '100 - 900' },
 ];
 
 const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {
   const ARTIST = (input.get('ARTIST') as string).trim();
-  const DARK_MODE = (input.get('DARK_MODE') as string).trim() === 'yes';
+  const DARK_MODE = input.get('DARK_MODE') as boolean;
   const SECONDARY_TEXT_FONT_WEIGHT = input.get('SECONDARY_TEXT_FONT_WEIGHT') as number;
   const PADDING_BOTTOM = 300;
   const FONT_SIZE = 70;
@@ -73,12 +73,7 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
 
   if (!store.disableExposureMeter) {
     context.fillText(
-      [
-        `ISO ${photo.iso}`,
-        `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`,
-        `${photo.fNumber}`,
-        `${photo.exposureTime}s`,
-      ]
+      [`ISO ${photo.iso}`, `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`, `${photo.fNumber}`, `${photo.exposureTime}s`]
         .filter(Boolean)
         .map((value) => value.trim())
         .join('  '),
@@ -98,10 +93,7 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
   // Maker, Model
   context.fillStyle = PRIMARY_TEXT_COLOR;
   context.font = `normal 500 ${FONT_SIZE}px Barlow`;
-  const makerModelText = [
-    store.showCameraMaker ? store.overrideCameraMaker || photo.make : null,
-    store.showCameraModel ? store.overrideCameraModel || photo.model : null,
-  ]
+  const makerModelText = [store.showCameraMaker ? store.overrideCameraMaker || photo.make : null, store.showCameraModel ? store.overrideCameraModel || photo.model : null]
     .filter(Boolean)
     .map((value) => value!.trim())
     .join(' ');
