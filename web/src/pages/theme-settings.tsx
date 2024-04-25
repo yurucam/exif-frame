@@ -60,6 +60,7 @@ const ThemeSettingsPage = () => {
       const preview = document.getElementById('preview') as HTMLCanvasElement;
       if (!preview) {
         setLoading(false);
+        firstLoading = false;
         return;
       }
       preview.width = 0;
