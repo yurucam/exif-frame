@@ -2,7 +2,6 @@ import { useStore } from '../store';
 import { Button, Icon } from 'konsta/react';
 import Photo from '../core/photo';
 import { IoDownloadOutline } from 'react-icons/io5';
-import { downloadOnePhotoEvent } from '../google-analytics';
 import themes, { useThemeStore } from '../themes';
 import render from '../core/drawing/render';
 import convert from '../core/drawing/convert';
@@ -38,7 +37,6 @@ const DownloadOnePhotoButton: React.FC<DownloadOnePhotoButtonProps> = ({ photo }
           await download(filename, data);
 
           setLoading(false);
-          downloadOnePhotoEvent();
         }}
       >
         <Icon ios={<IoDownloadOutline className="w-5 h-5" />} />

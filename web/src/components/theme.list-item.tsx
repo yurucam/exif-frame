@@ -1,6 +1,5 @@
 import { ListItem, Radio } from 'konsta/react';
 import { useStore } from '../store';
-import { changeThemeEvent } from '../google-analytics';
 import { useThemeStore } from '../themes';
 
 interface ThemeListItemProps {
@@ -19,7 +18,6 @@ const ThemeListItem = ({ name }: ThemeListItemProps) => {
         <Radio
           checked={selectedThemeName === name}
           onChange={() => {
-            changeThemeEvent(name);
             clearOption();
             setSelectedThemeName(name);
           }}

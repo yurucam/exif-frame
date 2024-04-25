@@ -3,7 +3,6 @@ import { Button } from 'konsta/react';
 import Photo from '../core/photo';
 import { useTranslation } from 'react-i18next';
 import { useStore } from '../store';
-import { addPhotoByClickEvent, addPhotoByDragAndDropEvent } from '../google-analytics';
 import AddIcon from '../icons/add.icon';
 
 const AddPhotoButton = () => {
@@ -34,7 +33,6 @@ const AddPhotoButton = () => {
     await Promise.all(Array.from(files).map(Photo.create)).then((newPhotos) => {
       setPhotos([...photos, ...newPhotos]);
     });
-    addPhotoByDragAndDropEvent();
     setLoading(false);
   };
 
@@ -46,7 +44,6 @@ const AddPhotoButton = () => {
     await Promise.all(Array.from(files).map(Photo.create)).then((newPhotos) => {
       setPhotos([...photos, ...newPhotos]);
     });
-    addPhotoByClickEvent();
     setLoading(false);
   };
 

@@ -1,7 +1,6 @@
 import { Button } from 'konsta/react';
 import { useTranslation } from 'react-i18next';
 import { useStore } from '../store';
-import { downloadAllPhotosEvent } from '../google-analytics';
 import DownloadIcon from '../icons/download.icon';
 import render from '../core/drawing/render';
 import themes, { useThemeStore } from '../themes';
@@ -56,7 +55,6 @@ const DownloadAllPhotoButton = () => {
           }
 
           setLoading(false);
-          downloadAllPhotosEvent();
         }}
       >
         <DownloadIcon size={16} />
