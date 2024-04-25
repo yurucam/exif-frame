@@ -61,6 +61,7 @@ const ThemeOptionListInput = (props: ThemeOptionListInputProps) => {
           footer={description}
           after={
             <Toggle
+              key={index}
               checked={value as boolean}
               onChange={() => {
                 setOption(optionKey, !value);
