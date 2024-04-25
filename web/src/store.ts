@@ -110,7 +110,7 @@ const useStore = create<Store>((set) => ({
   languagePopover: false,
   setLanguagePopover: (opened: boolean) => set({ languagePopover: opened }),
 
-  quality: parseInt(localStorage.getItem('quality') || '100'),
+  quality: parseInt(localStorage.getItem('quality') || '95'),
   setQuality: (quality: number) =>
     set(() => {
       localStorage.setItem('quality', quality.toString());
