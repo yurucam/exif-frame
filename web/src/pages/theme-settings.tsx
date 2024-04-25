@@ -15,14 +15,12 @@ import { convertURLtoFile } from '../utils/convertURLtoFile';
 import render from '../core/drawing/render';
 import free from '../core/drawing/free';
 
-let previewPhoto: Photo | null = null;
-
 const ThemeSettingsPage = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const { option } = useThemeStore();
   const store = useStore();
-  const { loading, setLoading } = store;
+  const { setLoading, previewPhoto, setPreviewPhoto } = store;
   const { selectedThemeName } = store;
   const [buttonClicked, setButtonClicked] = useState(0);
   const theme = themes.find((theme) => theme.name === selectedThemeName);
@@ -35,24 +33,25 @@ const ThemeSettingsPage = () => {
     await new Promise((resolve) => setTimeout(resolve, 100));
     const { files } = event.target;
     if (!files) return;
-    previewPhoto = await Photo.create(files[0]);
+    setPreviewPhoto(await Photo.create(files[0]));
     setLoading(false);
     setButtonClicked(buttonClicked + 1);
   };
 
   useEffect(() => {
-    if (loading) return;
+    setLoading(true);
 
     (async () => {
-      setLoading(true);
+      let targetPhoto: Photo | null = previewPhoto;
+
       if (!previewPhoto) {
-        setLoading(false);
-        previewPhoto = await Photo.create(await convertURLtoFile('/preview.jpg'));
+        targetPhoto = await Photo.create(await convertURLtoFile('/preview.jpg'));
+        setPreviewPhoto(targetPhoto);
         setButtonClicked(buttonClicked + 1);
-        return;
       }
+
       const func = theme?.func;
-      const canvas = await render(func!, previewPhoto, option, store);
+      const canvas = await render(func!, targetPhoto!, option, store);
       const preview = document.getElementById('preview') as HTMLCanvasElement;
       preview.width = 0;
       preview.height = 0;
@@ -60,6 +59,7 @@ const ThemeSettingsPage = () => {
       preview.height = canvas.height;
       preview.getContext('2d')?.drawImage(canvas, 0, 0);
       free(canvas);
+
       setLoading(false);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
