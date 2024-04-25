@@ -20,7 +20,7 @@ const ThemeSettingsPage = () => {
   const { t } = useTranslation();
   const { option } = useThemeStore();
   const store = useStore();
-  const { setLoading, previewPhoto, setPreviewPhoto } = store;
+  const { loading, setLoading, previewPhoto, setPreviewPhoto } = store;
   const { selectedThemeName } = store;
   const [buttonClicked, setButtonClicked] = useState(0);
   const theme = themes.find((theme) => theme.name === selectedThemeName);
@@ -39,6 +39,7 @@ const ThemeSettingsPage = () => {
   };
 
   useEffect(() => {
+    if (loading) return;
     setLoading(true);
 
     (async () => {
