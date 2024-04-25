@@ -9,17 +9,20 @@ import ThemeListItem from '../components/theme.list-item';
 import ThemeOptionListInput from '../components/theme-option.list-input';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../components/loading';
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import Photo from '../core/photo';
 import { convertURLtoFile } from '../utils/convertURLtoFile';
 import render from '../core/drawing/render';
 import free from '../core/drawing/free';
+
+let previewPhoto: Photo | null = null;
 
 const ThemeSettingsPage = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const { option } = useThemeStore();
   const store = useStore();
+  const { loading, setLoading } = store;
   const { selectedThemeName } = store;
   const [buttonClicked, setButtonClicked] = useState(0);
   const theme = themes.find((theme) => theme.name === selectedThemeName);
@@ -27,14 +30,29 @@ const ThemeSettingsPage = () => {
     if (!option.has(themeOption.key)) option.set(themeOption.key, themeOption.default);
   });
 
+  const onChange = async (event: ChangeEvent<HTMLInputElement>) => {
+    setLoading(true);
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    const { files } = event.target;
+    if (!files) return;
+    previewPhoto = await Photo.create(files[0]);
+    setLoading(false);
+    setButtonClicked(buttonClicked + 1);
+  };
+
   useEffect(() => {
-    if (store.loading) return;
+    if (loading) return;
 
     (async () => {
-      store.setLoading(true);
-      const photo = await Photo.create(await convertURLtoFile('/preview.jpg'));
+      setLoading(true);
+      if (!previewPhoto) {
+        setLoading(false);
+        previewPhoto = await Photo.create(await convertURLtoFile('/preview.jpg'));
+        setButtonClicked(buttonClicked + 1);
+        return;
+      }
       const func = theme?.func;
-      const canvas = await render(func!, photo, option, store);
+      const canvas = await render(func!, previewPhoto, option, store);
       const preview = document.getElementById('preview') as HTMLCanvasElement;
       preview.width = 0;
       preview.height = 0;
@@ -42,7 +60,7 @@ const ThemeSettingsPage = () => {
       preview.height = canvas.height;
       preview.getContext('2d')?.drawImage(canvas, 0, 0);
       free(canvas);
-      store.setLoading(false);
+      setLoading(false);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [buttonClicked, selectedThemeName]);
@@ -54,7 +72,15 @@ const ThemeSettingsPage = () => {
       <BlockTitle>{t('root.themes.preview')}</BlockTitle>
       <Block>
         <div className="mx-auto w-4/5 lg:w-2/5">
-          <canvas id="preview" style={{ width: '100%', objectFit: 'contain' }} />
+          <input type="file" accept="image/*" onChange={onChange} onClick={(e) => (e.currentTarget.value = '')} hidden />
+          <canvas
+            id="preview"
+            style={{ width: '100%', objectFit: 'contain', cursor: 'pointer' }}
+            onClick={() => {
+              const input: HTMLInputElement | null = document.querySelector('input[type="file"]');
+              if (input) input.click();
+            }}
+          />
           <div style={{ height: '0.5rem' }} />
           <Button onClick={() => setButtonClicked(buttonClicked + 1)}>{t('click-to-refresh')}</Button>
         </div>
