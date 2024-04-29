@@ -44,4 +44,4 @@ Special thanks to all the people who have contributed to this project:
 
 ## License
 
-This project is licensed under the AGPL-3.0 License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the GPL-3.0 License. See the [LICENSE](LICENSE) file for details.
