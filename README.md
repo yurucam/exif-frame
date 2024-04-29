@@ -9,8 +9,8 @@
 </p>
 
 <p align="center">
-  <a href=""><img src="https://github.com/yurucam/exif-frame/assets/25793226/9be351a3-6c57-4033-a9e4-d95595a26dcd" width="200px" /></a>
-  <a href=""><img src="https://github.com/yurucam/exif-frame/assets/25793226/54f6d50f-e5f7-4b46-8bb0-5a646fce0dca" width="200px" /></a>
+  <a href="https://play.google.com/store/apps/details?id=com.yurucam.exif"><img src="https://github.com/yurucam/exif-frame/assets/25793226/9be351a3-6c57-4033-a9e4-d95595a26dcd" width="200px" /></a>
+  <a href="https://apps.apple.com/kr/app/exif-%ED%94%84%EB%A0%88%EC%9E%84/id6494989030"><img src="https://github.com/yurucam/exif-frame/assets/25793226/54f6d50f-e5f7-4b46-8bb0-5a646fce0dca" width="200px" /></a>
 <p/>
 
 <p align="center">
