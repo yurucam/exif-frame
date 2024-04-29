@@ -18,7 +18,7 @@ const CUSTOM_TWO_LINE_OPTIONS: ThemeOption[] = [
   { key: 'FONT_STYLE', type: String, default: 'normal', description: 'normal or italic' },
   { key: 'FONT_WEIGHT', type: Number, default: 300, description: '100 - 900' },
   { key: 'FONT_SIZE', type: Number, default: 70, description: 'px' },
-  { key: 'FONT_FAMILY', type: String, default: 'Barlow', description: 'ex. digital-7, Barlow, Arial, sans-serif' },
+  { key: 'FONT_FAMILY', type: String, default: 'Barlow', description: 'ex. din-alternate-bold, digital-7, Barlow, Arial, sans-serif' },
 ];
 
 const CUSTOM_TWO_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {
