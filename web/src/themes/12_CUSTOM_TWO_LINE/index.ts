@@ -5,14 +5,15 @@ import { ThemeFunc, ThemeOption, ThemeOptionInput } from '../../core/drawing/the
 
 const CUSTOM_TWO_LINE_OPTIONS: ThemeOption[] = [
   { key: 'BACKGROUND_COLOR', type: String, default: '#ffffff', description: '#ffffff is white, #000000 is black' },
-  { key: 'PADDING_INSIDE', type: Boolean, default: false, description: 'enable to use inside padding' },
+  { key: 'PADDING_INSIDE', type: Boolean, default: true, description: 'enable to use inside padding' },
   { key: 'PADDING_TOP', type: Number, default: 100, description: 'px' },
   { key: 'PADDING_BOTTOM', type: Number, default: 350, description: 'px' },
   { key: 'PADDING_LEFT', type: Number, default: 100, description: 'px' },
   { key: 'PADDING_RIGHT', type: Number, default: 100, description: 'px' },
   { key: 'TEXT1', type: String, default: 'Your Text', description: 'ex. Hello, World!' },
   { key: 'TEXT2', type: String, default: 'Your Text', description: 'ex. Hello, World!' },
-  { key: 'TEXT_COLOR', type: String, default: '#000000', description: '#ffffff is white, #000000 is black' },
+  { key: 'TEXT_COLOR', type: String, default: '#ffffff', description: '#ffffff is white, #000000 is black' },
+  { key: 'TEXT_SHADOW_COLOR', type: String, default: '#000000', description: '#ffffff is white, #000000 is black' },
   { key: 'TEXT_ALIGN', type: String, default: 'center', description: 'left or center or right' },
   { key: 'FONT_STYLE', type: String, default: 'normal', description: 'normal or italic' },
   { key: 'FONT_WEIGHT', type: Number, default: 300, description: '100 - 900' },
@@ -30,6 +31,7 @@ const CUSTOM_TWO_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, 
   const TEXT1 = input.get('TEXT1') as string;
   const TEXT2 = input.get('TEXT2') as string;
   const TEXT_COLOR = input.get('TEXT_COLOR') as string;
+  const TEXT_SHADOW_COLOR = input.get('TEXT_SHADOW_COLOR') as string;
   const TEXT_ALIGN = (input.get('TEXT_ALIGN') as string).trim() as CanvasTextAlign;
   const FONT_STYLE = (input.get('FONT_STYLE') as string).trim();
   const FONT_WEIGHT = input.get('FONT_WEIGHT') as number;
@@ -48,8 +50,11 @@ const CUSTOM_TWO_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, 
   context.textBaseline = 'middle';
   context.font = `${FONT_STYLE} ${FONT_WEIGHT} ${FONT_SIZE}px ${FONT_FAMILY}`;
   context.textAlign = TEXT_ALIGN as CanvasTextAlign;
+  context.shadowColor = TEXT_SHADOW_COLOR;
+  context.shadowBlur = 10;
   context.fillText(TEXT1, TEXT_ALIGN === 'left' ? PADDING_LEFT : TEXT_ALIGN === 'center' ? canvas.width / 2 : canvas.width - PADDING_RIGHT, canvas.height - PADDING_BOTTOM / 2 - FONT_SIZE / 1.5);
   context.fillText(TEXT2, TEXT_ALIGN === 'left' ? PADDING_LEFT : TEXT_ALIGN === 'center' ? canvas.width / 2 : canvas.width - PADDING_RIGHT, canvas.height - PADDING_BOTTOM / 2 + FONT_SIZE / 1.5);
+  context.shadowBlur = 0;
 
   return canvas;
 };
