@@ -7,6 +7,7 @@ import { STRAP_FUNC, STRAP_OPTIONS } from './07_STRAP';
 import { SHOT_ON_ONE_LINE_FUNC, SHOT_ON_ONE_LINE_OPTIONS } from './05_SHOT_ON_ONE_LINE';
 import { SHOT_ON_TWO_LINE_FUNC, SHOT_ON_TWO_LINE_OPTIONS } from './06_SHOT_ON_TWO_LINE';
 import { FILM_FUNC, FILM_OPTIONS } from './08_FILM';
+import { MONITOR_FUNC, MONITOR_OPTIONS } from './09_MONITOR';
 
 type AcceptInputType = string | number | boolean;
 
@@ -43,6 +44,7 @@ const themes = [
   { name: 'Shot on one line', func: SHOT_ON_ONE_LINE_FUNC, options: SHOT_ON_ONE_LINE_OPTIONS },
   { name: 'Shot on two line', func: SHOT_ON_TWO_LINE_FUNC, options: SHOT_ON_TWO_LINE_OPTIONS },
   { name: 'Film', func: FILM_FUNC, options: FILM_OPTIONS },
+  { name: 'Monitor', func: MONITOR_FUNC, options: MONITOR_OPTIONS },
 ];
 
 export default themes;
