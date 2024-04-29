@@ -17,7 +17,7 @@ import SettingsIcon from '../icons/settings.icon';
 import ImageIcon from '../icons/image.icon';
 import GenerateIcon from '../icons/generate.icon';
 import BugReportListItem from '../components/bug-report.list-item';
-import FeatureRequestListItem from '../components/feature-request.list-item';
+import SponsorListItem from '../components/sponsor.list-item';
 import ReleasesListItem from '../components/releases.list-item';
 import CurrentVersionListItem from '../components/current-version.list-item';
 import FocalLength35mmModeListItem from '../components/focal-length-35mm-mode.list-item';
@@ -65,7 +65,7 @@ const ExportSettingsPage = () => {
 
       <List strongIos inset>
         <BugReportListItem />
-        <FeatureRequestListItem />
+        <SponsorListItem />
         <ReleasesListItem />
       </List>
 

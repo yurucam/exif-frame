@@ -5,14 +5,7 @@ import BugIcon from '../icons/bug.icon';
 const BugReportListItem = () => {
   const { t } = useTranslation();
 
-  return (
-    <ListItem
-      media={<BugIcon size={26} />}
-      title={t('root.bug-report')}
-      link
-      onClick={() => window.open('https://github.com/yurucam/exif-frame/issues/new?template=bug_report.md')}
-    />
-  );
+  return <ListItem media={<BugIcon size={26} />} title={t('root.bug-report')} link onClick={() => window.open('mailto:help@yuru.cam?subject=[exif-frame] Bug Report')} />;
 };
 
 export default BugReportListItem;
