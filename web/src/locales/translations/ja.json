@@ -38,6 +38,7 @@
   "root.bug-report": "バグ報告",
   "root.feature-request": "機能リクエスト",
   "root.loaded-photos": "読み込まれた写真",
+  "root.sponsor": "スポンサー",
   "root.processing": "機器の仕様によっては、時間がかかる場合があります。",
   "root.releases": "配布内訳",
   "root.override-metadata": "メタデータを上書き",

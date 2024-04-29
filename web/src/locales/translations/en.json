@@ -38,6 +38,7 @@
   "root.bug-report": "Bug Report",
   "root.feature-request": "Feature Request",
   "root.loaded-photos": "Loaded Photos",
+  "root.sponsor": "Sponsor",
   "root.processing": "it may take a long time depending on device specifications.",
   "root.releases": "Releases",
   "root.override-metadata": "Override EXIF Metadata",
