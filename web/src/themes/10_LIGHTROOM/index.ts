@@ -45,7 +45,7 @@ const LIGHTROOM_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store:
 
   if (!store.disableExposureMeter) {
     context.fillText(
-      [`ISO ${photo.iso}`, `${photo.exposureTime}s`, photo.fNumber, `${(store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength)?.replace('mm', ' mm')}`].join('    '),
+      [`ISO ${photo.iso}`, `${photo.exposureTime} s`, photo.fNumber, `${(store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength)?.replace('mm', ' mm')}`].join('    '),
       PADDING_LEFT,
       canvas.height - PADDING_BOTTOM / 2
     );
