@@ -15,7 +15,7 @@ const CUSTOM_ONE_LINE_OPTIONS: ThemeOption[] = [
   { id: 'TEXT', type: 'string', default: 'Your Text', description: 'ex. Hello, World!' },
   { id: 'TEXT_COLOR', type: 'color', default: '#ffffff', description: '#ffffff is white, #000000 is black' },
   { id: 'TEXT_SHADOW_COLOR', type: 'color', default: '#000000', description: '#ffffff is white, #000000 is black' },
-  { id: 'TEXT_ALIGN', type: 'string', default: 'center', description: 'left or center or right' },
+  { id: 'TEXT_ALIGN', type: 'select', options: ['center', 'right', 'left'], default: 'center', description: 'left or center or right' },
   { id: 'FONT_STYLE', type: 'select', options: ['normal', 'italic'], default: 'normal', description: 'normal or italic' },
   { id: 'FONT_WEIGHT', type: 'range-slider', min: 100, max: 900, step: 100, default: 300, description: '100 - 900' },
   { id: 'FONT_SIZE', type: 'number', default: 70, description: 'px' },

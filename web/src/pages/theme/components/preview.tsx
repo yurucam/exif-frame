@@ -28,10 +28,15 @@ const Preview = () => {
 
     render(func!, store.photos[0], input, store).then((canvas) => {
       const preview = document.getElementById('preview') as HTMLCanvasElement;
-      preview.width = canvas.width;
-      preview.height = canvas.height;
-      preview.getContext('2d')?.drawImage(canvas, 0, 0);
-      free(canvas);
+      preview.width = 0;
+      preview.height = 0;
+
+      setTimeout(() => {
+        preview.width = canvas.width;
+        preview.height = canvas.height;
+        preview.getContext('2d')?.drawImage(canvas, 0, 0);
+        free(canvas);
+      }, 100);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedThemeName, rerenderOptions]);
