@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import TermAndConditionsPage from './pages/term-and-conditions';
 import PrivacyPolicyPage from './pages/privacy-policy';
-import FramePage from './pages/frame';
-import ExportSettingsPage from './pages/export-settings';
-import ThemeSettingsPage from './pages/theme-settings';
+import FramePage from './pages/convert/page';
+import ExportSettingsPage from './pages/setting/page';
+import ThemeSettingsPage from './pages/theme/page';
 
 const Router = () => {
   return (

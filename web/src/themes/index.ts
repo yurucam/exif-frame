@@ -11,6 +11,8 @@ import { MONITOR_FUNC, MONITOR_OPTIONS } from './09_MONITOR';
 import { LIGHTROOM_FUNC, LIGHTROOM_OPTIONS } from './10_LIGHTROOM';
 import { CUSTOM_ONE_LINE_FUNC, CUSTOM_ONE_LINE_OPTIONS } from './11_CUSTOM_ONE_LINE';
 import { CUSTOM_TWO_LINE_FUNC, CUSTOM_TWO_LINE_OPTIONS } from './12_CUSTOM_TWO_LINE';
+import { TIP_FUNC, TIP_OPTIONS } from './13_TIP';
+import { POSTER_FUNC, POSTER_OPTIONS } from './14_POSTER';
 
 type AcceptInputType = string | number | boolean;
 
@@ -51,6 +53,8 @@ const themes = [
   { name: 'Lightroom', func: LIGHTROOM_FUNC, options: LIGHTROOM_OPTIONS },
   { name: 'Custom One Line', func: CUSTOM_ONE_LINE_FUNC, options: CUSTOM_ONE_LINE_OPTIONS },
   { name: 'Custom Two Line', func: CUSTOM_TWO_LINE_FUNC, options: CUSTOM_TWO_LINE_OPTIONS },
+  { name: 'Poster', func: POSTER_FUNC, options: POSTER_OPTIONS },
+  { name: 'Tip', func: TIP_FUNC, options: TIP_OPTIONS },
 ];
 
 export default themes;

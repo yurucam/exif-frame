@@ -5,6 +5,8 @@ import { ThemeFunc, ThemeOption, ThemeOptionInput } from '../../core/drawing/the
 
 const MONITOR_OPTIONS: ThemeOption[] = [
   { key: 'BACKGROUND_COLOR', type: String, default: '#000000', description: '#ffffff is white, #000000 is black' },
+  { key: 'PADDING_INSIDE', type: Boolean, default: false, description: 'enable to use inside padding' },
+  { key: 'COMPACT', type: Boolean, default: false, description: 'enable to reduce exif text width' },
   { key: 'PADDING_TOP', type: Number, default: 0, description: 'px' },
   { key: 'PADDING_BOTTOM', type: Number, default: 100, description: 'px' },
   { key: 'PADDING_LEFT', type: Number, default: 0, description: 'px' },
@@ -18,6 +20,8 @@ const MONITOR_OPTIONS: ThemeOption[] = [
 
 const MONITOR_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {
   const BACKGROUND_COLOR = (input.get('BACKGROUND_COLOR') as string).trim();
+  const PADDING_INSIDE = input.get('PADDING_INSIDE') as boolean;
+  const COMPACT = input.get('COMPACT') as boolean;
   const PADDING_TOP = input.get('PADDING_TOP') as number;
   const PADDING_BOTTOM = input.get('PADDING_BOTTOM') as number;
   const PADDING_LEFT = input.get('PADDING_LEFT') as number;
@@ -32,7 +36,7 @@ const MONITOR_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: S
     targetRatio: store.ratio,
     notCroppedMode: store.notCroppedMode,
     backgroundColor: BACKGROUND_COLOR,
-    padding: { top: PADDING_TOP, right: PADDING_RIGHT, bottom: PADDING_BOTTOM, left: PADDING_LEFT },
+    padding: PADDING_INSIDE ? { top: 0, right: 0, bottom: 0, left: 0 } : { top: PADDING_TOP, right: PADDING_RIGHT, bottom: PADDING_BOTTOM, left: PADDING_LEFT },
   });
 
   const context = canvas.getContext('2d')!;
@@ -41,11 +45,21 @@ const MONITOR_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: S
   context.font = `${FONT_STYLE} ${FONT_WEIGHT} ${FONT_SIZE}px ${FONT_FAMILY}`;
   context.textAlign = 'center';
 
-  if (!store.disableExposureMeter) {
-    context.fillText(`${photo.exposureTime}s`, (canvas.width / 5) * 1, canvas.height - PADDING_BOTTOM / 2);
-    context.fillText(`${photo.fNumber?.replace('f', 'F')}`, (canvas.width / 5) * 2, canvas.height - PADDING_BOTTOM / 2);
-    context.fillText(`ISO${photo.iso}`, (canvas.width / 5) * 3, canvas.height - PADDING_BOTTOM / 2);
-    context.fillText(`${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`, (canvas.width / 5) * 4, canvas.height - PADDING_BOTTOM / 2);
+  if (COMPACT) {
+    const targetWidth = canvas.width / 2;
+    if (!store.disableExposureMeter) {
+      context.fillText(`${photo.fNumber?.replace('f/', 'F')}`, (canvas.width - targetWidth) / 2 + (targetWidth / 5) * 1, canvas.height - PADDING_BOTTOM / 2);
+      context.fillText(`${photo.exposureTime}`, (canvas.width - targetWidth) / 2 + (targetWidth / 5) * 2, canvas.height - PADDING_BOTTOM / 2);
+      context.fillText(`ISO${photo.iso}`, (canvas.width - targetWidth) / 2 + (targetWidth / 5) * 3, canvas.height - PADDING_BOTTOM / 2);
+      context.fillText(`${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`, (canvas.width - targetWidth) / 2 + (targetWidth / 5) * 4, canvas.height - PADDING_BOTTOM / 2);
+    }
+  } else {
+    if (!store.disableExposureMeter) {
+      context.fillText(`${photo.fNumber?.replace('f/', 'F')}`, (canvas.width / 5) * 1, canvas.height - PADDING_BOTTOM / 2);
+      context.fillText(`${photo.exposureTime}`, (canvas.width / 5) * 2, canvas.height - PADDING_BOTTOM / 2);
+      context.fillText(`ISO${photo.iso}`, (canvas.width / 5) * 3, canvas.height - PADDING_BOTTOM / 2);
+      context.fillText(`${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`, (canvas.width / 5) * 4, canvas.height - PADDING_BOTTOM / 2);
+    }
   }
 
   return canvas;
