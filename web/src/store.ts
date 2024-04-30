@@ -3,6 +3,9 @@ import themes from './themes';
 import Photo from './core/photo';
 
 type Store = {
+  tabIndex: number;
+  setTabIndex: (tabIndex: number) => void;
+
   rerenderOptions: number;
   setRerenderOptions: () => void;
 
@@ -92,6 +95,9 @@ type Store = {
 };
 
 const useStore = create<Store>((set) => ({
+  tabIndex: 0,
+  setTabIndex: (tabIndex: number) => set({ tabIndex }),
+
   rerenderOptions: 0,
   setRerenderOptions: () => set({ rerenderOptions: Math.random() }),
 
