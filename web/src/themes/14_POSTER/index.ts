@@ -16,7 +16,7 @@ const POSTER_OPTIONS: ThemeOption[] = [
   { id: 'TEXT4', type: 'string', default: 'White House' },
   { id: 'TEXT5', type: 'string', default: '1600 Pennsylvania Avenue NW, Washington, DC 20500' },
   { id: 'TEXT1_SIZE', type: 'number', default: 80, description: 'px' },
-  { id: 'TEXT1_WIGHT', type: 'number', default: 300, description: '100 ~ 900' },
+  { id: 'TEXT1_WEIGHT', type: 'range-slider', min: 100, max: 900, step: 100, default: 300, description: '100 ~ 900' },
   { id: 'TEXT2_SIZE', type: 'number', default: 200, description: 'px' },
   { id: 'TEXT2_WEIGHT', type: 'range-slider', min: 100, max: 900, step: 100, default: 500, description: '100 ~ 900' },
   { id: 'TEXT3_SIZE', type: 'number', default: 200, description: 'px' },
@@ -40,7 +40,7 @@ const POSTER_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: St
   const TEXT4 = (input.get('TEXT4') as string).trim();
   const TEXT5 = (input.get('TEXT5') as string).trim();
   const TEXT1_SIZE = input.get('TEXT1_SIZE') as number;
-  const TEXT1_WIGHT = input.get('TEXT1_WIGHT') as number;
+  const TEXT1_WEIGHT = input.get('TEXT1_WEIGHT') as number;
   const TEXT2_SIZE = input.get('TEXT2_SIZE') as number;
   const TEXT2_WEIGHT = input.get('TEXT2_WEIGHT') as number;
   const TEXT3_SIZE = input.get('TEXT3_SIZE') as number;
@@ -66,7 +66,7 @@ const POSTER_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: St
   context.textBaseline = 'middle';
   context.textAlign = 'left';
 
-  context.font = `normal ${TEXT1_WIGHT} ${TEXT1_SIZE}px ${FONT_FAMILY}`;
+  context.font = `normal ${TEXT1_WEIGHT} ${TEXT1_SIZE}px ${FONT_FAMILY}`;
   context.fillText(TEXT1, PADDING_LEFT, PADDING_TOP);
 
   context.font = `normal ${TEXT2_WEIGHT} ${TEXT2_SIZE}px ${FONT_FAMILY}`;
