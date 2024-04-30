@@ -32,15 +32,17 @@ const Preview = () => {
     const func = theme?.func;
 
     render(func!, store.photos[0], input, store).then((canvas) => {
-      preview.width = canvas.width;
-      preview.height = canvas.height;
-      preview.getContext('2d')?.drawImage(canvas, 0, 0);
+      const ratio = canvas.width / canvas.height;
+      preview.width = 1000;
+      preview.height = 1000 / ratio;
+      preview.getContext('2d')?.drawImage(canvas, 0, 0, preview.width, preview.height);
       free(canvas);
+      canvas.remove();
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedThemeName, rerenderOptions, tabIndex]);
 
-  return <canvas id="preview" className="w-4/6 md:w-2/6 mx-auto mt-4" />;
+  return <canvas id="preview" className="mx-auto mt-4" style={{ width: '500px' }} />;
 };
 
 export default Preview;
