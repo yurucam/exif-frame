@@ -7,16 +7,14 @@ import GenerateIcon from '../../icons/generate.icon';
 import themes from '../../themes';
 import ThemeListItem from './components/theme.list-item';
 import ThemeOptionListInput from './components/theme-option.list-input';
-import { useNavigate } from 'react-router-dom';
 import Loading from '../convert/components/loading';
 import ThemeOptionResetButton from './components/theme-option-reset.button';
 import Preview from './components/preview';
 import RerenderButton from './components/rerender.button';
 
 const ThemeSettingsPage = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation();
-  const { selectedThemeName } = useStore();
+  const { selectedThemeName, setTabIndex } = useStore();
   const theme = themes.find((theme) => theme.name === selectedThemeName);
 
   return (
@@ -48,9 +46,9 @@ const ThemeSettingsPage = () => {
       </List>
 
       <Tabbar labels={true} icons={true} className="left-0 bottom-0 fixed">
-        <TabbarLink key={1} active={false} label={t('root.tab.convert')} icon={<GenerateIcon size={24} />} onClick={() => navigate('/', { replace: true })} />
-        <TabbarLink key={2} active={true} label={t('root.tab.theme-settings')} icon={<ImageIcon size={24} />} onClick={() => navigate('/theme-settings', { replace: true })} />
-        <TabbarLink key={3} active={false} label={t('root.tab.export-settings')} icon={<SettingsIcon size={24} />} onClick={() => navigate('/export-settings', { replace: true })} />
+        <TabbarLink key={1} active={false} label={t('root.tab.convert')} icon={<GenerateIcon size={24} />} onClick={() => setTabIndex(0)} />
+        <TabbarLink key={2} active={true} label={t('root.tab.theme-settings')} icon={<ImageIcon size={24} />} onClick={() => setTabIndex(1)} />
+        <TabbarLink key={3} active={false} label={t('root.tab.export-settings')} icon={<SettingsIcon size={24} />} onClick={() => setTabIndex(2)} />
       </Tabbar>
 
       <Loading />

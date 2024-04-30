@@ -12,12 +12,10 @@ import RemoveAllPhotoButton from './components/remove-all-photo.button';
 import SettingsIcon from '../../icons/settings.icon';
 import ImageIcon from '../../icons/image.icon';
 import GenerateIcon from '../../icons/generate.icon';
-import { useNavigate } from 'react-router-dom';
 
 const FramePage = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation();
-  const { focalLength35mmMode, photos } = useStore();
+  const { focalLength35mmMode, photos, setTabIndex } = useStore();
 
   return (
     <Page style={{ paddingBottom: '10rem' }}>
@@ -55,9 +53,9 @@ const FramePage = () => {
       </List>
 
       <Tabbar labels={true} icons={true} className="left-0 bottom-0 fixed">
-        <TabbarLink key={1} active={true} label={t('root.tab.convert')} icon={<GenerateIcon size={24} />} onClick={() => navigate('/', { replace: true })} />
-        <TabbarLink key={2} active={false} label={t('root.tab.theme-settings')} icon={<ImageIcon size={24} />} onClick={() => navigate('/theme-settings', { replace: true })} />
-        <TabbarLink key={3} active={false} label={t('root.tab.export-settings')} icon={<SettingsIcon size={24} />} onClick={() => navigate('/export-settings', { replace: true })} />
+        <TabbarLink key={1} active={true} label={t('root.tab.convert')} icon={<GenerateIcon size={24} />} onClick={() => setTabIndex(0)} />
+        <TabbarLink key={2} active={false} label={t('root.tab.theme-settings')} icon={<ImageIcon size={24} />} onClick={() => setTabIndex(1)} />
+        <TabbarLink key={3} active={false} label={t('root.tab.export-settings')} icon={<SettingsIcon size={24} />} onClick={() => setTabIndex(2)} />
       </Tabbar>
 
       <OverrideMetadataPopup />

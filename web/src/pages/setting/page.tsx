@@ -24,13 +24,13 @@ import FocalLength35mmModeListItem from './components/focal-length-35mm-mode.lis
 import DisableExposureMeterListItem from './components/disable-exposure-meter.list-item';
 import RatioPopover from './components/ratio.popover';
 import RatioListItem from './components/ratio.list-item';
-import { useNavigate } from 'react-router-dom';
 import TermAndConditionsListItem from './components/term-and-conditions.list-item';
 import PrivacyPolicyListItem from './components/privacy-policy.list-item';
+import { useStore } from '../../store';
 
 const ExportSettingsPage = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation();
+  const { setTabIndex } = useStore();
 
   return (
     <Page style={{ paddingBottom: '10rem' }}>
@@ -79,9 +79,9 @@ const ExportSettingsPage = () => {
       </List>
 
       <Tabbar labels={true} icons={true} className="left-0 bottom-0 fixed">
-        <TabbarLink key={1} active={false} label={t('root.tab.convert')} icon={<GenerateIcon size={24} />} onClick={() => navigate('/', { replace: true })} />
-        <TabbarLink key={2} active={false} label={t('root.tab.theme-settings')} icon={<ImageIcon size={24} />} onClick={() => navigate('/theme-settings', { replace: true })} />
-        <TabbarLink key={3} active={true} label={t('root.tab.export-settings')} icon={<SettingsIcon size={24} />} onClick={() => navigate('/export-settings', { replace: true })} />
+        <TabbarLink key={1} active={false} label={t('root.tab.convert')} icon={<GenerateIcon size={24} />} onClick={() => setTabIndex(0)} />
+        <TabbarLink key={2} active={false} label={t('root.tab.theme-settings')} icon={<ImageIcon size={24} />} onClick={() => setTabIndex(1)} />
+        <TabbarLink key={3} active={true} label={t('root.tab.export-settings')} icon={<SettingsIcon size={24} />} onClick={() => setTabIndex(2)} />
       </Tabbar>
 
       <LanguagePopover />
