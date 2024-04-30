@@ -1,6 +1,7 @@
 import Photo from '../../core/photo';
 import sandbox from '../../core/drawing/sandbox';
-import { ThemeFunc, ThemeOption } from '../../core/drawing/theme';
+import { ThemeFunc } from '../../core/drawing/theme';
+import { ThemeOption } from '../../pages/theme/types/theme-option';
 
 const NO_FRAME_OPTIONS: ThemeOption[] = [];
 

@@ -1,7 +1,8 @@
 import Photo from '../photo';
 import resize from './resize';
 import { Store } from '../../store';
-import { ThemeFunc, ThemeOptionInput } from './theme';
+import { ThemeFunc } from './theme';
+import { ThemeOptionInput } from '../../pages/theme/types/theme-option';
 
 const render = async (func: ThemeFunc, photo: Photo, option: ThemeOptionInput, store: Store): Promise<HTMLCanvasElement> => {
   let canvas = func(photo, option, store);

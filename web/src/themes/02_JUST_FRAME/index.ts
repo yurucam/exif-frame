@@ -1,13 +1,14 @@
 import Photo from '../../core/photo';
 import sandbox from '../../core/drawing/sandbox';
-import { ThemeFunc, ThemeOption, ThemeOptionInput } from '../../core/drawing/theme';
+import { ThemeFunc } from '../../core/drawing/theme';
+import { ThemeOption, ThemeOptionInput } from '../../pages/theme/types/theme-option';
 
 const JUST_FRAME_OPTIONS: ThemeOption[] = [
-  { key: 'BACKGROUND_COLOR', type: String, default: '#ffffff', description: '#ffffff is white, #000000 is black' },
-  { key: 'PADDING_TOP', type: Number, default: 100, description: 'px' },
-  { key: 'PADDING_BOTTOM', type: Number, default: 100, description: 'px' },
-  { key: 'PADDING_LEFT', type: Number, default: 100, description: 'px' },
-  { key: 'PADDING_RIGHT', type: Number, default: 100, description: 'px' },
+  { id: 'BACKGROUND_COLOR', type: 'color', default: '#ffffff', description: '#ffffff is white, #000000 is black' },
+  { id: 'PADDING_TOP', type: 'number', default: 100, description: 'px' },
+  { id: 'PADDING_BOTTOM', type: 'number', default: 100, description: 'px' },
+  { id: 'PADDING_LEFT', type: 'number', default: 100, description: 'px' },
+  { id: 'PADDING_RIGHT', type: 'number', default: 100, description: 'px' },
 ];
 
 const JUST_FRAME_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store) => {

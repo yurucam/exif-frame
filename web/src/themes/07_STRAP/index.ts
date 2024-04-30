@@ -1,7 +1,8 @@
 import Photo from '../../core/photo';
 import { Store } from '../../store';
 import sandbox from '../../core/drawing/sandbox';
-import { ThemeFunc, ThemeOption, ThemeOptionInput } from '../../core/drawing/theme';
+import { ThemeFunc } from '../../core/drawing/theme';
+import { ThemeOption, ThemeOptionInput } from '../../pages/theme/types/theme-option';
 
 const supportLogo = new Map<string, HTMLImageElement>();
 
@@ -45,13 +46,13 @@ supportLogo.set('SONY_LIGHT', loadLogo('/maker/light/sony.png'));
 supportLogo.set('SONY_DARK', loadLogo('/maker/dark/sony.png'));
 
 const STRAP_OPTIONS: ThemeOption[] = [
-  { key: 'ARTIST', type: String, default: 'Your Name', description: 'your name' },
-  { key: 'DARK_MODE', type: Boolean, default: false, description: 'enable to use dark mode' },
-  { key: 'SECONDARY_TEXT_FONT_WEIGHT', type: Number, default: 300, description: '100 - 900' },
-  { key: 'PADDING_TOP', type: Number, default: 0, description: 'px' },
-  { key: 'PADDING_BOTTOM', type: Number, default: 0, description: 'px' },
-  { key: 'PADDING_LEFT', type: Number, default: 0, description: 'px' },
-  { key: 'PADDING_RIGHT', type: Number, default: 0, description: 'px' },
+  { id: 'ARTIST', type: 'string', default: 'Your Name', description: 'your name' },
+  { id: 'DARK_MODE', type: 'boolean', default: false, description: 'enable to use dark mode' },
+  { id: 'SECONDARY_TEXT_FONT_WEIGHT', type: 'range-slider', min: 100, max: 900, step: 100, default: 300, description: '100 - 900' },
+  { id: 'PADDING_TOP', type: 'number', default: 0, description: 'px' },
+  { id: 'PADDING_BOTTOM', type: 'number', default: 0, description: 'px' },
+  { id: 'PADDING_LEFT', type: 'number', default: 0, description: 'px' },
+  { id: 'PADDING_RIGHT', type: 'number', default: 0, description: 'px' },
 ];
 
 const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {

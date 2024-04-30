@@ -3,23 +3,31 @@ import { useTranslation } from 'react-i18next';
 import { useStore } from '../../../store';
 import DownloadIcon from '../../../icons/download.icon';
 import render from '../../../core/drawing/render';
-import themes, { useThemeStore } from '../../../themes';
+import themes from '../../../themes';
 import { Capacitor } from '@capacitor/core';
 import convert from '../../../core/drawing/convert';
 import free from '../../../core/drawing/free';
 import download from '../../../core/file-system/download';
 import compress from '../../../core/file-system/compress';
+import Customize from '../../theme/database/customize';
+import { ThemeOptionInput, getConverter } from '../../theme/types/theme-option';
 
 const DownloadAllPhotoButton = () => {
   const { t } = useTranslation();
   const store = useStore();
   const { photos, selectedThemeName, exportToJpeg, quality, setLoading } = store;
 
-  const { option } = useThemeStore();
+  const input: ThemeOptionInput = new Map<string, string | number | boolean>();
   const theme = themes.find((theme) => theme.name === selectedThemeName);
-  theme?.options.forEach((themeOption) => {
-    if (!option.has(themeOption.key)) option.set(themeOption.key, themeOption.default);
+  theme?.options.forEach((option) => {
+    const value = Customize.get(selectedThemeName, option.id, getConverter(option.type));
+    if (value !== null) {
+      input.set(option.id, value);
+    } else {
+      input.set(option.id, option.default);
+    }
   });
+
   const func = theme?.func;
 
   return (
@@ -33,7 +41,7 @@ const DownloadAllPhotoButton = () => {
 
           if (Capacitor.isNativePlatform()) {
             for (const photo of photos) {
-              const canvas = await render(func!, photo, option, store);
+              const canvas = await render(func!, photo, input, store);
               const filename = photo.file.name.replace(/\.[^/.]+$/, `.${exportToJpeg ? 'jpg' : 'webp'}`);
               const data = await convert(canvas, { type: exportToJpeg ? 'image/jpeg' : 'image/webp', quality });
               free(canvas);
@@ -43,7 +51,7 @@ const DownloadAllPhotoButton = () => {
             const files: { filename: string; data: string }[] = [];
             await Promise.all(
               photos.map(async (photo) => {
-                const canvas = await render(func!, photo, option, store);
+                const canvas = await render(func!, photo, input, store);
                 const filename = photo.file.name.replace(/\.[^/.]+$/, `.${exportToJpeg ? 'jpg' : 'webp'}`);
                 const data = await convert(canvas, { type: exportToJpeg ? 'image/jpeg' : 'image/webp', quality });
                 free(canvas);

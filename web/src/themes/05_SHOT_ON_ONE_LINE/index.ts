@@ -1,15 +1,16 @@
 import Photo from '../../core/photo';
 import { Store } from '../../store';
 import sandbox from '../../core/drawing/sandbox';
-import { ThemeFunc, ThemeOption, ThemeOptionInput } from '../../core/drawing/theme';
+import { ThemeFunc } from '../../core/drawing/theme';
+import { ThemeOption, ThemeOptionInput } from '../../pages/theme/types/theme-option';
 
 const SHOT_ON_ONE_LINE_OPTIONS: ThemeOption[] = [
-  { key: 'BACKGROUND_COLOR', type: String, default: '#ffffff', description: '#ffffff is white, #000000 is black' },
-  { key: 'TEXT_COLOR', type: String, default: '#000000', description: '#ffffff is white, #000000 is black' },
-  { key: 'PADDING_TOP', type: Number, default: 0, description: 'px' },
-  { key: 'PADDING_BOTTOM', type: Number, default: 0, description: 'px' },
-  { key: 'PADDING_LEFT', type: Number, default: 0, description: 'px' },
-  { key: 'PADDING_RIGHT', type: Number, default: 0, description: 'px' },
+  { id: 'BACKGROUND_COLOR', type: 'color', default: '#ffffff', description: '#ffffff is white, #000000 is black' },
+  { id: 'TEXT_COLOR', type: 'color', default: '#000000', description: '#ffffff is white, #000000 is black' },
+  { id: 'PADDING_TOP', type: 'number', default: 0, description: 'px' },
+  { id: 'PADDING_BOTTOM', type: 'number', default: 0, description: 'px' },
+  { id: 'PADDING_LEFT', type: 'number', default: 0, description: 'px' },
+  { id: 'PADDING_RIGHT', type: 'number', default: 0, description: 'px' },
 ];
 
 const SHOT_ON_ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {
