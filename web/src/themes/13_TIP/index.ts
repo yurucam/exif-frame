@@ -15,7 +15,7 @@ const TIP_OPTIONS: ThemeOption[] = [
   { id: 'PADDING_TOP', type: 'number', default: 250, description: 'px' },
   { id: 'PADDING_BOTTOM', type: 'number', default: 125, description: 'px' },
   { id: 'TAG_SIZE', type: 'number', default: 140, description: 'px' },
-  { id: 'TAG_WIGHT', type: 'number', default: 700, description: '100 ~ 900' },
+  { id: 'TAG_WEIGHT', type: 'range-slider', min: 100, max: 900, step: 100, default: 700, description: '100 ~ 900' },
   { id: 'TITLE_SIZE', type: 'number', default: 120, description: 'px' },
   { id: 'TITLE_WEIGHT', type: 'range-slider', min: 100, max: 900, step: 100, default: 500, description: '100 ~ 900' },
   { id: 'DESCRIPTION_SIZE', type: 'number', default: 95, description: 'px' },
@@ -36,7 +36,7 @@ const TIP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store
   const PADDING_TOP = input.get('PADDING_TOP') as number;
   const PADDING_BOTTOM = input.get('PADDING_BOTTOM') as number;
   const TAG_SIZE = input.get('TAG_SIZE') as number;
-  const TAG_WIGHT = input.get('TAG_WIGHT') as number;
+  const TAG_WEIGHT = input.get('TAG_WEIGHT') as number;
   const TITLE_SIZE = input.get('TITLE_SIZE') as number;
   const TITLE_WEIGHT = input.get('TITLE_WEIGHT') as number;
   const DESCRIPTION_SIZE = input.get('DESCRIPTION_SIZE') as number;
@@ -61,7 +61,7 @@ const TIP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store
   context.textAlign = 'center';
 
   if (!HIDE_TEXT) {
-    context.font = `normal ${TAG_WIGHT} ${TAG_SIZE}px ${FONT_FAMILY}`;
+    context.font = `normal ${TAG_WEIGHT} ${TAG_SIZE}px ${FONT_FAMILY}`;
     context.fillText(TAG, canvas.width / 2, PADDING_TOP);
 
     context.font = `normal ${TITLE_WEIGHT} ${TITLE_SIZE}px ${FONT_FAMILY}`;
