@@ -8,7 +8,7 @@ import free from '../../../core/drawing/free';
 
 const Preview = () => {
   const store = useStore();
-  const { selectedThemeName, rerenderOptions, tabIndex } = useStore();
+  const { selectedThemeName, rerenderOptions, tabIndex, darkMode } = useStore();
 
   useEffect(() => {
     const preview = document.getElementById('preview') as HTMLCanvasElement;
@@ -32,6 +32,7 @@ const Preview = () => {
     const func = theme?.func;
 
     render(func!, store.photos[0], input, store).then((canvas) => {
+      const ctx = canvas.getContext('2d')!;
       const ratio = canvas.width / canvas.height;
       if (preview.width > preview.height) {
         preview.width = 1000;
@@ -40,13 +41,16 @@ const Preview = () => {
         preview.height = 1000;
         preview.width = 1000 * ratio;
       }
-      preview.getContext('2d')?.drawImage(canvas, 0, 0, preview.width, preview.height);
+      ctx.clearRect(0, 0, preview.width, preview.height);
+      ctx.fillStyle = darkMode ? '#000000' : '#ffffff';
+      ctx.fillRect(0, 0, preview.width, preview.height);
+      ctx.drawImage(canvas, 0, 0, preview.width, preview.height);
       free(canvas);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedThemeName, rerenderOptions, tabIndex]);
 
-  return <canvas id="preview" className="w-4/6 md:w-2/6 mx-auto mt-4" style={{ maxHeight: '1000px', maxWidth: '1000px' }} />;
+  return <canvas id="preview" className="w-4/6 md:w-2/6 mx-auto mt-4" style={{ maxHeight: '1000px', maxWidth: '1000px', backgroundColor: darkMode ? '#000000' : '#ffffff' }} />;
 };
 
 export default Preview;
