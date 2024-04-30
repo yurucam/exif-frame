@@ -1,6 +1,6 @@
 import Photo from '../photo';
 
-const MAX_SIZE = 4096; // Mobile Safari has a maximum canvas size of 4096x4096
+export const MAX_SIZE = 4096; // Mobile Safari has a maximum canvas size of 4096x4096
 
 interface SandboxOptions {
   backgroundColor: string;
