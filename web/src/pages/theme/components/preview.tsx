@@ -32,7 +32,7 @@ const Preview = () => {
     const func = theme?.func;
 
     render(func!, store.photos[0], input, store).then((canvas) => {
-      const ctx = canvas.getContext('2d')!;
+      const ctx = preview.getContext('2d')!;
       const ratio = canvas.width / canvas.height;
       if (preview.width > preview.height) {
         preview.width = 1000;
@@ -44,6 +44,7 @@ const Preview = () => {
       ctx.clearRect(0, 0, preview.width, preview.height);
       ctx.fillStyle = darkMode ? '#000000' : '#ffffff';
       ctx.fillRect(0, 0, preview.width, preview.height);
+      ctx.fillStyle = '#ffffff';
       ctx.drawImage(canvas, 0, 0, preview.width, preview.height);
       free(canvas);
     });
