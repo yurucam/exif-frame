@@ -3,6 +3,9 @@ import themes from './themes';
 import Photo from './core/photo';
 
 type Store = {
+  rerenderOptions: number;
+  setRerenderOptions: () => void;
+
   language: 'en' | 'ja' | 'ko';
   setLanguage: (language: 'en' | 'ja' | 'ko') => void;
 
@@ -89,6 +92,9 @@ type Store = {
 };
 
 const useStore = create<Store>((set) => ({
+  rerenderOptions: 0,
+  setRerenderOptions: () => set({ rerenderOptions: Math.random() }),
+
   language: (localStorage.getItem('language') as 'en' | 'ja' | 'ko') || 'en',
   setLanguage: (language: 'en' | 'ja' | 'ko') =>
     set(() => {

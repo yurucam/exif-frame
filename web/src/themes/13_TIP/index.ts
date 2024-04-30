@@ -1,27 +1,29 @@
 import Photo from '../../core/photo';
 import { Store } from '../../store';
 import sandbox from '../../core/drawing/sandbox';
-import { ThemeFunc, ThemeOption, ThemeOptionInput } from '../../core/drawing/theme';
+import { ThemeFunc } from '../../core/drawing/theme';
+import { ThemeOption, ThemeOptionInput } from '../../pages/theme/types/theme-option';
+import Font from '../../fonts';
 
 const TIP_OPTIONS: ThemeOption[] = [
-  { key: 'DARK_MODE', type: Boolean, default: false, description: 'enable to use dark mode' },
-  { key: 'HIDE_TEXT', type: Boolean, default: false, description: 'hide text' },
-  { key: 'TAG', type: String, default: 'TIP' },
-  { key: 'TITLE', type: String, default: '01. Lorem ipsum' },
-  { key: 'DESCRIPTION1', type: String, default: 'Pellentesque a pharetra justo' },
-  { key: 'DESCRIPTION2', type: String, default: 'Nam maximus risus et rhoncus eleifend' },
-  { key: 'PADDING_TOP', type: Number, default: 250, description: 'px' },
-  { key: 'PADDING_BOTTOM', type: Number, default: 125, description: 'px' },
-  { key: 'TAG_SIZE', type: Number, default: 140, description: 'px' },
-  { key: 'TAG_WIGHT', type: Number, default: 700, description: '100 ~ 900' },
-  { key: 'TITLE_SIZE', type: Number, default: 120, description: 'px' },
-  { key: 'TITLE_WEIGHT', type: Number, default: 500, description: '100 ~ 900' },
-  { key: 'DESCRIPTION_SIZE', type: Number, default: 95, description: 'px' },
-  { key: 'DESCRIPTION_WEIGHT', type: Number, default: 200, description: '100 ~ 900' },
-  { key: 'EXIF_SIZE', type: Number, default: 60, description: 'px' },
-  { key: 'EXIF_WEIGHT', type: Number, default: 500, description: '100 ~ 900' },
-  { key: 'FONT_FAMILY', type: String, default: 'Barlow', description: 'ex. din-alternate-bold, digital-7, Barlow, Arial, sans-serif' },
-  { key: 'SHADOW_SIZE', type: Number, default: 10, description: '0 ~ 100' },
+  { id: 'DARK_MODE', type: 'boolean', default: false, description: 'enable to use dark mode' },
+  { id: 'HIDE_TEXT', type: 'boolean', default: false, description: 'hide text' },
+  { id: 'TAG', type: 'string', default: 'TIP' },
+  { id: 'TITLE', type: 'string', default: '01. Lorem ipsum' },
+  { id: 'DESCRIPTION1', type: 'string', default: 'Pellentesque a pharetra justo' },
+  { id: 'DESCRIPTION2', type: 'string', default: 'Nam maximus risus et rhoncus eleifend' },
+  { id: 'PADDING_TOP', type: 'number', default: 250, description: 'px' },
+  { id: 'PADDING_BOTTOM', type: 'number', default: 125, description: 'px' },
+  { id: 'TAG_SIZE', type: 'number', default: 140, description: 'px' },
+  { id: 'TAG_WIGHT', type: 'number', default: 700, description: '100 ~ 900' },
+  { id: 'TITLE_SIZE', type: 'number', default: 120, description: 'px' },
+  { id: 'TITLE_WEIGHT', type: 'range-slider', min: 100, max: 900, step: 100, default: 500, description: '100 ~ 900' },
+  { id: 'DESCRIPTION_SIZE', type: 'number', default: 95, description: 'px' },
+  { id: 'DESCRIPTION_WEIGHT', type: 'range-slider', min: 100, max: 900, step: 100, default: 200, description: '100 ~ 900' },
+  { id: 'EXIF_SIZE', type: 'number', default: 60, description: 'px' },
+  { id: 'EXIF_WEIGHT', type: 'range-slider', min: 100, max: 900, step: 100, default: 500, description: '100 ~ 900' },
+  { id: 'FONT_FAMILY', type: 'select', options: ['Barlow', ...Object.values(Font)], default: 'Barlow', description: 'ex. din-alternate-bold, digital-7, Barlow, Arial, sans-serif' },
+  { id: 'SHADOW_SIZE', type: 'number', default: 10, description: '0 ~ 100' },
 ];
 
 const TIP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {

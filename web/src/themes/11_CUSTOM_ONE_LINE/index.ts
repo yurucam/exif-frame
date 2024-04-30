@@ -1,23 +1,25 @@
 import Photo from '../../core/photo';
 import { Store } from '../../store';
 import sandbox from '../../core/drawing/sandbox';
-import { ThemeFunc, ThemeOption, ThemeOptionInput } from '../../core/drawing/theme';
+import { ThemeFunc } from '../../core/drawing/theme';
+import { ThemeOption, ThemeOptionInput } from '../../pages/theme/types/theme-option';
+import Font from '../../fonts';
 
 const CUSTOM_ONE_LINE_OPTIONS: ThemeOption[] = [
-  { key: 'BACKGROUND_COLOR', type: String, default: '#ffffff', description: '#ffffff is white, #000000 is black' },
-  { key: 'PADDING_INSIDE', type: Boolean, default: true, description: 'enable to use inside padding' },
-  { key: 'PADDING_TOP', type: Number, default: 100, description: 'px' },
-  { key: 'PADDING_BOTTOM', type: Number, default: 250, description: 'px' },
-  { key: 'PADDING_LEFT', type: Number, default: 100, description: 'px' },
-  { key: 'PADDING_RIGHT', type: Number, default: 100, description: 'px' },
-  { key: 'TEXT', type: String, default: 'Your Text', description: 'ex. Hello, World!' },
-  { key: 'TEXT_COLOR', type: String, default: '#ffffff', description: '#ffffff is white, #000000 is black' },
-  { key: 'TEXT_SHADOW_COLOR', type: String, default: '#000000', description: '#ffffff is white, #000000 is black' },
-  { key: 'TEXT_ALIGN', type: String, default: 'center', description: 'left or center or right' },
-  { key: 'FONT_STYLE', type: String, default: 'normal', description: 'normal or italic' },
-  { key: 'FONT_WEIGHT', type: Number, default: 300, description: '100 - 900' },
-  { key: 'FONT_SIZE', type: Number, default: 70, description: 'px' },
-  { key: 'FONT_FAMILY', type: String, default: 'Barlow', description: 'ex. din-alternate-bold, digital-7, Barlow, Arial, sans-serif' },
+  { id: 'BACKGROUND_COLOR', type: 'color', default: '#ffffff', description: '#ffffff is white, #000000 is black' },
+  { id: 'PADDING_INSIDE', type: 'boolean', default: true, description: 'enable to use inside padding' },
+  { id: 'PADDING_TOP', type: 'number', default: 100, description: 'px' },
+  { id: 'PADDING_BOTTOM', type: 'number', default: 250, description: 'px' },
+  { id: 'PADDING_LEFT', type: 'number', default: 100, description: 'px' },
+  { id: 'PADDING_RIGHT', type: 'number', default: 100, description: 'px' },
+  { id: 'TEXT', type: 'string', default: 'Your Text', description: 'ex. Hello, World!' },
+  { id: 'TEXT_COLOR', type: 'color', default: '#ffffff', description: '#ffffff is white, #000000 is black' },
+  { id: 'TEXT_SHADOW_COLOR', type: 'color', default: '#000000', description: '#ffffff is white, #000000 is black' },
+  { id: 'TEXT_ALIGN', type: 'string', default: 'center', description: 'left or center or right' },
+  { id: 'FONT_STYLE', type: 'select', options: ['normal', 'italic'], default: 'normal', description: 'normal or italic' },
+  { id: 'FONT_WEIGHT', type: 'range-slider', min: 100, max: 900, step: 100, default: 300, description: '100 - 900' },
+  { id: 'FONT_SIZE', type: 'number', default: 70, description: 'px' },
+  { id: 'FONT_FAMILY', type: 'select', options: ['Barlow', ...Object.values(Font)], default: 'Barlow', description: 'ex. din-alternate-bold, digital-7, Barlow, Arial, sans-serif' },
 ];
 
 const CUSTOM_ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {

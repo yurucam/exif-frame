@@ -4,21 +4,18 @@ import { useStore } from '../../store';
 import SettingsIcon from '../../icons/settings.icon';
 import ImageIcon from '../../icons/image.icon';
 import GenerateIcon from '../../icons/generate.icon';
-import themes, { useThemeStore } from '../../themes';
+import themes from '../../themes';
 import ThemeListItem from './components/theme.list-item';
 import ThemeOptionListInput from './components/theme-option.list-input';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../convert/components/loading';
+import ThemeOptionResetButton from './components/theme-option-reset.button';
 
 const ThemeSettingsPage = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { option } = useThemeStore();
   const { selectedThemeName } = useStore();
   const theme = themes.find((theme) => theme.name === selectedThemeName);
-  theme?.options.forEach((themeOption) => {
-    if (!option.has(themeOption.key)) option.set(themeOption.key, themeOption.default);
-  });
 
   return (
     <Page style={{ paddingBottom: '10rem' }}>
@@ -31,10 +28,15 @@ const ThemeSettingsPage = () => {
         ))}
       </List>
 
-      {theme?.options.length !== 0 && <BlockTitle>{t('root.themes.customize')}</BlockTitle>}
+      {theme?.options.length !== 0 && (
+        <BlockTitle>
+          {t('root.themes.customize')}
+          <ThemeOptionResetButton />
+        </BlockTitle>
+      )}
       <List strongIos inset>
         {theme?.options.map((option, index) => {
-          return <ThemeOptionListInput index={index} key={index} optionKey={option.key} description={option.description} defaultValue={option.default} type={option.type} />;
+          return <ThemeOptionListInput {...option} key={index} />;
         })}
       </List>
 
