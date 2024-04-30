@@ -8,10 +8,15 @@ import free from '../../../core/drawing/free';
 
 const Preview = () => {
   const store = useStore();
-  const { selectedThemeName, rerenderOptions } = useStore();
+  const { selectedThemeName, rerenderOptions, tabIndex } = useStore();
 
   useEffect(() => {
+    const preview = document.getElementById('preview') as HTMLCanvasElement;
+    preview.width = 0;
+    preview.height = 0;
+
     if (store.photos.length === 0) return;
+    if (tabIndex !== 1) return;
 
     const input: ThemeOptionInput = new Map<string, string | number | boolean>();
     const theme = themes.find((theme) => theme.name === selectedThemeName);
@@ -27,19 +32,13 @@ const Preview = () => {
     const func = theme?.func;
 
     render(func!, store.photos[0], input, store).then((canvas) => {
-      const preview = document.getElementById('preview') as HTMLCanvasElement;
-      preview.width = 0;
-      preview.height = 0;
-
-      setTimeout(() => {
-        preview.width = canvas.width;
-        preview.height = canvas.height;
-        preview.getContext('2d')?.drawImage(canvas, 0, 0);
-        free(canvas);
-      }, 100);
+      preview.width = canvas.width;
+      preview.height = canvas.height;
+      preview.getContext('2d')?.drawImage(canvas, 0, 0);
+      free(canvas);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedThemeName, rerenderOptions]);
+  }, [selectedThemeName, rerenderOptions, tabIndex]);
 
   return <canvas id="preview" className="w-4/6 md:w-2/6 mx-auto mt-4" />;
 };
