@@ -137,68 +137,68 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
 
   let logo: HTMLImageElement | undefined;
 
-  if (photo.make?.toUpperCase().includes('APPLE') || photo.model?.toUpperCase().includes('APPLE')) {
+  if (photo.metadata.make?.toUpperCase().includes('APPLE') || photo.metadata.model?.toUpperCase().includes('APPLE')) {
     logo = DARK_MODE ? supportLogo.get('APPLE_DARK') : supportLogo.get('APPLE_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('CANON') || photo.model?.toUpperCase().includes('CANON')) {
+  if (photo.metadata.make?.toUpperCase().includes('CANON') || photo.metadata.model?.toUpperCase().includes('CANON')) {
     logo = DARK_MODE ? supportLogo.get('CANON_DARK') : supportLogo.get('CANON_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('FUJI') || photo.model?.toUpperCase().includes('FUJI')) {
+  if (photo.metadata.make?.toUpperCase().includes('FUJI') || photo.metadata.model?.toUpperCase().includes('FUJI')) {
     logo = DARK_MODE ? supportLogo.get('FUJI_DARK') : supportLogo.get('FUJI_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('HASSELBLAD') || photo.model?.toUpperCase().includes('HASSELBLAD')) {
+  if (photo.metadata.make?.toUpperCase().includes('HASSELBLAD') || photo.metadata.model?.toUpperCase().includes('HASSELBLAD')) {
     logo = DARK_MODE ? supportLogo.get('HASSELBLAD_DARK') : supportLogo.get('HASSELBLAD_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('LEICA') || photo.model?.toUpperCase().includes('LEICA')) {
+  if (photo.metadata.make?.toUpperCase().includes('LEICA') || photo.metadata.model?.toUpperCase().includes('LEICA')) {
     logo = DARK_MODE ? supportLogo.get('LEICA_DARK') : supportLogo.get('LEICA_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('LG') || photo.model?.toUpperCase().includes('LG')) {
+  if (photo.metadata.make?.toUpperCase().includes('LG') || photo.metadata.model?.toUpperCase().includes('LG')) {
     logo = DARK_MODE ? supportLogo.get('LG_DARK') : supportLogo.get('LG_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('MAMIYA') || photo.model?.toUpperCase().includes('MAMIYA')) {
+  if (photo.metadata.make?.toUpperCase().includes('MAMIYA') || photo.metadata.model?.toUpperCase().includes('MAMIYA')) {
     logo = DARK_MODE ? supportLogo.get('MAMIYA_DARK') : supportLogo.get('MAMIYA_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('NIKON') || photo.model?.toUpperCase().includes('NIKON')) {
+  if (photo.metadata.make?.toUpperCase().includes('NIKON') || photo.metadata.model?.toUpperCase().includes('NIKON')) {
     logo = DARK_MODE ? supportLogo.get('NIKON_DARK') : supportLogo.get('NIKON_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('OLYMPUS') || photo.model?.toUpperCase().includes('OLYMPUS')) {
+  if (photo.metadata.make?.toUpperCase().includes('OLYMPUS') || photo.metadata.model?.toUpperCase().includes('OLYMPUS')) {
     logo = DARK_MODE ? supportLogo.get('OLYMPUS_DARK') : supportLogo.get('OLYMPUS_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('PANASONIC') || photo.model?.toUpperCase().includes('PANASONIC')) {
+  if (photo.metadata.make?.toUpperCase().includes('PANASONIC') || photo.metadata.model?.toUpperCase().includes('PANASONIC')) {
     logo = DARK_MODE ? supportLogo.get('PANASONIC_DARK') : supportLogo.get('PANASONIC_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('PHASE') || photo.model?.toUpperCase().includes('PHASE')) {
+  if (photo.metadata.make?.toUpperCase().includes('PHASE') || photo.metadata.model?.toUpperCase().includes('PHASE')) {
     logo = DARK_MODE ? supportLogo.get('PHASEONE_DARK') : supportLogo.get('PHASEONE_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('RICO') || photo.model?.toUpperCase().includes('RICO')) {
+  if (photo.metadata.make?.toUpperCase().includes('RICO') || photo.metadata.model?.toUpperCase().includes('RICO')) {
     logo = DARK_MODE ? supportLogo.get('RICOH_DARK') : supportLogo.get('RICOH_LIGHT');
   }
 
   // 팬탁스는 리코의 자회사 같음..? RICO ~~~ PENTAX 이런 식으로 결과물이 나오는데, 이 경우 RICO 보다 PENTAX가 우선적으로 쓰여야 함
-  if (photo.make?.toUpperCase().includes('PENTAX') || photo.model?.toUpperCase().includes('PENTAX')) {
+  if (photo.metadata.make?.toUpperCase().includes('PENTAX') || photo.metadata.model?.toUpperCase().includes('PENTAX')) {
     logo = DARK_MODE ? supportLogo.get('PENTAX_DARK') : supportLogo.get('PENTAX_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('SIGMA') || photo.model?.toUpperCase().includes('SIGMA')) {
+  if (photo.metadata.make?.toUpperCase().includes('SIGMA') || photo.metadata.model?.toUpperCase().includes('SIGMA')) {
     logo = DARK_MODE ? supportLogo.get('SIGMA_DARK') : supportLogo.get('SIGMA_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('SONY') || photo.model?.toUpperCase().includes('SONY')) {
+  if (photo.metadata.make?.toUpperCase().includes('SONY') || photo.metadata.model?.toUpperCase().includes('SONY')) {
     logo = DARK_MODE ? supportLogo.get('SONY_DARK') : supportLogo.get('SONY_LIGHT');
   }
 
-  if (photo.make?.toUpperCase().includes('SAMSUNG') || photo.model?.toUpperCase().includes('SAMSUNG')) {
+  if (photo.metadata.make?.toUpperCase().includes('SAMSUNG') || photo.metadata.model?.toUpperCase().includes('SAMSUNG')) {
     logo = DARK_MODE ? supportLogo.get('SAMSUNG_DARK') : supportLogo.get('SAMSUNG_LIGHT');
   }
 
