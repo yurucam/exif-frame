@@ -7,7 +7,7 @@ const TermAndConditionsListItem = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  return <ListItem media={<LawIcon size={26} />} title={t('term-and-conditions')} link onClick={() => navigate('/term_and_conditions')} />;
+  return <ListItem media={<LawIcon size={26} />} title={t('term-and-conditions')} link onClick={() => navigate('/term_and_conditions.html')} />;
 };
 
 export default TermAndConditionsListItem;
