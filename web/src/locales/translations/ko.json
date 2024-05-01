@@ -13,6 +13,7 @@
   "model": "카메라 모델",
   "lens": "렌즈 모델",
   "focal": "화각",
+  "focal-35mm": "35mm 환산 화각",
   "aperture": "조리개",
   "shutter": "셔터 속도",
   "iso": "ISO",
