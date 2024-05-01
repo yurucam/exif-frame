@@ -24,7 +24,6 @@ class ExifMetadata {
         ? `${metadata.UprightFocalLength35mm.value.split('.').shift()}mm`
         : `${metadata.UprightFocalLength35mm.value}mm`
       : undefined;
-    console.log(metadata.UprightFocalLength35mm);
     this.fNumber = metadata?.FNumber?.description?.substring(0, 5)?.replace('f/', 'F');
     this.iso = metadata?.ISOSpeedRatings?.value ? 'ISO' + metadata?.ISOSpeedRatings?.value?.toString() : undefined;
     this.exposureTime = metadata?.ExposureTime?.description ? metadata?.ExposureTime?.description + 's' : undefined;
