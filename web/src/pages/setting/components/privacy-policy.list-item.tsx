@@ -7,7 +7,7 @@ const PrivacyPolicyListItem = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  return <ListItem media={<LawIcon size={26} />} title={t('privacy-policy')} link onClick={() => navigate('/privacy_policy')} />;
+  return <ListItem media={<LawIcon size={26} />} title={t('privacy-policy')} link onClick={() => navigate('/privacy_policy.html')} />;
 };
 
 export default PrivacyPolicyListItem;

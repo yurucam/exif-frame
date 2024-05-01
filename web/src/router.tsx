@@ -23,8 +23,8 @@ const Router = () => {
             </>
           }
         />
-        <Route path="/privacy_policy" element={<PrivacyPolicyPage />} />
-        <Route path="/term_and_conditions" element={<TermAndConditionsPage />} />
+        <Route path="/privacy_policy.html" element={<PrivacyPolicyPage />} />
+        <Route path="/term_and_conditions.html" element={<TermAndConditionsPage />} />
         <Route path="/sponsors" element={<SponsorsPage />} />
       </Routes>
     </BrowserRouter>
