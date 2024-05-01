@@ -5,6 +5,7 @@ import ExportSettingsPage from './pages/setting/page';
 import ThemeSettingsPage from './pages/theme/page';
 import { useStore } from './store';
 import FramePage from './pages/convert/page';
+import SponsorsPage from './pages/sponsors';
 
 const Router = () => {
   const { tabIndex } = useStore();
@@ -24,6 +25,7 @@ const Router = () => {
         />
         <Route path="/privacy_policy" element={<PrivacyPolicyPage />} />
         <Route path="/term_and_conditions" element={<TermAndConditionsPage />} />
+        <Route path="/sponsors" element={<SponsorsPage />} />
       </Routes>
     </BrowserRouter>
   );

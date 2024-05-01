@@ -38,6 +38,7 @@ class Photo {
    * @example 'SONY'
    */
   public get make(): string {
+    if (localStorage.getItem('showCameraMaker') === 'false') return '';
     return localStorage.getItem('overrideCameraMaker') || this.metadata.make || '';
   }
 
@@ -46,6 +47,7 @@ class Photo {
    * @example 'ILCE-7M3'
    */
   public get model(): string {
+    if (localStorage.getItem('showCameraModel') === 'false') return '';
     return localStorage.getItem('overrideCameraModel') || this.metadata.model || '';
   }
 
@@ -54,6 +56,7 @@ class Photo {
    * @example 'FE 24-105mm F4 G OSS'
    */
   public get lensModel(): string {
+    if (localStorage.getItem('showLensModel') === 'false') return '';
     return localStorage.getItem('overrideLensModel') || this.metadata.lensModel || '';
   }
 

@@ -28,6 +28,7 @@ import TermAndConditionsListItem from './components/term-and-conditions.list-ite
 import PrivacyPolicyListItem from './components/privacy-policy.list-item';
 import { useStore } from '../../store';
 import SponsorKakaopayListItem from './components/sponsor-kakaopay.list-item';
+import SponsorsListItem from './components/sponsors.list-item';
 
 const ExportSettingsPage = () => {
   const { t } = useTranslation();
@@ -72,6 +73,7 @@ const ExportSettingsPage = () => {
       <List strongIos inset>
         <SponsorListItem />
         <SponsorKakaopayListItem />
+        <SponsorsListItem />
       </List>
 
       <List strongIos inset>

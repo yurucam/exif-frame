@@ -1,4 +1,5 @@
 {
+  "thank-you-for-your-support": "Thank you for your support",
   "refresh": "Refresh",
   "click-to-refresh": "Click to refresh",
   "back": "Back",
@@ -41,6 +42,7 @@
   "root.sponsor": "Sponsor (GitHub)",
   "root.sponsor-kakaopay": "Sponsor (KakaoPay)",
   "root.sponsor-kakaopay-description": "Your donation will be used for Apple Developer Account renewal, coffee purchase for development, etc. Please include your nickname and donation amount in the email after donation. We will list the names of donors as a token of appreciation.",
+  "root.sponsors": "Sponsors",
   "root.processing": "it may take a long time depending on device specifications.",
   "root.releases": "Releases",
   "root.override-metadata": "Override EXIF Metadata",
