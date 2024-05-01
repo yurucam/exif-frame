@@ -9,7 +9,15 @@ const SponsorKakaopayListItem = () => {
 
   if (language !== 'ko') return null; // Kakaopay is only available in Korea
 
-  return <ListItem media={<MoneyIcon size={26} />} title={t('root.sponsor-kakaopay')} link onClick={() => window.open('https://qr.kakaopay.com/FTG7O8kjL')} />;
+  return (
+    <ListItem
+      media={<MoneyIcon size={26} />}
+      title={t('root.sponsor-kakaopay')}
+      link
+      onClick={() => window.open('https://qr.kakaopay.com/FTG7O8kjL')}
+      footer={t('root.sponsor-kakaopay-description')}
+    />
+  );
 };
 
 export default SponsorKakaopayListItem;
