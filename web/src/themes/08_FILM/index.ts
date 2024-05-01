@@ -33,19 +33,22 @@ const FILM_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Stor
   context.textBaseline = 'bottom';
 
   if (!store.disableExposureMeter) {
+    const datas = [
+      ...(photo.iso ? [{ key: 'ISO', value: photo.iso.replace('ISO', '') }] : []),
+      ...(photo.exposureTime ? [{ key: 'SEC', value: photo.exposureTime.replace('s', '') }] : []),
+      ...(photo.fNumber ? [{ key: 'F', value: photo.fNumber.replace('F', '') }] : []),
+    ];
+
     context.textAlign = 'right';
     context.font = `100px digital-7`;
-    context.fillText(`${photo.iso}`, canvas.width - 100, canvas.height - 100);
-    context.fillText(`${photo.exposureTime}`, canvas.width - 100, canvas.height - 200);
-    context.fillText(`${photo.fNumber?.replace('f/', '')}`, canvas.width - 100, canvas.height - 300);
-    const isoWidth = context.measureText(`${photo.iso}`).width;
-    const exposureTimeWidth = context.measureText(`${photo.exposureTime}`).width;
-    const fNumberWidth = context.measureText(`${photo.fNumber?.replace('f/', '')}`).width;
-
-    context.font = `70px digital-7`;
-    context.fillText('ISO', canvas.width - 100 - isoWidth - 20, canvas.height - 105);
-    context.fillText('SEC', canvas.width - 100 - exposureTimeWidth - 20, canvas.height - 205);
-    context.fillText('F', canvas.width - 100 - fNumberWidth - 20, canvas.height - 305);
+    for (let i = 0; i < datas.length; i++) {
+      const data = datas[i];
+      context.fillText(data.value, canvas.width - 100, canvas.height - 100 - i * 100);
+      const width = context.measureText(data.value).width;
+      context.font = `70px digital-7`;
+      context.fillText(data.key, canvas.width - 100 - width - 20, canvas.height - 105 - i * 100);
+      context.font = `100px digital-7`;
+    }
   }
 
   context.font = `70px digital-7`;

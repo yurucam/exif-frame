@@ -7,22 +7,22 @@ const OverrideMetadataPopup = () => {
   const { t } = useTranslation();
   const { overrideMetadataTarget, overrideMetadataPopup, setOverrideMetadataPopup } = useStore();
 
-  const [make, setMake] = useState(overrideMetadataTarget?.make || '');
-  const [model, setModel] = useState(overrideMetadataTarget?.model || '');
-  const [lens, setLens] = useState(overrideMetadataTarget?.lensModel || '');
-  const [focal, setFocal] = useState(overrideMetadataTarget?.focalLength || '');
-  const [aperture, setAperture] = useState(overrideMetadataTarget?.fNumber || '');
-  const [iso, setIso] = useState(overrideMetadataTarget?.iso || '');
-  const [shutter, setShutter] = useState(overrideMetadataTarget?.exposureTime || '');
+  const [make, setMake] = useState(overrideMetadataTarget?.metadata.make || '');
+  const [model, setModel] = useState(overrideMetadataTarget?.metadata.model || '');
+  const [lens, setLens] = useState(overrideMetadataTarget?.metadata.lensModel || '');
+  const [focal, setFocal] = useState(overrideMetadataTarget?.metadata.focalLength || '');
+  const [aperture, setAperture] = useState(overrideMetadataTarget?.metadata.fNumber || '');
+  const [iso, setIso] = useState(overrideMetadataTarget?.metadata.iso || '');
+  const [shutter, setShutter] = useState(overrideMetadataTarget?.metadata.exposureTime || '');
 
   useEffect(() => {
-    if (overrideMetadataTarget) setMake(overrideMetadataTarget.make || '');
-    if (overrideMetadataTarget) setModel(overrideMetadataTarget.model || '');
-    if (overrideMetadataTarget) setLens(overrideMetadataTarget.lensModel || '');
-    if (overrideMetadataTarget) setFocal(overrideMetadataTarget.focalLength || '');
-    if (overrideMetadataTarget) setAperture(overrideMetadataTarget.fNumber || '');
-    if (overrideMetadataTarget) setIso(overrideMetadataTarget.iso || '');
-    if (overrideMetadataTarget) setShutter(overrideMetadataTarget.exposureTime || '');
+    if (overrideMetadataTarget) setMake(overrideMetadataTarget.metadata.make || '');
+    if (overrideMetadataTarget) setModel(overrideMetadataTarget.metadata.model || '');
+    if (overrideMetadataTarget) setLens(overrideMetadataTarget.metadata.lensModel || '');
+    if (overrideMetadataTarget) setFocal(overrideMetadataTarget.metadata.focalLength || '');
+    if (overrideMetadataTarget) setAperture(overrideMetadataTarget.metadata.fNumber || '');
+    if (overrideMetadataTarget) setIso(overrideMetadataTarget.metadata.iso || '');
+    if (overrideMetadataTarget) setShutter(overrideMetadataTarget.metadata.exposureTime || '');
   }, [overrideMetadataTarget]);
 
   return (
@@ -37,13 +37,13 @@ const OverrideMetadataPopup = () => {
           }
         />
         <List strongIos inset>
-          <ListInput label={t('make')} type="text" value={make} onChange={(e) => (setMake(e.target.value), (overrideMetadataTarget!.make = e.target.value))} />
-          <ListInput label={t('model')} type="text" value={model} onChange={(e) => (setModel(e.target.value), (overrideMetadataTarget!.model = e.target.value))} />
-          <ListInput label={t('lens')} type="text" value={lens} onChange={(e) => (setLens(e.target.value), (overrideMetadataTarget!.lensModel = e.target.value))} />
-          <ListInput label={t('focal')} type="text" value={focal} onChange={(e) => (setFocal(e.target.value), (overrideMetadataTarget!.focalLength = e.target.value))} />
-          <ListInput label={t('aperture')} type="text" value={aperture} onChange={(e) => (setAperture(e.target.value), (overrideMetadataTarget!.fNumber = e.target.value))} />
-          <ListInput label={t('iso')} type="text" value={iso} onChange={(e) => (setIso(e.target.value), (overrideMetadataTarget!.iso = e.target.value))} />
-          <ListInput label={t('shutter')} type="text" value={shutter} onChange={(e) => (setShutter(e.target.value), (overrideMetadataTarget!.exposureTime = e.target.value))} />
+          <ListInput label={t('make')} type="text" value={make} onChange={(e) => (setMake(e.target.value), (overrideMetadataTarget!.metadata.make = e.target.value))} />
+          <ListInput label={t('model')} type="text" value={model} onChange={(e) => (setModel(e.target.value), (overrideMetadataTarget!.metadata.model = e.target.value))} />
+          <ListInput label={t('lens')} type="text" value={lens} onChange={(e) => (setLens(e.target.value), (overrideMetadataTarget!.metadata.lensModel = e.target.value))} />
+          <ListInput label={t('focal')} type="text" value={focal} onChange={(e) => (setFocal(e.target.value), (overrideMetadataTarget!.metadata.focalLength = e.target.value))} />
+          <ListInput label={t('aperture')} type="text" value={aperture} onChange={(e) => (setAperture(e.target.value), (overrideMetadataTarget!.metadata.fNumber = e.target.value))} />
+          <ListInput label={t('iso')} type="text" value={iso} onChange={(e) => (setIso(e.target.value), (overrideMetadataTarget!.metadata.iso = e.target.value))} />
+          <ListInput label={t('shutter')} type="text" value={shutter} onChange={(e) => (setShutter(e.target.value), (overrideMetadataTarget!.metadata.exposureTime = e.target.value))} />
         </List>
       </Page>
     </Popup>

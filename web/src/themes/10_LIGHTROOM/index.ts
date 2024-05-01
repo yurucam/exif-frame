@@ -46,20 +46,12 @@ const LIGHTROOM_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store:
   context.textAlign = 'left';
 
   if (!store.disableExposureMeter) {
-    context.fillText(
-      [`ISO ${photo.iso}`, `${photo.exposureTime} s`, photo.fNumber, `${(store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength)?.replace('mm', ' mm')}`].join('    '),
-      PADDING_LEFT,
-      canvas.height - PADDING_BOTTOM / 2
-    );
+    context.fillText([`${photo.iso}`, `${photo.exposureTime}`, photo.fNumber, `${photo.focalLength}`].join('    '), PADDING_LEFT, canvas.height - PADDING_BOTTOM / 2);
   }
 
   context.textAlign = 'center';
   context.fillText(
-    [
-      store.showCameraMaker ? store.overrideCameraMaker || photo.make : null,
-      store.showCameraModel ? store.overrideCameraModel || photo.model : null,
-      store.showLensModel ? store.overrideLensModel || photo.lensModel : null,
-    ]
+    [photo.make, photo.model, photo.lensModel]
       .filter(Boolean)
       .map((value) => value!.trim())
       .join('    '),

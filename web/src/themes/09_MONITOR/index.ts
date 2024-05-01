@@ -52,15 +52,15 @@ const MONITOR_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: S
     if (!store.disableExposureMeter) {
       context.fillText(`${photo.fNumber?.replace('f/', 'F')}`, (canvas.width - targetWidth) / 2 + (targetWidth / 5) * 1, canvas.height - PADDING_BOTTOM / 2);
       context.fillText(`${photo.exposureTime}`, (canvas.width - targetWidth) / 2 + (targetWidth / 5) * 2, canvas.height - PADDING_BOTTOM / 2);
-      context.fillText(`ISO${photo.iso}`, (canvas.width - targetWidth) / 2 + (targetWidth / 5) * 3, canvas.height - PADDING_BOTTOM / 2);
-      context.fillText(`${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`, (canvas.width - targetWidth) / 2 + (targetWidth / 5) * 4, canvas.height - PADDING_BOTTOM / 2);
+      context.fillText(`${photo.iso}`, (canvas.width - targetWidth) / 2 + (targetWidth / 5) * 3, canvas.height - PADDING_BOTTOM / 2);
+      context.fillText(`${photo.focalLength}`, (canvas.width - targetWidth) / 2 + (targetWidth / 5) * 4, canvas.height - PADDING_BOTTOM / 2);
     }
   } else {
     if (!store.disableExposureMeter) {
       context.fillText(`${photo.fNumber?.replace('f/', 'F')}`, (canvas.width / 5) * 1, canvas.height - PADDING_BOTTOM / 2);
       context.fillText(`${photo.exposureTime}`, (canvas.width / 5) * 2, canvas.height - PADDING_BOTTOM / 2);
-      context.fillText(`ISO${photo.iso}`, (canvas.width / 5) * 3, canvas.height - PADDING_BOTTOM / 2);
-      context.fillText(`${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`, (canvas.width / 5) * 4, canvas.height - PADDING_BOTTOM / 2);
+      context.fillText(`${photo.iso}`, (canvas.width / 5) * 3, canvas.height - PADDING_BOTTOM / 2);
+      context.fillText(`${photo.focalLength}`, (canvas.width / 5) * 4, canvas.height - PADDING_BOTTOM / 2);
     }
   }
 

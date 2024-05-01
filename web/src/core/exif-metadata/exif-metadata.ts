@@ -17,10 +17,10 @@ class ExifMetadata {
     this.model = metadata?.Model?.description;
     this.lensModel = this.model ? metadata?.LensModel?.description?.replace(this.model, '')?.trim() : metadata?.LensModel?.description;
     this.focalLength = metadata?.FocalLength?.description?.replace(' mm', 'mm');
-    this.focalLengthIn35mm = `${metadata?.FocalLengthIn35mmFilm?.value}mm`;
-    this.fNumber = metadata?.FNumber?.description?.substring(0, 5); // substring f/x.xxxx to f/x.x
-    this.iso = metadata?.ISOSpeedRatings?.value?.toString();
-    this.exposureTime = metadata?.ExposureTime?.description;
+    this.focalLengthIn35mm = metadata?.FocalLengthIn35mmFilm?.value ? `${metadata?.FocalLengthIn35mmFilm?.value}mm` : undefined;
+    this.fNumber = metadata?.FNumber?.description?.substring(0, 5)?.replace('f/', 'F');
+    this.iso = metadata?.ISOSpeedRatings?.value ? 'ISO' + metadata?.ISOSpeedRatings?.value?.toString() : undefined;
+    this.exposureTime = metadata?.ExposureTime?.description ? metadata?.ExposureTime?.description + 's' : undefined;
     this.thumbnail = metadata?.Thumbnail?.base64 ? 'data:image/jpg;base64,' + metadata?.Thumbnail?.base64 : undefined;
   }
 }

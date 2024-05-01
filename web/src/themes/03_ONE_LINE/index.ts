@@ -53,12 +53,7 @@ const ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: 
   context.textAlign = TEXT_ALIGN as CanvasTextAlign;
 
   context.fillText(
-    [
-      store.showCameraMaker ? store.overrideCameraMaker || photo.make : null,
-      store.showCameraModel ? store.overrideCameraModel || photo.model : null,
-      store.showLensModel ? store.overrideLensModel || photo.lensModel : null,
-      ...(store.disableExposureMeter ? [] : [`ISO ${photo.iso}`, `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`, `${photo.fNumber}`, `${photo.exposureTime}s`]),
-    ]
+    [photo.make, photo.model, photo.lensModel, ...(store.disableExposureMeter ? [] : [`${photo.iso}`, `${photo.focalLength}`, `${photo.fNumber}`, `${photo.exposureTime}`])]
       .filter(Boolean)
       .map((value) => value!.trim())
       .join(' | '),
