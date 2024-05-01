@@ -13,6 +13,7 @@
   "model": "Camera Model",
   "lens": "Lens Model",
   "focal": "Focal Length",
+  "focal-35mm": "Focal Length 35mm",
   "aperture": "Aperture",
   "shutter": "Shutter Speed",
   "iso": "ISO",

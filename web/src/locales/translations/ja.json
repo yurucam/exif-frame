@@ -13,6 +13,7 @@
   "model": "カメラモデル",
   "lens": "レンズモデル",
   "focal": "焦点距離",
+  "focal-35mm": "35mm換算焦点距離",
   "aperture": "絞り値",
   "shutter": "シャッタースピード",
   "iso": "ISO感度",
