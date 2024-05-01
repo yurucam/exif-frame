@@ -1,4 +1,5 @@
 {
+  "thank-you-for-your-support": "ご支援ありがとうございます",
   "refresh": "リフレッシュ",
   "click-to-refresh": "クリックしてリフレッシュ",
   "back": "戻る",
@@ -41,6 +42,7 @@
   "root.sponsor": "スポンサー（GitHub）",
   "root.sponsor-kakaopay": "スポンサー（カカオペイ）",
   "root.sponsor-kakaopay-description": "後援していただいた金額はApple開発者アカウントの更新、開発に役立つコーヒーの購入などに使用されます。後援後、ニックネームと後援金額をメールに含めてご連絡ください。後援していただいた方々には、感謝の印として後援者リストに名前を掲載いたします。",
+  "root.sponsors": "スポンサー",
   "root.processing": "機器の仕様によっては、時間がかかる場合があります。",
   "root.releases": "配布内訳",
   "root.override-metadata": "メタデータを上書き",
