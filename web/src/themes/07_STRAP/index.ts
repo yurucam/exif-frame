@@ -86,7 +86,7 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
 
   if (!store.disableExposureMeter) {
     context.fillText(
-      [`ISO ${photo.iso}`, `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`, `${photo.fNumber}`, `${photo.exposureTime}s`]
+      [`${photo.iso}`, `${photo.focalLength}`, `${photo.fNumber}`, `${photo.exposureTime}`]
         .filter(Boolean)
         .map((value) => value.trim())
         .join('  '),
@@ -106,7 +106,7 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
   // Maker, Model
   context.fillStyle = PRIMARY_TEXT_COLOR;
   context.font = `normal 500 ${FONT_SIZE}px Barlow`;
-  const makerModelText = [store.showCameraMaker ? store.overrideCameraMaker || photo.make : null, store.showCameraModel ? store.overrideCameraModel || photo.model : null]
+  const makerModelText = [photo.make, photo.model]
     .filter(Boolean)
     .map((value) => value!.trim())
     .join(' ');
@@ -116,7 +116,7 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
   // Lens Model
   context.fillStyle = SECONDARY_TEXT_COLOR;
   context.font = `normal ${SECONDARY_TEXT_FONT_WEIGHT} ${FONT_SIZE}px Barlow`;
-  const lensModelText = [store.showLensModel ? store.overrideLensModel || photo.lensModel : null]
+  const lensModelText = [photo.lensModel]
     .filter(Boolean)
     .map((value) => value!.trim())
     .join(' ');

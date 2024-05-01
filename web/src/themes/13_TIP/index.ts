@@ -77,8 +77,8 @@ const TIP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store
     context.font = `normal ${EXIF_WEIGHT} ${EXIF_SIZE}px ${FONT_FAMILY}`;
     context.fillText(`${photo.fNumber?.replace('f/', 'F')}`, canvas.width / 2 - exifWidth / 2 + (exifWidth / 5) * 1, canvas.height - PADDING_BOTTOM);
     context.fillText(`${photo.exposureTime}`, canvas.width / 2 - exifWidth / 2 + (exifWidth / 5) * 2, canvas.height - PADDING_BOTTOM);
-    context.fillText(`ISO ${photo.iso}`, canvas.width / 2 - exifWidth / 2 + (exifWidth / 5) * 3, canvas.height - PADDING_BOTTOM);
-    context.fillText(`${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`, canvas.width / 2 - exifWidth / 2 + (exifWidth / 5) * 4, canvas.height - PADDING_BOTTOM);
+    context.fillText(`${photo.iso}`, canvas.width / 2 - exifWidth / 2 + (exifWidth / 5) * 3, canvas.height - PADDING_BOTTOM);
+    context.fillText(`${photo.focalLength}`, canvas.width / 2 - exifWidth / 2 + (exifWidth / 5) * 4, canvas.height - PADDING_BOTTOM);
   }
 
   return canvas;

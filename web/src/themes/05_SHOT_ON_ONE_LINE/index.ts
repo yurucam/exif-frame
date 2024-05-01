@@ -37,7 +37,7 @@ const SHOT_ON_ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput,
 
   if (!store.disableExposureMeter) {
     context.fillText(
-      [`ISO ${photo.iso}`, `${store.focalLength35mmMode ? photo.focalLengthIn35mm : photo.focalLength}`, `${photo.fNumber}`, `${photo.exposureTime}s`]
+      [`${photo.iso}`, `${photo.focalLength}`, `${photo.fNumber}`, `${photo.exposureTime}`]
         .filter(Boolean)
         .map((value) => value.trim())
         .join('  '),
@@ -53,11 +53,7 @@ const SHOT_ON_ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput,
 
   context.font = `normal 500 ${FONT_SIZE}px Barlow`;
   context.fillText(
-    [
-      store.showCameraMaker ? store.overrideCameraMaker || photo.make : null,
-      store.showCameraModel ? store.overrideCameraModel || photo.model : null,
-      store.showLensModel ? store.overrideLensModel || photo.lensModel : null,
-    ]
+    [photo.make, photo.model, photo.lensModel]
       .filter(Boolean)
       .map((value) => value!.trim())
       .join(' '),
