@@ -14,6 +14,7 @@ import { CUSTOM_TWO_LINE_FUNC, CUSTOM_TWO_LINE_OPTIONS } from './12_CUSTOM_TWO_L
 import { TIP_FUNC, TIP_OPTIONS } from './13_TIP';
 import { POSTER_FUNC, POSTER_OPTIONS } from './14_POSTER';
 import { CINEMASCOPE_FUNC, CINEMASCOPE_OPTIONS } from './15_CINEMASCOPE';
+import { SIMPLE_FUNC, SIMPLE_OPTIONS } from './16_SIMPLE';
 
 type AcceptInputType = string | number | boolean;
 
@@ -44,6 +45,7 @@ const useThemeStore = create<ThemeStore>((set) => ({
 const themes = [
   { name: 'No frame', func: NO_FRAME_THEME_FUNC, options: NO_FRAME_OPTIONS },
   { name: 'Just frame', func: JUST_FRAME_FUNC, options: JUST_FRAME_OPTIONS },
+  { name: 'Simple', func: SIMPLE_FUNC, options: SIMPLE_OPTIONS },
   { name: 'Strap', func: STRAP_FUNC, options: STRAP_OPTIONS },
   { name: 'One line', func: ONE_LINE_FUNC, options: ONE_LINE_OPTIONS },
   { name: 'Two line', func: TWO_LINE_FUNC, options: TWO_LINE_OPTIONS },

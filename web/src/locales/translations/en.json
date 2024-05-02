@@ -17,6 +17,7 @@
   "aperture": "Aperture",
   "shutter": "Shutter Speed",
   "iso": "ISO",
+  "taken-at": "Taken At",
 
   "root.tab.convert": "Convert",
   "root.tab.theme-settings": "Theme Settings",

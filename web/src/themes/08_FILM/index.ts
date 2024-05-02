@@ -3,8 +3,10 @@ import { Store } from '../../store';
 import sandbox from '../../core/drawing/sandbox';
 import { ThemeFunc } from '../../core/drawing/theme';
 import { ThemeOption, ThemeOptionInput } from '../../pages/theme/types/theme-option';
+import Font from '../../fonts';
 
 const FILM_OPTIONS: ThemeOption[] = [
+  { id: 'FONT_FAMILY', type: 'select', options: ['Barlow', ...Object.values(Font)], default: 'digital-7', description: 'ex. din-alternate-bold, digital-7, Barlow, Arial, sans-serif' },
   { id: 'TEXT_COLOR', type: 'color', default: '#FFA500', description: 'default is orange hex code' },
   { id: 'BACKGROUND_COLOR', type: 'color', default: '#000000', description: '#ffffff is white, #000000 is black' },
   { id: 'PADDING_TOP', type: 'number', default: 0, description: 'px' },
@@ -14,6 +16,7 @@ const FILM_OPTIONS: ThemeOption[] = [
 ];
 
 const FILM_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {
+  const FONT_FAMILY = (input.get('FONT_FAMILY') as string).trim();
   const TEXT_COLOR = input.get('TEXT_COLOR') as string;
   const BACKGROUND_COLOR = (input.get('BACKGROUND_COLOR') as string).trim();
   const PADDING_TOP = input.get('PADDING_TOP') as number;
@@ -40,18 +43,18 @@ const FILM_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Stor
     ];
 
     context.textAlign = 'right';
-    context.font = `100px digital-7`;
+    context.font = `100px ${FONT_FAMILY}`;
     for (let i = 0; i < datas.length; i++) {
       const data = datas[i];
       context.fillText(data.value, canvas.width - 100, canvas.height - 100 - i * 100);
       const width = context.measureText(data.value).width;
-      context.font = `70px digital-7`;
-      context.fillText(data.key, canvas.width - 100 - width - 20, canvas.height - 105 - i * 100);
-      context.font = `100px digital-7`;
+      context.font = `60px ${FONT_FAMILY}`;
+      context.fillText(data.key, canvas.width - 100 - width - 20, canvas.height - 110 - i * 100);
+      context.font = `100px ${FONT_FAMILY}`;
     }
   }
 
-  context.font = `70px digital-7`;
+  context.font = `70px ${FONT_FAMILY}`;
   context.textAlign = 'left';
   context.fillText(
     [store.showLensModel ? store.overrideLensModel || photo.lensModel : null]
@@ -69,6 +72,18 @@ const FILM_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Stor
     100,
     canvas.height - 205
   );
+  if (photo.takenAt) {
+    context.font = `50px ${FONT_FAMILY}`;
+    const takenAt = new Date(photo.takenAt);
+    context.fillText(
+      `${takenAt.getFullYear()}-${(takenAt.getMonth() + 1).toString().padStart(2, '0')}-${takenAt.getDate().toString().padStart(2, '0')}  ${takenAt.getHours().toString().padStart(2, '0')}:${takenAt
+        .getMinutes()
+        .toString()
+        .padStart(2, '0')}:${takenAt.getSeconds().toString().padStart(2, '0')}`,
+      100,
+      canvas.height - 305
+    );
+  }
 
   return canvas;
 };

@@ -15,6 +15,7 @@ const OverrideMetadataPopup = () => {
   const [aperture, setAperture] = useState(overrideMetadataTarget?.metadata.fNumber || '');
   const [iso, setIso] = useState(overrideMetadataTarget?.metadata.iso || '');
   const [shutter, setShutter] = useState(overrideMetadataTarget?.metadata.exposureTime || '');
+  const [takenAt, setTakenAt] = useState(overrideMetadataTarget?.metadata.takenAt || '');
 
   useEffect(() => {
     if (overrideMetadataTarget) setMake(overrideMetadataTarget.metadata.make || '');
@@ -25,6 +26,7 @@ const OverrideMetadataPopup = () => {
     if (overrideMetadataTarget) setAperture(overrideMetadataTarget.metadata.fNumber || '');
     if (overrideMetadataTarget) setIso(overrideMetadataTarget.metadata.iso || '');
     if (overrideMetadataTarget) setShutter(overrideMetadataTarget.metadata.exposureTime || '');
+    if (overrideMetadataTarget) setTakenAt(overrideMetadataTarget.metadata.takenAt || '');
   }, [overrideMetadataTarget]);
 
   return (
@@ -52,6 +54,7 @@ const OverrideMetadataPopup = () => {
           <ListInput label={t('aperture')} type="text" value={aperture} onChange={(e) => (setAperture(e.target.value), (overrideMetadataTarget!.metadata.fNumber = e.target.value))} />
           <ListInput label={t('iso')} type="text" value={iso} onChange={(e) => (setIso(e.target.value), (overrideMetadataTarget!.metadata.iso = e.target.value))} />
           <ListInput label={t('shutter')} type="text" value={shutter} onChange={(e) => (setShutter(e.target.value), (overrideMetadataTarget!.metadata.exposureTime = e.target.value))} />
+          <ListInput label={t('taken-at')} type="text" value={takenAt} onChange={(e) => (setTakenAt(e.target.value), (overrideMetadataTarget!.metadata.takenAt = e.target.value))} />
         </List>
       </Page>
     </Popup>

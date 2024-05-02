@@ -6,7 +6,6 @@ import { ThemeOption, ThemeOptionInput } from '../../pages/theme/types/theme-opt
 import Font from '../../fonts';
 
 const LIGHTROOM_OPTIONS: ThemeOption[] = [
-  { id: 'ARTIST', type: 'string', default: 'Your Name', description: 'your name' },
   { id: 'BACKGROUND_COLOR', type: 'color', default: '#1f1f1f', description: '#ffffff is white, #000000 is black' },
   { id: 'PADDING_TOP', type: 'number', default: 50, description: 'px' },
   { id: 'PADDING_BOTTOM', type: 'number', default: 150, description: 'px' },
@@ -20,7 +19,6 @@ const LIGHTROOM_OPTIONS: ThemeOption[] = [
 ];
 
 const LIGHTROOM_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {
-  const ARTIST = (input.get('ARTIST') as string).trim();
   const BACKGROUND_COLOR = (input.get('BACKGROUND_COLOR') as string).trim();
   const PADDING_TOP = input.get('PADDING_TOP') as number;
   const PADDING_BOTTOM = input.get('PADDING_BOTTOM') as number;
@@ -60,7 +58,17 @@ const LIGHTROOM_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store:
   );
 
   context.textAlign = 'right';
-  context.fillText(ARTIST, canvas.width - PADDING_RIGHT, canvas.height - PADDING_BOTTOM / 2);
+  if (photo.takenAt) {
+    const takenAt = new Date(photo.takenAt);
+    context.fillText(
+      `${takenAt.getFullYear()}年${(takenAt.getMonth() + 1).toString().padStart(2, '0')}月${takenAt.getDate().toString().padStart(2, '0')}日 ${takenAt.getHours().toString().padStart(2, '0')}:${takenAt
+        .getMinutes()
+        .toString()
+        .padStart(2, '0')}:${takenAt.getSeconds().toString().padStart(2, '0')}`,
+      canvas.width - PADDING_RIGHT,
+      canvas.height - PADDING_BOTTOM / 2
+    );
+  }
 
   return canvas;
 };
