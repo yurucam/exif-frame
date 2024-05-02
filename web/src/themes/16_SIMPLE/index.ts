@@ -57,7 +57,7 @@ const SIMPLE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: St
     context.font = `300 ${30}px ${FONT_FAMILY}`;
     const takenAt = new Date(photo.takenAt);
     context.fillText(
-      `${takenAt.getFullYear()}年${(takenAt.getMonth() + 1).toString().padStart(2, '0')}月${takenAt.getDate().toString().padStart(2, '0')}日 ${takenAt.getHours().toString().padStart(2, '0')}:${takenAt
+      `${takenAt.getFullYear()}/${(takenAt.getMonth() + 1).toString().padStart(2, '0')}/${takenAt.getDate().toString().padStart(2, '0')} ${takenAt.getHours().toString().padStart(2, '0')}:${takenAt
         .getMinutes()
         .toString()
         .padStart(2, '0')}:${takenAt.getSeconds().toString().padStart(2, '0')}`,
