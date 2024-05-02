@@ -29,6 +29,7 @@ import PrivacyPolicyListItem from './components/privacy-policy.list-item';
 import { useStore } from '../../store';
 import SponsorKakaopayListItem from './components/sponsor-kakaopay.list-item';
 import SponsorsListItem from './components/sponsors.list-item';
+import FocalLengthRatioModeListItem from './components/focal-length-ratio-mode.list-item';
 
 const ExportSettingsPage = () => {
   const { t } = useTranslation();
@@ -48,6 +49,7 @@ const ExportSettingsPage = () => {
         <ExportToJpegListItem />
         <QualityListItem />
         <FixImageWidthListItem />
+        <FocalLengthRatioModeListItem />
         <FocalLength35mmModeListItem />
         <RatioListItem />
       </List>

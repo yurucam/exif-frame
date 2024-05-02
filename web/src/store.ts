@@ -78,6 +78,12 @@ type Store = {
   focalLength35mmMode: boolean;
   setFocalLength35mmMode: (focalLength35mmMode: boolean) => void;
 
+  focalLengthRatioMode: boolean;
+  setFocalLengthRatioMode: (focalLengthRatioMode: boolean) => void;
+
+  focalLengthRatio: number;
+  setFocalLengthRatio: (focalLengthRatio: number) => void;
+
   disableExposureMeter: boolean;
   setDisableExposureMeter: (disableExposureMeter: boolean) => void;
 
@@ -234,6 +240,20 @@ const useStore = create<Store>((set) => ({
     set(() => {
       localStorage.setItem('focalLength35mmMode', focalLength35mmMode.toString());
       return { focalLength35mmMode };
+    }),
+
+  focalLengthRatioMode: localStorage.getItem('focalLengthRatioMode') === 'true',
+  setFocalLengthRatioMode: (focalLengthRatioMode: boolean) =>
+    set(() => {
+      localStorage.setItem('focalLengthRatioMode', focalLengthRatioMode.toString());
+      return { focalLengthRatioMode };
+    }),
+
+  focalLengthRatio: parseFloat(localStorage.getItem('focalLengthRatio') || '1'),
+  setFocalLengthRatio: (focalLengthRatio: number) =>
+    set(() => {
+      localStorage.setItem('focalLengthRatio', focalLengthRatio.toString());
+      return { focalLengthRatio };
     }),
 
   disableExposureMeter: localStorage.getItem('disableExposureMeter') === 'true',

@@ -57,6 +57,8 @@
   "root.settings.quality": "画質",
   "root.settings.fix-image-width": "画像幅を固定",
   "root.settings.focal-length-35mm-mode": "35mm換算焦点距離",
+  "root.settings.focal-length-ratio": "焦点距離比率",
+  "root.settings.focal-length-ratio-mode": "焦点距離比率モード",
   "root.settings.disable-exposure-meter": "露出計を無効化",
   "root.settings.image-width": "画像幅(px)",
   "root.settings.fix-watermark": "ウォーターマーク",

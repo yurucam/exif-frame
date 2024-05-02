@@ -58,6 +58,8 @@
   "root.settings.quality": "품질",
   "root.settings.fix-image-width": "사진 너비 고정",
   "root.settings.focal-length-35mm-mode": "35mm 환산 화각 표시",
+  "root.settings.focal-length-ratio": "크롭 팩터",
+  "root.settings.focal-length-ratio-mode": "크롭 팩터 강제 변경",
   "root.settings.disable-exposure-meter": "노출계 표시 끄기",
   "root.settings.image-width": "사진 너비 (px)",
   "root.settings.fix-watermark": "워터마크 설정",
