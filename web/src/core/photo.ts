@@ -65,6 +65,10 @@ class Photo {
    * @example '24mm'
    */
   public get focalLength(): string {
+    if (localStorage.getItem('focalLengthRatioMode') === 'true') {
+      const focalLength = parseFloat(this.metadata?.focalLength?.replace(' mm', '') || '0');
+      return (focalLength * parseFloat(localStorage.getItem('focalLengthRatio') || '1')).toFixed(0) + 'mm';
+    }
     return localStorage.getItem('focalLength35mmMode') === 'false' ? this.metadata.focalLength || '' : this.metadata.focalLengthIn35mm || '';
   }
 

@@ -57,6 +57,8 @@
   "root.settings.quality": "Quality",
   "root.settings.fix-image-width": "Fix Image Width",
   "root.settings.focal-length-35mm-mode": "Focal Length 35mm Mode",
+  "root.settings.focal-length-ratio": "Crop Factor",
+  "root.settings.focal-length-ratio-mode": "Fixed Crop Factor",
   "root.settings.disable-exposure-meter": "Disable Exposure Meter",
   "root.settings.image-width": "Image Width (px)",
   "root.settings.fix-watermark": "Add Watermark",

@@ -5,7 +5,9 @@ import CameraIcon from '../../../icons/camera.icon';
 
 const FocalLength35mmModeListItem = () => {
   const { t } = useTranslation();
-  const { focalLength35mmMode, setFocalLength35mmMode } = useStore();
+  const { focalLengthRatioMode, focalLength35mmMode, setFocalLength35mmMode } = useStore();
+
+  if (focalLengthRatioMode) return null;
 
   return (
     <ListItem
