@@ -19,6 +19,7 @@ const ONE_LINE_OPTIONS: ThemeOption[] = [
   { id: 'FONT_SIZE', type: 'number', default: 70, description: 'px' },
   { id: 'FONT_FAMILY', type: 'select', options: ['Barlow', ...Object.values(Font)], default: 'Barlow', description: 'ex. din-alternate-bold, digital-7, Barlow, Arial, sans-serif' },
   { id: 'TOP_LABEL', type: 'string', default: '', description: 'ex. @username' },
+  { id: 'DIVIDER', type: 'string', default: '|', description: 'ex. ∙' },
 ];
 
 const ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {
@@ -35,6 +36,7 @@ const ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: 
   const FONT_SIZE = input.get('FONT_SIZE') as number;
   const FONT_FAMILY = (input.get('FONT_FAMILY') as string).trim();
   const TOP_LABEL = (input.get('TOP_LABEL') as string).trim();
+  const DIVIDER = (input.get('DIVIDER') as string).trim();
 
   const canvas = sandbox(photo, {
     targetRatio: store.ratio,
@@ -56,7 +58,7 @@ const ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: 
     [photo.make, photo.model, photo.lensModel, ...(store.disableExposureMeter ? [] : [`${photo.iso}`, `${photo.focalLength}`, `${photo.fNumber}`, `${photo.exposureTime}`])]
       .filter(Boolean)
       .map((value) => value!.trim())
-      .join(' | '),
+      .join(` ${DIVIDER} `),
     TEXT_ALIGN === 'left' ? PADDING_LEFT : TEXT_ALIGN === 'center' ? canvas.width / 2 : canvas.width - PADDING_RIGHT,
     canvas.height - PADDING_BOTTOM / 2
   );

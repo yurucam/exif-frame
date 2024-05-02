@@ -17,6 +17,7 @@
   "aperture": "絞り値",
   "shutter": "シャッタースピード",
   "iso": "ISO感度",
+  "taken-at": "撮影日時",
 
   "root.tab.convert": "変換",
   "root.tab.theme-settings": "テーマ設定",

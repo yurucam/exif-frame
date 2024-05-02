@@ -10,6 +10,7 @@ class ExifMetadata {
   public iso: string | undefined;
   public exposureTime: string | undefined;
   public thumbnail: string | undefined;
+  public takenAt: string | undefined;
 
   constructor(metadata: Tags) {
     console.log(metadata);
@@ -28,6 +29,7 @@ class ExifMetadata {
     this.iso = metadata?.ISOSpeedRatings?.value ? 'ISO' + metadata?.ISOSpeedRatings?.value?.toString() : undefined;
     this.exposureTime = metadata?.ExposureTime?.description ? metadata?.ExposureTime?.description + 's' : undefined;
     this.thumbnail = metadata?.Thumbnail?.base64 ? 'data:image/jpg;base64,' + metadata?.Thumbnail?.base64 : undefined;
+    this.takenAt = metadata?.DateCreated?.description;
   }
 }
 

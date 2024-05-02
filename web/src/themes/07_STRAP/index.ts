@@ -46,7 +46,7 @@ supportLogo.set('SONY_LIGHT', loadLogo('/maker/light/sony.png'));
 supportLogo.set('SONY_DARK', loadLogo('/maker/dark/sony.png'));
 
 const STRAP_OPTIONS: ThemeOption[] = [
-  { id: 'ARTIST', type: 'string', default: 'Your Name', description: 'your name' },
+  { id: 'ARTIST', type: 'string', default: '', description: 'your name' },
   { id: 'DARK_MODE', type: 'boolean', default: false, description: 'enable to use dark mode' },
   { id: 'SECONDARY_TEXT_FONT_WEIGHT', type: 'range-slider', min: 100, max: 900, step: 100, default: 300, description: '100 - 900' },
   { id: 'PADDING_TOP', type: 'number', default: 0, description: 'px' },
@@ -96,9 +96,25 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
   }
 
   // Shot by
-  context.font = `normal ${SECONDARY_TEXT_FONT_WEIGHT} ${FONT_SIZE}px Barlow`;
-  context.fillStyle = SECONDARY_TEXT_COLOR;
-  context.fillText(`Shot by © ${ARTIST}`, FONT_SIZE, canvas.height - PADDING_BOTTOM / 2 + FONT_SIZE / 2);
+  if (ARTIST) {
+    context.font = `normal ${SECONDARY_TEXT_FONT_WEIGHT} ${FONT_SIZE}px Barlow`;
+    context.fillStyle = SECONDARY_TEXT_COLOR;
+    context.fillText(`Shot by © ${ARTIST}`, FONT_SIZE, canvas.height - PADDING_BOTTOM / 2 + FONT_SIZE / 2);
+  } else {
+    if (photo.takenAt) {
+      context.font = `normal ${SECONDARY_TEXT_FONT_WEIGHT} ${FONT_SIZE}px Barlow`;
+      context.fillStyle = SECONDARY_TEXT_COLOR;
+      const takenAt = new Date(photo.takenAt);
+      context.fillText(
+        `${takenAt.getFullYear()}年${(takenAt.getMonth() + 1).toString().padStart(2, '0')}月${takenAt.getDate().toString().padStart(2, '0')}日 ${takenAt
+          .getHours()
+          .toString()
+          .padStart(2, '0')}:${takenAt.getMinutes().toString().padStart(2, '0')}:${takenAt.getSeconds().toString().padStart(2, '0')}`,
+        FONT_SIZE,
+        canvas.height - PADDING_BOTTOM / 2 + FONT_SIZE / 2
+      );
+    }
+  }
 
   // RIGHT SECOND
   context.textAlign = 'right';

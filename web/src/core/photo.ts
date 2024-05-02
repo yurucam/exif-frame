@@ -95,6 +95,14 @@ class Photo {
   public get exposureTime(): string {
     return this.metadata.exposureTime || '';
   }
+
+  /**
+   * Returns the date the photo was taken.
+   * @example '2021-01-01T00:00:00.000+09:00'
+   */
+  public get takenAt(): string {
+    return this.metadata.takenAt || '';
+  }
 }
 
 export default Photo;

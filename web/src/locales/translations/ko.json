@@ -17,6 +17,7 @@
   "aperture": "조리개",
   "shutter": "셔터 속도",
   "iso": "ISO",
+  "taken-at": "촬영 일시",
 
   "root.tab.convert": "프레임 씌우기",
   "root.tab.theme-settings": "테마 설정",
