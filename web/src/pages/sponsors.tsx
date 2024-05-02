@@ -20,6 +20,8 @@ const SponsorsPage = () => {
           <li>탑뚜기</li> {/* 2024-05-02 KakaoPay */}
           <li>문학톺아보기</li> {/* 2024-05-02 KakaoPay */}
           <li>므암</li> {/* 2024-05-02 KakaoPay */}
+          <li>FEMMK</li> {/* 2024-05-02 KakaoPay */}
+          <li>잠실귀요밍</li> {/* 2024-05-02 KakaoPay */}
         </Block>
 
         <Block>
