@@ -3,6 +3,7 @@ import Photo from '../../../../core/photo';
 const SIMPLE_FUNC = (
   photos: Photo[],
   options: {
+    backgroundColor: string;
     ratio: string;
     numberOfRow: number;
     numberOfColumn: number;
@@ -13,7 +14,7 @@ const SIMPLE_FUNC = (
     marginEach: number;
   }
 ): HTMLCanvasElement => {
-  const { ratio, numberOfRow, numberOfColumn, paddingTop, paddingBottom, paddingLeft, paddingRight, marginEach } = options;
+  const { backgroundColor, ratio, numberOfRow, numberOfColumn, paddingTop, paddingBottom, paddingLeft, paddingRight, marginEach } = options;
 
   const canvas = document.createElement('canvas');
 
@@ -30,7 +31,7 @@ const SIMPLE_FUNC = (
   }
 
   const context = canvas.getContext('2d')!;
-  context.fillStyle = '#ffffff';
+  context.fillStyle = backgroundColor;
   context.fillRect(0, 0, canvas.width, canvas.height);
 
   const width = (canvas.width - paddingLeft - paddingRight - marginEach * (numberOfColumn - 1)) / numberOfColumn;

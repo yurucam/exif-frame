@@ -5,10 +5,13 @@ import AddedPhotoListItem from './components/added-photo.list-item';
 import DownloadPhotoButton from './components/download-photo.button';
 import Loading from './components/loading';
 import { useStore } from './store';
+import * as Root from '../../../store';
 
 const Collage = () => {
   const { t } = useTranslation();
+  const { darkMode } = Root.useStore();
   const {
+    backgroundColor,
     ratio,
     numberOfRow,
     numberOfColumn,
@@ -17,6 +20,7 @@ const Collage = () => {
     paddingLeft,
     paddingRight,
     marginEach,
+    setBackgroundColor,
     setRatio,
     setNumberOfRow,
     setNumberOfColumn,
@@ -43,6 +47,12 @@ const Collage = () => {
       </Block>
 
       <List strong inset>
+        <ListInput
+          title="BACKGROUND_COLOR"
+          media={<div className="w-5 h-5" style={{ backgroundColor: backgroundColor as string, outline: `1px solid ${darkMode ? '#fff' : '#000'}` }} />}
+          value={backgroundColor}
+          onChange={(e) => setBackgroundColor(e.target.value)}
+        />
         <ListInput title="RATIO" info="width:height" value={ratio} onChange={(e) => setRatio(e.target.value)} />
         <ListInput title="NUMBER_OF_ROW" info="count" value={numberOfRow} onChange={(e) => setNumberOfRow(Number(e.target.value))} />
         <ListInput title="NUMBER_OF_COLUMN" info="count" value={numberOfColumn} onChange={(e) => setNumberOfColumn(Number(e.target.value))} />

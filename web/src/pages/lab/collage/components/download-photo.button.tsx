@@ -14,7 +14,7 @@ import Photo from '../../../../core/photo';
 const DownloadPhotoButton = () => {
   const { t } = useTranslation();
   const { exportToJpeg, quality } = Root.useStore();
-  const { ratio, numberOfRow, numberOfColumn, photos, setLoading, paddingTop, paddingBottom, paddingLeft, paddingRight, marginEach } = useStore();
+  const { backgroundColor, ratio, numberOfRow, numberOfColumn, photos, setLoading, paddingTop, paddingBottom, paddingLeft, paddingRight, marginEach } = useStore();
 
   return (
     <ListButton
@@ -30,14 +30,14 @@ const DownloadPhotoButton = () => {
 
         if (Capacitor.isNativePlatform()) {
           for (const group of groups) {
-            const canvas = SIMPLE_FUNC(group, { ratio, numberOfRow, numberOfColumn, paddingTop, paddingBottom, paddingLeft, paddingRight, marginEach });
+            const canvas = SIMPLE_FUNC(group, { backgroundColor, ratio, numberOfRow, numberOfColumn, paddingTop, paddingBottom, paddingLeft, paddingRight, marginEach });
             const filename = exportToJpeg ? 'collage.jpg' : 'collage.webp';
             const data = await convert(canvas, { type: exportToJpeg ? 'image/jpeg' : 'image/webp', quality });
             free(canvas);
             await download(filename, data);
           }
         } else if (groups.length === 1) {
-          const canvas = SIMPLE_FUNC(groups[0], { ratio, numberOfRow, numberOfColumn, paddingTop, paddingBottom, paddingLeft, paddingRight, marginEach });
+          const canvas = SIMPLE_FUNC(groups[0], { backgroundColor, ratio, numberOfRow, numberOfColumn, paddingTop, paddingBottom, paddingLeft, paddingRight, marginEach });
           const filename = exportToJpeg ? 'collage.jpg' : 'collage.webp';
           const data = await convert(canvas, { type: exportToJpeg ? 'image/jpeg' : 'image/webp', quality });
           free(canvas);
@@ -46,7 +46,7 @@ const DownloadPhotoButton = () => {
           const files: { filename: string; data: string }[] = [];
           await Promise.all(
             groups.map(async (group, index) => {
-              const canvas = SIMPLE_FUNC(group, { ratio, numberOfRow, numberOfColumn, paddingTop, paddingBottom, paddingLeft, paddingRight, marginEach });
+              const canvas = SIMPLE_FUNC(group, { backgroundColor, ratio, numberOfRow, numberOfColumn, paddingTop, paddingBottom, paddingLeft, paddingRight, marginEach });
               const filename = exportToJpeg ? `collage-${index}.jpg` : `collage-${index}.webp`;
               const data = await convert(canvas, { type: exportToJpeg ? 'image/jpeg' : 'image/webp', quality });
               free(canvas);
