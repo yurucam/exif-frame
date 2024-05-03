@@ -2,6 +2,7 @@ enum Font {
   Digital7 = 'digital-7',
   Poxel = 'poxel',
   DINAlternateBold = 'din-alternate-bold',
+  Pretendard = 'pretendard',
 }
 
 // Load all fonts from the fonts public/fonts folder
