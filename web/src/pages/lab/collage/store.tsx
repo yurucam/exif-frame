@@ -8,6 +8,9 @@ type Store = {
   loading: boolean;
   setLoading: (loading: boolean) => void;
 
+  backgroundColor: string;
+  setBackgroundColor: (backgroundColor: string) => void;
+
   ratio: string;
   setRatio: (ratio: string) => void;
 
@@ -39,6 +42,12 @@ export const useStore = create<Store>((set) => ({
 
   loading: false,
   setLoading: (loading) => set({ loading }),
+
+  backgroundColor: localStorage.getItem('lab:backgroundColor') || '#ffffff',
+  setBackgroundColor: (backgroundColor) => {
+    localStorage.setItem('lab:backgroundColor', backgroundColor);
+    set({ backgroundColor });
+  },
 
   ratio: localStorage.getItem('lab:ratio') || '4:5',
   setRatio: (ratio) => {
