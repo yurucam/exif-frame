@@ -78,5 +78,6 @@
 
   "lab.description": "実験室機能は風のように現れ、音もなく消えることがあります。",
   "lab.collage": "コラージュ",
-  "lab.collage-description": "写真をコラージュします。"
+  "lab.collage-description": "写真をコラージュします。",
+  "lab.collage-options": "上下左右の余白と写真間の余白を設定できます。"
 }

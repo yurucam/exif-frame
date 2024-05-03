@@ -79,5 +79,6 @@
 
   "lab.description": "실험실 기능은 바람처럼 나타났다 소리없이 사라질 수 있습니다.",
   "lab.collage": "콜라주",
-  "lab.collage-description": "여러 장의 사진을 한 장으로 합치는 기능입니다."
+  "lab.collage-description": "여러 장의 사진을 한 장으로 합치는 기능입니다.",
+  "lab.collage-options": "상하좌우 여백과 사진 간 여백을 설정할 수 있습니다."
 }
