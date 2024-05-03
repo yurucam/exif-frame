@@ -101,19 +101,9 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
     context.fillStyle = SECONDARY_TEXT_COLOR;
     context.fillText(`Shot by © ${ARTIST}`, FONT_SIZE, canvas.height - PADDING_BOTTOM / 2 + FONT_SIZE / 2);
   } else {
-    if (photo.takenAt) {
-      context.font = `normal ${SECONDARY_TEXT_FONT_WEIGHT} ${FONT_SIZE}px Barlow`;
-      context.fillStyle = SECONDARY_TEXT_COLOR;
-      const takenAt = new Date(photo.takenAt);
-      context.fillText(
-        `${takenAt.getFullYear()}/${(takenAt.getMonth() + 1).toString().padStart(2, '0')}/${takenAt.getDate().toString().padStart(2, '0')} ${takenAt.getHours().toString().padStart(2, '0')}:${takenAt
-          .getMinutes()
-          .toString()
-          .padStart(2, '0')}:${takenAt.getSeconds().toString().padStart(2, '0')}`,
-        FONT_SIZE,
-        canvas.height - PADDING_BOTTOM / 2 + FONT_SIZE / 2
-      );
-    }
+    context.font = `normal ${SECONDARY_TEXT_FONT_WEIGHT} ${FONT_SIZE}px Barlow`;
+    context.fillStyle = SECONDARY_TEXT_COLOR;
+    context.fillText(photo.takenAt, FONT_SIZE, canvas.height - PADDING_BOTTOM / 2 + FONT_SIZE / 2);
   }
 
   // RIGHT SECOND

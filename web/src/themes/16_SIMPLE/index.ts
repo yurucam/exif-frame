@@ -53,18 +53,8 @@ const SIMPLE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: St
   context.textAlign = 'center';
   context.fillStyle = '#a0a0a0';
 
-  if (photo.takenAt) {
-    context.font = `300 ${30}px ${FONT_FAMILY}`;
-    const takenAt = new Date(photo.takenAt);
-    context.fillText(
-      `${takenAt.getFullYear()}/${(takenAt.getMonth() + 1).toString().padStart(2, '0')}/${takenAt.getDate().toString().padStart(2, '0')} ${takenAt.getHours().toString().padStart(2, '0')}:${takenAt
-        .getMinutes()
-        .toString()
-        .padStart(2, '0')}:${takenAt.getSeconds().toString().padStart(2, '0')}`,
-      canvas.width / 2,
-      canvas.height - PADDING_BOTTOM / 2 + 80
-    );
-  }
+  context.font = `300 ${30}px ${FONT_FAMILY}`;
+  context.fillText(photo.takenAt, canvas.width / 2, canvas.height - PADDING_BOTTOM / 2 + 80);
 
   if (!store.disableExposureMeter) {
     context.font = `300 ${50}px ${FONT_FAMILY}`;

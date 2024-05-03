@@ -30,6 +30,7 @@ import { useStore } from '../../store';
 import SponsorKakaopayListItem from './components/sponsor-kakaopay.list-item';
 import SponsorsListItem from './components/sponsors.list-item';
 import FocalLengthRatioModeListItem from './components/focal-length-ratio-mode.list-item';
+import LabListItem from './components/lab.list-item';
 
 const ExportSettingsPage = () => {
   const { t } = useTranslation();
@@ -84,6 +85,7 @@ const ExportSettingsPage = () => {
       </List>
 
       <List strongIos inset>
+        <LabListItem />
         <CurrentVersionListItem />
       </List>
 

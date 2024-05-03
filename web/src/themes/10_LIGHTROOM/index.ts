@@ -58,17 +58,7 @@ const LIGHTROOM_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store:
   );
 
   context.textAlign = 'right';
-  if (photo.takenAt) {
-    const takenAt = new Date(photo.takenAt);
-    context.fillText(
-      `${takenAt.getFullYear()}/${(takenAt.getMonth() + 1).toString().padStart(2, '0')}/${takenAt.getDate().toString().padStart(2, '0')} ${takenAt.getHours().toString().padStart(2, '0')}:${takenAt
-        .getMinutes()
-        .toString()
-        .padStart(2, '0')}:${takenAt.getSeconds().toString().padStart(2, '0')}`,
-      canvas.width - PADDING_RIGHT,
-      canvas.height - PADDING_BOTTOM / 2
-    );
-  }
+  context.fillText(photo.takenAt, canvas.width - PADDING_RIGHT, canvas.height - PADDING_BOTTOM / 2);
 
   return canvas;
 };

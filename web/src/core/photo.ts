@@ -101,7 +101,12 @@ class Photo {
    * @example '2021-01-01T00:00:00.000+09:00'
    */
   public get takenAt(): string {
-    return this.metadata.takenAt || '';
+    if (!this.metadata.takenAt) return '';
+    const takenAt = new Date(this.metadata.takenAt);
+    return `${takenAt.getFullYear()}/${(takenAt.getMonth() + 1).toString().padStart(2, '0')}/${takenAt.getDate().toString().padStart(2, '0')} ${takenAt
+      .getHours()
+      .toString()
+      .padStart(2, '0')}:${takenAt.getMinutes().toString().padStart(2, '0')}:${takenAt.getSeconds().toString().padStart(2, '0')}`;
   }
 }
 
