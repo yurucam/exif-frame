@@ -58,31 +58,31 @@ export const useStore = create<Store>((set) => ({
     set({ numberOfColumn });
   },
 
-  paddingTop: localStorage.getItem('lab:paddingTop') ? Number(localStorage.getItem('lab:paddingTop')) : 30,
+  paddingTop: localStorage.getItem('lab:paddingTop') ? Number(localStorage.getItem('lab:paddingTop')) : 50,
   setPaddingTop: (paddingTop) => {
     localStorage.setItem('lab:paddingTop', String(paddingTop));
     set({ paddingTop });
   },
 
-  paddingBottom: localStorage.getItem('lab:paddingBottom') ? Number(localStorage.getItem('lab:paddingBottom')) : 30,
+  paddingBottom: localStorage.getItem('lab:paddingBottom') ? Number(localStorage.getItem('lab:paddingBottom')) : 50,
   setPaddingBottom: (paddingBottom) => {
     localStorage.setItem('lab:paddingBottom', String(paddingBottom));
     set({ paddingBottom });
   },
 
-  paddingLeft: localStorage.getItem('lab:paddingLeft') ? Number(localStorage.getItem('lab:paddingLeft')) : 30,
+  paddingLeft: localStorage.getItem('lab:paddingLeft') ? Number(localStorage.getItem('lab:paddingLeft')) : 50,
   setPaddingLeft: (paddingLeft) => {
     localStorage.setItem('lab:paddingLeft', String(paddingLeft));
     set({ paddingLeft });
   },
 
-  paddingRight: localStorage.getItem('lab:paddingRight') ? Number(localStorage.getItem('lab:paddingRight')) : 30,
+  paddingRight: localStorage.getItem('lab:paddingRight') ? Number(localStorage.getItem('lab:paddingRight')) : 50,
   setPaddingRight: (paddingRight) => {
     localStorage.setItem('lab:paddingRight', String(paddingRight));
     set({ paddingRight });
   },
 
-  marginEach: localStorage.getItem('lab:marginEach') ? Number(localStorage.getItem('lab:marginEach')) : 10,
+  marginEach: localStorage.getItem('lab:marginEach') ? Number(localStorage.getItem('lab:marginEach')) : 50,
   setMarginEach: (marginEach) => {
     localStorage.setItem('lab:marginEach', String(marginEach));
     set({ marginEach });
