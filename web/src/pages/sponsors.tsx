@@ -9,7 +9,7 @@ const SponsorsPage = () => {
   return (
     <>
       <Page>
-        <Navbar title={t('root.sponsors')} left={<NavbarBackLink onClick={() => navigator(-1)} />} />
+        <Navbar title={t('root.sponsors')} left={<NavbarBackLink text={t('back')} onClick={() => navigator(-1)} />} />
 
         <BlockTitle>{t('thank-you-for-your-support')}</BlockTitle>
         <Block>

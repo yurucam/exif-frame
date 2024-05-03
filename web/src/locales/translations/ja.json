@@ -37,6 +37,7 @@
   "root.successfully-downloaded-in-gallery": "ギャラリーに保存しました",
 
   "root.add-photo": "写真を追加",
+  "root.download": "ダウンロード",
   "root.download-all": "全てダウンロード",
   "root.bug-report": "バグ報告",
   "root.feature-request": "機能リクエスト",
@@ -72,5 +73,10 @@
   "root.settings.override-lens-model": "レンズモデルを上書き",
 
   "privacy-policy": "プライバシーポリシー",
-  "term-and-conditions": "利用規約"
+  "term-and-conditions": "利用規約",
+  "lab": "実験室",
+
+  "lab.description": "実験室機能は風のように現れ、音もなく消えることがあります。",
+  "lab.collage": "コラージュ",
+  "lab.collage-description": "写真をコラージュします。"
 }

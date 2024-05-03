@@ -1,13 +1,15 @@
 import { Block, BlockTitle, Navbar, NavbarBackLink, Page } from 'konsta/react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 const TermAndConditionsPage = () => {
   const navigator = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <>
       <Page>
-        <Navbar title="Terms &amp; Conditions" left={<NavbarBackLink onClick={() => navigator(-1)} />} />
+        <Navbar title="Terms &amp; Conditions" left={<NavbarBackLink text={t('back')} onClick={() => navigator(-1)} />} />
 
         <BlockTitle>Terms &amp; Conditions</BlockTitle>
         <Block>

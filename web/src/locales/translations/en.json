@@ -37,6 +37,7 @@
   "root.successfully-downloaded-in-gallery": "Successfully downloaded to gallery",
 
   "root.add-photo": "Add Photo",
+  "root.download": "Download",
   "root.download-all": "Download All",
   "root.bug-report": "Bug Report",
   "root.feature-request": "Feature Request",
@@ -72,5 +73,10 @@
   "root.settings.override-lens-model": "Override Lens Model",
 
   "privacy-policy": "Privacy Policy",
-  "term-and-conditions": "Term and Conditions"
+  "term-and-conditions": "Term and Conditions",
+  "lab": "Laboratory",
+
+  "lab.description": "The experimental function may appear like the wind and disappear without a sound.",
+  "lab.collage": "Collage",
+  "lab.collage-description": "Create a collage with multiple photos."
 }
