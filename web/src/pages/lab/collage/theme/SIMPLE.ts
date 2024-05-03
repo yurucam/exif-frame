@@ -33,8 +33,8 @@ const SIMPLE_FUNC = (
   context.fillStyle = '#ffffff';
   context.fillRect(0, 0, canvas.width, canvas.height);
 
-  const width = (canvas.width - paddingLeft - paddingRight - marginEach * (numberOfRow - 1)) / numberOfRow;
-  const height = (canvas.height - paddingTop - paddingBottom - marginEach * (numberOfColumn - 1)) / numberOfColumn;
+  const width = (canvas.width - paddingLeft - paddingRight - marginEach * (numberOfColumn - 1)) / numberOfColumn;
+  const height = (canvas.height - paddingTop - paddingBottom - marginEach * (numberOfRow - 1)) / numberOfRow;
 
   const size = numberOfRow * numberOfColumn;
   const length = Math.min(photos.length, size);
@@ -44,8 +44,8 @@ const SIMPLE_FUNC = (
     const photo = photos[i];
     if (!photo) break;
     const image = photo.image;
-    const x = paddingLeft + (i % numberOfRow) * (width + marginEach);
-    const y = paddingTop + Math.floor(i / numberOfRow) * (height + marginEach);
+    const x = paddingLeft + (i % numberOfColumn) * (width + marginEach);
+    const y = paddingTop + Math.floor(i / numberOfColumn) * (height + marginEach);
     const imageWidth = image.width;
     const imageHeight = image.height;
     const ratio = imageWidth / imageHeight;
