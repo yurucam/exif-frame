@@ -1,5 +1,5 @@
 {
-  "version": "0.4.79",
+  "version": "0.4.80",
   "type": "module",
   "scripts": {
     "dev": "vite",
