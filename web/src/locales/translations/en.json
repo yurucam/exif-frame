@@ -78,5 +78,6 @@
 
   "lab.description": "The experimental function may appear like the wind and disappear without a sound.",
   "lab.collage": "Collage",
-  "lab.collage-description": "Create a collage with multiple photos."
+  "lab.collage-description": "Create a collage with multiple photos.",
+  "lab.collage-options": "You can set the top, bottom, left, and right margins and the space between photos."
 }

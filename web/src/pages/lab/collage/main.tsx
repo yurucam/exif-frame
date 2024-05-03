@@ -1,11 +1,31 @@
-import { BlockTitle, BlockHeader, List } from 'konsta/react';
+import { BlockTitle, BlockHeader, List, ListInput, Block } from 'konsta/react';
 import { useTranslation } from 'react-i18next';
 import AddPhotoButton from './components/add-photo.button';
 import AddedPhotoListItem from './components/added-photo.list-item';
-import DownloadOnePhotoButton from './components/download-one-photo.button';
+import DownloadPhotoButton from './components/download-photo.button';
+import Loading from './components/loading';
+import { useStore } from './store';
 
 const Collage = () => {
   const { t } = useTranslation();
+  const {
+    ratio,
+    numberOfRow,
+    numberOfColumn,
+    paddingTop,
+    paddingBottom,
+    paddingLeft,
+    paddingRight,
+    marginEach,
+    setRatio,
+    setNumberOfRow,
+    setNumberOfColumn,
+    setPaddingTop,
+    setPaddingBottom,
+    setPaddingLeft,
+    setPaddingRight,
+    setMarginEach,
+  } = useStore();
 
   return (
     <>
@@ -15,8 +35,25 @@ const Collage = () => {
       <List strong inset>
         <AddedPhotoListItem />
         <AddPhotoButton />
-        <DownloadOnePhotoButton />
+        <DownloadPhotoButton />
       </List>
+
+      <Block>
+        <p>{t('lab.collage-options')}</p>
+      </Block>
+
+      <List strong inset>
+        <ListInput title="RATIO" info="width:height" value={ratio} onChange={(e) => setRatio(e.target.value)} />
+        <ListInput title="NUMBER_OF_ROW" info="count" value={numberOfRow} onChange={(e) => setNumberOfRow(Number(e.target.value))} />
+        <ListInput title="NUMBER_OF_COLUMN" info="count" value={numberOfColumn} onChange={(e) => setNumberOfColumn(Number(e.target.value))} />
+        <ListInput title="PADDING_TOP" info="px" value={paddingTop} onChange={(e) => setPaddingTop(Number(e.target.value))} />
+        <ListInput title="PADDING_BOTTOM" info="px" value={paddingBottom} onChange={(e) => setPaddingBottom(Number(e.target.value))} />
+        <ListInput title="PADDING_LEFT" info="px" value={paddingLeft} onChange={(e) => setPaddingLeft(Number(e.target.value))} />
+        <ListInput title="PADDING_RIGHT" info="px" value={paddingRight} onChange={(e) => setPaddingRight(Number(e.target.value))} />
+        <ListInput title="MARGIN_EACH" info="px" value={marginEach} onChange={(e) => setMarginEach(Number(e.target.value))} />
+      </List>
+
+      <Loading />
     </>
   );
 };
