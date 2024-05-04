@@ -4,10 +4,12 @@ import { useTranslation } from 'react-i18next';
 import Photo from '../../../../core/photo';
 import AddIcon from '../../../../icons/add.icon';
 import { useStore } from '../store';
+import * as Root from '../../../../store';
 
 const AddPhotoButton = () => {
   const { t } = useTranslation();
   const { photos, setPhotos, setLoading } = useStore();
+  const { setOpenedAddPhotoErrorDialog } = Root.useStore();
 
   const onDragEnter = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -30,9 +32,14 @@ const AddPhotoButton = () => {
     e.stopPropagation();
     const { files } = e.dataTransfer;
     if (!files) return;
-    await Promise.all(Array.from(files).map(Photo.create)).then((newPhotos) => {
-      setPhotos([...photos, ...newPhotos]);
-    });
+    try {
+      await Promise.all(Array.from(files).map(Photo.create)).then((newPhotos) => {
+        setPhotos([...photos, ...newPhotos]);
+      });
+    } catch (e) {
+      console.error(e);
+      setOpenedAddPhotoErrorDialog(true);
+    }
     setLoading(false);
   };
 
@@ -41,9 +48,14 @@ const AddPhotoButton = () => {
     await new Promise((resolve) => setTimeout(resolve, 100));
     const { files } = event.target;
     if (!files) return;
-    await Promise.all(Array.from(files).map(Photo.create)).then((newPhotos) => {
-      setPhotos([...photos, ...newPhotos]);
-    });
+    try {
+      await Promise.all(Array.from(files).map(Photo.create)).then((newPhotos) => {
+        setPhotos([...photos, ...newPhotos]);
+      });
+    } catch (e) {
+      console.error(e);
+      setOpenedAddPhotoErrorDialog(true);
+    }
     setLoading(false);
   };
 

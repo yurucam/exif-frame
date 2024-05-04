@@ -80,5 +80,8 @@
   "lab.description": "実験室機能は風のように現れ、音もなく消えることがあります。",
   "lab.collage": "コラージュ",
   "lab.collage-description": "写真をコラージュします。",
-  "lab.collage-options": "上下左右の余白と写真間の余白を設定できます。"
+  "lab.collage-options": "上下左右の余白と写真間の余白を設定できます。",
+
+  "fail-to-load-photos": "写真の読み込みに失敗しました。",
+  "please-check-your-photo-extension": "写真の拡張子を確認してください。"
 }

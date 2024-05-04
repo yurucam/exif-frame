@@ -18,6 +18,9 @@ type Store = {
   openedPanel: 'left' | 'right' | null;
   setOpenedPanel: (panel: 'left' | 'right' | null) => void;
 
+  openedAddPhotoErrorDialog: boolean;
+  setOpenedAddPhotoErrorDialog: (opened: boolean) => void;
+
   languagePopover: boolean;
   setLanguagePopover: (opened: boolean) => void;
 
@@ -130,6 +133,9 @@ const useStore = create<Store>((set) => ({
 
   openedPanel: null,
   setOpenedPanel: (panel: 'left' | 'right' | null) => set({ openedPanel: panel }),
+
+  openedAddPhotoErrorDialog: false,
+  setOpenedAddPhotoErrorDialog: (opened: boolean) => set({ openedAddPhotoErrorDialog: opened }),
 
   languagePopover: false,
   setLanguagePopover: (opened: boolean) => set({ languagePopover: opened }),
