@@ -24,6 +24,12 @@ type Store = {
   quality: number;
   setQuality: (quality: number) => void;
 
+  dateNotationPopover: boolean;
+  setDateNotationPopover: (opened: boolean) => void;
+
+  dateNotation: string;
+  setDateNotation: (dateNotation: string) => void;
+
   fixImageWidth: boolean;
   setFixImageWidth: (fixImageWidth: boolean) => void;
 
@@ -133,6 +139,16 @@ const useStore = create<Store>((set) => ({
     set(() => {
       localStorage.setItem('quality', quality.toString());
       return { quality };
+    }),
+
+  dateNotationPopover: false,
+  setDateNotationPopover: (opened: boolean) => set({ dateNotationPopover: opened }),
+
+  dateNotation: localStorage.getItem('dateNotation') || '2001/01/01 01:01:01',
+  setDateNotation: (dateNotation: string) =>
+    set(() => {
+      localStorage.setItem('dateNotation', dateNotation);
+      return { dateNotation };
     }),
 
   fixImageWidth: localStorage.getItem('fixImageWidth') === 'true',

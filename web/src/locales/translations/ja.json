@@ -58,6 +58,7 @@
   "root.settings.export-to-jpeg": "JPEGにエクスポート",
   "root.settings.quality": "画質",
   "root.settings.fix-image-width": "画像幅を固定",
+  "root.settings.date-notation": "日付表記",
   "root.settings.focal-length-35mm-mode": "35mm換算焦点距離",
   "root.settings.focal-length-ratio": "焦点距離比率",
   "root.settings.focal-length-ratio-mode": "焦点距離比率モード",

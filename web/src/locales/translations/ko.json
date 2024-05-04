@@ -59,6 +59,7 @@
   "root.settings.export-to-jpeg": "JPEG로 내보내기",
   "root.settings.quality": "품질",
   "root.settings.fix-image-width": "사진 너비 고정",
+  "root.settings.date-notation": "날짜 표기법",
   "root.settings.focal-length-35mm-mode": "35mm 환산 화각 표시",
   "root.settings.focal-length-ratio": "크롭 팩터",
   "root.settings.focal-length-ratio-mode": "크롭 팩터 강제 변경",
