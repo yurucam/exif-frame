@@ -58,6 +58,7 @@
   "root.settings.export-to-jpeg": "Export to JPEG",
   "root.settings.quality": "Quality",
   "root.settings.fix-image-width": "Fix Image Width",
+  "root.settings.date-notation": "Date Notation",
   "root.settings.focal-length-35mm-mode": "Focal Length 35mm Mode",
   "root.settings.focal-length-ratio": "Crop Factor",
   "root.settings.focal-length-ratio-mode": "Fixed Crop Factor",
@@ -79,5 +80,8 @@
   "lab.description": "The experimental function may appear like the wind and disappear without a sound.",
   "lab.collage": "Collage",
   "lab.collage-description": "Create a collage with multiple photos.",
-  "lab.collage-options": "You can set the top, bottom, left, and right margins and the space between photos."
+  "lab.collage-options": "You can set the top, bottom, left, and right margins and the space between photos.",
+
+  "fail-to-load-photos": "Failed to load photos.",
+  "please-check-your-photo-extension": "Please check your photo file extension."
 }

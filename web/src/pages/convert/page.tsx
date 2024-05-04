@@ -12,6 +12,7 @@ import RemoveAllPhotoButton from './components/remove-all-photo.button';
 import SettingsIcon from '../../icons/settings.icon';
 import ImageIcon from '../../icons/image.icon';
 import GenerateIcon from '../../icons/generate.icon';
+import AddPhotoErrorDialog from './components/add-photo-error.dialog';
 
 const FramePage = () => {
   const { t } = useTranslation();
@@ -61,6 +62,8 @@ const FramePage = () => {
       <OverrideMetadataPopup />
 
       <Loading />
+
+      <AddPhotoErrorDialog />
     </Page>
   );
 };

@@ -6,6 +6,7 @@ import { ThemeOption, ThemeOptionInput } from '../../pages/theme/types/theme-opt
 import Font from '../../fonts';
 
 const FILM_OPTIONS: ThemeOption[] = [
+  { id: 'ARTIST', type: 'string', default: '', description: 'your name' },
   { id: 'FONT_FAMILY', type: 'select', options: ['Barlow', ...Object.values(Font)], default: 'digital-7', description: 'ex. din-alternate-bold, digital-7, Barlow, Arial, sans-serif' },
   { id: 'TEXT_COLOR', type: 'color', default: '#FFA500', description: 'default is orange hex code' },
   { id: 'BACKGROUND_COLOR', type: 'color', default: '#000000', description: '#ffffff is white, #000000 is black' },
@@ -16,6 +17,7 @@ const FILM_OPTIONS: ThemeOption[] = [
 ];
 
 const FILM_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {
+  const ARTIST = (input.get('ARTIST') as string).trim();
   const FONT_FAMILY = (input.get('FONT_FAMILY') as string).trim();
   const TEXT_COLOR = input.get('TEXT_COLOR') as string;
   const BACKGROUND_COLOR = (input.get('BACKGROUND_COLOR') as string).trim();
@@ -73,7 +75,7 @@ const FILM_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Stor
     canvas.height - 205
   );
   context.font = `50px ${FONT_FAMILY}`;
-  context.fillText(photo.takenAt, 100, canvas.height - 305);
+  context.fillText(ARTIST ? ARTIST : photo.takenAt, 100, canvas.height - 305);
 
   return canvas;
 };

@@ -18,11 +18,20 @@ type Store = {
   openedPanel: 'left' | 'right' | null;
   setOpenedPanel: (panel: 'left' | 'right' | null) => void;
 
+  openedAddPhotoErrorDialog: boolean;
+  setOpenedAddPhotoErrorDialog: (opened: boolean) => void;
+
   languagePopover: boolean;
   setLanguagePopover: (opened: boolean) => void;
 
   quality: number;
   setQuality: (quality: number) => void;
+
+  dateNotationPopover: boolean;
+  setDateNotationPopover: (opened: boolean) => void;
+
+  dateNotation: string;
+  setDateNotation: (dateNotation: string) => void;
 
   fixImageWidth: boolean;
   setFixImageWidth: (fixImageWidth: boolean) => void;
@@ -125,6 +134,9 @@ const useStore = create<Store>((set) => ({
   openedPanel: null,
   setOpenedPanel: (panel: 'left' | 'right' | null) => set({ openedPanel: panel }),
 
+  openedAddPhotoErrorDialog: false,
+  setOpenedAddPhotoErrorDialog: (opened: boolean) => set({ openedAddPhotoErrorDialog: opened }),
+
   languagePopover: false,
   setLanguagePopover: (opened: boolean) => set({ languagePopover: opened }),
 
@@ -133,6 +145,16 @@ const useStore = create<Store>((set) => ({
     set(() => {
       localStorage.setItem('quality', quality.toString());
       return { quality };
+    }),
+
+  dateNotationPopover: false,
+  setDateNotationPopover: (opened: boolean) => set({ dateNotationPopover: opened }),
+
+  dateNotation: localStorage.getItem('dateNotation') || '2001/01/01 01:01:01',
+  setDateNotation: (dateNotation: string) =>
+    set(() => {
+      localStorage.setItem('dateNotation', dateNotation);
+      return { dateNotation };
     }),
 
   fixImageWidth: localStorage.getItem('fixImageWidth') === 'true',

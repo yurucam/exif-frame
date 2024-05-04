@@ -31,6 +31,8 @@ import SponsorKakaopayListItem from './components/sponsor-kakaopay.list-item';
 import SponsorsListItem from './components/sponsors.list-item';
 import FocalLengthRatioModeListItem from './components/focal-length-ratio-mode.list-item';
 import LabListItem from './components/lab.list-item';
+import DateNotationListItem from './components/date-notation.list-item';
+import DateNotationPopover from './components/date-notation.popover';
 
 const ExportSettingsPage = () => {
   const { t } = useTranslation();
@@ -53,6 +55,7 @@ const ExportSettingsPage = () => {
         <FocalLengthRatioModeListItem />
         <FocalLength35mmModeListItem />
         <RatioListItem />
+        <DateNotationListItem />
       </List>
 
       <List strongIos inset>
@@ -97,6 +100,7 @@ const ExportSettingsPage = () => {
 
       <LanguagePopover />
       <RatioPopover />
+      <DateNotationPopover />
     </Page>
   );
 };

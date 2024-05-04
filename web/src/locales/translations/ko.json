@@ -59,6 +59,7 @@
   "root.settings.export-to-jpeg": "JPEG로 내보내기",
   "root.settings.quality": "품질",
   "root.settings.fix-image-width": "사진 너비 고정",
+  "root.settings.date-notation": "날짜 표기법",
   "root.settings.focal-length-35mm-mode": "35mm 환산 화각 표시",
   "root.settings.focal-length-ratio": "크롭 팩터",
   "root.settings.focal-length-ratio-mode": "크롭 팩터 강제 변경",
@@ -80,5 +81,8 @@
   "lab.description": "실험실 기능은 바람처럼 나타났다 소리없이 사라질 수 있습니다.",
   "lab.collage": "콜라주",
   "lab.collage-description": "여러 장의 사진을 한 장으로 합치는 기능입니다.",
-  "lab.collage-options": "상하좌우 여백과 사진 간 여백을 설정할 수 있습니다."
+  "lab.collage-options": "상하좌우 여백과 사진 간 여백을 설정할 수 있습니다.",
+
+  "fail-to-load-photos": "사진을 불러오는데 실패했습니다",
+  "please-check-your-photo-extension": "사진 확장자를 확인해주세요"
 }

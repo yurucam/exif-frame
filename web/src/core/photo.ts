@@ -102,11 +102,51 @@ class Photo {
    */
   public get takenAt(): string {
     if (!this.metadata.takenAt) return '';
+
     const takenAt = new Date(this.metadata.takenAt);
-    return `${takenAt.getFullYear()}/${(takenAt.getMonth() + 1).toString().padStart(2, '0')}/${takenAt.getDate().toString().padStart(2, '0')} ${takenAt
-      .getHours()
-      .toString()
-      .padStart(2, '0')}:${takenAt.getMinutes().toString().padStart(2, '0')}:${takenAt.getSeconds().toString().padStart(2, '0')}`;
+    switch (localStorage.getItem('dateNotation') || '2001/01/01 01:01:01') {
+      case '2001/01/01 01:01:01':
+        return `${takenAt.getFullYear()}/${(takenAt.getMonth() + 1).toString().padStart(2, '0')}/${takenAt.getDate().toString().padStart(2, '0')} ${takenAt
+          .getHours()
+          .toString()
+          .padStart(2, '0')}:${takenAt.getMinutes().toString().padStart(2, '0')}:${takenAt.getSeconds().toString().padStart(2, '0')}`;
+
+      case '2001-01-01 01:01:01':
+        return `${takenAt.getFullYear()}-${(takenAt.getMonth() + 1).toString().padStart(2, '0')}-${takenAt.getDate().toString().padStart(2, '0')} ${takenAt
+          .getHours()
+          .toString()
+          .padStart(2, '0')}:${takenAt.getMinutes().toString().padStart(2, '0')}:${takenAt.getSeconds().toString().padStart(2, '0')}`;
+
+      case '2001年01月01日 01時01分':
+        return `${takenAt.getFullYear()}年${(takenAt.getMonth() + 1).toString().padStart(2, '0')}月${takenAt.getDate().toString().padStart(2, '0')}日 ${takenAt
+          .getHours()
+          .toString()
+          .padStart(2, '0')}時${takenAt.getMinutes().toString().padStart(2, '0')}分`;
+
+      case '2001년 01월 01일 01시 01분':
+        return `${takenAt.getFullYear()}년 ${(takenAt.getMonth() + 1).toString().padStart(2, '0')}월 ${takenAt.getDate().toString().padStart(2, '0')}일 ${takenAt
+          .getHours()
+          .toString()
+          .padStart(2, '0')}시 ${takenAt.getMinutes().toString().padStart(2, '0')}분`;
+
+      case '2001/01/01':
+        return `${takenAt.getFullYear()}/${(takenAt.getMonth() + 1).toString().padStart(2, '0')}/${takenAt.getDate().toString().padStart(2, '0')}`;
+
+      case '2001-01-01':
+        return `${takenAt.getFullYear()}-${(takenAt.getMonth() + 1).toString().padStart(2, '0')}-${takenAt.getDate().toString().padStart(2, '0')}`;
+
+      case '2001年01月01日':
+        return `${takenAt.getFullYear()}年${(takenAt.getMonth() + 1).toString().padStart(2, '0')}月${takenAt.getDate().toString().padStart(2, '0')}日`;
+
+      case '2001년 01월 01일':
+        return `${takenAt.getFullYear()}년 ${(takenAt.getMonth() + 1).toString().padStart(2, '0')}월 ${takenAt.getDate().toString().padStart(2, '0')}일`;
+
+      case 'Jan 1, 2001':
+        return `${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][takenAt.getMonth()]} ${takenAt.getDate().toString().padStart(2, '0')}, ${takenAt.getFullYear()}`;
+
+      default:
+        return '';
+    }
   }
 }
 
