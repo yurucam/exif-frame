@@ -8,9 +8,6 @@ import FixImageWidthListItem from './components/fix-image-width.list-item';
 import ShowCameraMakerListItem from './components/show-camera-maker.list-item';
 import ShowCameraModelListItem from './components/show-camera-model.list-item';
 import ShowLensModelListItem from './components/show-lens-model.list-item';
-import OverrideCameraMakerListItem from './components/override-camera-maker.list-item';
-import OverrideCameraModelListItem from './components/override-camera-model.list-item';
-import OverrideLensModelListItem from './components/override-lens-model.list-item';
 import FixWatermarkListItem from './components/fix-watermark.list-item';
 import ExportToJpegListItem from './components/export-to-jpeg.list-item';
 import SettingsIcon from '../../icons/settings.icon';
@@ -33,6 +30,9 @@ import FocalLengthRatioModeListItem from './components/focal-length-ratio-mode.l
 import LabListItem from './components/lab.list-item';
 import DateNotationListItem from './components/date-notation.list-item';
 import DateNotationPopover from './components/date-notation.popover';
+import OverrideMetadataListItem from './components/override-metadata.list-item';
+import OverrideMetadataPopover from './components/override-metadata.popover';
+import CreateOverrideMetadataListItem from './components/create-override-metadata.list-item';
 
 const ExportSettingsPage = () => {
   const { t } = useTranslation();
@@ -66,9 +66,8 @@ const ExportSettingsPage = () => {
       </List>
 
       <List strongIos inset>
-        <OverrideCameraMakerListItem />
-        <OverrideCameraModelListItem />
-        <OverrideLensModelListItem />
+        <OverrideMetadataListItem />
+        <CreateOverrideMetadataListItem />
       </List>
 
       <List strongIos inset>
@@ -101,6 +100,7 @@ const ExportSettingsPage = () => {
       <LanguagePopover />
       <RatioPopover />
       <DateNotationPopover />
+      <OverrideMetadataPopover />
     </Page>
   );
 };

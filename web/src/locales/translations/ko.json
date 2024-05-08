@@ -9,6 +9,7 @@
   "ja": "日本語",
   "ko": "한국어",
 
+  "name": "이름",
   "make": "카메라 제조사",
   "model": "카메라 모델",
   "lens": "렌즈 모델",
@@ -75,6 +76,8 @@
   "root.settings.override-camera-maker": "카메라 제조사 전역 변경",
   "root.settings.override-camera-model": "카메라 모델 전역 변경",
   "root.settings.override-lens-model": "렌즈 모델 전역 변경",
+  "root.settings.select-overridable-metadata": "전역 변경할 메타데이터 선택",
+  "root.settings.create-metadata": "메타데이터 생성",
 
   "privacy-policy": "개인정보 처리방침",
   "term-and-conditions": "이용약관",

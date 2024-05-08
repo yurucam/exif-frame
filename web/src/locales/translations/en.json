@@ -9,15 +9,16 @@
   "ja": "日本語",
   "ko": "한국어",
 
-  "make": "Camera Maker",
-  "model": "Camera Model",
-  "lens": "Lens Model",
-  "focal": "Focal Length",
-  "focal-35mm": "Focal Length 35mm",
+  "name": "Name",
+  "make": "Camera maker",
+  "model": "Camera model",
+  "lens": "Lens model",
+  "focal": "Focal length",
+  "focal-35mm": "Focal length 35mm",
   "aperture": "Aperture",
-  "shutter": "Shutter Speed",
+  "shutter": "Shutter speed",
   "iso": "ISO",
-  "taken-at": "Taken At",
+  "taken-at": "Taken at",
 
   "drag-and-drop-photos-here": "Drag and drop photos here",
 
@@ -74,6 +75,8 @@
   "root.settings.override-camera-maker": "Override Camera Maker",
   "root.settings.override-camera-model": "Override Camera Model",
   "root.settings.override-lens-model": "Override Lens Model",
+  "root.settings.select-overridable-metadata": "Select Overridable Metadata",
+  "root.settings.create-metadata": "Create Metadata",
 
   "privacy-policy": "Privacy Policy",
   "term-and-conditions": "Term and Conditions",
