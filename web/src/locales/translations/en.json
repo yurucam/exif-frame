@@ -74,6 +74,8 @@
   "root.settings.override-camera-maker": "Override Camera Maker",
   "root.settings.override-camera-model": "Override Camera Model",
   "root.settings.override-lens-model": "Override Lens Model",
+  "root.settings.select-overridable-metadata": "Select Overridable Metadata",
+  "root.settings.create-metadata": "Create Metadata",
 
   "privacy-policy": "Privacy Policy",
   "term-and-conditions": "Term and Conditions",

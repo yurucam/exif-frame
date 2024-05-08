@@ -6,6 +6,15 @@ type Store = {
   tabIndex: number;
   setTabIndex: (tabIndex: number) => void;
 
+  overrideMetadataIndexPopup: boolean;
+  setOverrideMetadataIndexPopup: (opened: boolean) => void;
+
+  overrideMetadataIndex: number | null;
+  setOverrideMetadataIndex: (overrideMetadataIndex: number | null) => void;
+
+  overridableMetadata: { [key: string]: string }[];
+  setOverridableMetadata: (overridableMetadata: { [key: string]: string }[]) => void;
+
   rerenderOptions: number;
   setRerenderOptions: () => void;
 
@@ -112,6 +121,23 @@ type Store = {
 const useStore = create<Store>((set) => ({
   tabIndex: 0,
   setTabIndex: (tabIndex: number) => set({ tabIndex }),
+
+  overrideMetadataIndexPopup: false,
+  setOverrideMetadataIndexPopup: (opened: boolean) => set({ overrideMetadataIndexPopup: opened }),
+
+  overrideMetadataIndex: localStorage.getItem('overrideMetadataIndex') ? parseInt(localStorage.getItem('overrideMetadataIndex')!) : null,
+  setOverrideMetadataIndex: (overrideMetadataIndex: number | null) =>
+    set(() => {
+      localStorage.setItem('overrideMetadataIndex', overrideMetadataIndex?.toString() || '');
+      return { overrideMetadataIndex };
+    }),
+
+  overridableMetadata: JSON.parse(localStorage.getItem('overridableMetadata') || '[]'),
+  setOverridableMetadata: (overridableMetadata: { [key: string]: string }[]) =>
+    set(() => {
+      localStorage.setItem('overridableMetadata', JSON.stringify(overridableMetadata));
+      return { overridableMetadata };
+    }),
 
   rerenderOptions: 0,
   setRerenderOptions: () => set({ rerenderOptions: Math.random() }),

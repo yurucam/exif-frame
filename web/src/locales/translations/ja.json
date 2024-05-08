@@ -74,6 +74,8 @@
   "root.settings.override-camera-maker": "カメラメーカーを上書き",
   "root.settings.override-camera-model": "カメラモデルを上書き",
   "root.settings.override-lens-model": "レンズモデルを上書き",
+  "root.settings.select-overridable-metadata": "上書き可能なメタデータを選択",
+  "root.settings.create-metadata": "メタデータを作成",
 
   "privacy-policy": "プライバシーポリシー",
   "term-and-conditions": "利用規約",
