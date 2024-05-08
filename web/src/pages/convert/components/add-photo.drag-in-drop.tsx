@@ -86,6 +86,7 @@ const AddPhotoDragInDrop = () => {
             fontSize: '1rem',
             color: darkMode ? '#fff' : '#000',
             marginTop: '1rem',
+            width: '80%',
           }}
           className="text-center"
         >
