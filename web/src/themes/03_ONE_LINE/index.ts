@@ -57,18 +57,21 @@ const ONE_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: 
   context.textAlign = TEXT_ALIGN as CanvasTextAlign;
 
   const text = TEMPLATE.split('}')
-    .filter(Boolean)
     .map((part) => `${part}}`)
-    .join(' ' + DIVIDER + ' ')
-    .replace(/{MAKER}/g, photo.make)
-    .replace(/{BODY}/g, photo.model || '')
-    .replace(/{LENS}/g, photo.lensModel || '')
-    .replace(/{ISO}/g, store.disableExposureMeter ? '' : photo.iso || '')
-    .replace(/{MM}/g, store.disableExposureMeter ? '' : photo.focalLength || '')
-    .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
-    .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
-    .replace(/{TAKEN_AT}/g, photo.takenAt || '')
-    .replace(/}/g, '');
+    .map((part) =>
+      part
+        .replace(/{MAKER}/g, photo.make)
+        .replace(/{BODY}/g, photo.model || '')
+        .replace(/{LENS}/g, photo.lensModel || '')
+        .replace(/{ISO}/g, store.disableExposureMeter ? '' : photo.iso || '')
+        .replace(/{MM}/g, store.disableExposureMeter ? '' : photo.focalLength || '')
+        .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
+        .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
+        .replace(/{TAKEN_AT}/g, photo.takenAt || '')
+        .replace(/}/g, '')
+    )
+    .filter(Boolean)
+    .join(' ' + DIVIDER + ' ');
 
   context.fillText(text, TEXT_ALIGN === 'left' ? PADDING_LEFT : TEXT_ALIGN === 'center' ? canvas.width / 2 : canvas.width - PADDING_RIGHT, canvas.height - PADDING_BOTTOM / 2);
 

@@ -57,36 +57,42 @@ const TWO_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: 
   context.fillText(TOP_LABEL, canvas.width / 2, PADDING_TOP / 2);
 
   const text1 = TEMPLATE1.split('}')
-    .filter(Boolean)
     .map((part) => `${part}}`)
-    .join(' ' + DIVIDER + ' ')
-    .replace('{MAKER}', photo.make)
-    .replace('{BODY}', photo.model || '')
-    .replace('{LENS}', photo.lensModel || '')
-    .replace('{ISO}', store.disableExposureMeter ? '' : photo.iso || '')
-    .replace('{MM}', store.disableExposureMeter ? '' : photo.focalLength || '')
-    .replace('{F}', store.disableExposureMeter ? '' : photo.fNumber || '')
-    .replace('{SEC}', store.disableExposureMeter ? '' : photo.exposureTime || '')
-    .replace('{TAKEN_AT}', photo.takenAt || '')
-    .replace('}', '');
+    .map((part) =>
+      part
+        .replace(/{MAKER}/g, photo.make)
+        .replace(/{BODY}/g, photo.model || '')
+        .replace(/{LENS}/g, photo.lensModel || '')
+        .replace(/{ISO}/g, store.disableExposureMeter ? '' : photo.iso || '')
+        .replace(/{MM}/g, store.disableExposureMeter ? '' : photo.focalLength || '')
+        .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
+        .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
+        .replace(/{TAKEN_AT}/g, photo.takenAt || '')
+        .replace(/}/g, '')
+    )
+    .filter(Boolean)
+    .join(' ' + DIVIDER + ' ');
 
   context.textAlign = TEXT_ALIGN as CanvasTextAlign;
   context.fillText(text1, TEXT_ALIGN === 'left' ? PADDING_LEFT : TEXT_ALIGN === 'center' ? canvas.width / 2 : canvas.width - PADDING_RIGHT, canvas.height - PADDING_BOTTOM / 2 - FONT_SIZE / 1.5);
 
   if (!store.disableExposureMeter) {
     const text2 = TEMPLATE2.split('}')
-      .filter(Boolean)
       .map((part) => `${part}}`)
-      .join(' ' + DIVIDER + ' ')
-      .replace(/{MAKER}/g, photo.make)
-      .replace(/{BODY}/g, photo.model || '')
-      .replace(/{LENS}/g, photo.lensModel || '')
-      .replace(/{ISO}/g, store.disableExposureMeter ? '' : photo.iso || '')
-      .replace(/{MM}/g, store.disableExposureMeter ? '' : photo.focalLength || '')
-      .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
-      .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
-      .replace(/{TAKEN_AT}/g, photo.takenAt || '')
-      .replace(/}/g, '');
+      .map((part) =>
+        part
+          .replace(/{MAKER}/g, photo.make)
+          .replace(/{BODY}/g, photo.model || '')
+          .replace(/{LENS}/g, photo.lensModel || '')
+          .replace(/{ISO}/g, store.disableExposureMeter ? '' : photo.iso || '')
+          .replace(/{MM}/g, store.disableExposureMeter ? '' : photo.focalLength || '')
+          .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
+          .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
+          .replace(/{TAKEN_AT}/g, photo.takenAt || '')
+          .replace(/}/g, '')
+      )
+      .filter(Boolean)
+      .join(' ' + DIVIDER + ' ');
 
     context.fillText(text2, TEXT_ALIGN === 'left' ? PADDING_LEFT : TEXT_ALIGN === 'center' ? canvas.width / 2 : canvas.width - PADDING_RIGHT, canvas.height - PADDING_BOTTOM / 2 + FONT_SIZE / 1.5);
   }
