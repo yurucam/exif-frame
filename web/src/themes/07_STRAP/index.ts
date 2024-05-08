@@ -82,60 +82,72 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
   const SECONDARY_TEXT_COLOR = DARK_MODE ? '#888888' : '#333333';
 
   const text1 = TEMPLATE1.split('}')
-    .filter(Boolean)
     .map((part) => `${part}}`)
-    .join(' ')
-    .replace(/{MAKER}/g, photo.make)
-    .replace(/{BODY}/g, photo.model || '')
-    .replace(/{LENS}/g, photo.lensModel || '')
-    .replace(/{ISO}/g, store.disableExposureMeter ? '' : photo.iso || '')
-    .replace(/{MM}/g, store.disableExposureMeter ? '' : photo.focalLength || '')
-    .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
-    .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
-    .replace(/{TAKEN_AT}/g, photo.takenAt || '')
-    .replace(/}/g, '');
+    .map((part) =>
+      part
+        .replace(/{MAKER}/g, photo.make)
+        .replace(/{BODY}/g, photo.model || '')
+        .replace(/{LENS}/g, photo.lensModel || '')
+        .replace(/{ISO}/g, store.disableExposureMeter ? '' : photo.iso || '')
+        .replace(/{MM}/g, store.disableExposureMeter ? '' : photo.focalLength || '')
+        .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
+        .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
+        .replace(/{TAKEN_AT}/g, photo.takenAt || '')
+        .replace(/}/g, '')
+    )
+    .filter(Boolean)
+    .join(' ');
 
   const text2 = TEMPLATE2.split('}')
-    .filter(Boolean)
     .map((part) => `${part}}`)
-    .join(' ')
-    .replace(/{MAKER}/g, photo.make)
-    .replace(/{BODY}/g, photo.model || '')
-    .replace(/{LENS}/g, photo.lensModel || '')
-    .replace(/{ISO}/g, store.disableExposureMeter ? '' : photo.iso || '')
-    .replace(/{MM}/g, store.disableExposureMeter ? '' : photo.focalLength || '')
-    .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
-    .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
-    .replace(/{TAKEN_AT}/g, photo.takenAt || '')
-    .replace(/}/g, '');
+    .map((part) =>
+      part
+        .replace(/{MAKER}/g, photo.make)
+        .replace(/{BODY}/g, photo.model || '')
+        .replace(/{LENS}/g, photo.lensModel || '')
+        .replace(/{ISO}/g, store.disableExposureMeter ? '' : photo.iso || '')
+        .replace(/{MM}/g, store.disableExposureMeter ? '' : photo.focalLength || '')
+        .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
+        .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
+        .replace(/{TAKEN_AT}/g, photo.takenAt || '')
+        .replace(/}/g, '')
+    )
+    .filter(Boolean)
+    .join(' ');
 
   const text3 = TEMPLATE3.split('}')
-    .filter(Boolean)
     .map((part) => `${part}}`)
-    .join(' ')
-    .replace(/{MAKER}/g, photo.make)
-    .replace(/{BODY}/g, photo.model || '')
-    .replace(/{LENS}/g, photo.lensModel || '')
-    .replace(/{ISO}/g, store.disableExposureMeter ? '' : photo.iso || '')
-    .replace(/{MM}/g, store.disableExposureMeter ? '' : photo.focalLength || '')
-    .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
-    .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
-    .replace(/{TAKEN_AT}/g, photo.takenAt || '')
-    .replace(/}/g, '');
+    .map((part) =>
+      part
+        .replace(/{MAKER}/g, photo.make)
+        .replace(/{BODY}/g, photo.model || '')
+        .replace(/{LENS}/g, photo.lensModel || '')
+        .replace(/{ISO}/g, store.disableExposureMeter ? '' : photo.iso || '')
+        .replace(/{MM}/g, store.disableExposureMeter ? '' : photo.focalLength || '')
+        .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
+        .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
+        .replace(/{TAKEN_AT}/g, photo.takenAt || '')
+        .replace(/}/g, '')
+    )
+    .filter(Boolean)
+    .join(' ');
 
   const text4 = TEMPLATE4.split('}')
-    .filter(Boolean)
     .map((part) => `${part}}`)
-    .join(' ')
-    .replace(/{MAKER}/g, photo.make)
-    .replace(/{BODY}/g, photo.model || '')
-    .replace(/{LENS}/g, photo.lensModel || '')
-    .replace(/{ISO}/g, store.disableExposureMeter ? '' : photo.iso || '')
-    .replace(/{MM}/g, store.disableExposureMeter ? '' : photo.focalLength || '')
-    .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
-    .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
-    .replace(/{TAKEN_AT}/g, photo.takenAt || '')
-    .replace(/}/g, '');
+    .map((part) =>
+      part
+        .replace(/{MAKER}/g, photo.make)
+        .replace(/{BODY}/g, photo.model || '')
+        .replace(/{LENS}/g, photo.lensModel || '')
+        .replace(/{ISO}/g, store.disableExposureMeter ? '' : photo.iso || '')
+        .replace(/{MM}/g, store.disableExposureMeter ? '' : photo.focalLength || '')
+        .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
+        .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
+        .replace(/{TAKEN_AT}/g, photo.takenAt || '')
+        .replace(/}/g, '')
+    )
+    .filter(Boolean)
+    .join(' ');
 
   const canvas = sandbox(photo, {
     targetRatio: store.ratio,
