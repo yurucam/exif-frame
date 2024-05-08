@@ -7,7 +7,7 @@ const OverrideMetadataListItem = () => {
   const { t } = useTranslation();
   const { setOverrideMetadataIndexPopup, overrideMetadataIndex, overridableMetadata } = useStore();
 
-  const metadata = overrideMetadataIndex ? overridableMetadata[overrideMetadataIndex] : null;
+  const metadata = overrideMetadataIndex == null ? null : overridableMetadata.length > overrideMetadataIndex ? overridableMetadata[overrideMetadataIndex] : null;
 
   return (
     <ListItem

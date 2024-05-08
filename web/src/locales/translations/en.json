@@ -9,15 +9,16 @@
   "ja": "日本語",
   "ko": "한국어",
 
-  "make": "Camera Maker",
-  "model": "Camera Model",
-  "lens": "Lens Model",
-  "focal": "Focal Length",
-  "focal-35mm": "Focal Length 35mm",
+  "name": "Name",
+  "make": "Camera maker",
+  "model": "Camera model",
+  "lens": "Lens model",
+  "focal": "Focal length",
+  "focal-35mm": "Focal length 35mm",
   "aperture": "Aperture",
-  "shutter": "Shutter Speed",
+  "shutter": "Shutter speed",
   "iso": "ISO",
-  "taken-at": "Taken At",
+  "taken-at": "Taken at",
 
   "drag-and-drop-photos-here": "Drag and drop photos here",
 

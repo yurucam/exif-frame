@@ -15,6 +15,9 @@ type Store = {
   overridableMetadata: { [key: string]: string }[];
   setOverridableMetadata: (overridableMetadata: { [key: string]: string }[]) => void;
 
+  addOverridableMetadataPopup: boolean;
+  setAddOverridableMetadataPopup: (opened: boolean) => void;
+
   rerenderOptions: number;
   setRerenderOptions: () => void;
 
@@ -138,6 +141,9 @@ const useStore = create<Store>((set) => ({
       localStorage.setItem('overridableMetadata', JSON.stringify(overridableMetadata));
       return { overridableMetadata };
     }),
+
+  addOverridableMetadataPopup: false,
+  setAddOverridableMetadataPopup: (opened: boolean) => set({ addOverridableMetadataPopup: opened }),
 
   rerenderOptions: 0,
   setRerenderOptions: () => set({ rerenderOptions: Math.random() }),

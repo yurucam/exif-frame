@@ -1,6 +1,7 @@
 import { load } from 'exifreader';
 import ExifMetadata from './exif-metadata/exif-metadata';
 import thumbnail from './drawing/thumbnail';
+import overrideExifMetadata from './exif-metadata/override-exif-metadata';
 
 /**
  * Represents a photo.
@@ -39,7 +40,7 @@ class Photo {
    */
   public get make(): string {
     if (localStorage.getItem('showCameraMaker') === 'false') return '';
-    return localStorage.getItem('overrideCameraMaker') || this.metadata.make || '';
+    return overrideExifMetadata()?.make || this.metadata.make || '';
   }
 
   /**
@@ -48,7 +49,7 @@ class Photo {
    */
   public get model(): string {
     if (localStorage.getItem('showCameraModel') === 'false') return '';
-    return localStorage.getItem('overrideCameraModel') || this.metadata.model || '';
+    return overrideExifMetadata()?.model || this.metadata.model || '';
   }
 
   /**
@@ -57,7 +58,7 @@ class Photo {
    */
   public get lensModel(): string {
     if (localStorage.getItem('showLensModel') === 'false') return '';
-    return localStorage.getItem('overrideLensModel') || this.metadata.lensModel || '';
+    return overrideExifMetadata()?.lensModel || this.metadata.lensModel || '';
   }
 
   /**
@@ -66,10 +67,12 @@ class Photo {
    */
   public get focalLength(): string {
     if (localStorage.getItem('focalLengthRatioMode') === 'true') {
-      const focalLength = parseFloat(this.metadata?.focalLength?.replace(' mm', '') || '0');
+      const focalLength = parseFloat(overrideExifMetadata()?.focalLength?.replace(' mm', '') || this.metadata?.focalLength?.replace(' mm', '') || '0');
       return (focalLength * parseFloat(localStorage.getItem('focalLengthRatio') || '1')).toFixed(0) + 'mm';
     }
-    return localStorage.getItem('focalLength35mmMode') === 'false' ? this.metadata.focalLength || '' : this.metadata.focalLengthIn35mm || '';
+    return localStorage.getItem('focalLength35mmMode') === 'false'
+      ? overrideExifMetadata()?.focalLength || this.metadata.focalLength || ''
+      : overrideExifMetadata()?.focalLengthIn35mm || this.metadata.focalLengthIn35mm || '';
   }
 
   /**
@@ -77,7 +80,7 @@ class Photo {
    * @example 'F4'
    */
   public get fNumber(): string {
-    return this.metadata.fNumber || '';
+    return overrideExifMetadata()?.fNumber || this.metadata.fNumber || '';
   }
 
   /**
@@ -85,7 +88,7 @@ class Photo {
    * @example 'ISO100'
    */
   public get iso(): string {
-    return this.metadata.iso || '';
+    return overrideExifMetadata()?.iso || this.metadata.iso || '';
   }
 
   /**
@@ -93,7 +96,7 @@ class Photo {
    * @example '1/100s'
    */
   public get exposureTime(): string {
-    return this.metadata.exposureTime || '';
+    return overrideExifMetadata()?.exposureTime || this.metadata.exposureTime || '';
   }
 
   /**
@@ -101,9 +104,9 @@ class Photo {
    * @example '2021-01-01T00:00:00.000+09:00'
    */
   public get takenAt(): string {
-    if (!this.metadata.takenAt) return '';
+    if (!overrideExifMetadata()?.takenAt && !this.metadata.takenAt) return '';
 
-    const takenAt = new Date(this.metadata.takenAt);
+    const takenAt = new Date(overrideExifMetadata()?.takenAt || this.metadata.takenAt!);
     switch (localStorage.getItem('dateNotation') || '2001/01/01 01:01:01') {
       case '2001/01/01 01:01:01':
         return `${takenAt.getFullYear()}/${(takenAt.getMonth() + 1).toString().padStart(2, '0')}/${takenAt.getDate().toString().padStart(2, '0')} ${takenAt
