@@ -19,6 +19,8 @@
   "iso": "ISO",
   "taken-at": "Taken At",
 
+  "drag-and-drop-photos-here": "Drag and drop photos here",
+
   "root.tab.convert": "Convert",
   "root.tab.theme-settings": "Theme Settings",
   "root.tab.export-settings": "Export Settings",

@@ -19,6 +19,8 @@
   "iso": "ISO感度",
   "taken-at": "撮影日時",
 
+  "drag-and-drop-photos-here": "写真をここにドラッグ＆ドロップ",
+
   "root.tab.convert": "変換",
   "root.tab.theme-settings": "テーマ設定",
   "root.tab.export-settings": "エクスポート設定",

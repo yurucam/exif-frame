@@ -19,6 +19,8 @@
   "iso": "ISO",
   "taken-at": "촬영 일시",
 
+  "drag-and-drop-photos-here": "사진을 여기에 끌어다 놓거나 여기를 클릭하여 사진을 불러옵니다.",
+
   "root.tab.convert": "프레임 씌우기",
   "root.tab.theme-settings": "테마 설정",
   "root.tab.export-settings": "내보내기 설정",

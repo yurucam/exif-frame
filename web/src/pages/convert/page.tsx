@@ -13,6 +13,7 @@ import SettingsIcon from '../../icons/settings.icon';
 import ImageIcon from '../../icons/image.icon';
 import GenerateIcon from '../../icons/generate.icon';
 import AddPhotoErrorDialog from './components/add-photo-error.dialog';
+import AddPhotoDragInDrop from './components/add-photo.drag-in-drop';
 
 const FramePage = () => {
   const { t } = useTranslation();
@@ -26,6 +27,8 @@ const FramePage = () => {
         <AddPhotoButton />
         <DownloadAllPhotoButton />
       </Toolbar>
+
+      {photos.length === 0 && <AddPhotoDragInDrop />}
 
       {photos.length !== 0 && (
         <BlockTitle>
