@@ -19,7 +19,9 @@ const TWO_LINE_OPTIONS: ThemeOption[] = [
   { id: 'FONT_SIZE', type: 'number', default: 70, description: 'px' },
   { id: 'FONT_FAMILY', type: 'select', options: ['Barlow', ...Object.values(Font)], default: 'Barlow', description: 'ex. din-alternate-bold, digital-7, Barlow, Arial, sans-serif' },
   { id: 'TOP_LABEL', type: 'string', default: '', description: 'ex. @username' },
-  { id: 'DIVIDER', type: 'string', default: '|', description: 'ex. ∙' },
+  { id: 'DIVIDER', type: 'string', default: '∙', description: 'ex. |' },
+  { id: 'TEMPLATE1', type: 'string', default: '{MAKER}{BODY}{LENS}' },
+  { id: 'TEMPLATE2', type: 'string', default: '{ISO}{MM}{F}{SEC}' },
 ];
 
 const TWO_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {
@@ -37,6 +39,8 @@ const TWO_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: 
   const FONT_FAMILY = (input.get('FONT_FAMILY') as string).trim();
   const TOP_LABEL = (input.get('TOP_LABEL') as string).trim();
   const DIVIDER = (input.get('DIVIDER') as string).trim();
+  const TEMPLATE1 = (input.get('TEMPLATE1') as string).trim();
+  const TEMPLATE2 = (input.get('TEMPLATE2') as string).trim();
 
   const canvas = sandbox(photo, {
     targetRatio: store.ratio,
@@ -52,22 +56,39 @@ const TWO_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: 
   context.textAlign = 'center';
   context.fillText(TOP_LABEL, canvas.width / 2, PADDING_TOP / 2);
 
+  const text1 = TEMPLATE1.split('}')
+    .filter(Boolean)
+    .map((part) => `${part}}`)
+    .join(' ' + DIVIDER + ' ')
+    .replace('{MAKER}', photo.make)
+    .replace('{BODY}', photo.model || '')
+    .replace('{LENS}', photo.lensModel || '')
+    .replace('{ISO}', store.disableExposureMeter ? '' : photo.iso || '')
+    .replace('{MM}', store.disableExposureMeter ? '' : photo.focalLength || '')
+    .replace('{F}', store.disableExposureMeter ? '' : photo.fNumber || '')
+    .replace('{SEC}', store.disableExposureMeter ? '' : photo.exposureTime || '')
+    .replace('{TAKEN_AT}', photo.takenAt || '')
+    .replace('}', '');
+
   context.textAlign = TEXT_ALIGN as CanvasTextAlign;
-  context.fillText(
-    [photo.make, photo.model, photo.lensModel]
-      .filter(Boolean)
-      .map((value) => value!.trim())
-      .join(` ${DIVIDER} `),
-    TEXT_ALIGN === 'left' ? PADDING_LEFT : TEXT_ALIGN === 'center' ? canvas.width / 2 : canvas.width - PADDING_RIGHT,
-    canvas.height - PADDING_BOTTOM / 2 - FONT_SIZE / 1.5
-  );
+  context.fillText(text1, TEXT_ALIGN === 'left' ? PADDING_LEFT : TEXT_ALIGN === 'center' ? canvas.width / 2 : canvas.width - PADDING_RIGHT, canvas.height - PADDING_BOTTOM / 2 - FONT_SIZE / 1.5);
 
   if (!store.disableExposureMeter) {
-    context.fillText(
-      [`${photo.iso}`, `${photo.focalLength}`, `${photo.fNumber}`, `${photo.exposureTime}`].filter(Boolean).join(` ${DIVIDER} `),
-      TEXT_ALIGN === 'left' ? PADDING_LEFT : TEXT_ALIGN === 'center' ? canvas.width / 2 : canvas.width - PADDING_RIGHT,
-      canvas.height - PADDING_BOTTOM / 2 + FONT_SIZE / 1.5
-    );
+    const text2 = TEMPLATE2.split('}')
+      .filter(Boolean)
+      .map((part) => `${part}}`)
+      .join(' ' + DIVIDER + ' ')
+      .replace(/{MAKER}/g, photo.make)
+      .replace(/{BODY}/g, photo.model || '')
+      .replace(/{LENS}/g, photo.lensModel || '')
+      .replace(/{ISO}/g, store.disableExposureMeter ? '' : photo.iso || '')
+      .replace(/{MM}/g, store.disableExposureMeter ? '' : photo.focalLength || '')
+      .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
+      .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
+      .replace(/{TAKEN_AT}/g, photo.takenAt || '')
+      .replace(/}/g, '');
+
+    context.fillText(text2, TEXT_ALIGN === 'left' ? PADDING_LEFT : TEXT_ALIGN === 'center' ? canvas.width / 2 : canvas.width - PADDING_RIGHT, canvas.height - PADDING_BOTTOM / 2 + FONT_SIZE / 1.5);
   }
 
   return canvas;

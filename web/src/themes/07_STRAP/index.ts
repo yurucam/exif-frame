@@ -57,6 +57,10 @@ const STRAP_OPTIONS: ThemeOption[] = [
   { id: 'PADDING_BOTTOM', type: 'number', default: 0, description: 'px' },
   { id: 'PADDING_LEFT', type: 'number', default: 0, description: 'px' },
   { id: 'PADDING_RIGHT', type: 'number', default: 0, description: 'px' },
+  { id: 'TEMPLATE1', type: 'string', default: '{ISO}{MM}{F}{SEC}' },
+  { id: 'TEMPLATE2', type: 'string', default: '{MAKER}{BODY}' },
+  { id: 'TEMPLATE3', type: 'string', default: '{TAKEN_AT}' },
+  { id: 'TEMPLATE4', type: 'string', default: '{LENS}' },
 ];
 
 const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {
@@ -67,10 +71,70 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
   const PADDING_BOTTOM = (input.get('PADDING_BOTTOM') as number) + 300;
   const PADDING_LEFT = input.get('PADDING_LEFT') as number;
   const PADDING_RIGHT = input.get('PADDING_RIGHT') as number;
+  const TEMPLATE1 = (input.get('TEMPLATE1') as string).trim();
+  const TEMPLATE2 = (input.get('TEMPLATE2') as string).trim();
+  const TEMPLATE3 = (input.get('TEMPLATE3') as string).trim();
+  const TEMPLATE4 = (input.get('TEMPLATE4') as string).trim();
   const FONT_SIZE = 70;
   const BACKGROUND_COLOR = DARK_MODE ? '#000000' : '#ffffff';
   const PRIMARY_TEXT_COLOR = DARK_MODE ? '#ffffff' : '#000000';
   const SECONDARY_TEXT_COLOR = DARK_MODE ? '#888888' : '#333333';
+
+  const text1 = TEMPLATE1.split('}')
+    .filter(Boolean)
+    .map((part) => `${part}}`)
+    .join(' ')
+    .replace(/{MAKER}/g, photo.make)
+    .replace(/{BODY}/g, photo.model || '')
+    .replace(/{LENS}/g, photo.lensModel || '')
+    .replace(/{ISO}/g, store.disableExposureMeter ? '' : photo.iso || '')
+    .replace(/{MM}/g, store.disableExposureMeter ? '' : photo.focalLength || '')
+    .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
+    .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
+    .replace(/{TAKEN_AT}/g, photo.takenAt || '')
+    .replace(/}/g, '');
+
+  const text2 = TEMPLATE2.split('}')
+    .filter(Boolean)
+    .map((part) => `${part}}`)
+    .join(' ')
+    .replace(/{MAKER}/g, photo.make)
+    .replace(/{BODY}/g, photo.model || '')
+    .replace(/{LENS}/g, photo.lensModel || '')
+    .replace(/{ISO}/g, store.disableExposureMeter ? '' : photo.iso || '')
+    .replace(/{MM}/g, store.disableExposureMeter ? '' : photo.focalLength || '')
+    .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
+    .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
+    .replace(/{TAKEN_AT}/g, photo.takenAt || '')
+    .replace(/}/g, '');
+
+  const text3 = TEMPLATE3.split('}')
+    .filter(Boolean)
+    .map((part) => `${part}}`)
+    .join(' ')
+    .replace(/{MAKER}/g, photo.make)
+    .replace(/{BODY}/g, photo.model || '')
+    .replace(/{LENS}/g, photo.lensModel || '')
+    .replace(/{ISO}/g, store.disableExposureMeter ? '' : photo.iso || '')
+    .replace(/{MM}/g, store.disableExposureMeter ? '' : photo.focalLength || '')
+    .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
+    .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
+    .replace(/{TAKEN_AT}/g, photo.takenAt || '')
+    .replace(/}/g, '');
+
+  const text4 = TEMPLATE4.split('}')
+    .filter(Boolean)
+    .map((part) => `${part}}`)
+    .join(' ')
+    .replace(/{MAKER}/g, photo.make)
+    .replace(/{BODY}/g, photo.model || '')
+    .replace(/{LENS}/g, photo.lensModel || '')
+    .replace(/{ISO}/g, store.disableExposureMeter ? '' : photo.iso || '')
+    .replace(/{MM}/g, store.disableExposureMeter ? '' : photo.focalLength || '')
+    .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
+    .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
+    .replace(/{TAKEN_AT}/g, photo.takenAt || '')
+    .replace(/}/g, '');
 
   const canvas = sandbox(photo, {
     targetRatio: store.ratio,
@@ -89,14 +153,7 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
   context.fillStyle = PRIMARY_TEXT_COLOR;
 
   if (!store.disableExposureMeter) {
-    context.fillText(
-      [`${photo.iso}`, `${photo.focalLength}`, `${photo.fNumber}`, `${photo.exposureTime}`]
-        .filter(Boolean)
-        .map((value) => value.trim())
-        .join('  '),
-      FONT_SIZE,
-      canvas.height - PADDING_BOTTOM / 2 - FONT_SIZE / 2
-    );
+    context.fillText(text1, FONT_SIZE, canvas.height - PADDING_BOTTOM / 2 - FONT_SIZE / 2);
   }
 
   // Shot by
@@ -107,7 +164,7 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
   } else {
     context.font = `normal ${SECONDARY_TEXT_FONT_WEIGHT} ${FONT_SIZE}px Barlow`;
     context.fillStyle = SECONDARY_TEXT_COLOR;
-    context.fillText(photo.takenAt, FONT_SIZE, canvas.height - PADDING_BOTTOM / 2 + FONT_SIZE / 2);
+    context.fillText(text3, FONT_SIZE, canvas.height - PADDING_BOTTOM / 2 + FONT_SIZE / 2);
   }
 
   // RIGHT SECOND
@@ -116,20 +173,14 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
   // Maker, Model
   context.fillStyle = PRIMARY_TEXT_COLOR;
   context.font = `normal 500 ${FONT_SIZE}px Barlow`;
-  const makerModelText = [photo.make, photo.model]
-    .filter(Boolean)
-    .map((value) => value!.trim())
-    .join(' ');
+  const makerModelText = text2;
   const topWidth = context.measureText(makerModelText).width;
   context.fillText(makerModelText, canvas.width - FONT_SIZE, canvas.height - PADDING_BOTTOM / 2 - FONT_SIZE / 2);
 
   // Lens Model
   context.fillStyle = SECONDARY_TEXT_COLOR;
   context.font = `normal ${SECONDARY_TEXT_FONT_WEIGHT} ${FONT_SIZE}px Barlow`;
-  const lensModelText = [photo.lensModel]
-    .filter(Boolean)
-    .map((value) => value!.trim())
-    .join(' ');
+  const lensModelText = text4;
   const bottomWidth = context.measureText(lensModelText).width;
   context.fillText(lensModelText, canvas.width - FONT_SIZE, canvas.height - PADDING_BOTTOM / 2 + FONT_SIZE / 2);
 
