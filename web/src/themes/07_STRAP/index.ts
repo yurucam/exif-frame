@@ -17,6 +17,8 @@ supportLogo.set('APPLE_LIGHT', loadLogo('/maker/light/apple.png'));
 supportLogo.set('APPLE_DARK', loadLogo('/maker/dark/apple.png'));
 supportLogo.set('CANON_LIGHT', loadLogo('/maker/light/canon.png'));
 supportLogo.set('CANON_DARK', loadLogo('/maker/dark/canon.png'));
+supportLogo.set('CONTAX_LIGHT', loadLogo('/maker/light/contax.png'));
+supportLogo.set('CONTAX_DARK', loadLogo('/maker/dark/contax.png'));
 supportLogo.set('DJI_LIGHT', loadLogo('/maker/light/dji.png'));
 supportLogo.set('DJI_DARK', loadLogo('/maker/dark/dji.png'));
 supportLogo.set('EPSON_LIGHT', loadLogo('/maker/light/epson.png'));
@@ -220,6 +222,10 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
 
   if (maker?.toUpperCase().includes('CANON') || model?.toUpperCase().includes('CANON')) {
     logo = DARK_MODE ? supportLogo.get('CANON_DARK') : supportLogo.get('CANON_LIGHT');
+  }
+
+  if (maker?.toUpperCase().includes('CONTAX') || model?.toUpperCase().includes('CONTAX')) {
+    logo = DARK_MODE ? supportLogo.get('CONTAX_DARK') : supportLogo.get('CONTAX_LIGHT');
   }
 
   if (maker?.toUpperCase().includes('DJI') || model?.toUpperCase().includes('DJI')) {
