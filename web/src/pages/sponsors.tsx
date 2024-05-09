@@ -24,6 +24,7 @@ const SponsorsPage = () => {
           <li>잠실귀요밍</li> {/* 2024-05-02 KakaoPay */}
           <li>장비그래퍼</li> {/* 2024-05-03 KakaoPay */}
           <li>iPhone_</li> {/* 2024-05-04 KakaoPay */}
+          <li>깅깅깅</li> {/* 2024-05-09 KakaoPay */}
         </Block>
 
         <Block>
