@@ -28,7 +28,7 @@ const FramePage = () => {
         <DownloadAllPhotoButton />
       </Toolbar>
 
-      {photos.length === 0 && <AddPhotoDragInDrop />}
+      <AddPhotoDragInDrop />
 
       {photos.length !== 0 && (
         <BlockTitle>
