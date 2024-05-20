@@ -14,8 +14,8 @@ const CUSTOM_TWO_LINE_OPTIONS: ThemeOption[] = [
   { id: 'PADDING_RIGHT', type: 'number', default: 100, description: 'px' },
   { id: 'TEXT1', type: 'string', default: 'Your Text', description: 'ex. Hello, World!' },
   { id: 'TEXT2', type: 'string', default: 'Your Text', description: 'ex. Hello, World!' },
+  { id: 'TEXT_ALPHA', type: 'range-slider', default: 1, min: 0, max: 1, step: 0.01, description: '0 - 1' },
   { id: 'TEXT_COLOR', type: 'color', default: '#ffffff', description: '#ffffff is white, #000000 is black' },
-  { id: 'TEXT_SHADOW_COLOR', type: 'color', default: '#000000', description: '#ffffff is white, #000000 is black' },
   { id: 'TEXT_ALIGN', type: 'select', options: ['center', 'right', 'left'], default: 'center', description: 'left or center or right' },
   { id: 'FONT_STYLE', type: 'select', options: ['normal', 'italic'], default: 'normal', description: 'normal or italic' },
   { id: 'FONT_WEIGHT', type: 'range-slider', min: 100, max: 900, step: 100, default: 300, description: '100 - 900' },
@@ -32,8 +32,8 @@ const CUSTOM_TWO_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, 
   const PADDING_RIGHT = input.get('PADDING_RIGHT') as number;
   const TEXT1 = input.get('TEXT1') as string;
   const TEXT2 = input.get('TEXT2') as string;
+  const TEXT_ALPHA = input.get('TEXT_ALPHA') as number;
   const TEXT_COLOR = input.get('TEXT_COLOR') as string;
-  const TEXT_SHADOW_COLOR = input.get('TEXT_SHADOW_COLOR') as string;
   const TEXT_ALIGN = (input.get('TEXT_ALIGN') as string).trim() as CanvasTextAlign;
   const FONT_STYLE = (input.get('FONT_STYLE') as string).trim();
   const FONT_WEIGHT = input.get('FONT_WEIGHT') as number;
@@ -52,11 +52,10 @@ const CUSTOM_TWO_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, 
   context.textBaseline = 'middle';
   context.font = `${FONT_STYLE} ${FONT_WEIGHT} ${FONT_SIZE}px ${FONT_FAMILY}`;
   context.textAlign = TEXT_ALIGN as CanvasTextAlign;
-  context.shadowColor = TEXT_SHADOW_COLOR;
-  context.shadowBlur = 10;
+  context.globalAlpha = TEXT_ALPHA;
   context.fillText(TEXT1, TEXT_ALIGN === 'left' ? PADDING_LEFT : TEXT_ALIGN === 'center' ? canvas.width / 2 : canvas.width - PADDING_RIGHT, canvas.height - PADDING_BOTTOM / 2 - FONT_SIZE / 1.5);
   context.fillText(TEXT2, TEXT_ALIGN === 'left' ? PADDING_LEFT : TEXT_ALIGN === 'center' ? canvas.width / 2 : canvas.width - PADDING_RIGHT, canvas.height - PADDING_BOTTOM / 2 + FONT_SIZE / 1.5);
-  context.shadowBlur = 0;
+  context.globalAlpha = 1;
 
   return canvas;
 };
