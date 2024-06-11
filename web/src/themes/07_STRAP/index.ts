@@ -39,6 +39,8 @@ supportLogo.set('NIKON_LIGHT', loadLogo('/maker/light/nikon.png'));
 supportLogo.set('NIKON_DARK', loadLogo('/maker/dark/nikon.png'));
 supportLogo.set('OLYMPUS_LIGHT', loadLogo('/maker/light/olympus.png'));
 supportLogo.set('OLYMPUS_DARK', loadLogo('/maker/dark/olympus.png'));
+supportLogo.set('OM_LIGHT', loadLogo('/maker/light/om.png'));
+supportLogo.set('OM_DARK', loadLogo('/maker/dark/om.png'));
 supportLogo.set('PANASONIC_LIGHT', loadLogo('/maker/light/lumix.png'));
 supportLogo.set('PANASONIC_DARK', loadLogo('/maker/dark/lumix.png'));
 supportLogo.set('PENTAX_LIGHT', loadLogo('/maker/light/pentax.png'));
@@ -268,6 +270,10 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
 
   if (maker?.toUpperCase().includes('OLYMPUS') || model?.toUpperCase().includes('OLYMPUS')) {
     logo = DARK_MODE ? supportLogo.get('OLYMPUS_DARK') : supportLogo.get('OLYMPUS_LIGHT');
+  }
+
+  if (maker?.toUpperCase().includes('OM') || model?.toUpperCase().includes('OM')) {
+    logo = DARK_MODE ? supportLogo.get('OM_DARK') : supportLogo.get('OM_LIGHT');
   }
 
   if (maker?.toUpperCase().includes('PANASONIC') || model?.toUpperCase().includes('PANASONIC')) {
