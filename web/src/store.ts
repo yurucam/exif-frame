@@ -21,8 +21,8 @@ type Store = {
   rerenderOptions: number;
   setRerenderOptions: () => void;
 
-  language: 'en' | 'ja' | 'ko';
-  setLanguage: (language: 'en' | 'ja' | 'ko') => void;
+  language: 'en' | 'ja' | 'ko' | 'zh-CN';
+  setLanguage: (language: 'en' | 'ja' | 'ko' | 'zh-CN') => void;
 
   darkMode: boolean;
   setDarkMode: (darkMode: boolean) => void;
@@ -148,8 +148,8 @@ const useStore = create<Store>((set) => ({
   rerenderOptions: 0,
   setRerenderOptions: () => set({ rerenderOptions: Math.random() }),
 
-  language: (localStorage.getItem('language') as 'en' | 'ja' | 'ko') || 'en',
-  setLanguage: (language: 'en' | 'ja' | 'ko') =>
+  language: (localStorage.getItem('language') as 'en' | 'ja' | 'ko' | 'zh-CN') || 'en',
+  setLanguage: (language: 'en' | 'ja' | 'ko' | 'zh-CN') =>
     set(() => {
       localStorage.setItem('language', language);
       return { language };
