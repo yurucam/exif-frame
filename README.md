@@ -20,7 +20,6 @@
   <img src="https://github.com/yurucam/exif-frame/assets/25793226/b8b60b55-665b-42b2-b9c6-d39109fd0777" width="400px" />
 <p/>
 
-  
 [EXIF Frame](https://exif-frame.yuru.cam) is a web application that displays exif metadata in the frame by adding a white border frame to the image. Users can process the uploaded image and download the result. You can also manually edit the automatically acquired and displayed exif metadata later.
 
 ## Contributors
@@ -30,3 +29,4 @@ Special thanks to all the people who have contributed to this project:
 - [rhea-so](https://github.com/rhea-so)
 - [longfin](https://github.com/longfin)
 - [KelvinPuyam](https://github.com/KelvinPuyam)
+- [SJC08](https://github.com/SJC08)
