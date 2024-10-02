@@ -1,6 +1,6 @@
 import { ListItem } from 'konsta/react';
 import { useStore } from '../../../store';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../../../node_modules/react-i18next';
 import TimeIcon from '../../../icons/time.icon';
 
 const DateNotationListItem = () => {

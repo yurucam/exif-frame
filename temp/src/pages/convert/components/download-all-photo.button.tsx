@@ -1,5 +1,5 @@
 import { Button } from 'konsta/react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../../../node_modules/react-i18next';
 import { useStore } from '../../../store';
 import DownloadIcon from '../../../icons/download.icon';
 import render from '../../../core/drawing/render';

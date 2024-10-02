@@ -5,7 +5,7 @@ import convert from '../../../../core/drawing/convert';
 import free from '../../../../core/drawing/free';
 import download from '../../../../core/file-system/download';
 import * as Root from '../../../../store';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../../../../node_modules/react-i18next';
 import SIMPLE_FUNC from '../theme/SIMPLE';
 import { Capacitor } from '@capacitor/core';
 import compress from '../../../../core/file-system/compress';

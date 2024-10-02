@@ -1,5 +1,5 @@
 import { BlockTitle, BlockHeader, List, ListInput, Block } from 'konsta/react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../../../node_modules/react-i18next';
 import AddPhotoButton from './components/add-photo.button';
 import AddedPhotoListItem from './components/added-photo.list-item';
 import DownloadPhotoButton from './components/download-photo.button';

@@ -1,5 +1,5 @@
 import { ListItem } from 'konsta/react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../../../node_modules/react-i18next';
 import PencilIcon from '../../../icons/pencil.icon';
 import { useNavigate } from 'react-router-dom';
 

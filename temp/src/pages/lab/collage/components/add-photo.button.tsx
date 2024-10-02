@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
 import { ListButton } from 'konsta/react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../../../../node_modules/react-i18next';
 import Photo from '../../../../core/photo';
 import AddIcon from '../../../../icons/add.icon';
 import { useStore } from '../store';

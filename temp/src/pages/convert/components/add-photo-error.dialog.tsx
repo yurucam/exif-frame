@@ -1,6 +1,6 @@
 import { Dialog, DialogButton } from 'konsta/react';
 import { useStore } from '../../../store';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../../../node_modules/react-i18next';
 
 const AddPhotoErrorDialog = () => {
   const { t } = useTranslation();

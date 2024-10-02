@@ -1,7 +1,7 @@
 import { ChangeEvent } from 'react';
 import { Button } from 'konsta/react';
 import Photo from '../../../core/photo';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../../../node_modules/react-i18next';
 import { useStore } from '../../../store';
 import AddIcon from '../../../icons/add.icon';
 
