@@ -16,7 +16,7 @@ $ npm run dev
 
 - shadcn/ui v2.1.0+ [^2]
 
------
+
 
 [^1]: Refer [`.nvmrc`](web/.nvmrc).  
 [^2]: Refer [`shadcn/ui docs`](https://ui.shadcn.com/docs).
