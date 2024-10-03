@@ -6,6 +6,10 @@
 
 	"page.theme-settings.title": "テーマ設定",
 
+	"page.theme-share.title": "テーマ共有",
+	"page.theme-share.sorry": "この機能はまだ利用できません。",
+	"page.theme-share.description": "後日公開されます。",
+
 	"page.export-settings.title": "エクスポート設定",
 
 	"component.theme-toggle.light": "明るいモード",

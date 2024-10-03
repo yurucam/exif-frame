@@ -6,6 +6,10 @@
 
 	"page.theme-settings.title": "테마 설정",
 
+	"page.theme-share.title": "테마 공유",
+	"page.theme-share.sorry": "이 기능은 아직 사용할 수 없습니다.",
+	"page.theme-share.description": "추후 공개될 예정입니다.",
+
 	"page.export-settings.title": "내보내기 설정",
 
 	"component.theme-toggle.light": "라이트 모드",

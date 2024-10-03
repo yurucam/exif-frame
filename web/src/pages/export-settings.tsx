@@ -1,6 +1,6 @@
 import PlaygroundLayout from '@/components/layout/playground';
 import SidebarButton from '@/components/sidebar-button';
-import { ImagePlay, Settings, Settings2 } from 'lucide-react';
+import { Blocks, ImagePlay, Settings, Settings2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
@@ -21,6 +21,11 @@ export default function () {
 					icon={<Settings2 className="size-5" />}
 					tooltip={t('page.theme-settings.title')}
 					onClick={() => navigator('/theme-settings')}
+				/>,
+				<SidebarButton
+					icon={<Blocks className="size-5" />}
+					tooltip={t('page.theme-share.title')}
+					onClick={() => navigator('/theme-share')}
 				/>,
 				<SidebarButton
 					clicked

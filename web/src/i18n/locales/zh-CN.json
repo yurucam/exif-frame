@@ -6,6 +6,10 @@
 
 	"page.theme-settings.title": "主题设置",
 
+	"page.theme-share.title": "主题共享",
+	"page.theme-share.sorry": "此功能尚未开放。",
+	"page.theme-share.description": "稍后将会公布。",
+
 	"page.export-settings.title": "导出设置",
 
 	"component.theme-toggle.light": "亮色模式",

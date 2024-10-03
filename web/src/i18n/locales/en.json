@@ -6,6 +6,10 @@
 
 	"page.theme-settings.title": "Theme Settings",
 
+	"page.theme-share.title": "Theme Share",
+	"page.theme-share.sorry": "This feature is not available yet.",
+	"page.theme-share.description": "It will be revealed later.",
+
 	"page.export-settings.title": "Export Settings",
 
 	"component.theme-toggle.light": "Light",
