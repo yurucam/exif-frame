@@ -13,11 +13,11 @@ export default function NotFoundPage() {
 					<h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">
 						404
 					</h1>
-					<p className="text-gray-500">{t('not-found.description')}</p>
+					<p className="text-gray-500">{t('page.not-found.description')}</p>
 				</div>
 
 				<Button onClick={() => navigator('/', { replace: true })}>
-					{t('not-found.return-to-home')}
+					{t('page.not-found.return-to-home')}
 				</Button>
 			</div>
 		</div>

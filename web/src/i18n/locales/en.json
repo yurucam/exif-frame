@@ -1,4 +1,10 @@
 {
-	"not-found.description": "Sorry, the page you requested could not be found. Please try another page or return to the homepage.",
-	"not-found.return-to-home": "Return to home"
+	"page.not-found.description": "Sorry, the page you requested could not be found. Please try another page or return to the homepage.",
+	"page.not-found.return-to-home": "Return to home",
+
+	"component.theme-toggle.light": "Light",
+	"component.theme-toggle.dark": "Dark",
+	"component.theme-toggle.system": "System",
+
+	"layout.playground.open-github": "View Source Code in GitHub"
 }

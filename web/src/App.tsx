@@ -8,6 +8,7 @@ import {
 	ActionFunction,
 } from 'react-router-dom';
 import { ThemeProvider } from './components/theme-provider';
+import { TooltipProvider } from './components/ui/tooltip';
 
 interface RouteCommon {
 	loader?: LoaderFunction;
@@ -63,7 +64,9 @@ export default function App() {
 	return (
 		<>
 			<ThemeProvider>
-				<RouterProvider router={router} />
+				<TooltipProvider>
+					<RouterProvider router={router} />
+				</TooltipProvider>
 			</ThemeProvider>
 		</>
 	);

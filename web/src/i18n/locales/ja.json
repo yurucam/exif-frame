@@ -1,4 +1,10 @@
 {
-	"not-found.description": "申し訳ございません。ご希望のページが見つかりませんでした。別のページをお試しいただくか、ホームに戻ってください。",
-	"not-found.return-to-home": "ホームに戻る"
+	"page.not-found.description": "申し訳ございません。ご希望のページが見つかりませんでした。別のページをお試しいただくか、ホームに戻ってください。",
+	"page.not-found.return-to-home": "ホームに戻る",
+
+	"component.theme-toggle.light": "明るいモード",
+	"component.theme-toggle.dark": "暗いモード",
+	"component.theme-toggle.system": "システム設定",
+
+	"layout.playground.open-github": "GitHubでソースコードを表示します"
 }
