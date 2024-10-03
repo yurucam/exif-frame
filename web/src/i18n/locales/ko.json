@@ -4,9 +4,9 @@
 
 	"page.convert.title": "프레임 씌우기",
 
-	"page.theme.title": "프레임 디자인 설정",
+	"page.theme.title": "테마 설정",
 
-	"page.settings.title": "설정",
+	"page.settings.title": "내보내기 설정",
 
 	"component.theme-toggle.light": "라이트 모드",
 	"component.theme-toggle.dark": "다크 모드",
