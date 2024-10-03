@@ -2,6 +2,12 @@
 	"page.not-found.description": "요청하신 페이지를 찾을 수 없습니다. 다른 페이지를 시도해보시거나 홈으로 이동해보세요.",
 	"page.not-found.return-to-home": "홈으로 돌아가기",
 
+	"page.convert.title": "프레임 씌우기",
+
+	"page.theme.title": "프레임 디자인 설정",
+
+	"page.settings.title": "설정",
+
 	"component.theme-toggle.light": "라이트 모드",
 	"component.theme-toggle.dark": "다크 모드",
 	"component.theme-toggle.system": "시스템 기본값",

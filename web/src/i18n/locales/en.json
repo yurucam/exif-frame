@@ -2,6 +2,12 @@
 	"page.not-found.description": "Sorry, the page you requested could not be found. Please try another page or return to the homepage.",
 	"page.not-found.return-to-home": "Return to home",
 
+	"page.convert.title": "Convert",
+
+	"page.theme.title": "Theme Settings",
+
+	"page.settings.title": "Settings",
+
 	"component.theme-toggle.light": "Light",
 	"component.theme-toggle.dark": "Dark",
 	"component.theme-toggle.system": "System",

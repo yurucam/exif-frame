@@ -2,6 +2,12 @@
 	"page.not-found.description": "抱歉，您请求的页面无法找到。请尝试访问其他页面或返回首页。",
 	"page.not-found.return-to-home": "返回首页",
 
+	"page.convert.title": "转换",
+
+	"page.theme.title": "主题设置",
+
+	"page.settings.title": "设置",
+
 	"component.theme-toggle.light": "亮色模式",
 	"component.theme-toggle.dark": "暗色模式",
 	"component.theme-toggle.system": "跟随系统",

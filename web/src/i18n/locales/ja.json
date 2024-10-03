@@ -2,6 +2,12 @@
 	"page.not-found.description": "申し訳ございません。ご希望のページが見つかりませんでした。別のページをお試しいただくか、ホームに戻ってください。",
 	"page.not-found.return-to-home": "ホームに戻る",
 
+	"page.convert.title": "変換",
+
+	"page.theme.title": "テーマ設定",
+
+	"page.settings.title": "設定",
+
 	"component.theme-toggle.light": "明るいモード",
 	"component.theme-toggle.dark": "暗いモード",
 	"component.theme-toggle.system": "システム設定",

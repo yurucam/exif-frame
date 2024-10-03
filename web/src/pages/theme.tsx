@@ -1,7 +1,6 @@
 import PlaygroundLayout from '@/components/layout/playground';
 import SidebarButton from '@/components/sidebar-button';
-import { Button } from '@/components/ui/button';
-import { ImagePlay, Settings, Settings2, Share } from 'lucide-react';
+import { ImagePlay, Settings, Settings2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,23 +10,17 @@ export default function () {
 
 	return (
 		<PlaygroundLayout
-			title={t('page.convert.title')}
-			titleItems={[
-				<Button variant="outline" size="sm" className="ml-auto gap-1.5 text-sm">
-					<Share className="size-3.5" />
-					Convert All
-				</Button>,
-			]}
+			title={t('page.theme.title')}
 			sidebars={[
 				<SidebarButton
-					clicked
 					icon={<ImagePlay className="size-5" />}
 					tooltip={t('page.convert.title')}
+					onClick={() => navigator('/')}
 				/>,
 				<SidebarButton
+					clicked
 					icon={<Settings2 className="size-5" />}
 					tooltip={t('page.theme.title')}
-					onClick={() => navigator('/theme')}
 				/>,
 				<SidebarButton
 					icon={<Settings className="size-5" />}
@@ -35,7 +28,7 @@ export default function () {
 					onClick={() => navigator('/settings')}
 				/>,
 			]}
-			body={<div>home</div>}
+			body={<div>settings</div>}
 		/>
 	);
 }
