@@ -74,11 +74,15 @@ export default function () {
 						<Table className="w-full min-w-max">
 							<TableHeader>
 								<TableRow>
-									<TableHead className="w-[100px]">IMAGE</TableHead>
-									<TableHead>CAMERA</TableHead>
+									<TableHead className="w-[100px]">미리보기</TableHead>
+									<TableHead>파일명</TableHead>
+									<TableHead>초점거리</TableHead>
+									<TableHead>조리개</TableHead>
 									<TableHead>ISO</TableHead>
-									<TableHead className="text-right">CAPTURED AT</TableHead>
-									<TableHead></TableHead>
+									<TableHead>셔터스피드</TableHead>
+									<TableHead>카메라</TableHead>
+									<TableHead>렌즈</TableHead>
+									<TableHead>{/* Actions */}</TableHead>
 								</TableRow>
 							</TableHeader>
 							<TableBody>
@@ -86,10 +90,14 @@ export default function () {
 									<TableCell className="font-medium">
 										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
 									</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -103,45 +111,27 @@ export default function () {
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
 												<DropdownMenuItem className="cursor-pointer">
-													Edit
+													수정
 												</DropdownMenuItem>
 												<DropdownMenuItem className="cursor-pointer">
-													Delete
+													삭제
 												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
 								</TableRow>
 								<TableRow>
-									<TableCell className="font-medium">INV002</TableCell>
-									<TableCell>Pending</TableCell>
-									<TableCell>$150.00</TableCell>
-									<TableCell className="text-right">PayPal</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
 									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV003</TableCell>
-									<TableCell>Unpaid</TableCell>
-									<TableCell>$350.00</TableCell>
-									<TableCell className="text-right">Bank Transfer</TableCell>
-									<TableCell className="text-right">
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -154,32 +144,12 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV004</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$450.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
@@ -188,10 +158,14 @@ export default function () {
 									<TableCell className="font-medium">
 										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
 									</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -204,80 +178,12 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV002</TableCell>
-									<TableCell>Pending</TableCell>
-									<TableCell>$150.00</TableCell>
-									<TableCell className="text-right">PayPal</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV003</TableCell>
-									<TableCell>Unpaid</TableCell>
-									<TableCell>$350.00</TableCell>
-									<TableCell className="text-right">Bank Transfer</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV004</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$450.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
@@ -286,10 +192,14 @@ export default function () {
 									<TableCell className="font-medium">
 										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
 									</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -302,80 +212,12 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV002</TableCell>
-									<TableCell>Pending</TableCell>
-									<TableCell>$150.00</TableCell>
-									<TableCell className="text-right">PayPal</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV003</TableCell>
-									<TableCell>Unpaid</TableCell>
-									<TableCell>$350.00</TableCell>
-									<TableCell className="text-right">Bank Transfer</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV004</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$450.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
@@ -384,10 +226,14 @@ export default function () {
 									<TableCell className="font-medium">
 										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
 									</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -400,80 +246,12 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV002</TableCell>
-									<TableCell>Pending</TableCell>
-									<TableCell>$150.00</TableCell>
-									<TableCell className="text-right">PayPal</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV003</TableCell>
-									<TableCell>Unpaid</TableCell>
-									<TableCell>$350.00</TableCell>
-									<TableCell className="text-right">Bank Transfer</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV004</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$450.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
@@ -482,10 +260,14 @@ export default function () {
 									<TableCell className="font-medium">
 										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
 									</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -498,80 +280,12 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV002</TableCell>
-									<TableCell>Pending</TableCell>
-									<TableCell>$150.00</TableCell>
-									<TableCell className="text-right">PayPal</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV003</TableCell>
-									<TableCell>Unpaid</TableCell>
-									<TableCell>$350.00</TableCell>
-									<TableCell className="text-right">Bank Transfer</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV004</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$450.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
@@ -580,10 +294,14 @@ export default function () {
 									<TableCell className="font-medium">
 										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
 									</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -596,80 +314,12 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV002</TableCell>
-									<TableCell>Pending</TableCell>
-									<TableCell>$150.00</TableCell>
-									<TableCell className="text-right">PayPal</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV003</TableCell>
-									<TableCell>Unpaid</TableCell>
-									<TableCell>$350.00</TableCell>
-									<TableCell className="text-right">Bank Transfer</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV004</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$450.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
@@ -678,10 +328,14 @@ export default function () {
 									<TableCell className="font-medium">
 										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
 									</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -694,80 +348,12 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV002</TableCell>
-									<TableCell>Pending</TableCell>
-									<TableCell>$150.00</TableCell>
-									<TableCell className="text-right">PayPal</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV003</TableCell>
-									<TableCell>Unpaid</TableCell>
-									<TableCell>$350.00</TableCell>
-									<TableCell className="text-right">Bank Transfer</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV004</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$450.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
@@ -776,10 +362,14 @@ export default function () {
 									<TableCell className="font-medium">
 										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
 									</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -792,80 +382,12 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV002</TableCell>
-									<TableCell>Pending</TableCell>
-									<TableCell>$150.00</TableCell>
-									<TableCell className="text-right">PayPal</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV003</TableCell>
-									<TableCell>Unpaid</TableCell>
-									<TableCell>$350.00</TableCell>
-									<TableCell className="text-right">Bank Transfer</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV004</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$450.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
@@ -874,10 +396,14 @@ export default function () {
 									<TableCell className="font-medium">
 										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
 									</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -890,80 +416,12 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV002</TableCell>
-									<TableCell>Pending</TableCell>
-									<TableCell>$150.00</TableCell>
-									<TableCell className="text-right">PayPal</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV003</TableCell>
-									<TableCell>Unpaid</TableCell>
-									<TableCell>$350.00</TableCell>
-									<TableCell className="text-right">Bank Transfer</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV004</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$450.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
@@ -972,10 +430,14 @@ export default function () {
 									<TableCell className="font-medium">
 										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
 									</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -988,80 +450,12 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV002</TableCell>
-									<TableCell>Pending</TableCell>
-									<TableCell>$150.00</TableCell>
-									<TableCell className="text-right">PayPal</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV003</TableCell>
-									<TableCell>Unpaid</TableCell>
-									<TableCell>$350.00</TableCell>
-									<TableCell className="text-right">Bank Transfer</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV004</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$450.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
@@ -1070,10 +464,14 @@ export default function () {
 									<TableCell className="font-medium">
 										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
 									</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -1086,80 +484,12 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV002</TableCell>
-									<TableCell>Pending</TableCell>
-									<TableCell>$150.00</TableCell>
-									<TableCell className="text-right">PayPal</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV003</TableCell>
-									<TableCell>Unpaid</TableCell>
-									<TableCell>$350.00</TableCell>
-									<TableCell className="text-right">Bank Transfer</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV004</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$450.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
@@ -1168,10 +498,14 @@ export default function () {
 									<TableCell className="font-medium">
 										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
 									</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -1184,80 +518,12 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV002</TableCell>
-									<TableCell>Pending</TableCell>
-									<TableCell>$150.00</TableCell>
-									<TableCell className="text-right">PayPal</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV003</TableCell>
-									<TableCell>Unpaid</TableCell>
-									<TableCell>$350.00</TableCell>
-									<TableCell className="text-right">Bank Transfer</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV004</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$450.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
@@ -1266,10 +532,14 @@ export default function () {
 									<TableCell className="font-medium">
 										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
 									</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -1282,80 +552,12 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV002</TableCell>
-									<TableCell>Pending</TableCell>
-									<TableCell>$150.00</TableCell>
-									<TableCell className="text-right">PayPal</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV003</TableCell>
-									<TableCell>Unpaid</TableCell>
-									<TableCell>$350.00</TableCell>
-									<TableCell className="text-right">Bank Transfer</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV004</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$450.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
@@ -1364,10 +566,14 @@ export default function () {
 									<TableCell className="font-medium">
 										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
 									</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -1380,80 +586,12 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV002</TableCell>
-									<TableCell>Pending</TableCell>
-									<TableCell>$150.00</TableCell>
-									<TableCell className="text-right">PayPal</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV003</TableCell>
-									<TableCell>Unpaid</TableCell>
-									<TableCell>$350.00</TableCell>
-									<TableCell className="text-right">Bank Transfer</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV004</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$450.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
@@ -1462,10 +600,14 @@ export default function () {
 									<TableCell className="font-medium">
 										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
 									</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -1478,80 +620,12 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV002</TableCell>
-									<TableCell>Pending</TableCell>
-									<TableCell>$150.00</TableCell>
-									<TableCell className="text-right">PayPal</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV003</TableCell>
-									<TableCell>Unpaid</TableCell>
-									<TableCell>$350.00</TableCell>
-									<TableCell className="text-right">Bank Transfer</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV004</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$450.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
@@ -1560,10 +634,14 @@ export default function () {
 									<TableCell className="font-medium">
 										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
 									</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -1576,80 +654,12 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV002</TableCell>
-									<TableCell>Pending</TableCell>
-									<TableCell>$150.00</TableCell>
-									<TableCell className="text-right">PayPal</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV003</TableCell>
-									<TableCell>Unpaid</TableCell>
-									<TableCell>$350.00</TableCell>
-									<TableCell className="text-right">Bank Transfer</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV004</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$450.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
@@ -1658,10 +668,14 @@ export default function () {
 									<TableCell className="font-medium">
 										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
 									</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -1674,80 +688,12 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV002</TableCell>
-									<TableCell>Pending</TableCell>
-									<TableCell>$150.00</TableCell>
-									<TableCell className="text-right">PayPal</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV003</TableCell>
-									<TableCell>Unpaid</TableCell>
-									<TableCell>$350.00</TableCell>
-									<TableCell className="text-right">Bank Transfer</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
-											</DropdownMenuContent>
-										</DropdownMenu>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell className="font-medium">INV004</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$450.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
-										<DropdownMenu>
-											<DropdownMenuTrigger asChild>
-												<Button
-													aria-haspopup="true"
-													size="icon"
-													variant="ghost"
-												>
-													<MoreHorizontal className="h-4 w-4" />
-													<span className="sr-only">Toggle menu</span>
-												</Button>
-											</DropdownMenuTrigger>
-											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
@@ -1756,10 +702,14 @@ export default function () {
 									<TableCell className="font-medium">
 										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
 									</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -1772,18 +722,28 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
 								</TableRow>
 								<TableRow>
-									<TableCell className="font-medium">INV002</TableCell>
-									<TableCell>Pending</TableCell>
-									<TableCell>$150.00</TableCell>
-									<TableCell className="text-right">PayPal</TableCell>
-									<TableCell className="text-right">
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -1796,18 +756,28 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
 								</TableRow>
 								<TableRow>
-									<TableCell className="font-medium">INV003</TableCell>
-									<TableCell>Unpaid</TableCell>
-									<TableCell>$350.00</TableCell>
-									<TableCell className="text-right">Bank Transfer</TableCell>
-									<TableCell className="text-right">
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -1820,18 +790,28 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
 								</TableRow>
 								<TableRow>
-									<TableCell className="font-medium">INV004</TableCell>
-									<TableCell>Paid</TableCell>
-									<TableCell>$450.00</TableCell>
-									<TableCell className="text-right">Credit Card</TableCell>
-									<TableCell className="text-right">
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
 										<DropdownMenu>
 											<DropdownMenuTrigger asChild>
 												<Button
@@ -1844,8 +824,284 @@ export default function () {
 												</Button>
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end">
-												<DropdownMenuItem>Edit</DropdownMenuItem>
-												<DropdownMenuItem>Delete</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>페페.png</TableCell>
+									<TableCell>40mm</TableCell>
+									<TableCell>F2.8</TableCell>
+									<TableCell>ISO200</TableCell>
+									<TableCell>1/60s</TableCell>
+									<TableCell>SONY ILCE-7CM2</TableCell>
+									<TableCell>TAMRON E 20-40mm F2.8 A062</TableCell>
+									<TableCell>
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem className="cursor-pointer">
+													수정
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													삭제
+												</DropdownMenuItem>
 											</DropdownMenuContent>
 										</DropdownMenu>
 									</TableCell>
