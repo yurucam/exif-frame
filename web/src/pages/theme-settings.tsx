@@ -1,5 +1,10 @@
 import PlaygroundLayout from '@/components/layout/playground';
 import SidebarButton from '@/components/sidebar-button';
+import {
+	ResizableHandle,
+	ResizablePanel,
+	ResizablePanelGroup,
+} from '@/components/ui/resizable';
 import { Separator } from '@/components/ui/separator';
 import { Blocks, ImagePlay, Settings, Settings2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -35,16 +40,34 @@ export default function () {
 				/>,
 			]}
 			body={
-				<main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
-					<div className="space-y-6">
-						<div>
-							<h3 className="text-lg font-medium">Profile</h3>
-							<p className="text-sm text-muted-foreground">
-								This is how others will see you on the site.
-							</p>
-						</div>
-						<Separator />
-					</div>
+				<main className="flex flex-1 flex-col">
+					<ResizablePanelGroup direction="horizontal">
+						<ResizablePanel defaultSize={50}>
+							<ResizablePanelGroup direction="vertical">
+								<ResizablePanel defaultSize={100}>
+									<div className="flex h-full items-center justify-center p-6">
+										<span className="font-semibold">테마 목록</span>
+									</div>
+								</ResizablePanel>
+
+								<ResizableHandle withHandle />
+
+								<ResizablePanel defaultSize={75}>
+									<div className="flex h-full items-center justify-center p-6">
+										<span className="font-semibold">미리보기</span>
+									</div>
+								</ResizablePanel>
+							</ResizablePanelGroup>
+						</ResizablePanel>
+
+						<ResizableHandle withHandle />
+
+						<ResizablePanel defaultSize={50}>
+							<div className="flex h-[200px] items-center justify-center p-6">
+								<span className="font-semibold">상세설정</span>
+							</div>
+						</ResizablePanel>
+					</ResizablePanelGroup>
 				</main>
 			}
 		/>

@@ -1,9 +1,33 @@
-import PlaygroundLayout from '@/components/layout/playground';
-import SidebarButton from '@/components/sidebar-button';
+import {
+	Blocks,
+	ImagePlay,
+	MoreHorizontal,
+	PlusCircle,
+	Settings,
+	Settings2,
+	Share,
+} from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
-import { Blocks, ImagePlay, Settings, Settings2 } from 'lucide-react';
+import {
+	Table,
+	TableBody,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from '@/components/ui/table';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import SidebarButton from '@/components/sidebar-button';
+import PlaygroundLayout from '@/components/layout/playground';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 export default function () {
 	const { t } = useTranslation();
@@ -12,14 +36,16 @@ export default function () {
 	return (
 		<PlaygroundLayout
 			title={t('page.convert.title')}
-			titleItems={
-				[
-					// <Button variant="outline" size="sm" className="ml-auto gap-1.5 text-sm">
-					// 	<Share className="size-3.5" />
-					// 	Convert All
-					// </Button>,
-				]
-			}
+			titleItems={[
+				<Button variant="outline" size="sm" className="ml-auto gap-1.5 text-sm">
+					<Share className="size-3.5" />
+					Convert All
+				</Button>,
+				<Button size="sm" className="ml-auto gap-1.5 text-sm">
+					<PlusCircle className="size-3.5" />
+					Add Picture
+				</Button>,
+			]}
 			sidebars={[
 				<SidebarButton
 					clicked
@@ -43,24 +69,1790 @@ export default function () {
 				/>,
 			]}
 			body={
-				<main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
-					<div className="flex items-center">
-						<h1 className="text-lg font-semibold md:text-2xl">Inventory</h1>
-					</div>
-					<div
-						className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm"
-						x-chunk="dashboard-02-chunk-1"
-					>
-						<div className="flex flex-col items-center gap-1 text-center">
-							<h3 className="text-2xl font-bold tracking-tight">
-								You have no products
-							</h3>
-							<p className="text-sm text-muted-foreground">
-								You can start selling as soon as you add a product.
-							</p>
-							<Button className="mt-4">Add Product</Button>
-						</div>
-					</div>
+				<main>
+					<ScrollArea className="h-[calc(100vh-57px)]">
+						<Table className="w-full min-w-max">
+							<TableHeader>
+								<TableRow>
+									<TableHead className="w-[100px]">IMAGE</TableHead>
+									<TableHead>CAMERA</TableHead>
+									<TableHead>ISO</TableHead>
+									<TableHead className="text-right">CAPTURED AT</TableHead>
+									<TableHead></TableHead>
+								</TableRow>
+							</TableHeader>
+							<TableBody>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$250.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem className="cursor-pointer">
+													Edit
+												</DropdownMenuItem>
+												<DropdownMenuItem className="cursor-pointer">
+													Delete
+												</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV002</TableCell>
+									<TableCell>Pending</TableCell>
+									<TableCell>$150.00</TableCell>
+									<TableCell className="text-right">PayPal</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV003</TableCell>
+									<TableCell>Unpaid</TableCell>
+									<TableCell>$350.00</TableCell>
+									<TableCell className="text-right">Bank Transfer</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV004</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$450.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$250.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV002</TableCell>
+									<TableCell>Pending</TableCell>
+									<TableCell>$150.00</TableCell>
+									<TableCell className="text-right">PayPal</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV003</TableCell>
+									<TableCell>Unpaid</TableCell>
+									<TableCell>$350.00</TableCell>
+									<TableCell className="text-right">Bank Transfer</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV004</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$450.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$250.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV002</TableCell>
+									<TableCell>Pending</TableCell>
+									<TableCell>$150.00</TableCell>
+									<TableCell className="text-right">PayPal</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV003</TableCell>
+									<TableCell>Unpaid</TableCell>
+									<TableCell>$350.00</TableCell>
+									<TableCell className="text-right">Bank Transfer</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV004</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$450.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$250.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV002</TableCell>
+									<TableCell>Pending</TableCell>
+									<TableCell>$150.00</TableCell>
+									<TableCell className="text-right">PayPal</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV003</TableCell>
+									<TableCell>Unpaid</TableCell>
+									<TableCell>$350.00</TableCell>
+									<TableCell className="text-right">Bank Transfer</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV004</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$450.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$250.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV002</TableCell>
+									<TableCell>Pending</TableCell>
+									<TableCell>$150.00</TableCell>
+									<TableCell className="text-right">PayPal</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV003</TableCell>
+									<TableCell>Unpaid</TableCell>
+									<TableCell>$350.00</TableCell>
+									<TableCell className="text-right">Bank Transfer</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV004</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$450.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$250.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV002</TableCell>
+									<TableCell>Pending</TableCell>
+									<TableCell>$150.00</TableCell>
+									<TableCell className="text-right">PayPal</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV003</TableCell>
+									<TableCell>Unpaid</TableCell>
+									<TableCell>$350.00</TableCell>
+									<TableCell className="text-right">Bank Transfer</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV004</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$450.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$250.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV002</TableCell>
+									<TableCell>Pending</TableCell>
+									<TableCell>$150.00</TableCell>
+									<TableCell className="text-right">PayPal</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV003</TableCell>
+									<TableCell>Unpaid</TableCell>
+									<TableCell>$350.00</TableCell>
+									<TableCell className="text-right">Bank Transfer</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV004</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$450.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$250.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV002</TableCell>
+									<TableCell>Pending</TableCell>
+									<TableCell>$150.00</TableCell>
+									<TableCell className="text-right">PayPal</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV003</TableCell>
+									<TableCell>Unpaid</TableCell>
+									<TableCell>$350.00</TableCell>
+									<TableCell className="text-right">Bank Transfer</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV004</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$450.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$250.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV002</TableCell>
+									<TableCell>Pending</TableCell>
+									<TableCell>$150.00</TableCell>
+									<TableCell className="text-right">PayPal</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV003</TableCell>
+									<TableCell>Unpaid</TableCell>
+									<TableCell>$350.00</TableCell>
+									<TableCell className="text-right">Bank Transfer</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV004</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$450.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$250.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV002</TableCell>
+									<TableCell>Pending</TableCell>
+									<TableCell>$150.00</TableCell>
+									<TableCell className="text-right">PayPal</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV003</TableCell>
+									<TableCell>Unpaid</TableCell>
+									<TableCell>$350.00</TableCell>
+									<TableCell className="text-right">Bank Transfer</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV004</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$450.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$250.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV002</TableCell>
+									<TableCell>Pending</TableCell>
+									<TableCell>$150.00</TableCell>
+									<TableCell className="text-right">PayPal</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV003</TableCell>
+									<TableCell>Unpaid</TableCell>
+									<TableCell>$350.00</TableCell>
+									<TableCell className="text-right">Bank Transfer</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV004</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$450.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$250.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV002</TableCell>
+									<TableCell>Pending</TableCell>
+									<TableCell>$150.00</TableCell>
+									<TableCell className="text-right">PayPal</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV003</TableCell>
+									<TableCell>Unpaid</TableCell>
+									<TableCell>$350.00</TableCell>
+									<TableCell className="text-right">Bank Transfer</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV004</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$450.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$250.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV002</TableCell>
+									<TableCell>Pending</TableCell>
+									<TableCell>$150.00</TableCell>
+									<TableCell className="text-right">PayPal</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV003</TableCell>
+									<TableCell>Unpaid</TableCell>
+									<TableCell>$350.00</TableCell>
+									<TableCell className="text-right">Bank Transfer</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV004</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$450.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$250.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV002</TableCell>
+									<TableCell>Pending</TableCell>
+									<TableCell>$150.00</TableCell>
+									<TableCell className="text-right">PayPal</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV003</TableCell>
+									<TableCell>Unpaid</TableCell>
+									<TableCell>$350.00</TableCell>
+									<TableCell className="text-right">Bank Transfer</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV004</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$450.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$250.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV002</TableCell>
+									<TableCell>Pending</TableCell>
+									<TableCell>$150.00</TableCell>
+									<TableCell className="text-right">PayPal</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV003</TableCell>
+									<TableCell>Unpaid</TableCell>
+									<TableCell>$350.00</TableCell>
+									<TableCell className="text-right">Bank Transfer</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV004</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$450.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$250.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV002</TableCell>
+									<TableCell>Pending</TableCell>
+									<TableCell>$150.00</TableCell>
+									<TableCell className="text-right">PayPal</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV003</TableCell>
+									<TableCell>Unpaid</TableCell>
+									<TableCell>$350.00</TableCell>
+									<TableCell className="text-right">Bank Transfer</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV004</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$450.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$250.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV002</TableCell>
+									<TableCell>Pending</TableCell>
+									<TableCell>$150.00</TableCell>
+									<TableCell className="text-right">PayPal</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV003</TableCell>
+									<TableCell>Unpaid</TableCell>
+									<TableCell>$350.00</TableCell>
+									<TableCell className="text-right">Bank Transfer</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV004</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$450.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v531UVhMHUwSZYKyodpAZ3koV1ueBBFNTWwD-_sD9xAQkzMyMFLibnebYbs61Y2bOGE&usqp=CAU" />
+									</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$250.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV002</TableCell>
+									<TableCell>Pending</TableCell>
+									<TableCell>$150.00</TableCell>
+									<TableCell className="text-right">PayPal</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV003</TableCell>
+									<TableCell>Unpaid</TableCell>
+									<TableCell>$350.00</TableCell>
+									<TableCell className="text-right">Bank Transfer</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell className="font-medium">INV004</TableCell>
+									<TableCell>Paid</TableCell>
+									<TableCell>$450.00</TableCell>
+									<TableCell className="text-right">Credit Card</TableCell>
+									<TableCell className="text-right">
+										<DropdownMenu>
+											<DropdownMenuTrigger asChild>
+												<Button
+													aria-haspopup="true"
+													size="icon"
+													variant="ghost"
+												>
+													<MoreHorizontal className="h-4 w-4" />
+													<span className="sr-only">Toggle menu</span>
+												</Button>
+											</DropdownMenuTrigger>
+											<DropdownMenuContent align="end">
+												<DropdownMenuItem>Edit</DropdownMenuItem>
+												<DropdownMenuItem>Delete</DropdownMenuItem>
+											</DropdownMenuContent>
+										</DropdownMenu>
+									</TableCell>
+								</TableRow>
+							</TableBody>
+						</Table>
+					</ScrollArea>
 				</main>
 			}
 		/>
