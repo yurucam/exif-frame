@@ -40,7 +40,7 @@ export default function PlaygroundLayout(props: PlaygroundLayoutProps) {
 					<div className="ml-auto flex gap-1.5">{...titleItems}</div>
 				</header>
 
-				<main>{body}</main>
+				{body}
 			</div>
 		</div>
 	);

@@ -1,5 +1,6 @@
 import PlaygroundLayout from '@/components/layout/playground';
 import SidebarButton from '@/components/sidebar-button';
+import { Separator } from '@/components/ui/separator';
 import { Blocks, ImagePlay, Settings, Settings2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
@@ -33,7 +34,19 @@ export default function () {
 					tooltip={t('page.export-settings.title')}
 				/>,
 			]}
-			body={<div>settings</div>}
+			body={
+				<main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
+					<div className="space-y-6">
+						<div>
+							<h3 className="text-lg font-medium">Profile</h3>
+							<p className="text-sm text-muted-foreground">
+								This is how others will see you on the site.
+							</p>
+						</div>
+						<Separator />
+					</div>
+				</main>
+			}
 		/>
 	);
 }
