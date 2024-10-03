@@ -1,1 +1,4 @@
-{}
+{
+	"not-found.description": "요청하신 페이지를 찾을 수 없습니다. 다른 페이지를 시도해보시거나 홈으로 이동해보세요.",
+	"not-found.return-to-home": "홈으로 돌아가기"
+}

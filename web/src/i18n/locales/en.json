@@ -1,1 +1,4 @@
-{}
+{
+	"not-found.description": "Sorry, the page you requested could not be found. Please try another page or return to the homepage.",
+	"not-found.return-to-home": "Return to home"
+}

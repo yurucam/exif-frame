@@ -1,1 +1,4 @@
-{}
+{
+	"not-found.description": "抱歉，您请求的页面无法找到。请尝试访问其他页面或返回首页。",
+	"not-found.return-to-home": "返回首页"
+}

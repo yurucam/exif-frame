@@ -1,4 +1,5 @@
 import './App.css';
+import './i18n';
 
 import {
 	createBrowserRouter,
@@ -6,6 +7,7 @@ import {
 	LoaderFunction,
 	ActionFunction,
 } from 'react-router-dom';
+import { ThemeProvider } from './components/theme-provider';
 
 interface RouteCommon {
 	loader?: LoaderFunction;
@@ -58,5 +60,11 @@ const router = createBrowserRouter(
  * @link https://velog.io/@developer-sora/TIL-React-Vite에서-next.js처럼-라우팅하기feat.typescript
  */
 export default function App() {
-	return <RouterProvider router={router} />;
+	return (
+		<>
+			<ThemeProvider>
+				<RouterProvider router={router} />
+			</ThemeProvider>
+		</>
+	);
 }
