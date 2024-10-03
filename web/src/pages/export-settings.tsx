@@ -10,7 +10,7 @@ export default function () {
 
 	return (
 		<PlaygroundLayout
-			title={t('page.settings.title')}
+			title={t('page.export-settings.title')}
 			sidebars={[
 				<SidebarButton
 					icon={<ImagePlay className="size-5" />}
@@ -19,13 +19,13 @@ export default function () {
 				/>,
 				<SidebarButton
 					icon={<Settings2 className="size-5" />}
-					tooltip={t('page.theme.title')}
-					onClick={() => navigator('/theme')}
+					tooltip={t('page.theme-settings.title')}
+					onClick={() => navigator('/theme-settings')}
 				/>,
 				<SidebarButton
 					clicked
 					icon={<Settings className="size-5" />}
-					tooltip={t('page.settings.title')}
+					tooltip={t('page.export-settings.title')}
 				/>,
 			]}
 			body={<div>settings</div>}

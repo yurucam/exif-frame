@@ -4,9 +4,9 @@
 
 	"page.convert.title": "Convert",
 
-	"page.theme.title": "Theme Settings",
+	"page.theme-settings.title": "Theme Settings",
 
-	"page.settings.title": "Export Settings",
+	"page.export-settings.title": "Export Settings",
 
 	"component.theme-toggle.light": "Light",
 	"component.theme-toggle.dark": "Dark",

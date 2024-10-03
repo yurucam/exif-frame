@@ -26,13 +26,13 @@ export default function () {
 				/>,
 				<SidebarButton
 					icon={<Settings2 className="size-5" />}
-					tooltip={t('page.theme.title')}
-					onClick={() => navigator('/theme')}
+					tooltip={t('page.theme-settings.title')}
+					onClick={() => navigator('/theme-settings')}
 				/>,
 				<SidebarButton
 					icon={<Settings className="size-5" />}
-					tooltip={t('page.settings.title')}
-					onClick={() => navigator('/settings')}
+					tooltip={t('page.export-settings.title')}
+					onClick={() => navigator('/export-settings')}
 				/>,
 			]}
 			body={<div>home</div>}
