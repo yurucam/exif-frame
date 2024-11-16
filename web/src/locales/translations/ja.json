@@ -46,9 +46,8 @@
   "root.bug-report": "バグ報告",
   "root.feature-request": "機能リクエスト",
   "root.loaded-photos": "読み込まれた写真",
-  "root.sponsor": "スポンサー（GitHub）",
-  "root.sponsor-kakaopay": "スポンサー（カカオペイ）",
-  "root.sponsor-kakaopay-description": "後援していただいた金額はApple開発者アカウントの更新、開発に役立つコーヒーの購入などに使用されます。後援後、ニックネームと後援金額をメールに含めてご連絡ください。後援していただいた方々には、感謝の印として後援者リストに名前を掲載いたします。",
+
+  "root.sponsor-kakaopay-description": "2024年5月から2024年11月まで一時的に行った後援機能を通じて後援してくださったありがたい方々をご紹介します。 後援していただいた金額はApple開発者アカウントの延長、開発に役立つコーヒーの購入などに使われました。 ご後援いただき、心を込めてお礼を申し上げます。",
   "root.sponsors": "スポンサー",
   "root.processing": "機器の仕様によっては、時間がかかる場合があります。",
   "root.releases": "配布内訳",
