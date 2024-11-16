@@ -93,6 +93,9 @@ type Store = {
   exportToJpeg: boolean;
   setExportToJpeg: (exportToJpeg: boolean) => void;
 
+  maintainExif: boolean;
+  setMaintainExif: (maintainExif: boolean) => void;
+
   preview: Photo | null;
   setPreview: (preview: Photo | null) => void;
 
@@ -284,6 +287,13 @@ const useStore = create<Store>((set) => ({
     set(() => {
       localStorage.setItem('exportToJpeg', exportToJpeg.toString());
       return { exportToJpeg };
+    }),
+
+  maintainExif: localStorage.getItem('maintainExif') === 'true' || true,
+  setMaintainExif: (maintainExif: boolean) =>
+    set(() => {
+      localStorage.setItem('maintainExif', maintainExif.toString());
+      return { maintainExif };
     }),
 
   preview: null,

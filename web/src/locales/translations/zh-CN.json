@@ -59,6 +59,7 @@
   "root.settings.ratio": "裁剪比例",
   "root.settings.not-cropped-mode": "非裁剪模式",
   "root.settings.export-to-jpeg": "导出为 JPEG",
+  "root.settings.maintain-exif": "保留 EXIF 元数据（仅支持 JPEG）",
   "root.settings.quality": "质量",
   "root.settings.fix-image-width": "固定图片宽度",
   "root.settings.date-notation": "日期表示",

@@ -31,6 +31,7 @@ import DateNotationPopover from './components/date-notation.popover';
 import OverrideMetadataListItem from './components/override-metadata.list-item';
 import OverrideMetadataPopover from './components/override-metadata.popover';
 import CreateOverrideMetadataListItem from './components/create-override-metadata.list-item';
+import MaintainExifListItem from './components/maintain-exif.list-item';
 
 const ExportSettingsPage = () => {
   const { t } = useTranslation();
@@ -48,6 +49,7 @@ const ExportSettingsPage = () => {
 
       <List strongIos inset>
         <ExportToJpegListItem />
+        <MaintainExifListItem />
         <QualityListItem />
         <FixImageWidthListItem />
         <FocalLengthRatioModeListItem />

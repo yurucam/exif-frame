@@ -59,6 +59,7 @@
   "root.settings.ratio": "Ratio with crop",
   "root.settings.not-cropped-mode": "Not Cropped Mode",
   "root.settings.export-to-jpeg": "Export to JPEG",
+  "root.settings.maintain-exif": "Keep EXIF Metadata (Only supported in JPEG)",
   "root.settings.quality": "Quality",
   "root.settings.fix-image-width": "Fix Image Width",
   "root.settings.date-notation": "Date Notation",
