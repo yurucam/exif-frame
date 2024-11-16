@@ -1,5 +1,5 @@
 {
-  "version": "0.4.94",
+  "version": "0.4.95",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -15,6 +15,7 @@
     "@jsquash/webp": "^1.4.0",
     "autoprefixer": "10.4.19",
     "buffer": "^6.0.3",
+    "exif-restorer": "^0.1.8",
     "exifreader": "^4.22.1",
     "file-saver": "^2.0.5",
     "i18next": "^23.11.0",

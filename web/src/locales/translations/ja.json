@@ -59,6 +59,7 @@
   "root.settings.ratio": "比率",
   "root.settings.not-cropped-mode": "切り取られていないモード",
   "root.settings.export-to-jpeg": "JPEGにエクスポート",
+  "root.settings.maintain-exif": "EXIFメタデータを保持（JPEGのみサポート）",
   "root.settings.quality": "画質",
   "root.settings.fix-image-width": "画像幅を固定",
   "root.settings.date-notation": "日付表記",

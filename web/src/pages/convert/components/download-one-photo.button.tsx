@@ -9,6 +9,7 @@ import free from '../../../core/drawing/free';
 import download from '../../../core/file-system/download';
 import { ThemeOptionInput, getConverter } from '../../theme/types/theme-option';
 import Customize from '../../theme/database/customize';
+import { ExifRestorer } from 'exif-restorer';
 
 interface DownloadOnePhotoButtonProps {
   photo: Photo;
@@ -16,7 +17,7 @@ interface DownloadOnePhotoButtonProps {
 
 const DownloadOnePhotoButton: React.FC<DownloadOnePhotoButtonProps> = ({ photo }) => {
   const store = useStore();
-  const { selectedThemeName, exportToJpeg, quality, setLoading } = store;
+  const { selectedThemeName, exportToJpeg, maintainExif, quality, setLoading } = store;
 
   const input: ThemeOptionInput = new Map<string, string | number | boolean>();
   const theme = themes.find((theme) => theme.name === selectedThemeName);
@@ -42,7 +43,12 @@ const DownloadOnePhotoButton: React.FC<DownloadOnePhotoButtonProps> = ({ photo }
           const filename = photo.file.name.replace(/\.[^/.]+$/, `.${exportToJpeg ? 'jpg' : 'webp'}`);
           const data = await convert(canvas, { type: exportToJpeg ? 'image/jpeg' : 'image/webp', quality });
           free(canvas);
-          await download(filename, data);
+
+          if (exportToJpeg && maintainExif) {
+            await download(filename, ExifRestorer.restore(photo.imageBase64, data));
+          } else {
+            await download(filename, data); // TODO: Add Exif data to the webp file
+          }
 
           setLoading(false);
         }}

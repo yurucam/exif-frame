@@ -12,6 +12,7 @@ class Photo {
   public file!: File;
   public metadata!: ExifMetadata;
   public image!: HTMLImageElement;
+  public imageBase64!: string;
   public thumbnail!: string;
 
   /**
@@ -30,6 +31,14 @@ class Photo {
     photo.image = new Image();
     photo.image.src = URL.createObjectURL(file);
     await new Promise((resolve) => (photo.image.onload = resolve));
+
+    photo.imageBase64 = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = reject;
+    });
+
     photo.thumbnail = thumbnail(photo, 300, 250);
     return photo;
   }

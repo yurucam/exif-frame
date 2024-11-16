@@ -60,6 +60,7 @@
   "root.settings.ratio": "비율에 맞춰 크롭",
   "root.settings.not-cropped-mode": "크롭하지 않기",
   "root.settings.export-to-jpeg": "JPEG로 내보내기",
+  "root.settings.maintain-exif": "EXIF 메타데이터 유지 (현재 JPEG만 지원)",
   "root.settings.quality": "품질",
   "root.settings.fix-image-width": "사진 너비 고정",
   "root.settings.date-notation": "날짜 표기법",
