@@ -29,7 +29,12 @@ class ExifMetadata {
     this.iso = metadata?.ISOSpeedRatings?.value ? 'ISO' + metadata?.ISOSpeedRatings?.value?.toString() : undefined;
     this.exposureTime = metadata?.ExposureTime?.description ? metadata?.ExposureTime?.description + 's' : undefined;
     this.thumbnail = metadata?.Thumbnail?.base64 ? 'data:image/jpg;base64,' + metadata?.Thumbnail?.base64 : undefined;
-    this.takenAt = metadata?.DateCreated?.description;
+
+    if (metadata?.DateTime?.description) {
+      const yyyymmdd = metadata.DateTime.description.split(' ')[0].split(':').join('-');
+      const hhmmss = metadata.DateTime.description.split(' ')[1];
+      this.takenAt = `${yyyymmdd} ${hhmmss}`;
+    }
   }
 }
 
