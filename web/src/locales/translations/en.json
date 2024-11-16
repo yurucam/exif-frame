@@ -46,9 +46,8 @@
   "root.bug-report": "Bug Report",
   "root.feature-request": "Feature Request",
   "root.loaded-photos": "Loaded Photos",
-  "root.sponsor": "Sponsor (GitHub)",
-  "root.sponsor-kakaopay": "Sponsor (KakaoPay)",
-  "root.sponsor-kakaopay-description": "Your donation will be used for Apple Developer Account renewal, coffee purchase for development, etc. Please include your nickname and donation amount in the email after donation. We will list the names of donors as a token of appreciation.",
+
+  "root.sponsor-description": "We would like to introduce you to those who have supported us through a temporary sponsorship function from May 2024 to November 2024. The amount of money you gave us was used to extend the Apple developer account and purchase coffee to help us develop it. We sincerely thank you for your support.",
   "root.sponsors": "Sponsors",
   "root.processing": "it may take a long time depending on device specifications.",
   "root.releases": "Releases",
