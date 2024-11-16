@@ -74,15 +74,12 @@ const ExportSettingsPage = () => {
       </List>
 
       <List strongIos inset>
-        <SponsorsListItem />
-      </List>
-
-      <List strongIos inset>
         <PrivacyPolicyListItem />
         <TermAndConditionsListItem />
       </List>
 
       <List strongIos inset>
+        <SponsorsListItem />
         <LabListItem />
         <CurrentVersionListItem />
       </List>
