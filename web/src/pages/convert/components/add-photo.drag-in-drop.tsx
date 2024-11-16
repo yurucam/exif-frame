@@ -57,7 +57,7 @@ const AddPhotoDragInDrop = () => {
 
   return (
     <>
-      <input type="file" accept="image/jpeg" onChange={onChange} onClick={(e) => (e.currentTarget.value = '')} multiple hidden />
+      <input type="file" accept="image/*" onChange={onChange} onClick={(e) => (e.currentTarget.value = '')} multiple hidden />
 
       <div
         style={{
