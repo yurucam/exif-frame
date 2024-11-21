@@ -30,9 +30,9 @@ class ExifMetadata {
     this.exposureTime = metadata?.ExposureTime?.description ? metadata?.ExposureTime?.description + 's' : undefined;
     this.thumbnail = metadata?.Thumbnail?.base64 ? 'data:image/jpg;base64,' + metadata?.Thumbnail?.base64 : undefined;
 
-    if (metadata?.DateTime?.description) {
-      const yyyymmdd = metadata.DateTime.description.split(' ')[0].split(':').join('-');
-      const hhmmss = metadata.DateTime.description.split(' ')[1];
+    if (metadata?.DateTimeOriginal?.description) {
+      const yyyymmdd = metadata.DateTimeOriginal.description.split(' ')[0].split(':').join('-');
+      const hhmmss = metadata.DateTimeOriginal.description.split(' ')[1];
       this.takenAt = `${yyyymmdd} ${hhmmss}`;
     }
   }
