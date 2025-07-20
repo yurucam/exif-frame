@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
-      - uses: ./.github/actions/deploy-cloudflare-pages
+      - uses: yurucam/deploy-cloudflare-pages@main
         with:
           account-id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
