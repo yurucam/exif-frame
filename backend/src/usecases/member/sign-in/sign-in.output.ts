@@ -5,7 +5,8 @@ export const signInOutput = z.object({
   name: z.string(),
   nickname: z.string(),
   bio: z.string(),
-  token: z.string(),
+  accessToken: z.string(),
+  refreshToken: z.string(),
 });
 
 export type SignInOutput = z.infer<typeof signInOutput>;

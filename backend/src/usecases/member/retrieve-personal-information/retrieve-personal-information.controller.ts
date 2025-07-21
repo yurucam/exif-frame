@@ -1,6 +1,5 @@
 import { createRoute, OpenAPIHono } from '@hono/zod-openapi';
 import { Bindings } from '../../../types';
-import { retrievePersonalInformationInput } from './retrieve-personal-information.input';
 import { retrievePersonalInformationOutput } from './retrieve-personal-information.output';
 import { authMiddleware, getCurrentMember } from '../../../utils/auth.middleware';
 
@@ -14,9 +13,6 @@ export function retrievePersonalInformationController(app: OpenAPIHono<Bindings>
       description: '사용자의 개인정보를 조회합니다.',
       security: [{ Bearer: [] }],
       middleware: [authMiddleware],
-      request: {
-        query: retrievePersonalInformationInput,
-      },
       responses: {
         200: {
           description: '개인정보 조회 성공',
@@ -36,8 +32,6 @@ export function retrievePersonalInformationController(app: OpenAPIHono<Bindings>
     }),
     async (context) => {
       try {
-        const input = context.req.valid('query');
-
         // 1. 미들웨어에서 설정된 멤버 정보 가져오기 (미들웨어에서 이미 검증됨)
         const member = getCurrentMember(context)!;
 

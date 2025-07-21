@@ -7,6 +7,7 @@ import { OpenAPIHono } from '@hono/zod-openapi';
 import { changePasswordController } from './usecases/member/change-password/change-password.controller';
 import { signUpController } from './usecases/member/sign-up/sign-up.controller';
 import { signInController } from './usecases/member/sign-in/sign-in.controller';
+import { refreshTokenController } from './usecases/member/refresh-token/refresh-token.controller';
 import { retrievePersonalInformationController } from './usecases/member/retrieve-personal-information/retrieve-personal-information.controller';
 import { updatePersonalInformationController } from './usecases/member/update-personal-information/update-personal-information.controller';
 import { withdrawController } from './usecases/member/withdraw/withdraw.controller';
@@ -19,7 +20,7 @@ async function bootstrap(): Promise<OpenAPIHono<Bindings>> {
   [kyselyExtension, corsExtension, openApiExtension, scalarExtension].map((extension) => extension(app));
 
   // 인증이 필요없는 컨트롤러들
-  [signUpController, signInController].map((controller) => controller(app));
+  [signUpController, signInController, refreshTokenController].map((controller) => controller(app));
 
   // 인증이 필요한 컨트롤러들
   [changePasswordController, retrievePersonalInformationController, updatePersonalInformationController, withdrawController].map(

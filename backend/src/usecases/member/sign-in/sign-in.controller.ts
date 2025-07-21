@@ -1,9 +1,15 @@
 import { createRoute, OpenAPIHono } from '@hono/zod-openapi';
-import { sign } from 'hono/jwt';
 import { Bindings } from '../../../types';
 import { signInInput } from './sign-in.input';
 import { signInOutput } from './sign-in.output';
 import { verifyPassword } from '../../../utils/password.util';
+import {
+  generateAccessToken,
+  generateRefreshToken,
+  generateTokenId,
+  storeRefreshToken,
+  getTokenExpiresIn,
+} from '../../../utils/token.util';
 
 export function signInController(app: OpenAPIHono<Bindings>): void {
   app.openapi(
@@ -57,24 +63,26 @@ export function signInController(app: OpenAPIHono<Bindings>): void {
         throw new Error('패스워드가 올바르지 않습니다.');
       }
 
-      // 3. JWT 토큰 생성
-      const payload = {
-        id: user.id,
-        name: user.name,
-        iat: Math.floor(Date.now() / 1000), // 문제가 되는 부분
-        exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 7, // 7일 후 만료
-      };
+      // 3. 액세스 토큰과 리프레시 토큰 생성
+      const accessToken = await generateAccessToken(user.id, user.name, context.env.JWT_SECRET_KEY, context.env);
 
-      const token = await sign(payload, context.env.JWT_SECRET_KEY);
+      const tokenId = generateTokenId();
+      const refreshToken = await generateRefreshToken(user.id, tokenId, context.env.JWT_SECRET_KEY, context.env);
 
-      // 4. 응답 반환
+      // 4. 리프레시 토큰을 데이터베이스에 저장
+      const refreshTokenExpiresIn = getTokenExpiresIn(context.env, 'refresh');
+      const expiresAt = new Date(Date.now() + refreshTokenExpiresIn * 1000);
+      await storeRefreshToken(context, refreshToken, user.id, expiresAt);
+
+      // 5. 응답 반환
       return context.json(
         {
           id: user.id,
           name: user.name,
           nickname: user.nickname,
           bio: user.bio,
-          token: token,
+          accessToken: accessToken,
+          refreshToken: refreshToken,
         },
         200
       );

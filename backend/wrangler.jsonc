@@ -21,5 +21,12 @@
       "database_name": "exif-frame",
       "database_id": "701f284d-2ffa-4a7f-a69c-c96070ba83fe"
     }
-  ]
+  ],
+  "vars": {
+    // 토큰 만료 시간 설정 (선택사항)
+    // "ACCESS_TOKEN_EXPIRES_IN": "15m",  // 기본값: 15분
+    // "REFRESH_TOKEN_EXPIRES_IN": "30d"  // 기본값: 30일
+    // 지원 형식: s(초), m(분), h(시간), d(일)
+    // 예: "30s", "5m", "2h", "7d"
+  }
 }
