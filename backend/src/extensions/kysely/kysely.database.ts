@@ -3,5 +3,5 @@ import { RefreshTokenModel } from './models/refresh-token.model';
 
 export interface Database {
   member: MemberModel;
-  refresh_token: RefreshTokenModel;
+  refreshToken: RefreshTokenModel;
 }
