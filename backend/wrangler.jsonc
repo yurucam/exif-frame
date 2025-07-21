@@ -14,5 +14,12 @@
   "route": {
     "pattern": "api-exif-frame.yuru.cam",
     "custom_domain": true
-  }
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "exif-frame",
+      "database_id": "701f284d-2ffa-4a7f-a69c-c96070ba83fe"
+    }
+  ]
 }

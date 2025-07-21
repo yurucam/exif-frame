@@ -1,5 +1,5 @@
 import { OpenAPIHono } from '@hono/zod-openapi';
-import { Bindings } from '../types';
+import { Bindings } from '../../types';
 
 export function openApiExtension(app: OpenAPIHono<Bindings>): void {
   app.doc('/spec.json', {
