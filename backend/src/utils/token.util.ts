@@ -211,7 +211,7 @@ export async function storeRefreshToken(
   const db = context.env.db;
 
   const result = await db
-    .insertInto('refresh_token')
+    .insertInto('refreshToken')
     .values({
       token,
       memberId,
@@ -234,7 +234,7 @@ export async function getRefreshTokenFromDB(context: Context<{ Bindings: Env }>,
   const db = context.env.db;
 
   return await db
-    .selectFrom('refresh_token')
+    .selectFrom('refreshToken')
     .selectAll()
     .where('token', '=', token)
     .where('isRevoked', '=', false)
@@ -250,7 +250,7 @@ export async function getRefreshTokenFromDB(context: Context<{ Bindings: Env }>,
 export async function revokeRefreshToken(context: Context<{ Bindings: Env }>, tokenId: number): Promise<void> {
   const db = context.env.db;
 
-  await db.updateTable('refresh_token').set({ isRevoked: true }).where('id', '=', tokenId).execute();
+  await db.updateTable('refreshToken').set({ isRevoked: true }).where('id', '=', tokenId).execute();
 }
 
 /**
@@ -261,5 +261,5 @@ export async function revokeRefreshToken(context: Context<{ Bindings: Env }>, to
 export async function revokeAllRefreshTokens(context: Context<{ Bindings: Env }>, memberId: number): Promise<void> {
   const db = context.env.db;
 
-  await db.updateTable('refresh_token').set({ isRevoked: true }).where('memberId', '=', memberId).execute();
+  await db.updateTable('refreshToken').set({ isRevoked: true }).where('memberId', '=', memberId).execute();
 }
