@@ -1,4 +1,5 @@
 import { createRoute, OpenAPIHono } from '@hono/zod-openapi';
+import { HTTPException } from 'hono/http-exception';
 import { Bindings } from '../../../types';
 import { signUpInput } from './sign-up.input';
 import { signUpOutput } from './sign-up.output';
@@ -23,12 +24,15 @@ export function signUpController(app: OpenAPIHono<Bindings>): void {
       },
       responses: {
         200: {
-          description: '응답',
+          description: '회원가입 성공',
           content: {
             'application/json': {
               schema: signUpOutput,
             },
           },
+        },
+        409: {
+          description: '중복된 사용자명',
         },
       },
     }),
@@ -40,8 +44,8 @@ export function signUpController(app: OpenAPIHono<Bindings>): void {
       const existingUser = await db.selectFrom('member').select(['id']).where('name', '=', input.name).executeTakeFirst();
 
       if (existingUser) {
-        // 중복 사용자가 있으면 에러 발생 (실제로는 적절한 에러 응답 필요)
-        throw new Error('이미 존재하는 사용자명입니다.');
+        // 중복 사용자가 있으면 에러 발생
+        throw new HTTPException(409, { message: '이미 존재하는 사용자명입니다.' });
       }
 
       // 2. 패스워드 해싱

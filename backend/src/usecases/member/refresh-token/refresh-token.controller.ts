@@ -1,4 +1,5 @@
 import { createRoute, OpenAPIHono } from '@hono/zod-openapi';
+import { HTTPException } from 'hono/http-exception';
 import { Bindings } from '../../../types';
 import { refreshTokenInput } from './refresh-token.input';
 import { refreshTokenOutput } from './refresh-token.output';
@@ -32,12 +33,18 @@ export function refreshTokenController(app: OpenAPIHono<Bindings>): void {
       },
       responses: {
         200: {
-          description: '응답',
+          description: '토큰 갱신 성공',
           content: {
             'application/json': {
               schema: refreshTokenOutput,
             },
           },
+        },
+        401: {
+          description: '유효하지 않은 토큰',
+        },
+        404: {
+          description: '토큰 또는 사용자를 찾을 수 없음',
         },
       },
     }),
@@ -49,21 +56,21 @@ export function refreshTokenController(app: OpenAPIHono<Bindings>): void {
       const payload = await verifyRefreshToken(input.refreshToken, context.env.JWT_SECRET_KEY);
 
       if (!payload) {
-        throw new Error('유효하지 않은 리프레시 토큰입니다.');
+        throw new HTTPException(401, { message: '유효하지 않은 리프레시 토큰입니다.' });
       }
 
       // 2. 데이터베이스에서 리프레시 토큰 조회
       const tokenRecord = await getRefreshTokenFromDB(context, input.refreshToken);
 
       if (!tokenRecord) {
-        throw new Error('리프레시 토큰을 찾을 수 없거나 만료되었습니다.');
+        throw new HTTPException(404, { message: '리프레시 토큰을 찾을 수 없거나 만료되었습니다.' });
       }
 
       // 3. 사용자 정보 조회
       const user = await db.selectFrom('member').select(['id', 'name']).where('id', '=', tokenRecord.memberId).executeTakeFirst();
 
       if (!user) {
-        throw new Error('사용자를 찾을 수 없습니다.');
+        throw new HTTPException(404, { message: '사용자를 찾을 수 없습니다.' });
       }
 
       // 4. 기존 리프레시 토큰 무효화

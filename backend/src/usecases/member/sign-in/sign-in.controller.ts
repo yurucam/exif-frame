@@ -1,4 +1,5 @@
 import { createRoute, OpenAPIHono } from '@hono/zod-openapi';
+import { HTTPException } from 'hono/http-exception';
 import { Bindings } from '../../../types';
 import { signInInput } from './sign-in.input';
 import { signInOutput } from './sign-in.output';
@@ -30,12 +31,18 @@ export function signInController(app: OpenAPIHono<Bindings>): void {
       },
       responses: {
         200: {
-          description: '응답',
+          description: '로그인 성공',
           content: {
             'application/json': {
               schema: signInOutput,
             },
           },
+        },
+        401: {
+          description: '인증 실패 (잘못된 패스워드)',
+        },
+        404: {
+          description: '사용자를 찾을 수 없음',
         },
       },
     }),
@@ -52,7 +59,7 @@ export function signInController(app: OpenAPIHono<Bindings>): void {
 
       if (!user) {
         // 사용자가 없으면 에러 발생
-        throw new Error('사용자를 찾을 수 없습니다.');
+        throw new HTTPException(404, { message: '사용자를 찾을 수 없습니다.' });
       }
 
       // 2. 패스워드 검증
@@ -60,7 +67,7 @@ export function signInController(app: OpenAPIHono<Bindings>): void {
 
       if (!isPasswordValid) {
         // 패스워드가 틀리면 에러 발생
-        throw new Error('패스워드가 올바르지 않습니다.');
+        throw new HTTPException(401, { message: '패스워드가 올바르지 않습니다.' });
       }
 
       // 3. 액세스 토큰과 리프레시 토큰 생성
