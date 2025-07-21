@@ -10,4 +10,11 @@ export function openApiExtension(app: OpenAPIHono<Bindings>): void {
       description: 'EXIF Frame API Documentation',
     },
   });
+
+  // OpenAPI 보안 스키마 추가
+  app.openAPIRegistry.registerComponent('securitySchemes', 'Bearer', {
+    type: 'http',
+    scheme: 'bearer',
+    bearerFormat: 'JWT',
+  });
 }
