@@ -18,6 +18,12 @@ export interface RefreshTokenPayload {
   [key: string]: any;
 }
 
+export interface AuthResult {
+  success: boolean;
+  payload?: AccessTokenPayload;
+  error?: string;
+}
+
 /**
  * 시간 문자열을 초 단위로 변환합니다.
  * 예: "15m" -> 900, "30d" -> 2592000, "1h" -> 3600
@@ -104,6 +110,35 @@ export async function generateRefreshToken(userId: number, tokenId: string, secr
 }
 
 /**
+ * 액세스 토큰을 검증합니다.
+ * @param token 액세스 토큰
+ * @param secretKey JWT 시크릿 키
+ * @returns 검증 결과와 페이로드
+ */
+export async function verifyAccessToken(token: string, secretKey: string): Promise<AuthResult> {
+  try {
+    const payload = (await verify(token, secretKey, 'HS256')) as AccessTokenPayload;
+
+    if (!payload.id) {
+      return {
+        success: false,
+        error: '토큰에 사용자 정보가 없습니다.',
+      };
+    }
+
+    return {
+      success: true,
+      payload,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      error: '유효하지 않은 토큰입니다.',
+    };
+  }
+}
+
+/**
  * 리프레시 토큰을 검증합니다.
  * @param token 리프레시 토큰
  * @param secretKey JWT 시크릿 키
@@ -116,6 +151,39 @@ export async function verifyRefreshToken(token: string, secretKey: string): Prom
   } catch (error) {
     return null;
   }
+}
+
+/**
+ * Authorization 헤더에서 Bearer 토큰을 추출합니다.
+ * @param authHeader Authorization 헤더 값
+ * @returns 추출된 토큰 또는 null
+ */
+export function extractBearerToken(authHeader: string | undefined): string | null {
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return null;
+  }
+  return authHeader.substring(7); // "Bearer " 제거
+}
+
+/**
+ * 요청에서 토큰을 추출하고 검증합니다.
+ * @param context Hono 컨텍스트
+ * @returns 검증 결과와 페이로드
+ */
+export async function authenticateRequest(context: Context<{ Bindings: Env }>): Promise<AuthResult> {
+  // 1. Authorization 헤더에서 토큰 추출
+  const authHeader = context.req.header('Authorization');
+  const token = extractBearerToken(authHeader);
+
+  if (!token) {
+    return {
+      success: false,
+      error: '인증 토큰이 필요합니다.',
+    };
+  }
+
+  // 2. JWT 토큰 검증
+  return await verifyAccessToken(token, context.env.JWT_SECRET_KEY);
 }
 
 /**

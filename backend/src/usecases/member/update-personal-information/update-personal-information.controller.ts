@@ -3,7 +3,7 @@ import { Bindings } from '../../../types';
 import { updatePersonalInformationInput } from './update-personal-information.input';
 import { updatePersonalInformationOutput } from './update-personal-information.output';
 import { authMiddleware, getCurrentMember } from '../../../utils/auth.middleware';
-import { getMemberById } from '../../../utils/auth.util';
+import { getMemberById } from '../../../utils/member.util';
 
 export function updatePersonalInformationController(app: OpenAPIHono<Bindings>): void {
   app.openapi(

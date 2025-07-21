@@ -2,7 +2,8 @@ import { Context, Next } from 'hono';
 import { HTTPException } from 'hono/http-exception';
 import { Selectable } from 'kysely';
 import { Env } from '../types';
-import { authenticateRequest, getMemberById, AuthPayload } from './auth.util';
+import { authenticateRequest } from './token.util';
+import { getMemberById } from './member.util';
 import { MemberModel, MemberRole } from '../extensions/kysely/models/member.model';
 import { hasMinimumRole, hasPermission, Permission } from './role.util';
 
@@ -30,7 +31,7 @@ export async function authMiddleware(context: Context<{ Bindings: Env }>, next: 
     }
 
     // 2. 멤버 정보 조회
-    const member = await getMemberById(context, authResult.payload.id);
+    const member = await getMemberById(context, authResult.payload.id.toString());
 
     if (!member) {
       throw new HTTPException(404, { message: '멤버를 찾을 수 없습니다.' });
@@ -69,7 +70,7 @@ export async function optionalAuthMiddleware(context: Context<{ Bindings: Env }>
     const authResult = await authenticateRequest(context);
 
     if (authResult.success && authResult.payload) {
-      const member = await getMemberById(context, authResult.payload.id);
+      const member = await getMemberById(context, authResult.payload.id.toString());
 
       if (member) {
         context.set('member', member);
