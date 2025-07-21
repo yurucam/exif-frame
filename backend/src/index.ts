@@ -13,6 +13,23 @@ import { updatePersonalInformationController } from './usecases/member/update-pe
 import { withdrawController } from './usecases/member/withdraw/withdraw.controller';
 import { manageRoleController } from './usecases/member/manage-role/manage-role.controller';
 
+// Tag 컨트롤러들
+import { createTagController } from './usecases/tag/create/create-tag.controller';
+import { retrieveTagListController } from './usecases/tag/retrieve-list/retrieve-tag-list.controller';
+import { patchTagController } from './usecases/tag/patch/patch-tag.controller';
+import { deleteTagController } from './usecases/tag/delete/delete-tag.controller';
+
+// Theme 컨트롤러들
+import { createThemeController } from './usecases/theme/create/create-theme.controller';
+import { retrieveThemeListController } from './usecases/theme/retrieve-list/retrieve-theme-list.controller';
+import { retrieveThemeDetailController } from './usecases/theme/retrieve-detail/retrieve-theme-detail.controller';
+import { patchThemeController } from './usecases/theme/patch/patch-theme.controller';
+import { deleteThemeController } from './usecases/theme/delete/delete-theme.controller';
+import { likeThemeController } from './usecases/theme/like/like-theme.controller';
+import { downloadThemeController } from './usecases/theme/download/download-theme.controller';
+import { addTagController } from './usecases/theme/add-tag/add-tag.controller';
+import { removeTagController } from './usecases/theme/remove-tag/remove-tag.controller';
+
 async function bootstrap(): Promise<OpenAPIHono<Bindings>> {
   const app = new OpenAPIHono<Bindings>();
 
@@ -22,8 +39,20 @@ async function bootstrap(): Promise<OpenAPIHono<Bindings>> {
   // 인증이 필요없는 컨트롤러들
   [signUpController, signInController, refreshTokenController].map((controller) => controller(app));
 
+  // Tag 컨트롤러들 (공개 조회, 관리자 전용 관리)
+  [retrieveTagListController].map((controller) => controller(app));
+  [createTagController, patchTagController, deleteTagController].map((controller) => controller(app));
+
+  // Theme 컨트롤러들 (공개 조회, 다운로드)
+  [retrieveThemeListController, retrieveThemeDetailController, downloadThemeController].map((controller) => controller(app));
+
   // 인증이 필요한 컨트롤러들
   [changePasswordController, retrievePersonalInformationController, updatePersonalInformationController, withdrawController].map(
+    (controller) => controller(app)
+  );
+
+  // Theme 인증 필요 컨트롤러들
+  [createThemeController, patchThemeController, deleteThemeController, likeThemeController, addTagController, removeTagController].map(
     (controller) => controller(app)
   );
 
