@@ -9,5 +9,10 @@
   "compatibility_date": "2025-07-19",
   "observability": {
     "enabled": true
+  },
+  "workers_dev": false,
+  "route": {
+    "pattern": "api-exif-frame.yuru.cam",
+    "custom_domain": true
   }
 }
