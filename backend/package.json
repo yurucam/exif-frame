@@ -4,12 +4,15 @@
     "build": "wrangler deploy --dry-run --outdir=dist"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250719.0",
     "typescript": "^5.5.2",
     "wrangler": "^4.25.0"
   },
   "dependencies": {
     "@hono/zod-openapi": "^1.0.2",
     "@scalar/hono-api-reference": "^0.9.11",
-    "hono": "^4.8.5"
+    "hono": "^4.8.5",
+    "kysely": "^0.28.3",
+    "kysely-d1": "^0.4.0"
   }
 }

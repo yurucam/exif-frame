@@ -35,7 +35,8 @@
     "strict": true,
 
     /* Skip type checking all .d.ts files. */
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["@cloudflare/workers-types/2023-07-01"]
   },
   "include": ["src/**/*.ts"]
 }
