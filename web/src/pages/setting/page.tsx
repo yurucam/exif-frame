@@ -33,6 +33,7 @@ import OverrideMetadataPopover from './components/override-metadata.popover';
 import CreateOverrideMetadataListItem from './components/create-override-metadata.list-item';
 import MaintainExifListItem from './components/maintain-exif.list-item';
 import BetaListItem from './components/beta.list-item';
+import Loading from '../convert/components/loading';
 
 const ExportSettingsPage = () => {
   const { t } = useTranslation();
@@ -98,6 +99,8 @@ const ExportSettingsPage = () => {
       <RatioPopover />
       <DateNotationPopover />
       <OverrideMetadataPopover />
+
+      <Loading />
     </Page>
   );
 };
