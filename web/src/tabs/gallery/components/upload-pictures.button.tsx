@@ -52,7 +52,7 @@ export const UploadPicturesButton = () => {
       <Button clear onClick={handleClick}>
         <IoAddOutline size={18} />
         <div style={{ width: 4 }} />
-        {'Upload Pictures'}
+        {'Upload'}
       </Button>
     </>
   );

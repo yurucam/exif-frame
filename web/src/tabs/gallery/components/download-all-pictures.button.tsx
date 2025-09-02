@@ -38,7 +38,7 @@ export const DownloadAllPicturesButton = () => {
       <Button clear onClick={handleClick} disabled={!pictures || pictures.length === 0}>
         <IoDownloadOutline size={18} />
         <div style={{ width: 4 }} />
-        {'Download All Pictures'}
+        {'Download All'}
       </Button>
     </>
   );
