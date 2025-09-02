@@ -17,11 +17,11 @@ export const GalleryTab = () => {
 
       {pictures.length === 0 ? (
         <div className="flex items-center justify-center py-2">
-          <div className="text-neutral-500 dark:text-neutral-400 text-sm font-medium select-none">Upload Pictures please</div>
+          <div className="text-neutral-500 dark:text-neutral-400 text-sm font-medium select-none">{t('please-upload-the-photo')}</div>
         </div>
       ) : (
         <div className="flex items-center justify-center py-2">
-          <div className="text-neutral-500 dark:text-neutral-400 text-sm font-medium select-none">{pictures.length} picture loaded.</div>
+          <div className="text-neutral-500 dark:text-neutral-400 text-sm font-medium select-none">{t('N-photos-have-been-loaded').replace('{N}', pictures.length.toLocaleString())}</div>
         </div>
       )}
 

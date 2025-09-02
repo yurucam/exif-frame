@@ -1,5 +1,18 @@
 {
   "gallery": "갤러리",
   "theme": "테마",
-  "setting": "설정"
+  "setting": "설정",
+  "upload": "업로드",
+  "download-all": "전체 다운로드",
+  "dark-mode": "다크 모드",
+  "maintain-exif-metadata": "EXIF 메타데이터 유지",
+  "webp-mode": "WebP 모드",
+  "current-version": "현재 버전",
+  "bug-report": "버그 신고",
+  "github": "GitHub",
+  "sponsors": "후원자",
+  "rollback": "롤백",
+  "please-upload-the-photo": "사진을 업로드해 주세요.",
+  "N-photos-have-been-loaded": "{N}장의 사진이 로드되었습니다.",
+  "wait-a-moment": "잠시만 기다려 주세요..."
 }

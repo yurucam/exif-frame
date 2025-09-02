@@ -1,5 +1,18 @@
 {
   "gallery": "ギャラリー",
   "theme": "テーマ",
-  "setting": "設定"
+  "setting": "設定",
+  "upload": "アップロード",
+  "download-all": "すべてダウンロード",
+  "dark-mode": "ダークモード",
+  "maintain-exif-metadata": "EXIFメタデータを保持",
+  "webp-mode": "WebPモード",
+  "current-version": "現在のバージョン",
+  "bug-report": "バグ報告",
+  "github": "GitHub",
+  "sponsors": "スポンサー",
+  "rollback": "ロールバック",
+  "please-upload-the-photo": "写真をアップロードしてください。",
+  "N-photos-have-been-loaded": "{N}枚の写真が読み込まれました。",
+  "wait-a-moment": "少々お待ちください..."
 }

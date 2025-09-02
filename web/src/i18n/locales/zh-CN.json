@@ -1,5 +1,18 @@
 {
   "gallery": "图库",
   "theme": "主题",
-  "setting": "设置"
+  "setting": "设置",
+  "upload": "上传",
+  "download-all": "全部下载",
+  "dark-mode": "深色模式",
+  "maintain-exif-metadata": "保留 EXIF 元数据",
+  "webp-mode": "WebP 模式",
+  "current-version": "当前版本",
+  "bug-report": "错误报告",
+  "github": "GitHub",
+  "sponsors": "赞助者",
+  "rollback": "回滚",
+  "please-upload-the-photo": "请上传照片。",
+  "N-photos-have-been-loaded": "已加载 {N} 张照片。",
+  "wait-a-moment": "请稍候..."
 }

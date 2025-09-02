@@ -3,8 +3,10 @@ import { IoAddOutline } from 'react-icons/io5';
 import { useRef, useCallback } from 'react';
 import { usePictureStore } from '../../../state/picture.store';
 import { Picture } from '../../../core/picture';
+import { useTranslation } from 'react-i18next';
 
 export const UploadPicturesButton = () => {
+  const { t } = useTranslation();
   const { setPictures } = usePictureStore();
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -52,7 +54,7 @@ export const UploadPicturesButton = () => {
       <Button clear onClick={handleClick}>
         <IoAddOutline size={18} />
         <div style={{ width: 4 }} />
-        {'Upload'}
+        {t('upload')}
       </Button>
     </>
   );

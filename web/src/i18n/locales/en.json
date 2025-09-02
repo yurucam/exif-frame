@@ -1,5 +1,18 @@
 {
   "gallery": "Gallery",
   "theme": "Theme",
-  "setting": "Setting"
+  "setting": "Setting",
+  "upload": "Upload",
+  "download-all": "Download All",
+  "dark-mode": "Dark mode",
+  "maintain-exif-metadata": "Maintain EXIF Metadata",
+  "webp-mode": "Webp mode",
+  "current-version": "Current version",
+  "bug-report": "Bug report",
+  "github": "GitHub",
+  "sponsors": "Sponsors",
+  "rollback": "Rollback",
+  "please-upload-the-photo": "Please upload the photo.",
+  "N-photos-have-been-loaded": "{N} photos have been loaded.",
+  "wait-a-moment": "Wait a moment..."
 }

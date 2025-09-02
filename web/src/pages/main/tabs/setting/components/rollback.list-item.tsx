@@ -2,13 +2,15 @@ import { ListItem } from 'konsta/react';
 import { GiBackwardTime } from 'react-icons/gi';
 import { useLoadingStore } from '../../../state/loading.store';
 import { CapacitorUpdater } from '@capgo/capacitor-updater';
+import { useTranslation } from 'react-i18next';
 
 const RollbackListItem = () => {
+  const { t } = useTranslation();
   const { setLoading } = useLoadingStore();
   return (
     <ListItem
       media={<GiBackwardTime size={26} />}
-      title={'Rollback'}
+      title={t('rollback')}
       link
       onClick={async () => {
         setLoading(true);

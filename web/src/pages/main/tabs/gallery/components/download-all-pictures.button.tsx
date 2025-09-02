@@ -7,8 +7,10 @@ import { useThemeStore } from '../../../state/theme.store';
 import { dumpExifMetadata, replaceExifMetadata } from 'exif-curator';
 import { SvgConverter } from '../../../core/svg/converter';
 import download from '../../../core/download';
+import { useTranslation } from 'react-i18next';
 
 export const DownloadAllPicturesButton = () => {
+  const { t } = useTranslation();
   const { pictures } = usePictureStore();
   const { svg } = useThemeStore();
   const { webpMode } = useSettingStore();
@@ -38,7 +40,7 @@ export const DownloadAllPicturesButton = () => {
       <Button clear onClick={handleClick} disabled={!pictures || pictures.length === 0}>
         <IoDownloadOutline size={18} />
         <div style={{ width: 4 }} />
-        {'Download All'}
+        {t('download-all')}
       </Button>
     </>
   );
