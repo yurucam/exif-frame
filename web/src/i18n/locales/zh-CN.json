@@ -14,5 +14,6 @@
   "rollback": "回滚",
   "please-upload-the-photo": "请上传照片。",
   "N-photos-have-been-loaded": "已加载 {N} 张照片。",
-  "wait-a-moment": "请稍候..."
+  "wait-a-moment": "请稍候...",
+  "photo-conversion-error": "照片转换时发生错误。"
 }

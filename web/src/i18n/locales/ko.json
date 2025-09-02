@@ -14,5 +14,6 @@
   "rollback": "롤백",
   "please-upload-the-photo": "사진을 업로드해 주세요.",
   "N-photos-have-been-loaded": "{N}장의 사진이 로드되었습니다.",
-  "wait-a-moment": "잠시만 기다려 주세요..."
+  "wait-a-moment": "잠시만 기다려 주세요...",
+  "photo-conversion-error": "사진 변환 중 오류가 발생했습니다."
 }

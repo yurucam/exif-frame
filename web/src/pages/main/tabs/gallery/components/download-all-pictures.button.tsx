@@ -30,6 +30,9 @@ export const DownloadAllPicturesButton = () => {
         await download(`exif_frame_${baseName}.${fileExtension}`, url);
         URL.revokeObjectURL(url);
       }
+    } catch (err) {
+      console.error(err);
+      alert(t('photo-conversion-error'));
     } finally {
       setLoading(false);
     }

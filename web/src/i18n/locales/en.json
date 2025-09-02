@@ -14,5 +14,6 @@
   "rollback": "Rollback",
   "please-upload-the-photo": "Please upload the photo.",
   "N-photos-have-been-loaded": "{N} photos have been loaded.",
-  "wait-a-moment": "Wait a moment..."
+  "wait-a-moment": "Wait a moment...",
+  "photo-conversion-error": "An error occurred during photo conversion."
 }

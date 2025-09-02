@@ -14,5 +14,6 @@
   "rollback": "ロールバック",
   "please-upload-the-photo": "写真をアップロードしてください。",
   "N-photos-have-been-loaded": "{N}枚の写真が読み込まれました。",
-  "wait-a-moment": "少々お待ちください..."
+  "wait-a-moment": "少々お待ちください...",
+  "photo-conversion-error": "写真の変換中にエラーが発生しました。"
 }

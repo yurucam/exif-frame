@@ -97,7 +97,7 @@ export class SvgConverter {
     const { width, height } = getViewBoxDimensions(convertedSvg);
 
     return {
-      convertedSvg,
+      convertedSvg: convertedSvg.replace(/\$\{\}/g, ''),
       width,
       height,
     };
