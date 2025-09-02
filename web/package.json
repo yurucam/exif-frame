@@ -16,7 +16,6 @@
     "autoprefixer": "10.4.19",
     "buffer": "^6.0.3",
     "exif-curator": "^0.1.6",
-    "exif-restorer": "^0.1.8",
     "exifreader": "^4.22.1",
     "file-saver": "^2.0.5",
     "i18next": "^23.11.0",
