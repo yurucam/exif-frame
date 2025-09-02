@@ -25,7 +25,7 @@ export const DownloadAllPicturesButton = () => {
         const blob = new Blob([await replaceExifMetadata(convertedImage, dumpedExifMetadata)], { type: `image/${fileExtension}` });
         const url = URL.createObjectURL(blob);
         const baseName = picture.file.name.replace(/\.[^.]+$/, '');
-        await download(`${baseName}.${fileExtension}`, url);
+        await download(`exif_frame_${baseName}.${fileExtension}`, url);
         URL.revokeObjectURL(url);
       }
     } finally {

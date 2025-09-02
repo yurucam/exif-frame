@@ -22,7 +22,7 @@ export const PicturesGrid = () => {
     const convertedImage = webpMode ? await SvgConverter.toWebp(svg, picture) : await SvgConverter.toJpeg(svg, picture);
     const blob = new Blob([await replaceExifMetadata(convertedImage, dumpedExifMetadata)], { type: `image/${fileExtension}` });
     const url = URL.createObjectURL(blob);
-    await download(`${picture.file.name.replace(/\.[^.]+$/, '')}.${fileExtension}`, url);
+    await download(`exif_frame_${picture.file.name.replace(/\.[^.]+$/, '')}.${fileExtension}`, url);
     URL.revokeObjectURL(url);
     setLoading(false);
   };
