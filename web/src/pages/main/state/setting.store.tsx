@@ -32,7 +32,7 @@ export const useSettingStore = create<SettingState>()(
         set({ maintainExifMetadata: !get().maintainExifMetadata });
       },
 
-      webpMode: false,
+      webpMode: true,
       toggleWebpMode: () => set({ webpMode: !get().webpMode }),
     }),
     {
