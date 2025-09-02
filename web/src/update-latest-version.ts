@@ -8,7 +8,7 @@ async function updateLatestVersion(): Promise<void> {
   if (!Capacitor.isNativePlatform()) return;
 
   try {
-    const { version: publishedVersion, url } = await fetch('https://exif-frame.yuru.cam/version.json').then((res) => res.json());
+    const { version: publishedVersion, url } = await fetch('https://next-exif-frame.yuru.cam/version.json').then((res) => res.json());
 
     // Update when the latest version is greater than the current version.
     if (semver.gt(publishedVersion, currentVersion)) {

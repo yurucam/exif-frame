@@ -1,0 +1,34 @@
+import { List, Navbar } from 'konsta/react';
+import DarkModeListItem from './components/dark-mode.list-item';
+import MaintainExifMetadataListItem from './components/maintain-exif-metadata.list-item';
+import WebpModeListItem from './components/webp-mode.list-item';
+import CurrentVersionListItem from './components/current-version.list-item';
+import BugReportListItem from './components/bug-report.list-item';
+import RollbackListItem from './components/rollback.list-item';
+import GitHubListItem from './components/open-github.list-item';
+import SponsorsListItem from './components/sponsors.list-item';
+
+export const SettingTab = () => {
+  return (
+    <>
+      <Navbar title="Setting" />
+
+      <List strongIos inset>
+        <DarkModeListItem />
+        <MaintainExifMetadataListItem />
+        <WebpModeListItem />
+      </List>
+
+      <List strongIos inset>
+        <CurrentVersionListItem />
+        <BugReportListItem />
+        <GitHubListItem />
+        <SponsorsListItem />
+      </List>
+
+      <List strongIos inset>
+        <RollbackListItem />
+      </List>
+    </>
+  );
+};

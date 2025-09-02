@@ -1,0 +1,21 @@
+name: Next
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - next
+
+jobs:
+  web-deploy:
+    environment: next
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - uses: yurucam/deploy-cloudflare-pages@main
+        with:
+          account-id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          working-directory: web
+          project-name: next-exif-frame
+          output-directory: dist

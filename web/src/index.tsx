@@ -4,8 +4,6 @@ import { App } from 'konsta/react';
 import Router from './router';
 
 import './index.css';
-import './locales';
-import './fonts';
 import './update-latest-version';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
