@@ -13,7 +13,7 @@ export const DownloadAllPicturesButton = () => {
   const { t } = useTranslation();
   const { pictures } = usePictureStore();
   const { svg } = useThemeStore();
-  const { webpMode } = useSettingStore();
+  const { webpMode, maintainExifMetadata } = useSettingStore();
   const { setLoading } = useLoadingStore();
 
   const handleClick = async () => {
@@ -22,9 +22,9 @@ export const DownloadAllPicturesButton = () => {
     try {
       const fileExtension = webpMode ? 'webp' : 'jpeg';
       for (const picture of pictures) {
-        const dumpedExifMetadata = await dumpExifMetadata(await picture.loadDataUrl());
+        const dumpedExifMetadata = maintainExifMetadata ? await dumpExifMetadata(await picture.loadDataUrl()) : null;
         const convertedImage = webpMode ? await SvgConverter.toWebp(svg, picture) : await SvgConverter.toJpeg(svg, picture);
-        const blob = new Blob([await replaceExifMetadata(convertedImage, dumpedExifMetadata)], { type: `image/${fileExtension}` });
+        const blob = new Blob([dumpedExifMetadata ? await replaceExifMetadata(convertedImage, dumpedExifMetadata) : (dumpedExifMetadata as BlobPart)], { type: `image/${fileExtension}` });
         const url = URL.createObjectURL(blob);
         const baseName = picture.file.name.replace(/\.[^.]+$/, '');
         await download(`exif_frame_${baseName}.${fileExtension}`, url);

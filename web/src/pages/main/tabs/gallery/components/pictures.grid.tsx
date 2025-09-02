@@ -12,7 +12,7 @@ export const PicturesGrid = () => {
   const { t } = useTranslation();
   const { pictures } = usePictureStore();
   const { svg } = useThemeStore();
-  const { webpMode } = useSettingStore();
+  const { webpMode, maintainExifMetadata } = useSettingStore();
   const { setLoading } = useLoadingStore();
 
   if (!pictures || pictures.length === 0) return <></>;
@@ -20,10 +20,10 @@ export const PicturesGrid = () => {
   const handlePictureClick = async (picture: Picture) => {
     setLoading(true);
     try {
-      const dumpedExifMetadata = await dumpExifMetadata(await picture.loadDataUrl());
+      const dumpedExifMetadata = maintainExifMetadata ? await dumpExifMetadata(await picture.loadDataUrl()) : null;
       const fileExtension = webpMode ? 'webp' : 'jpeg';
       const convertedImage = webpMode ? await SvgConverter.toWebp(svg, picture) : await SvgConverter.toJpeg(svg, picture);
-      const blob = new Blob([await replaceExifMetadata(convertedImage, dumpedExifMetadata)], { type: `image/${fileExtension}` });
+      const blob = new Blob([dumpedExifMetadata ? await replaceExifMetadata(convertedImage, dumpedExifMetadata) : (convertedImage as BlobPart)], { type: `image/${fileExtension}` });
       const url = URL.createObjectURL(blob);
       await download(`exif_frame_${picture.file.name.replace(/\.[^.]+$/, '')}.${fileExtension}`, url);
       URL.revokeObjectURL(url);
