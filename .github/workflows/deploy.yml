@@ -7,22 +7,7 @@ on:
       - main
 
 jobs:
-  backend-deploy:
-    needs: []
-    environment: main
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@main
-      - uses: yurucam/deploy-cloudflare-workers@main
-        with:
-          account-id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          working-directory: backend
-
   web-deploy:
-    needs: [backend-deploy]
     environment: main
     runs-on: ubuntu-latest
     steps:
