@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { RiGalleryFill, RiSettings3Fill } from 'react-icons/ri';
 import { MdDesignServices } from 'react-icons/md';
 import { useSettingStore } from './state/setting.store';
-import Loading from './tabs/loading';
+import Loading from './components/loading';
 import { useTabIndexStore } from './state/tab-index.store';
 
 export const MainPage = () => {
