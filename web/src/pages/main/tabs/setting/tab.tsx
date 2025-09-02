@@ -7,11 +7,14 @@ import BugReportListItem from './components/bug-report.list-item';
 import RollbackListItem from './components/rollback.list-item';
 import GitHubListItem from './components/open-github.list-item';
 import SponsorsListItem from './components/sponsors.list-item';
+import { useTranslation } from 'react-i18next';
 
 export const SettingTab = () => {
+  const { t } = useTranslation();
+
   return (
     <>
-      <Navbar title="Setting" />
+      <Navbar title={t('setting')} />
 
       <List strongIos inset>
         <DarkModeListItem />

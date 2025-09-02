@@ -1,12 +1,14 @@
 import { Navbar } from 'konsta/react';
 import { useThemeStore } from '../../state/theme.store';
+import { useTranslation } from 'react-i18next';
 
 export const ThemeTab = () => {
+  const { t } = useTranslation();
   const { svg, setSvg } = useThemeStore();
 
   return (
     <>
-      <Navbar title="Theme" />
+      <Navbar title={t('theme')} />
 
       <div className="p-4">
         <textarea

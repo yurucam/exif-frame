@@ -3,13 +3,15 @@ import { DownloadAllPicturesButton } from './components/download-all-pictures.bu
 import { UploadPicturesButton } from './components/upload-pictures.button';
 import { PicturesGrid } from './components/pictures.grid';
 import { usePictureStore } from '../../state/picture.store';
+import { useTranslation } from 'react-i18next';
 
 export const GalleryTab = () => {
+  const { t } = useTranslation();
   const { pictures } = usePictureStore();
 
   return (
     <>
-      <Navbar title="Gallery" />
+      <Navbar title={t('gallery')} />
 
       <PicturesGrid />
 
