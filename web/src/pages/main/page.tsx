@@ -1,13 +1,13 @@
 import { Page, Tabbar, TabbarLink } from 'konsta/react';
-import { GalleryTab } from './gallery/tab';
-import { ThemeTab } from './theme/tab';
-import { SettingTab } from './setting/tab';
+import { GalleryTab } from './tabs/gallery/tab';
+import { ThemeTab } from './tabs/theme/tab';
+import { SettingTab } from './tabs/setting/tab';
 import { useEffect } from 'react';
 import { RiGalleryFill, RiSettings3Fill } from 'react-icons/ri';
 import { MdDesignServices } from 'react-icons/md';
-import { useSettingStore } from '../state/setting.store';
-import Loading from './loading';
-import { useTabIndexStore } from '../state/tab-index.store';
+import { useSettingStore } from './state/setting.store';
+import Loading from './tabs/loading';
+import { useTabIndexStore } from './state/tab-index.store';
 
 export const MainPage = () => {
   const { tabIndex, setTabIndex } = useTabIndexStore();

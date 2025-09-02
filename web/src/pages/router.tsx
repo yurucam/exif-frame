@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { MainPage } from './tabs/page';
-import PrivacyPolicyPage from './pages/privacy-policy';
-import SponsorsPage from './pages/sponsors';
-import TermAndConditionsPage from './pages/term-and-conditions';
+import { MainPage } from './main/page';
+import PrivacyPolicyPage from './privacy-policy/privacy-policy';
+import SponsorsPage from './sponsors/sponsors';
+import TermAndConditionsPage from './term-and-conditions/term-and-conditions';
 
 const Router = () => {
   return (

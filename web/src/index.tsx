@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from 'konsta/react';
-import Router from './router';
+import Router from './pages/router';
 
 import './index.css';
 import './update-latest-version';

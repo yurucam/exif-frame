@@ -79,7 +79,7 @@ export class SvgConverter {
           : `${exifMetadata.UprightFocalLength35mm.value}mm`
         : '',
       F_NUMBER: exifMetadata?.FNumber?.description?.substring(0, 5)?.replace('f/', 'F') || '',
-      ISO: exifMetadata?.ISOSpeedRatings?.value ? 'ISO' + exifMetadata.ISOSpeedRatings.value.toString() : '',
+      ISO: exifMetadata?.ISOSpeedRatings?.value ? exifMetadata.ISOSpeedRatings.value.toString() : '',
       EXPOSURE_TIME: exifMetadata?.ExposureTime?.description ? exifMetadata.ExposureTime.description + 's' : '',
       DATE_TIME: exifMetadata?.DateTimeOriginal?.description
         ? (() => {
