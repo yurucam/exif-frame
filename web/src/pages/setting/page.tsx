@@ -32,6 +32,7 @@ import OverrideMetadataListItem from './components/override-metadata.list-item';
 import OverrideMetadataPopover from './components/override-metadata.popover';
 import CreateOverrideMetadataListItem from './components/create-override-metadata.list-item';
 import MaintainExifListItem from './components/maintain-exif.list-item';
+import BetaListItem from './components/beta.list-item';
 
 const ExportSettingsPage = () => {
   const { t } = useTranslation();
@@ -84,6 +85,7 @@ const ExportSettingsPage = () => {
         <SponsorsListItem />
         <LabListItem />
         <CurrentVersionListItem />
+        <BetaListItem />
       </List>
 
       <Tabbar labels={true} icons={true} className="left-0 bottom-0 fixed">
