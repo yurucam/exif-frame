@@ -8,6 +8,7 @@ import RollbackListItem from './components/rollback.list-item';
 import GitHubListItem from './components/open-github.list-item';
 import SponsorsListItem from './components/sponsors.list-item';
 import { useTranslation } from 'react-i18next';
+import DiscordListItem from './components/discord-list-item';
 
 export const SettingTab = () => {
   const { t } = useTranslation();
@@ -27,6 +28,7 @@ export const SettingTab = () => {
         <BugReportListItem />
         <GitHubListItem />
         <SponsorsListItem />
+        <DiscordListItem />
       </List>
 
       <List strongIos inset>
