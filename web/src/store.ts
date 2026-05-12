@@ -122,6 +122,12 @@ type Store = {
 
   notCroppedMode: boolean;
   setNotCroppedMode: (notCroppedMode: boolean) => void;
+
+  editPhotoIndex: number | null;
+  setEditPhotoIndex: (index: number | null) => void;
+
+  shutterAngleMode: boolean;
+  setShutterAngleMode: (shutterAngleMode: boolean) => void;
 };
 
 const useStore = create<Store>((set) => ({
@@ -345,6 +351,16 @@ const useStore = create<Store>((set) => ({
     set(() => {
       localStorage.setItem('notCroppedMode', notCroppedMode.toString());
       return { notCroppedMode };
+    }),
+
+  editPhotoIndex: null,
+  setEditPhotoIndex: (editPhotoIndex: number | null) => set({ editPhotoIndex }),
+
+  shutterAngleMode: localStorage.getItem("shutterAngleMode") === "true",
+  setShutterAngleMode: (shutterAngleMode: boolean) =>
+    set(() => {
+      localStorage.setItem("shutterAngleMode", shutterAngleMode.toString());
+      return { shutterAngleMode };
     }),
 }));
 

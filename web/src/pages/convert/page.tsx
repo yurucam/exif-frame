@@ -1,9 +1,12 @@
 import { BlockTitle, List, ListItem, Navbar, Page, Tabbar, TabbarLink, Toolbar } from 'konsta/react';
 import { useTranslation } from 'react-i18next';
 import AddPhotoButton from './components/add-photo.button';
+import CapturePhotoButton from './components/capture-photo.button';
+import CaptureVideoButton from './components/capture-video.button';
 import { useStore } from '../../store';
 import DownloadOnePhotoButton from './components/download-one-photo.button';
 import RemoveOnePhotoButton from './components/remove-one-photo.button';
+import EditPhotoButton from './components/edit-photo.button';
 import DownloadAllPhotoButton from './components/download-all-photo.button';
 import Loading from './components/loading';
 import OverrideMetadataPopup from './components/override-metadata.popup';
@@ -25,6 +28,8 @@ const FramePage = () => {
 
       <Toolbar className="bottom-12 fixed">
         <AddPhotoButton />
+        <CapturePhotoButton />
+        <CaptureVideoButton />
         <DownloadAllPhotoButton />
       </Toolbar>
 
@@ -49,6 +54,7 @@ const FramePage = () => {
               <div className="flex space-x-1 mt-1">
                 <OverrideMetadataButton photo={photo} />
                 <DownloadOnePhotoButton photo={photo} />
+                <EditPhotoButton index={index} />
                 <RemoveOnePhotoButton index={index} />
               </div>
             }

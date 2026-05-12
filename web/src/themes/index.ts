@@ -15,6 +15,7 @@ import { TIP_FUNC, TIP_OPTIONS } from './13_TIP';
 import { POSTER_FUNC, POSTER_OPTIONS } from './14_POSTER';
 import { CINEMASCOPE_FUNC, CINEMASCOPE_OPTIONS } from './15_CINEMASCOPE';
 import { SIMPLE_FUNC, SIMPLE_OPTIONS } from './16_SIMPLE';
+import { CINEMATIC_FUNC, CINEMATIC_OPTIONS } from './17_CINEMATIC';
 
 type AcceptInputType = string | number | boolean;
 
@@ -59,6 +60,7 @@ const themes = [
   { name: 'Poster', func: POSTER_FUNC, options: POSTER_OPTIONS },
   { name: 'Tip', func: TIP_FUNC, options: TIP_OPTIONS },
   { name: 'Cinema Scope', func: CINEMASCOPE_FUNC, options: CINEMASCOPE_OPTIONS },
+  { name: 'Cinematic', func: CINEMATIC_FUNC, options: CINEMATIC_OPTIONS },
 ];
 
 export default themes;
