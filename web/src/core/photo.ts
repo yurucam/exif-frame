@@ -105,7 +105,17 @@ class Photo {
    * @example '1/100s'
    */
   public get exposureTime(): string {
-    return overrideExifMetadata()?.exposureTime || this.metadata.exposureTime || '';
+    const exposureTime = overrideExifMetadata()?.exposureTime || this.metadata.exposureTime || '';
+    if (localStorage.getItem('shutterAngleMode') === 'true' && exposureTime) {
+      // Calculate shutter angle assuming 24fps
+      const match = exposureTime.match(/^1\/(\d+(?:\.\d+)?)$/);
+      if (match) {
+        const speed = parseFloat(match[1]);
+        const angle = (24 * 360) / speed;
+        return `${Math.round(angle)}°`;
+      }
+    }
+    return exposureTime;
   }
 
   /**

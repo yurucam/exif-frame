@@ -18,6 +18,7 @@
     "exif-restorer": "^0.1.9",
     "exifreader": "^4.22.1",
     "file-saver": "^2.0.5",
+    "framer-motion": "^12.38.0",
     "i18next": "^23.11.0",
     "i18next-browser-languagedetector": "^7.2.1",
     "jszip": "^3.10.1",
