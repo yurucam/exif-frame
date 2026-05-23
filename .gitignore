@@ -13,4 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
-app/build/
+/app/build/intermediates
+/app/build/kotlin
+/app/build/reports
+/app/build/tmp
