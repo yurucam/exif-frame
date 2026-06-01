@@ -7,12 +7,28 @@ interface SandboxOptions {
   padding: { top: number; bottom: number; left: number; right: number };
   targetRatio: string;
   notCroppedMode: boolean;
+  /** Soft drop shadow cast by the photo onto the mat (padding). 0 = off, 10 = strongest. Optional. */
+  shadow?: number;
 }
 
 const sandbox = (photo: Photo, options: SandboxOptions): HTMLCanvasElement => {
   const { image } = photo;
-  const { backgroundColor, padding, targetRatio, notCroppedMode } = options;
+  const { backgroundColor, padding, targetRatio, notCroppedMode, shadow = 0 } = options;
   const { top, bottom, left, right } = padding;
+
+  // Draw the photo with a soft drop shadow onto the surrounding mat (the padding).
+  // Blur and offset scale with the image and are clamped to the smallest mat, so the
+  // shadow always fades out within the frame and never clips at the canvas edge.
+  // No mat (padding 0, e.g. PADDING_INSIDE) => no shadow.
+  const applyPhotoShadow = (ctx: CanvasRenderingContext2D, imageWidth: number): void => {
+    const mat = Math.min(top, bottom, left, right);
+    if (shadow <= 0 || mat <= 0) return;
+    const s = Math.min(Math.max(shadow, 0), 10) / 10;
+    const blur = Math.min(imageWidth * (0.03 + s * 0.12), mat * 0.45);
+    ctx.shadowColor = `rgba(0, 0, 0, ${0.12 + s * 0.5})`;
+    ctx.shadowBlur = blur;
+    ctx.shadowOffsetY = Math.min(blur * 0.6, Math.max(0, bottom - blur * 2));
+  };
 
   const canvas = document.createElement('canvas');
 
@@ -34,7 +50,10 @@ const sandbox = (photo: Photo, options: SandboxOptions): HTMLCanvasElement => {
     const context = canvas.getContext('2d')!;
     context.fillStyle = backgroundColor;
     context.fillRect(0, 0, canvas.width, canvas.height);
+    context.save();
+    applyPhotoShadow(context, imageWidth);
     context.drawImage(image, left, top, imageWidth, imageHeight);
+    context.restore();
   } else {
     const ratio = targetRatio.split(':').map((value) => Number(value));
 
@@ -83,6 +102,8 @@ const sandbox = (photo: Photo, options: SandboxOptions): HTMLCanvasElement => {
         } else {
           imageWidth = (image.width / image.height) * imageHeight;
         }
+        context.save();
+        applyPhotoShadow(context, imageWidth);
         context.drawImage(
           image,
           0,
@@ -94,6 +115,7 @@ const sandbox = (photo: Photo, options: SandboxOptions): HTMLCanvasElement => {
           imageWidth,
           imageHeight
         );
+        context.restore();
       } else {
         let imageWidth = canvas.width - left - right;
         let imageHeight = canvas.height - top - bottom;
@@ -102,6 +124,8 @@ const sandbox = (photo: Photo, options: SandboxOptions): HTMLCanvasElement => {
         } else {
           imageWidth = (image.width / image.height) * imageHeight;
         }
+        context.save();
+        applyPhotoShadow(context, imageWidth);
         context.drawImage(
           image,
           0,
@@ -113,6 +137,7 @@ const sandbox = (photo: Photo, options: SandboxOptions): HTMLCanvasElement => {
           imageWidth,
           imageHeight
         );
+        context.restore();
       }
     }
   }
