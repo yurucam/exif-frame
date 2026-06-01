@@ -13,6 +13,7 @@ const SIMPLE_OPTIONS: ThemeOption[] = [
   { id: 'PADDING_BOTTOM', type: 'number', default: 400, description: 'px' },
   { id: 'PADDING_LEFT', type: 'number', default: 100, description: 'px' },
   { id: 'PADDING_RIGHT', type: 'number', default: 100, description: 'px' },
+  { id: 'SHADOW', type: 'range-slider', min: 0, max: 10, step: 1, default: 0, description: '0 (off) ~ 10' },
 ];
 
 const SIMPLE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {
@@ -23,12 +24,14 @@ const SIMPLE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: St
   const PADDING_BOTTOM = input.get('PADDING_BOTTOM') as number;
   const PADDING_LEFT = input.get('PADDING_LEFT') as number;
   const PADDING_RIGHT = input.get('PADDING_RIGHT') as number;
+  const SHADOW = input.get('SHADOW') as number;
 
   const canvas = sandbox(photo, {
     targetRatio: store.ratio,
     notCroppedMode: store.notCroppedMode,
     backgroundColor: '#ffffff',
     padding: PADDING_INSIDE ? { top: 0, right: 0, bottom: 0, left: 0 } : { top: PADDING_TOP, right: PADDING_RIGHT, bottom: PADDING_BOTTOM, left: PADDING_LEFT },
+    shadow: SHADOW,
   });
 
   const context = canvas.getContext('2d')!;

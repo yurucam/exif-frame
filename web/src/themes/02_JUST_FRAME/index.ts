@@ -9,6 +9,7 @@ const JUST_FRAME_OPTIONS: ThemeOption[] = [
   { id: 'PADDING_BOTTOM', type: 'number', default: 100, description: 'px' },
   { id: 'PADDING_LEFT', type: 'number', default: 100, description: 'px' },
   { id: 'PADDING_RIGHT', type: 'number', default: 100, description: 'px' },
+  { id: 'SHADOW', type: 'range-slider', min: 0, max: 10, step: 1, default: 0, description: '0 (off) ~ 10' },
 ];
 
 const JUST_FRAME_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store) => {
@@ -17,12 +18,14 @@ const JUST_FRAME_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store
   const PADDING_BOTTOM = input.get('PADDING_BOTTOM') as number;
   const PADDING_LEFT = input.get('PADDING_LEFT') as number;
   const PADDING_RIGHT = input.get('PADDING_RIGHT') as number;
+  const SHADOW = input.get('SHADOW') as number;
 
   return sandbox(photo, {
     targetRatio: store.ratio,
     notCroppedMode: store.notCroppedMode,
     backgroundColor: BACKGROUND_COLOR,
     padding: { top: PADDING_TOP, right: PADDING_RIGHT, bottom: PADDING_BOTTOM, left: PADDING_LEFT },
+    shadow: SHADOW,
   });
 };
 

@@ -10,6 +10,7 @@ const SHOT_ON_TWO_LINE_OPTIONS: ThemeOption[] = [
   { id: 'PADDING_BOTTOM', type: 'number', default: 300, description: 'px' },
   { id: 'PADDING_LEFT', type: 'number', default: 50, description: 'px' },
   { id: 'PADDING_RIGHT', type: 'number', default: 50, description: 'px' },
+  { id: 'SHADOW', type: 'range-slider', min: 0, max: 10, step: 1, default: 0, description: '0 (off) ~ 10' },
   { id: 'TEXT_COLOR', type: 'color', default: '#000000', description: '#ffffff is white, #000000 is black' },
   { id: 'TOP_LABEL', type: 'string', default: '', description: 'ex. @username' },
 ];
@@ -22,12 +23,14 @@ const SHOT_ON_TWO_LINE_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput,
   const PADDING_RIGHT = input.get('PADDING_RIGHT') as number;
   const TEXT_COLOR = input.get('TEXT_COLOR') as string;
   const TOP_LABEL = (input.get('TOP_LABEL') as string).trim();
+  const SHADOW = input.get('SHADOW') as number;
 
   const canvas = sandbox(photo, {
     targetRatio: store.ratio,
     notCroppedMode: store.notCroppedMode,
     backgroundColor: BACKGROUND_COLOR,
     padding: { top: PADDING_TOP, right: PADDING_RIGHT, bottom: PADDING_BOTTOM, left: PADDING_LEFT },
+    shadow: SHADOW,
   });
 
   const context = canvas.getContext('2d')!;
