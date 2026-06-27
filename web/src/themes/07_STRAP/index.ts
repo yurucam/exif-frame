@@ -64,10 +64,16 @@ const STRAP_OPTIONS: ThemeOption[] = [
   { id: 'PADDING_BOTTOM', type: 'number', default: 0, description: 'px' },
   { id: 'PADDING_LEFT', type: 'number', default: 0, description: 'px' },
   { id: 'PADDING_RIGHT', type: 'number', default: 0, description: 'px' },
+  /*
   { id: 'TEMPLATE1', type: 'string', default: '{ISO}{MM}{F}{SEC}' },
   { id: 'TEMPLATE2', type: 'string', default: '{MAKER}{BODY}' },
   { id: 'TEMPLATE3', type: 'string', default: '{TAKEN_AT}' },
   { id: 'TEMPLATE4', type: 'string', default: '{LENS}' },
+   */
+  { id: 'TEMPLATE1', type: 'string', default: '{ISO}{MM}{F}{SEC}', description: '{ISO} {MM} {F} {SEC} {FILM} {MAKER} {BODY} {LENS} {TAKEN_AT}' },
+  { id: 'TEMPLATE2', type: 'string', default: '{MAKER}{BODY}', description: '{ISO} {MM} {F} {SEC} {FILM} {MAKER} {BODY} {LENS} {TAKEN_AT}' },
+  { id: 'TEMPLATE3', type: 'string', default: '{TAKEN_AT}', description: '{ISO} {MM} {F} {SEC} {FILM} {MAKER} {BODY} {LENS} {TAKEN_AT}' },
+  { id: 'TEMPLATE4', type: 'string', default: '{FILM}', description: '{ISO} {MM} {F} {SEC} {FILM} {MAKER} {BODY} {LENS} {TAKEN_AT}' },
 ];
 
 const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Store) => {
@@ -99,6 +105,7 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
         .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
         .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
         .replace(/{TAKEN_AT}/g, photo.takenAt || '')
+        .replace(/{FILM}/g, photo.filmSimulation || '')
         .replace(/}/g, '')
     )
     .filter(Boolean)
@@ -116,6 +123,7 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
         .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
         .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
         .replace(/{TAKEN_AT}/g, photo.takenAt || '')
+        .replace(/{FILM}/g, photo.filmSimulation || '')
         .replace(/}/g, '')
     )
     .filter(Boolean)
@@ -133,6 +141,7 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
         .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
         .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
         .replace(/{TAKEN_AT}/g, photo.takenAt || '')
+        .replace(/{FILM}/g, photo.filmSimulation || '')
         .replace(/}/g, '')
     )
     .filter(Boolean)
@@ -150,6 +159,7 @@ const STRAP_FUNC: ThemeFunc = (photo: Photo, input: ThemeOptionInput, store: Sto
         .replace(/{F}/g, store.disableExposureMeter ? '' : photo.fNumber || '')
         .replace(/{SEC}/g, store.disableExposureMeter ? '' : photo.exposureTime || '')
         .replace(/{TAKEN_AT}/g, photo.takenAt || '')
+        .replace(/{FILM}/g, photo.filmSimulation || '')
         .replace(/}/g, '')
     )
     .filter(Boolean)
