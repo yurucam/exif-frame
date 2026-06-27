@@ -160,6 +160,14 @@ class Photo {
         return '';
     }
   }
+
+  /**
+   * Returns the film simulation of the camera that took the photo.
+   * @example 'Classic Chrome'
+   */
+  public get filmSimulation(): string {
+    return overrideExifMetadata()?.filmSimulation || this.metadata.filmSimulation || '';
+  }
 }
 
 export default Photo;
